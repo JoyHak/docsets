@@ -1,11 +1,94 @@
-#!/usr/bin/env python3
-import os
-import shutil
 import sqlite3
-import tarfile
-import json
+from os import makedirs, listdir, environ
+from os.path import exists
+from shutil import rmtree, copy
 from bs4 import BeautifulSoup
 
+# noinspection SpellCheckingInspection
+def generate_docset():
+    global sections
+
+    # File structure
+    source_dir  = 'chm'
+    docset_name = 'XYplorer'
+    docset_path = environ.get('LOCALAPPDATA') \
+                + r'\Zeal\Zeal\docsets' \
+                + '\\' + docset_name + '.docset'
+
+    res_path    = docset_path + r'\Contents\Resources'  # meta, resources
+    dest_path   = res_path + r'\Documents'
+    db_path     = res_path + r'\docSet.dsidx'           # docset index
+    hhk_path    = fr'{source_dir}\{docset_name}.hhk'    # keywords definition
+
+    # Clean up previous docset if exists
+    if exists(res_path):
+        rmtree(res_path)
+        print(fr'Removed: "{res_path}"')
+
+    # Create docset directories
+    makedirs(dest_path, exist_ok=True)
+    generate_meta(docset_path + r'\docset.json')
+    generate_plist(docset_path + r'\Contents\Info.plist')
+
+    # Copy all relevant files
+    for file in listdir(source_dir):
+        if file.endswith(('.htm', '.html', '.css', '.js', '.png')):
+            copy(fr'{source_dir}\{file}', dest_path)
+
+    # Initialize SQLite database
+    db = sqlite3.connect(db_path)
+    cur = db.cursor()
+    cur.execute('DROP TABLE IF EXISTS searchIndex;')
+    cur.execute(
+     '''CREATE TABLE searchIndex(
+        id INTEGER PRIMARY KEY,
+        name TEXT,
+        type TEXT,
+        path TEXT
+    );''')
+    cur.execute(
+     '''CREATE UNIQUE INDEX anchor
+        ON searchIndex (name, type, path)
+    ;''')
+
+    # Parse Keyword Index for all definitions
+    with open(hhk_path, 'r', encoding='utf-8') as f:
+        hhk_content = f.read()
+
+    soup = BeautifulSoup(hhk_content, 'html.parser')
+    ul = soup.find('ul')
+
+    if ul:
+        for li in ul.find_all('li'):
+            obj = li.find('object')
+            if obj:
+                name_param  = obj.find('param', {'name': 'Name'})
+                local_param = obj.find('param', {'name': 'Local'})
+                if name_param and local_param:
+                    name = name_param['value']
+                    path = local_param['value']
+                    file = path.split('#')[0]
+                    section = sections.get(file, 'Advanced')
+
+                    cur.execute(
+                     '''INSERT OR IGNORE INTO searchIndex(name, type, path)
+                        VALUES (?, ?, ?)''',
+                        (name, section, path))
+
+                    # print(f'Indexed: {name} ({section}) -> {path}')
+
+    db.commit()
+    db.close()
+
+    # Compress for publication
+    # import tarfile
+    # import json
+    # with tarfile.open('XYplorer.tgz', 'w:gz') as tar:
+    #    tar.add(docset_name, arcname=docset_name)
+
+    print(f'Created docset: "{docset_path}"')
+
+# noinspection SpellCheckingInspection
 sections = {
     "idh_scripting_comref.htm": "Command",
     "idh_scripting_comref_get.htm": "Get",
@@ -97,68 +180,59 @@ sections = {
     "idh_copyright.htm": "Legal"
 }
 
-def generate_docset():
-    global sections
+def generate_meta(path):
+    content = """{
+    "name": "XYplorer",
+    "version": "28.10.0400",
+    "archive": "XYplorer.tgz",
+    "author": {
+        "name": "Rafaello",
+        "link": "https://github.com/JoyHak"
+    },
+    "aliases": [
+        "xyplorer", 
+        "xy"
+    ],
+    "specific_versions": []
+}"""
 
-    source_dir  = 'Chm'
-    docset_name = 'XYplorer.docset'
-    res_path    = os.path.join(docset_name, 'Contents', 'Resources')  # meta + resources
-    dest_path   = os.path.join(res_path,    'Documents')     # resources
-    db_path     = os.path.join(res_path,    'docSet.dsidx')  # database
-    hhk_path    = os.path.join(source_dir,  'XYplorer.hhk')  # keywords
-    
-    # Clean up previous docset if exists
-    if os.path.exists(res_path):
-        shutil.rmtree(res_path)
+    with open(path, 'w', encoding='utf-8') as f:
+        f.write(content)
 
-    # Create docset directories
-    os.makedirs(dest_path, exist_ok=True)
+def generate_plist(path):
+    content = """<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleIdentifier</key>
+    <string>XYplorer</string>
 
-    # Copy all relevant files
-    for file in os.listdir(source_dir):
-        if file.endswith(('.htm', '.html', '.css', '.js', '.png')):
-            shutil.copy(os.path.join(source_dir, file), dest_path)
+    <key>CFBundleName</key>
+    <string>XYplorer</string>
 
-    # Initialize SQLite database
-    db = sqlite3.connect(db_path)
-    cur = db.cursor()
-    cur.execute('DROP TABLE IF EXISTS searchIndex;')
-    cur.execute('CREATE TABLE searchIndex(id INTEGER PRIMARY KEY, name TEXT, type TEXT, path TEXT);')
-    cur.execute('CREATE UNIQUE INDEX anchor ON searchIndex (name, type, path);')
+    <key>DashDocSetFallbackURL</key>
+    <string>https://www.google.com/search?q=site%3Axyplorer.com </string>
 
-    # Parse Keyword Index for all definitions
-    with open(hhk_path, 'r', encoding='utf-8') as f:
-        hhk_content = f.read()
+    <key>dashIndexFilePath</key>
+    <string>idh_scripting_comref.htm</string>
 
-    soup = BeautifulSoup(hhk_content, 'html.parser')
-    ul = soup.find('ul')
+    <key>DashDocSetFamily</key>
+    <string>XYplorer</string>
 
-    if ul:
-        for li in ul.find_all('li'):
-            obj = li.find('object')
-            if obj:
-                name_param  = obj.find('param', {'name': 'Name'})
-                local_param = obj.find('param', {'name': 'Local'})
-                if name_param and local_param:
-                    name = name_param['value']
-                    path = local_param['value']
-                    file = path.split('#')[0]
-                    section = sections.get(file, 'Advanced')
+    <key>DocSetPlatformFamily</key>
+    <string>XYplorer</string>
 
-                    cur.execute(
-                        'INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES (?,?,?)',
-                        (name, section, path))
+    <key>isDashDocset</key>
+    <true/>
 
-                    print(f'Indexed: {name} ({section}) -> {path}')
+    <key>isJavaScriptEnabled</key>
+    <true/>
+</dict>
+</plist>"""
 
-    db.commit()
-    db.close()
+    with open(path, 'w', encoding='utf-8') as f:
+        f.write(content)
 
-    # Compress for publication
-    # with tarfile.open('XYplorer.tgz', 'w:gz') as tar:
-    #    tar.add(docset_name, arcname=docset_name)
-
-    print("XYplorer docset generated successfully")
 
 if __name__ == "__main__":
     generate_docset()

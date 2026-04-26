@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>Custom File Associations</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Custom File Associations,CFA,Portable File Associations,PFA,File associations,Private File Associations,Customize File Associations,Open Items by First 'Open with...' Match,Resolve Shortcuts before Matching,Show Full Paths in 'Open With...' Menu" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#F6F8FA">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Title"><span class="f_Title">Custom File Associations (CFA)</span></p>
+
+    </td>
+    <td align="right">
+     <span style="font-size: 9pt">
+     <a href="idh_intro.htm"><img src="arrow-up-icon24.png" border=0 alt="Top"></a>&nbsp;
+     <a href="idh_commandlineswitches.htm"><img src="arrow-left-icon24.png" border=0 alt="Previous"></a>&nbsp;
+     <a href="idh_pom.htm"><img src="arrow-right-icon24.png" border=0 alt="Next"></a>
+     </span>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p class="p_Title"><span class="f_Title">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">Introduction</span></p>
+<p class="p_Text"><span class="f_Text">XYplorer can maintain private </span><span class="f_TextIn" style="font-weight: bold;">Custom File Associations</span><span class="f_Text"> independent of the global ones defined in the Windows registry. These associations are stored in the local INI file, which allows you to travel with your own file associations. So they could as well be called &quot;Portable File Associations&quot;.</span></p>
+<p class="p_Text"><span class="f_Text">There are two to </span><span class="f_Text" style="font-weight: bold;">enable/disable the feature</span><span class="f_Text">:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 28px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_Text">In the </span><span class="f_Text" style="font-weight: bold;">Tools | List Management | Custom File Associations...</span><span class="f_Text"> dialog you find a toggle button in the bottom toolbar.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 28px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_Text">Right-click the &quot;Open With&quot; button on the main window toolbar and click &quot;Enable Custom File Associations&quot;.</span></td></tr></table></div><p class="p_TextTitleIn"><span class="f_TextTitleIn">How to define them</span></p>
+<p class="p_Text"><span class="f_Text">To define a custom file association simply open &quot;Custom File Associations...&quot; in menu Tools/List Management and add it to the list. The general syntax is: </span><span class="f_Text" style="font-weight: bold;">pattern&gt;application</span><span class="f_Text">, where pattern and application can have various formats. For example &quot;extension&gt;application (full path)&quot;:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;png&gt;C:\Program Files (x86)\Viewer\Viewer.exe</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;png&gt;?:\Program Files (x86)\Viewer\Viewer.exe</span></p>
+<p class="p_Text"><span class="f_Text">The 2nd example is particularly interesting if you use XYplorer on portable drives: the little &quot;?&quot;-trick makes you independent of the local drive mappings! Double-clicking (or &lt;enter&gt;ing) a file in XYplorer will cause it to open in an application stored on your USB stick, independent (a) of the file associations maintained by the local copy of Windows, and (b) of the local drive mappings. What more portability do you want?</span></p>
+<p class="p_Text"><span class="f_Text">You can as well state several extensions in a row, separated by &quot;;&quot;, for example:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;png;jpg&gt;C:\Program Files (x86)\Viewer\Viewer.exe</span></p>
+<p class="p_Text"><span class="f_Text">You may as well use <a href="idh_visualfilters.htm#idh_genericfiletypes">generic file types</a>, e.g. {:Photo}.</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;{:Photo}&gt;C:\Program Files (x86)\Adobe\Photoshop 7.0\Photoshop.exe</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;&quot;Text|Notepad&quot; {:Text};csv&gt;Notepad</span></p>
+<p class="p_Text"><span class="f_Text">You can as well state a path *relative* to this XYplorer's path, for example:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;png;jpg&gt;..\Viewer\Viewer.exe</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;png;jpg&gt;..\..\Viewer\Viewer.exe</span></p>
+<p class="p_Text"><span class="f_Text">If this XYplorer is at C:\Program Files\XYplorer\ then the examples will be resolved to C:\Program Files\Viewer\Viewer.exe or C:\Viewer\Viewer.exe.</span></p>
+<p class="p_Text"><span class="f_Text">You may as well state the name of the executable (with or without &quot;.exe&quot;) of registered applications. Both examples are functionally identical:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;pdf&gt;PDFXCview</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;pdf&gt;PDFXCview.exe</span></p>
+<p class="p_Text"><span class="f_Text">See advanced possibilities here below under &quot;The Patterns&quot;.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">What they do for you</span></p>
+<p class="p_Text"><span class="f_TextIn" style="font-weight: bold;">Custom File Associations</span><span class="f_Text"> decide which application is used to open your files on </span><span class="f_Text" style="font-weight: bold;">Dbl-Click</span><span class="f_Text">, </span><span class="f_Text" style="font-weight: bold;">Enter</span><span class="f_Text"> and </span><span class="f_Text" style="font-weight: bold;">Ctrl+Enter</span><span class="f_Text"> (at least if </span><span class="f_Text">&quot;Open Items by First 'Open with...' Match&quot; is ticked; see </span><span class="f_Text" style="font-weight: bold;">Configuration</span><span class="f_Text"> here below). The CFA definitions are processed from top to bottom. Hence their order is important because the </span><span class="f_Text" style="font-weight: bold;">first</span><span class="f_Text"> matching pattern will make it and select the opening application.</span></p>
+<p class="p_Text"><span class="f_Text">Note that the above is only true for </span><span class="f_Text" style="font-weight: bold;">Dbl-Click</span><span class="f_Text">, </span><span class="f_Text" style="font-weight: bold;">Enter</span><span class="f_Text"> and </span><span class="f_Text" style="font-weight: bold;">Ctrl+Enter</span><span class="f_Text"> on a </span><span class="f_Text" style="font-weight: bold;">file</span><span class="f_Text">, not on a </span><span class="f_Text" style="font-weight: bold;">folder</span><span class="f_Text">. Folders </span><span class="f_Text">are always simply browsed on those actions.</span></p>
+<p class="p_Text"><span class="f_Text">If none of the patterns matches the file to be opened then the global registry-based file association is used to open it. You still have direct access to the registry-based file associations via</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="34"><span class="f_List2008">(a)</span></td><td><span class="f_List2008">the files' context menu's &quot;open&quot; command, </span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="34"><span class="f_List2008">(b)</span></td><td><span class="f_List2008">the</span><span class="f_List2008" style="font-weight: bold;"> </span><span class="f_LinkJump" style="color: #000000;"><a href="idh_pom.htm">Portable Openwith Menu</a></span><span class="f_List2008"> (POM), or</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="34"><span class="f_List2008">(c)</span></td><td><span class="f_List2008">Custom Keyboard Shortcuts | Miscellaneous | File Operations | Open Selected Item(s) with OS Default [Ctrl+Shift+Enter].</span></td></tr></table></div><p class="p_Text"><span class="f_Text">The checkboxes in the list allow you to easily (de)activate particular file associations without the need to delete and retype them. As always in XYplorer's checkbox lists, a right-click menu offers (Un)Select All.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">How to use them</span></p>
+<p class="p_Text"><span class="f_Text">Mouse users: Their recommended way </span><span class="f_Text">would be</span><span class="f_Text"> to add the </span><span class="f_Text" style="font-weight: bold;">Open With</span><span class="f_Text"> button to you toolbar (it is by factory default), and pop the Open With menu from there.</span></p>
+<p class="p_Text"><span class="f_Text">Keyboard users: Their preferred way would be to press </span><span class="f_Text" style="font-weight: bold;">Ctrl+Alt+Enter</span><span class="f_Text"> which will pop the Open With menu for the currently selected file.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">The Patterns</span></p>
+<p class="p_Text"><span class="f_Text">A file's extension is not the only possible pattern in XY's </span><span class="f_TextIn" style="font-weight: bold;">Custom File Associations</span><span class="f_Text">. You can state whole file names or even full, relative, or portable paths; patterns containing wildcards are allowed.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Rules</span></p>
+<p class="p_Text"><span class="f_Text">If the pattern contains the character &quot;\&quot; then</span></p>
+<p class="p_Text"><span class="f_Text"> &nbsp;it's treated against the full path (relative/portable syntax supported)</span></p>
+<p class="p_Text"><span class="f_Text">Elseif the pattern contains wildcards (*, ?, #) or a dot (.) then</span></p>
+<p class="p_Text"><span class="f_Text"> &nbsp;it's treated against the file name</span></p>
+<p class="p_Text"><span class="f_Text">Else</span></p>
+<p class="p_Text"><span class="f_Text"> &nbsp;it's treated against the extension</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Special patterns</span></p>
+<p class="p_TextIn"><span class="f_TextIn">To match all files use a single </span><span class="f_CodeBlue">*</span><span class="f_TextIn"> (asterisk).</span></p>
+<p class="p_TextIn"><span class="f_TextIn">To match all folders use a single </span><span class="f_CodeBlue">\</span><span class="f_TextIn"> (backslash).</span></p>
+<p class="p_TextIn"><span class="f_TextIn">To match all files and folders use </span><span class="f_CodeBlue">\;*</span><span class="f_TextIn"> (backslash- semicolon- asterisk).</span></p>
+<p class="p_TextIn"><span class="f_TextIn">To match all files without extension use </span><span class="f_CodeBlue">*.</span><span class="f_TextIn"> (asterisk-dot).</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Variables</span></p>
+<p class="p_TextIn"><span class="f_TextIn">XYplorer native variables and environment variables are supported in the pattern list. E.g., the following pattern will only match TXT files in the Paper Folder folder:</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">&lt;xypaper&gt;\*.txt&gt;::echo &lt;focitem&gt;;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Examples</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">?:\*.xys&gt;::load &lt;curitem&gt;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Loads selected XYS file, but only if it's on app drive. This is very nice, since in a &quot;portable situation&quot; (e.g. you stick your USB-drive into another computer), you can have files on your drive opened by your apps, all other files opened by the system's default app, or by some other app you define; for example:</span></p>
+<p class="p_TextIn"><span class="f_TextIn"> &nbsp;  </span><span class="f_CodeBlue">?:\*.dat&gt;?:\app1.exe</span></p>
+<p class="p_TextIn"><span class="f_TextIn"> &nbsp;  </span><span class="f_CodeBlue">*.dat&gt;?:\app2.exe</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The second definition will match all files that have not been matched by the first definition (= all DAT files that are not on app drive).</span></p>
+<p class="p_Code"><span class="f_Code">&nbsp;</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">a*;b*&gt;UEdit32</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Opens a file with UltraEdit if its name starts with &quot;a&quot; or &quot;b&quot;.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">{:Text}&gt;EmEditor</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Opens all text files with EmEditor.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You can match all subfolders of a certain parent folder by appending \*\ to the parent folder, for example:</span><br>
+<span class="f_CodeBlue">E:\Test\*\&gt;echo &quot;It's a subfolder of E:\Test\&quot;;</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Captions</span></p>
+<p class="p_TextIn"><span class="f_TextIn">A caption can be prefixed as quoted string. This caption is used in the <a href="idh_pom.htm">Portable Openwith Menu</a> (POM).</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">&quot;No extension&quot; *.&gt;UEdit32</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Open all files (not folders) without extension with UltraEdit. The item shows the caption &quot;No extension&quot; in the POM.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Icons</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You can define the icon that's shown for each item in the <a href="idh_pom.htm">Portable Openwith Menu</a> (POM). Simply append any file spec to the Caption (see above), separated by a | (pipe). It can be an icon file or any other file or folder with associated system icon, toolbar icons (prefixed with :), and icons extracted from icon resources (exe; dll; cpl; ocx; scr; icl; bpl; wlx; wfx; wcx; wdx; acm). XYplorer native variables, environment variables, and portable paths are supported. </span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">&quot;No extension|E:\Test\Kiss.ico&quot; *.&gt;UEdit32</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">&quot;PS|&lt;xy&gt;&quot; jpg;png;gif&gt;Photoshop</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">&quot;Say hi!|E:\Test\Kiss.ico&quot; jpg&gt;::msg &quot;hi&quot;;</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">&quot;Say hi!|C:\WINDOWS\notepad.exe&quot; jpg&gt;::msg &quot;hi&quot;;</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">|&quot;Append date|E:\Test\Kiss.ico&quot; \;*&gt;::rename b, '*-&lt;datem yyyymmdd&gt;'</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">&quot;No extension|:dice&quot; *.&gt;Notepad</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">&quot;No extension|%winsysdir%\shell32.dll /160&quot; *.&gt;Notepad</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The icon path defaults to &lt;xyicons&gt; (= [app data path]\Icons), so you don't need to state a path for icons located in that folder:</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">|&quot;Append modified date|Kiss.ico&quot; \;*&gt;::rename , '*-&lt;datem yyyymmdd&gt;'</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Menu Separators</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You can add menu separators to your definitions, either global ones or context-specific ones. Lets you structure your open with popup menu. To do this use a hyphen (-):</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">-</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">txt&gt;-</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">txt;ini&gt;-</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">{:Image}&gt;-</span></p>
+<p class="p_TextIn"><span class="f_TextIn">A logic has been implemented that will automatically reduce consecutive separators to one, and remove initial or final separators.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Submenus</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The menu supports one level of nesting, i.e. you can optionally organize your items into submenus. It's done like elsewhere in XYplorer (e.g. in the Hamburger), just indent the items that should be in a submenu. The item right in front of the indented ones is the submenu title.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Example:</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">Text Editors</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">&nbsp;&nbsp;txt&gt;Notepad</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">&nbsp;&nbsp;txt;rtf&gt;Wordpad</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">&nbsp;&nbsp;-</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">&nbsp;&nbsp;txt;ini;dat;idl;xys&gt;EmEditor</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">Scripts</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">&nbsp;&nbsp;|&quot;Copy file size in bytes&quot; *&gt;::e|copytext &lt;cursize&gt;</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">&nbsp;&nbsp;|&quot;Append Modified Date to Filename&quot; \;*&gt;::e|rename , '*-&lt;datem yyyymmdd&gt;'</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">&nbsp;&nbsp;|&quot;Append Image Dimensions to Filename&quot; {:Image}&gt;::e|rename , '*-&lt;prop #image.dimensions&gt;'</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">In the example above, the indent is 2 spaces. You can use a different number as long as you are consistent.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">The Applications</span></p>
+<p class="p_Text"><span class="f_Text">There are two sorts of &quot;applications&quot; allowed in Custom File Associations: </span><span class="f_Text" style="font-weight: bold;">Executables</span><span class="f_Text"> and </span><span class="f_Text" style="font-weight: bold;">Scripts</span><span class="f_Text">.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Executables</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Using short forms for applications:</span><span class="f_Text"> If the EXE to run is registered (known by the registry) it is not necessary to state the full path. The base name of the EXE file is enough. Both ways will work the same:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;png;jpg&gt;C:\Program Files (x86)\Viewer\Viewer.exe</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;png;jpg&gt;Viewer</span></p>
+<p class="p_Text"><span class="f_Text">Also environment variables are allowed:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;txt;htm&gt;%windir%\notepad.exe</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Using command line parameters: </span><span class="f_Text">Just as in User-Defined Commands of category &quot;Open With&quot;, Custom File Associations accept command line parameters.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Scripts</span></p>
+<p class="p_Text"><span class="f_Text">You can also state a one-line script (see </span><span class="f_LinkJump"><a href="idh_scripting.htm">Scripting</a></span><span class="f_Text">) as &quot;application&quot; in the definition of a Custom File Association.</span></p>
+<p class="p_Text"><span class="f_Text">Examples:</span></p>
+<p class="p_Code"><span class="f_Code">xys&gt;</span><span class="f_script">::load &lt;curitem&gt;</span></p>
+<p class="p_Text"><span class="f_Text">Now dbl-clicking a *.xys file will actually load that file, and pop up the menu defined by it, or run the script contained in it if it's the only one.</span></p>
+<p class="p_Code"><span class="f_Code">readme.txt&gt;</span><span class="f_script">::status &quot;Who cares?!&quot;</span></p>
+<p class="p_Text"><span class="f_Text">Any attempt to open a readme.txt file will just result in a status bar message &quot;Who cares?!&quot;.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">The special variable &lt;pfaitem&gt;</span></p>
+<p class="p_Text"><span class="f_Text">In CFA scripts the temporary variable &lt;pfaitem&gt; is supported. It resolves to the item (full path) the opening application or script in a CFA is associated with. Only in a script called via CFA &lt;pfaitem&gt; can be used. After the CFA is processed the variable is reset to nothing.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">The special variable #</span></p>
+<p class="p_Text"><span class="f_Text">You can use </span><span class="f_Text" style="font-weight: bold;">#</span><span class="f_Text"> to stand for the Windows associated application. Especially when using  <a href="idh_visualfilters.htm#idh_genericfiletypes">generic file types</a> this little trick can be useful to exclude certain extensions from the broader definition. For example:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">ini&gt;#</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">{:Text}&gt;EmEditor</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">URLs</span></p>
+<p class="p_Text"><span class="f_Text">You can also use CFA to define which browser should open a URL, for example:</span></p>
+<p class="p_Code"><span class="f_Code">https://*;http://*&gt;C:\Program Files (x86)\Mozilla Firefox\firefox.exe</span></p>
+<p class="p_Text"><span class="f_Text">Or probably also (if Firefox is registered):</span></p>
+<p class="p_Code"><span class="f_Code">https://*;http://*&gt;Firefox</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">Configuration</span></p>
+<p class="p_Text"><span class="f_Text">In the right-click menu of the </span><span class="f_Text" style="font-weight: bold;">Open With</span><span class="f_Text"> toolbar button you find some advanced options,</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Open Items by First 'Open with...' Match</span><span class="f_Text">: Tick it to use the first matching Custom File Association to open an item by Dbl-click or Enter. The factory default is ON. If set to OFF then the Windows associated application is used for opening an dbl-clicked item irrespective of any matching </span><span class="f_TextIn" style="font-weight: bold;">Custom File Associations</span><span class="f_Text">.</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Resolve Shortcuts before Matching</span><span class="f_Text">: Tick it to resolve LNK-files before matching them to your </span><span class="f_TextIn" style="font-weight: bold;">Custom File Associations</span><span class="f_Text">.</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Show Full Paths in 'Open With...' Menu</span><span class="f_Text">: Tick to show the full paths of the associated applications in the Open With... menu.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

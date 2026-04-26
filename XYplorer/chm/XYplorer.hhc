@@ -1,0 +1,400 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<BODY>
+<OBJECT type="text/site properties">
+	<param name="Window Styles" value="0x800225">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Getting Started">
+	<param name="Local" value="idh_intro.htm">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Installing XYplorer">
+	<param name="Local" value="idh_install.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Removing XYplorer">
+	<param name="Local" value="idh_removal.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Glossary">
+	<param name="Local" value="idh_glossary.htm">
+</OBJECT>
+</UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Configuration">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Configuration Dialog">
+	<param name="Local" value="idh_settings.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Multilingual Support">
+	<param name="Local" value="idh_mls.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Keyboard Shortcuts and Mouse Tricks">
+	<param name="Local" value="idh_short.htm">
+</OBJECT>
+</UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Main Menu">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="File">
+	<param name="Local" value="idh_menfile.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Edit">
+	<param name="Local" value="idh_menedit.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="View">
+	<param name="Local" value="idh_menview.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Go">
+	<param name="Local" value="idh_mengo.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Favorites">
+	<param name="Local" value="idh_menfav.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Tags">
+	<param name="Local" value="idh_mentags.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="User">
+	<param name="Local" value="idh_menuser.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Scripting">
+	<param name="Local" value="idh_menscripting.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Panes">
+	<param name="Local" value="idh_menpanes.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Tabsets">
+	<param name="Local" value="idh_mentabsets.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Tools">
+	<param name="Local" value="idh_mentools.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Window">
+	<param name="Local" value="idh_menwindow.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Help">
+	<param name="Local" value="idh_menhelp.htm">
+</OBJECT>
+</UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Main Topics">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Rapid Access Folders">
+	<param name="Local" value="idh_raf.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Quick Search">
+	<param name="Local" value="idh_quicknamesearch.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Visual Filters">
+	<param name="Local" value="idh_visualfilters.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Live Filter Box">
+	<param name="Local" value="idh_lfb.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Color Filters">
+	<param name="Local" value="idh_colorfilters.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Tags">
+	<param name="Local" value="idh_tags.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Address Bar">
+	<param name="Local" value="idh_addressbar.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Toolbar">
+	<param name="Local" value="idh_toolbar.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Tabbed Browsing">
+	<param name="Local" value="idh_tabs.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Tabsets">
+	<param name="Local" value="idh_tabsets.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Breadcrumb Bars">
+	<param name="Local" value="idh_bc.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Tree">
+	<param name="Local" value="idh_treeview.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Mini Tree">
+	<param name="Local" value="idh_minitree.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Glider">
+	<param name="Local" value="idh_glider.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="List">
+	<param name="Local" value="idh_listview.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Hover Box">
+	<param name="Local" value="idh_hoverbox.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Custom Columns">
+	<param name="Local" value="idh_customcolumns.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Dual Pane">
+	<param name="Local" value="idh_dual_pane.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Sync Folders">
+	<param name="Local" value="idh_syncfolders.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Catalog">
+	<param name="Local" value="idh_catalog.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Click and Search">
+	<param name="Local" value="idh_clickandsearch.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Status Bar">
+	<param name="Local" value="idh_status.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Status Bar Buttons">
+	<param name="Local" value="idh_statusbarbuttons.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Info Panel">
+	<param name="Local" value="idh_panel.htm">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Properties Tab">
+	<param name="Local" value="idh_fileinfo.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Version Tab">
+	<param name="Local" value="idh_iptabversion.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Meta Tab">
+	<param name="Local" value="idh_ipmeta.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Preview Tab">
+	<param name="Local" value="idh_prev.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Raw View Tab">
+	<param name="Local" value="idh_fileview.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Tags Tab">
+	<param name="Local" value="idh_iptags.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Find Files Tab">
+	<param name="Local" value="idh_find.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Report Tab">
+	<param name="Local" value="idh_report.htm">
+</OBJECT>
+</UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Preview">
+	<param name="Local" value="idh_preview.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Floating Preview">
+	<param name="Local" value="idh_floatingpreview.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Preview Pane">
+	<param name="Local" value="idh_previewpane.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Search Templates">
+	<param name="Local" value="idh_searchtemplates.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Branch View">
+	<param name="Local" value="idh_flatview.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Dark Mode">
+	<param name="Local" value="idh_darkmode.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Ghost Filter">
+	<param name="Local" value="idh_ghostfilter.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Paper Folders">
+	<param name="Local" value="idh_paperfolders.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Virtual Folders">
+	<param name="Local" value="idh_virtualfolders.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Folder View Settings">
+	<param name="Local" value="idh_fvs.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Custom File Icons">
+	<param name="Local" value="idh_cfi.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Customize Keyboard Shortcuts">
+	<param name="Local" value="idh_cks.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Custom Context Menu Commands">
+	<param name="Local" value="idh_mencustom.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Custom Drag'n'Drop Context Menu">
+	<param name="Local" value="idh_mendd.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Copying files with XYplorer">
+	<param name="Local" value="idh_copyfiles.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Rich Copy">
+	<param name="Local" value="idh_richop.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Backup">
+	<param name="Local" value="idh_backup.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Undo/Redo">
+	<param name="Local" value="idh_undo.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Recycle Bin">
+	<param name="Local" value="idh_recyclebin.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Portable Devices">
+	<param name="Local" value="idh_portabledevices.htm">
+</OBJECT>
+</UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Advanced Topics">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Admin Settings (Enterprise Edition Only)">
+	<param name="Local" value="idh_adminsettings.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Command Line Switches">
+	<param name="Local" value="idh_commandlineswitches.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Custom File Associations">
+	<param name="Local" value="idh_fileassociations.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Portable Openwith Menu">
+	<param name="Local" value="idh_pom.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="User-Defined Commands">
+	<param name="Local" value="idh_user_defined_commands.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Hamburger">
+	<param name="Local" value="idh_hamburger.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Scripting">
+	<param name="Local" value="idh_scripting.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Scripting Commands Reference">
+	<param name="Local" value="idh_scripting_comref.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Scripting Command Get">
+	<param name="Local" value="idh_scripting_comref_get.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Startup Settings">
+	<param name="Local" value="idh_startupini.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Variables">
+	<param name="Local" value="idh_variables.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Tweaks">
+	<param name="Local" value="idh_tweaks.htm">
+</OBJECT>
+</UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Registration">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="How to purchase a license">
+	<param name="Local" value="idh_reg.htm">
+</OBJECT>
+</UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Support">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Contact">
+	<param name="Local" value="idh_contact.htm">
+</OBJECT>
+</UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Legal Stuff">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Disclaimer">
+	<param name="Local" value="idh_disclaimer.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+	<param name="Name" value="Copyright">
+	<param name="Local" value="idh_copyright.htm">
+</OBJECT>
+</UL>
+</UL>
+</BODY></HTML>

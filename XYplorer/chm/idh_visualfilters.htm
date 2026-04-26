@@ -1,0 +1,414 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>Visual Filters</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Visual Filters,Filter Syntax (Visual Filters),No-Extension (Visual Filters),Persist Visual Filters Across Folders,Toggle On Same Filter,Ignore Diacritics,Show filter warning in list,Loose matches in Visual Filters,Exact matches in Visual Filters,Regular Expressions in Visual Filters,Variables in Visual Filters,Visual Filters by Attributes, Size, Date, Age, Length, and Properties,Scope Suffixes (Visual Filters),Visual Filters by Tags,Visual Filters by Columns,Visual Filters by Custom Columns,Visual Filters by File Types,Power Filters" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#F6F8FA">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Title"><span class="f_Title">Visual Filters</span></p>
+
+    </td>
+    <td align="right">
+     <span style="font-size: 9pt">
+     <a href="idh_intro.htm"><img src="arrow-up-icon24.png" border=0 alt="Top"></a>&nbsp;
+     <a href="idh_quicknamesearch.htm"><img src="arrow-left-icon24.png" border=0 alt="Previous"></a>&nbsp;
+     <a href="idh_lfb.htm"><img src="arrow-right-icon24.png" border=0 alt="Next"></a>
+     </span>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p class="p_Title"><span class="f_Title">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">Index</span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_visualfilters.htm#idh_visualfiltersyntax">Visual Filter Syntax</a></span></p>
+<p class="p_IndexTopic"><span style="width:20px">&nbsp;</span><span class="f_IndexTopic"><a href="idh_visualfilters.htm#idh_visualfiltersyntaxwildcards">Wildcards</a></span></p>
+<p class="p_IndexTopic"><span style="width:20px">&nbsp;</span><span class="f_IndexTopic"><a href="idh_visualfilters.htm#idh_visualfiltersyntaxor">OR</a></span></p>
+<p class="p_IndexTopic"><span style="width:20px">&nbsp;</span><span class="f_IndexTopic"><a href="idh_visualfilters.htm#idh_visualfiltersyntaxand">AND</a></span></p>
+<p class="p_IndexTopic"><span style="width:20px">&nbsp;</span><span class="f_IndexTopic"><a href="idh_visualfilters.htm#idh_visualfiltersyntaxnot">NOT</a></span></p>
+<p class="p_IndexTopic"><span style="width:20px">&nbsp;</span><span class="f_IndexTopic"><a href="idh_visualfilters.htm#idh_visualfiltersyntaxnoext">No-Extension</a></span></p>
+<p class="p_IndexTopic"><span style="width:20px">&nbsp;</span><span class="f_IndexTopic"><a href="idh_visualfilters.htm#idh_visualfiltersyntaxspecialoperators">Special Operators</a></span></p>
+<p class="p_IndexTopic"><span style="width:20px">&nbsp;</span><span class="f_IndexTopic"><a href="idh_visualfilters.htm#idh_visualfiltersyntaxcaptions">Captions</a></span></p>
+<p class="p_IndexTopic"><span style="width:20px">&nbsp;</span><span class="f_IndexTopic"><a href="idh_visualfilters.htm#idh_visualfiltersyntaxcomments">Comments</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_visualfilters.htm#idh_vf_matching">Matching</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_visualfilters.htm#idh_vf_usage">Usage</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_visualfilters.htm#idh_vf_variables">Variables in Visual Filters</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_visualfilters.htm#idh_vf_particularproperties">Visual Filters by Particular Properties</a></span></p>
+<p class="p_IndexTopic"><span style="width:20px">&nbsp;</span><span class="f_IndexTopic"><a href="idh_visualfilters.htm#idh_vf_selectors">Visual Filters by Attributes, Size, Date, Age, Length, and Properties</a></span></p>
+<p class="p_IndexTopic"><span style="width:20px">&nbsp;</span><span class="f_IndexTopic"><a href="idh_visualfilters.htm#idh_vfbytags">Visual Filters by Tags</a></span></p>
+<p class="p_IndexTopic"><span style="width:20px">&nbsp;</span><span class="f_IndexTopic"><a href="idh_visualfilters.htm#idh_vfbycolumns">Visual Filters by Columns</a></span></p>
+<p class="p_IndexTopic"><span style="width:20px">&nbsp;</span><span class="f_IndexTopic"><a href="idh_visualfilters.htm#idh_vfbycustomcolumns">Visual Filters by Custom Columns</a></span></p>
+<p class="p_IndexTopic"><span style="width:20px">&nbsp;</span><span class="f_IndexTopic"><a href="idh_visualfilters.htm#idh_vfbyproperties">Visual Filters by Properties</a></span></p>
+<p class="p_IndexTopic"><span style="width:20px">&nbsp;</span><span class="f_IndexTopic"><a href="idh_visualfilters.htm#idh_genericfiletypes">Visual Filters by Generic File Types</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_visualfilters.htm#idh_mustmatchpatterns">Must-Match-Patterns</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic">&nbsp;</span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_visualfilters.htm#idh_visualfilterspowerfilters">Power Filters</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_visualfilters.htm#idh_globalvisualfilters">Global Visual Filters</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_visualfilters.htm#idh_globalpowerlfilters">Global Power Filters</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic">&nbsp;</span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">Visual Filters</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Visual Filters let you control what you see in the file list by stating simple wildcard patterns like *.txt. The Visual Filter is per-tab and, of course, saved between sessions. The current filter is displayed on the tab headers in a distinct color.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The main commands for Visual Filters are found in menu </span><span class="f_TextIn" style="font-weight: bold;">View | Tab</span><span class="f_TextIn">, which is also available by right-clicking the tab headers. There is also a toolbar button &quot;Visual Filter&quot; to quickly toggle the last used filter.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Configuration Options</span></p>
+<p class="p_TextIn"><span class="f_TextIn">All <a href="idh_settings.htm#idh_settingsvisualfilters">configuration options for Visual Filters</a> are also located in the right-click menu of the toolbar button &quot;Toggle Visual Filter&quot;. See <a href="idh_settings.htm#idh_settingsvisualfilters">here</a> for the details.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleSection"><a name="idh_visualfiltersyntax"></a><span class="f_TextTitleSection">Visual Filter Syntax</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Visual Filters and Live Filters (<a href="idh_lfb.htm">Live Filter Box</a>) share exactly the same syntax. So everything below is also true for Live Filters.</span></p>
+<p class="p_TextTitleIn"><a name="idh_visualfiltersyntaxwildcards"></a><span class="f_TextIn" style="font-weight: bold;">Wildcards:</span><span class="f_TextIn"> &nbsp;You can use the wildcard &quot;</span><span class="f_TextIn" style="font-weight: bold;">?</span><span class="f_TextIn">&quot; for any single character, &quot;*&quot; for any number of characters (including none). Visual Filter pattern matching is not case-sensitive: A==a. If </span><span class="f_TextIn" style="font-weight: bold;">Enable extended pattern matching</span><span class="f_TextIn"> is enabled you can use &quot;</span><span class="f_TextIn" style="font-weight: bold;">#</span><span class="f_TextIn">&quot; for any single digit (0-9); to match the character </span><span class="f_TextIn" style="font-weight: bold;">#</span><span class="f_TextIn"> enclose it square brackets (</span><span class="f_TextIn" style="font-weight: bold;">[#]</span><span class="f_TextIn">).</span><span class="f_TextIn"> To match </span><span class="f_TextIn" style="font-weight: bold;">opening square brackets</span><span class="f_TextIn"> ( [ ) enclose them in square brackets ( </span><span class="f_TextIn" style="font-weight: bold;">[[]</span><span class="f_TextIn"> ).</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Desktop|*.txt &nbsp; &nbsp; = List all TXT files on Desktop</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Desktop|???.txt &nbsp; = List all TXT files on Desktop with exactly 3 characters in the base name</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Desktop|???*.txt &nbsp;= List all TXT files on Desktop with at least 3 characters in the base name</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Desktop|*##*.txt &nbsp;= List all TXT files on Desktop with at least 2 digits in the base name</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Desktop|*[[]* &nbsp; &nbsp; = List items on Desktop containing an open square bracket in the name</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Desktop|*[#]* &nbsp; &nbsp; = List items on Desktop containing # in the name</span></p>
+<p class="p_TextTitleIn"><a name="idh_visualfiltersyntaxor"></a><span class="f_TextIn" style="font-weight: bold;">OR:</span><span class="f_TextIn"> You can state an unlimited number of wildcard patterns separated by &quot;;&quot; (logically treated as OR).</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;E:\Test|*.gif;*.jpg;*.png &nbsp; &nbsp; = List all GIF, JPG, and PNG files in E:\Test</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Note that you can also OR-connect Visual Filters by </span><span class="f_TextIn" style="font-weight: bold;">OR</span><span class="f_TextIn"> or </span><span class="f_TextIn" style="font-weight: bold;">|</span><span class="f_TextIn"> (both surrounded by spaces; </span><span class="f_TextIn" style="font-weight: bold;">OR</span><span class="f_TextIn"> is not case-sensitive, so </span><span class="f_TextIn" style="font-weight: bold;">or</span><span class="f_TextIn"> works as well).</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;E:\Test|*.gif | *.jpg | *.png &nbsp; &nbsp; = List all GIF, JPG, and PNG files in E:\Test</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;E:\Test|*.gif OR *.jpg OR *.png &nbsp; = List all GIF, JPG, and PNG files in E:\Test</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The </span><span class="f_TextIn" style="font-weight: bold;">|</span><span class="f_TextIn"> has priority over </span><span class="f_TextIn" style="font-weight: bold;">;</span><span class="f_TextIn"> so using </span><span class="f_TextIn" style="font-weight: bold;">|</span><span class="f_TextIn"> you can filter items containing the </span><span class="f_TextIn" style="font-weight: bold;">;</span><span class="f_TextIn"> character:</span></p>
+<p class="p_Code"><span class="f_Code">  </span><span class="f_CodeBlue">Desktop|; | ,</span><span class="f_Code"> &nbsp; &nbsp; = List all items on Desktop containing &quot;;&quot; or &quot;,&quot; </span></p>
+<p class="p_TextIn"><span class="f_TextIn">If you state only one pattern and this pattern contains a </span><span class="f_TextIn" style="font-weight: bold;">;</span><span class="f_TextIn"> then you have to add another dummy </span><span class="f_TextIn" style="font-weight: bold;">|</span><span class="f_TextIn"> (mind the surrounding spaces) to avoid that the </span><span class="f_TextIn" style="font-weight: bold;">;</span><span class="f_TextIn"> is treated as separator:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">  </span><span class="f_CodeBlue">Desktop|; |&nbsp;</span><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp;= List all items on Desktop containing &quot;;&quot;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">  </span><span class="f_CodeBlue">Desktop|;a |&nbsp;</span><span class="f_CodeNarrow"> &nbsp; &nbsp; = List all items on Desktop containing &quot;;a&quot;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">  </span><span class="f_CodeBlue">Desktop|*; * |&nbsp;</span><span class="f_CodeNarrow"> &nbsp; = List all items on Desktop containing &quot;; &quot;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_visualfiltersyntaxand"></a><span class="f_TextIn" style="font-weight: bold;">AND: </span><span class="f_TextIn">Boolean AND is supported. </span><span class="f_TextIn">The operator can be </span><span class="f_TextIn" style="font-weight: bold;">AND</span><span class="f_TextIn"> or </span><span class="f_TextIn" style="font-weight: bold;">&amp;</span><span class="f_TextIn"> (both surrounded by spaces; </span><span class="f_TextIn" style="font-weight: bold;">AND</span><span class="f_TextIn"> is not case-sensitive, so </span><span class="f_TextIn" style="font-weight: bold;">and</span><span class="f_TextIn"> works as well). Examples:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;cat AND dog AND pig  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= all of these animals must be in the name</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;cat &amp; dog &amp; pig  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = all of these animals must be in the name</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;water and ageM: w &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= &quot;water&quot; in the name, modified this week</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;size: &lt; 1KB AND *.txt; size: &lt; 100 AND *.gif  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= TXT &lt; 1 KB, or GIF &lt; 100 bytes</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;&quot;Image Files 2013&quot; {:Image} and 2013  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= image files with &quot;2013&quot; in the name</span></p>
+<p class="p_Code"><span class="f_TextIn">If you want to show items containing &quot; and &quot; you have to escape it with &quot;\&quot;, or quote the whole pattern:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;cat and dog &nbsp; //matches items with &quot;cat&quot; and &quot;dog&quot; in the name</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;cat \and dog &nbsp;//matches items with &quot;cat and dog&quot; in the name &nbsp;  </span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;&quot;cat and dog&quot; //matches items named &quot;cat and dog&quot;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_visualfiltersyntaxnot"></a><span class="f_TextIn" style="font-weight: bold;">NOT:</span><span class="f_TextIn"> A leading </span><span class="f_TextIn" style="font-weight: bold;">!</span><span class="f_TextIn"> (exclamation mark) will invert the filter, i.e. show only items *not* matching any of the patterns. If you want to show items starting with &quot;!&quot; you have to escape it with &quot;\&quot;:</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Examples:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;a*;b* &nbsp; &nbsp;-&gt; show all items starting with &quot;a&quot; or &quot;b&quot;.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;!a*;b* &nbsp; -&gt; hide all items not starting with &quot;a&quot; or starting with &quot;b&quot;.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;a*;!b* &nbsp; -&gt; show all items starting with &quot;a&quot; or not starting with &quot;b&quot;.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;\!a*;b* &nbsp;-&gt; show all items starting with &quot;!a&quot; or &quot;b&quot; (! is escaped by \).</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;water and !ageM: w &nbsp; &nbsp; &nbsp; &nbsp;-&gt; &quot;water&quot; in the name and not modified this week.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">To logically reverse an entire pattern, wrap it in parentheses and prefix </span><span class="f_TextIn" style="font-weight: bold;">!</span><span class="f_TextIn">.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;!(a*;b*) &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-&gt; hide all items starting with &quot;a&quot; or &quot;b&quot;.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;!(Size: 529 KB | Name:*.txt) &nbsp; &nbsp; &nbsp; &nbsp;-&gt; NOT (Size 529 KB OR Name *.txt)</span></p>
+<p class="p_TextIn"><span class="f_NoteSign">Note:</span><span class="f_TextIn"> A filter pattern that consists of a single </span><span class="f_TextIn" style="font-weight: bold;">!</span><span class="f_TextIn"> is not seen as unary Boolean NOT operator but as the normal &quot;!&quot; character.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Also the verbal NOT-operator &quot;NOT &quot; (or &quot;not &quot;, or &quot;Not &quot;, it's case-insensitive) is supported:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Size: 529 KB or not Ext: txt</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;not Size: 529 KB or Ext: txt</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;not (Size: 529 KB or not Ext: txt)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;dateM:NOT dw 6-7</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;dateM: NOT dw 6-7</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;NOT dateM:dw 6-7</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;NOT dateM: dw 6-7</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_visualfiltersyntaxnoext"></a><span class="f_TextIn" style="font-weight: bold;">No-Extension</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Patterns ending with a dot match files that have no extension. Folders never match such a pattern.</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;*. &nbsp; &nbsp; &nbsp; &nbsp;-&gt; show all files without extension.</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;a*. &nbsp; &nbsp; &nbsp; &nbsp;-&gt; show all files beginning with &quot;a&quot; and without extension.</span></p>
+<p class="p_List2015-wide"><span class="f_List2015-wide">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_visualfiltersyntaxspecialoperators"></a><span class="f_TextIn" style="font-weight: bold;">Special Operators</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You can define a filter to apply only to files but </span><span class="f_TextIn" style="font-weight: bold;">show all folders</span><span class="f_TextIn">. Simply prefix &quot;\|&quot; to the pattern(s). For example:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;\|*.txt &nbsp; -&gt; show only *.txt files and all folders</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;\|!* &nbsp; &nbsp; &nbsp;-&gt; show all folders and no files</span></p>
+<p class="p_TextIn"><span class="f_TextIn">To </span><span class="f_TextIn" style="font-weight: bold;">hide all folders</span><span class="f_TextIn"> simply prefix &quot;!\|&quot; to the pattern(s). For example:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;!\|*.txt &nbsp;-&gt; show only *.txt files and hide all folders</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;!\|* &nbsp; &nbsp; &nbsp;-&gt; show all files and no folders</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You can also define a filter to apply only to folders but </span><span class="f_TextIn" style="font-weight: bold;">show all files</span><span class="f_TextIn">. Simply prefix &quot;*|&quot; to the pattern(s). For example:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;*|a* &nbsp; &nbsp; &nbsp;-&gt; show only folders beginning with &quot;a&quot; and all files</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;*|!* &nbsp; &nbsp; &nbsp;-&gt; show all files and no folders</span></p>
+<p class="p_TextIn"><span class="f_TextIn">To </span><span class="f_TextIn" style="font-weight: bold;">hide all files</span><span class="f_TextIn"> simply prefix &quot;!*|&quot; to the pattern(s). For example:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;!*|a* &nbsp; &nbsp; -&gt; hide all files and show only folders with a*</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;!*|* &nbsp; &nbsp; &nbsp;-&gt; hide all files and show all folders</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_visualfiltersyntaxcaptions"></a><span class="f_TextIn" style="font-weight: bold;">Captions</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You can also define a </span><span class="f_TextIn" style="font-weight: bold;">caption</span><span class="f_TextIn"> for each Visual Filter. Simply prefix a quoted string followed by at least one space to the filter:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;&quot;Images&quot; *.gif | *.png | *.jpg</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;&quot;Items ending with g&quot; &gt;g$</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The tab captions will show only the (unquoted) caption of a Visual Filter with caption.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The caption of a &nbsp;Visual Filter can have a short and a long version, the former used for tab captions (where space is scarce), the latter for menu captions (where space is abundant). The short and the long version are separated by &quot;|&quot; (pipe). This feature has been added especially to improve the appearance of the new <a href="idh_visualfilters.htm#idh_visualfilterspowerfilters">Powers Filters</a> which otherwise take too much space in the tab headers. Here are some examples:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;&quot;30 Mins|Modified In The Last 30 Mins&quot; ageM: &lt;= 30 n</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;&quot;3 Hours|Modified In The Last 3 Hours&quot; ageM: &lt;= 3 h</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;&quot;Today|Modified Today&quot; ageM: d</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;&quot;Week|Modified This Week&quot; ageM: w</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;&quot;Year|Modified This Year&quot; ageM: y</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_visualfiltersyntaxcomments"></a><span class="f_TextIn" style="font-weight: bold;">Comments</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Trailing comments</span><span class="f_TextIn" style="font-weight: bold;"> </span><span class="f_TextIn">are allowed after &quot;//&quot;, e.g.:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;ageM: w //modified this week</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_vf_matching"></a><span class="f_TextTitleSection">Matching</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Loose matches</span><span class="f_TextIn"> are supported, i.e. wildcards are auto-added on both ends if no wildcards are passed with the pattern. For example, to show all items containing the letter &quot;e&quot; in the name simply state &quot;e&quot; as filter:</span></p>
+<p class="p_Code"><span class="f_Code">  </span><span class="f_CodeBlue">e</span><span class="f_Code"> &nbsp; &nbsp; -&gt; show all files containing &quot;e&quot; in the name</span></p>
+<p class="p_Code"><span class="f_Code">  </span><span class="f_CodeBlue">&nbsp;</span><span class="f_Code"> &nbsp; &nbsp; -&gt; show all files containing &quot; &quot; (one space) in the name</span></p>
+<p class="p_Code"><span class="f_Code">  </span><span class="f_CodeBlue">&nbsp;e</span><span class="f_Code"> &nbsp; &nbsp;-&gt; show all files containing &quot; e&quot; (one space followed by &quot;e&quot;) in the name</span></p>
+<p class="p_Code"><span class="f_Code">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">To force </span><span class="f_TextIn" style="font-weight: bold;">exact matches</span><span class="f_TextIn"> (as opposed to loose matches) you can quote a filter. If you state multiple filters then each filter that should be matched exactly should be quoted.</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;&quot;readme.txt&quot; | &quot;setup.txt&quot; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-&gt; show only files readme.txt and setup.txt</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;&quot;sel&quot; &quot;readme.txt&quot; | &quot;setup.txt&quot; &nbsp; &nbsp; &nbsp; &nbsp;-&gt; the same with caption &quot;sel&quot;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Regular Expressions</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Visual Filters also support th</span><span class="f_TextIn">e Regular Expressions syntax. Like elsewhere in XYplorer t</span><span class="f_TextIn">o activate the regular expressions mode simply prefix the pattern with the character &quot;&gt;&quot;. For example:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;&gt;\.doc$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-&gt; show only *.doc files</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;&gt;.*(\.png|\.jpg)$ &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-&gt; show only *.png and *.jpg files</span></p>
+<p class="p_TextIn"><span class="f_TextIn">For details on XYplorer's variety of regular expressions, search the web for: vbscript regular expressions.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_vf_usage"></a><span class="f_TextTitleSection">Usage</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Note that Visual Filters in combination with tabs allow you to show completely different listings (</span><span class="f_TextIn" style="font-weight: bold;">&quot;filtered views&quot;</span><span class="f_TextIn">) of the same location. You could for example have a tab &quot;DLLs&quot; (Visual Filter set to *.dll) and a tab &quot;OCXs&quot; &nbsp;(Visual Filter set to *.ocx) and have both pointing to Win\System32.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">If a Visual Filter is active, the item count on the status bar tells you the total number of items, and it does it in blue (or whatever you set the Marked Color to) as a further indication that a filter is active and effective.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_vf_variables"></a><span class="f_TextTitleSection">Variables in Visual Filters</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Visual Filters support <a href="idh_variables.htm#idh_environmentvariables">environment variables</a> and <a href="idh_variables.htm">XYplorer native variables</a>. Using variables can make filters</span><span class="f_List2008"> portable (adaptive to their host system).</span></p>
+<p class="p_TextIn"><span class="f_TextIn">For example:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="34"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000080; text-decoration: none;">&#183;</span></td><td><span class="f_CodeBlue">&lt;date yyyy&gt;</span><br>
+<span class="f_List2008">Shows only items with the current year in the name.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="34"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000080; text-decoration: none;">&#183;</span></td><td><span class="f_CodeBlue">%username%</span><br>
+<span class="f_List2008">Shows only items with the current user name in the name.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="34"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000080; text-decoration: none;">&#183;</span></td><td><span class="f_CodeBlue">%pathext%</span><br>
+<span class="f_List2008">A special case: %pathext% happens to return a list of patterns which is quite compatible with XYplorer's Visual Filter syntax:</span><br>
+<span class="f_List2008">%pathext% =&gt; .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH</span><br>
+<span class="f_List2008">So you'd see a list of what the host system considers executable files.</span></td></tr></table></div><p class="p_TextIn"><span class="f_TextIn">Notes:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="34"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_List2008">The tab headers show the resolved values of the variables.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="34"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_List2008">The MRU list under the </span><span class="f_TextIn">Visual Filter</span><span class="f_List2008"> Toolbar button shows the variables.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="34"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_List2008">The &quot;Toggle </span><span class="f_TextIn">Visual Filter&quot;</span><span class="f_List2008"> toolbar button's tooltip shows the variable form of the current VF.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="34"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_List2008">Visual Filters are stored as variables (e.g. &quot;%username%&quot;) only when passed through the Set Visual Filter interface. Visual Filters passed through the Address Bar are resolved (e.g. &quot;Donald&quot;) *before* being passed to the Visual Filter engine and stored as the hard invariable value.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="34"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">The Visual Filter</span><span class="f_List2008"> toolbar button's tooltip and the Status Bar first section's tooltip both show the current Visual Filter pattern, which is the active pattern after any variables have been resolved.</span><br>
+<span class="f_List2008">This is useful when you have a VF like this and want to know what your filter actually looks like:</span><br>
+<span class="f_CodeBlue">&quot;Matching Clipboard&quot; &lt;clipboard&gt;</span></td></tr></table></div><p class="p_TextTitleSection"><span class="f_TextTitleSection">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_vf_particularproperties"></a><span class="f_TextTitleSection">Visual Filters by Particular Properties</span></p>
+<p class="p_TextTitleIn"><a name="idh_vf_selectors"></a><span class="f_TextTitleIn">Visual Filters by Attributes, Size, Date, Age, Length, and Properties</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Besides Name, also other item properties can be used for visual filtering. The syntax is very similar to the <a href="idh_settings.htm#idh_settings409">Color Filters</a> syntax in that a selector is prefixed to the pattern:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Filter Type &nbsp; &nbsp; Selector &nbsp; &nbsp;Example &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Notes</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;---------------------------------------------------------------------------------------------------------------</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Name &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[name:] &nbsp; &nbsp; *.txt &nbsp; (or name:*.txt)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Attributes &nbsp; &nbsp; &nbsp;attr: &nbsp; &nbsp; &nbsp; attr: readonly</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Attr. List &nbsp; &nbsp; &nbsp;attrlist: &nbsp; attrlist: hsr</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Size &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;size: &nbsp; &nbsp; &nbsp; size: &gt; 100 KB &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Size filters don't support directories, only files.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Date Created &nbsp; &nbsp;dateC: &nbsp; &nbsp; &nbsp;dateC: 2012-12-07</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Date Modified &nbsp; dateM: &nbsp; &nbsp; &nbsp;dateM: 2012-12-01 - 2012-12-31</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Date Accessed &nbsp; dateA: &nbsp; &nbsp; &nbsp;dateA: 2012-12-07</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Age Created &nbsp; &nbsp; ageC: &nbsp; &nbsp; &nbsp; ageC: &gt; 5 y</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Age Modified &nbsp; &nbsp;ageM: &nbsp; &nbsp; &nbsp; ageM: d</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Age Accessed &nbsp; &nbsp;ageA: &nbsp; &nbsp; &nbsp; ageA: &lt;= 5 d</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Full Name Length len: &nbsp; &nbsp; &nbsp; len: &gt; 260 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Full Name is the file name with path.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Title Length &nbsp; &nbsp;lenT: &nbsp; &nbsp; &nbsp; lenT: &lt;= 12 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Title is the file name without path.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Property &nbsp; &nbsp; &nbsp; &nbsp;prop: &nbsp; &nbsp; &nbsp; prop:imagex: &gt; 1500 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Property filters need sub selectors to specify the desired property.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Path &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;path: &nbsp; &nbsp; &nbsp; path:*\hello\ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Path is the full path excluding the item name itself.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Examples:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;*.txt &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;named *.txt</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;name: *.txt &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;named *.txt</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;attr: system &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SYSTEM attribute set</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;attrlist: hsr &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;HIDDEN AND SYSTEM AND READONLY attribute set</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;size: &gt;= 1.5 GB &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1.5 GB or bigger</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;size: 0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;empty</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;dateM: 2010-01-01 - &nbsp; &nbsp; &nbsp; &nbsp;modified 2010 or later</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;dateC: dw 6-7 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;created on a weekend</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;ageM: y &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;modified this year</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;dateM: m 5 &amp; dateM: d 1 &nbsp; &nbsp;modified on the 1st of May (of any year)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;dateM: dy 51 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; modified on the 51st day of the year (the 20th of February of any year)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;ageA: &lt; 5 d &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;accessed less than 5 days ago</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;len: &gt; 260 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; longer than 260 characters</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;lenT: &lt;= 12 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;12 or less characters</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;path:hello &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; match all items with a path containing the string &quot;hello&quot;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;path:\hello\ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; match all items with a path containing a folder &quot;hello&quot;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;path:*\hello\ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;match all items with a direct parent folder &quot;hello&quot;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;path:!.git &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; exclude the whole sub-branch &quot;.git&quot; with all contents from a Branch View (needs &quot;Enable extended pattern matching&quot; ticked)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;!.git\ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (same as above)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Modified: 2025 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; modified in 2025 (using the English column name as selector; needs ISO 8601 date format)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Created: 2025-07 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; created in July 2025 (using the English column name as selector; needs ISO 8601 date format)</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Examples for Property filters:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;prop:dimensions:638 x * &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 638 pixels width</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;prop:imagex: &gt; 1500 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; a width larger 1500 pixels</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;prop:CameraModel:*Canon* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;Canon&quot; in the camera model name</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;prop:fileversion:20.40* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; file version number 20.40*</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;prop:System.Comment:love &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;system comment &quot;love&quot;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;prop:#ShortcutTarget:?* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; a non-empty shortcut target</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;prop:#mp3.composer:*Haydn* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Haydn in the MP3 composer tag</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;prop:#mp3.title:no* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; an MP3 title starting with &quot;no&quot;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;prop:#Image.Fuji.FilmMode:Classic* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Fuji Film Simulation &quot;Classic&quot;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;prop:#AspectRatio: 16:9 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; an aspect ratio of 16:9</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;prop:#AspectRatio: &#8730;2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; an aspect ratio of &#8730;2</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;prop:#AspectRatio: &gt;= &#8730;2:1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; an aspect ratio same or wider than DIN 476 (aka Din A) landscape</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;prop:#Hash.MD5:1092b0ce7d106d3d72e737c66ea20fa1 &nbsp; this MD5 hash</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;prop:#HardLinks: &gt; 1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;more than one hardlink</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Examples for Property filter </span><span class="f_TextIn" style="font-weight: bold;">dimensions</span><span class="f_TextIn"> which can be used to filter (or search) by area (width x height):</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;prop:dimensions: 1000 &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp;match area 1000</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;prop:dimensions: == 1000 &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;match area 1000</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;prop:dimensions: 1000 x 1 &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp;match dimensions 1000 x 1</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;prop:dimensions: == 1000 x 1  &nbsp; &nbsp; &nbsp; &nbsp;match dimensions 1000 x 1</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;prop:dimensions: &gt;= 1000 &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;match area &gt;= 1000</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;prop:dimensions: &gt;= 1000 x 1  &nbsp; &nbsp; &nbsp; &nbsp;match area &gt;= 1000</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;prop:dimensions: &gt;= 50 x 20   &nbsp; &nbsp; &nbsp; &nbsp;match area &gt;= 1000</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Like Name filters also these filters can be inverted by a prefixed &quot;!&quot;:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;ageM: d &nbsp; &nbsp; &nbsp; &nbsp; //modified today</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;!ageM: d &nbsp; &nbsp; &nbsp; &nbsp;//not modified today</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Note that there MUST be a space between counter and unit:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;ageC: &lt;= 3 n &nbsp; &nbsp; //created not more than three minutes ago</span></p>
+<p class="p_TextIn"><span class="f_TextIn">And they can be freely combined separated by &quot;;&quot; or &quot;|&quot; (both meaning logical OR), for example:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;size: &lt;= 10 KB; name: *.png; ageM: w</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Scope Suffixes:</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Visual Filters with selectors also support <a href="idh_colorfilters.htm#idh_cfscope">scope suffixes</a>.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">For example, this filter will show only folders created today:  </span><span class="f_CodeNarrow">ageC d: d</span></p>
+<p class="p_TextIn"><span class="f_TextIn">And this filter will show only files modified yesterday: </span><span class="f_CodeNarrow">ageM f: 1 d</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Notes:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">The date has to be given in a form that is recognized as a valid date format on your locale. The time part can be skipped in which case it is internally set to 00:00:00.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">The selector is not case-sensitive: Datem: would work as well.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">The selectors date:/age: default to &nbsp;dateM:/ageM: (&quot;Date/Age Modified&quot;).</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">Spaces after the selector are optional: &quot;ageM: d&quot; is equivalent to &quot;ageM:d&quot;</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">The following settings apply to the &quot;name:&quot; and &quot;path:&quot; matching behavior in Visual Filters and Live Filter Box:</span><br>
+<span class="f_TextIn">- Configuration | Find and Filter | Filters &amp; Type Ahead Find | Visual Filters | Match case</span><br>
+<span class="f_TextIn">- Configuration | Find and Filter | Filters &amp; Type Ahead Find | Visual Filters | Ignore diacritics</span></td></tr></table></div><p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_vfbytags"></a><span class="f_TextTitleIn">Visual Filters by Tags</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You can as well filter items by Tags and Extra Tags. Again, a selector is prefixed to the pattern:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Selector &nbsp; &nbsp; &nbsp;Value</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;------------------------------------------------------------------------</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;lbl: &nbsp; &nbsp; &nbsp; &nbsp;#n, where n = index of Label (#1 = first label).</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;OR:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Name of Label, wildcard pattern, case-insensitive (A==a).</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;tags: &nbsp; &nbsp; &nbsp; A comma-separated list of tags, case-insensitive (A==a).</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;All tags must be present in item (item can have more tags).</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Wildcard patterns allowed.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;cmt: &nbsp; &nbsp; &nbsp; &nbsp;Wildcard pattern, case-insensitive (A==a).</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;ex1 - ex16: Wildcard pattern, case-insensitive (A==a).</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;------------------------------------------------------------------------</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Notes:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">All matching is case-insensitive (A==a).</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">Item must be in tag DB to match. This regards patterns like &quot;lbl:0&quot; (see examples below).</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">Extra columns can also be referred to by their caption, again case-insensitive (A==a).</span></td></tr></table></div><p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Example &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; matches all items...</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;------------------------------------------------------------------------</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;lbl:green &nbsp; &nbsp; &nbsp; &nbsp; with label &quot;green&quot;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;lbl:g* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;with a label beginning with &quot;g&quot;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;lbl:#1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;with label #1</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;lbl:?* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;with any label</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;lbl: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;with or without any label (but being in tag DB)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;lbl:* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; with or without any label (but being in tag DB)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;lbl:&quot;&quot; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;without any label (but being in tag DB)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">  </span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;tags:Jazz &nbsp; &nbsp; &nbsp; &nbsp; with tag Jazz (and possibly any other tags)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;tags:Rock,Pop &nbsp; &nbsp; with tags Rock and Pop (and possibly any other tags)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;tags:r* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; with tags beginning with &quot;r&quot; or &quot;R&quot; (and possibly any other tags)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;tags:r*,p* &nbsp; &nbsp; &nbsp; &nbsp;with tags beginning with &quot;r&quot; or &quot;R&quot; and tags beginning with</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;p&quot; or &quot;P&quot; (and possibly any other tags)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;tags:?* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; with any tags</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;tags: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; with or without any tags (but being in tag DB)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;tags:* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;with or without any tags (but being in tag DB)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;tags:&quot;&quot; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; without any tags (but being in tag DB)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">  </span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;cmt:*ow &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; with a comment ending in &quot;ow&quot;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;cmt: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;with or without any comment (but being in tag DB)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;cmt:* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; with or without any comment (but being in tag DB)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;cmt:&quot;&quot; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;without any comment (but being in tag DB)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;ex4:Ch* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; where extra column #4 value begins with &quot;Ch&quot;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;ex4:&quot;&quot; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;where extra column #4 is empty</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;country:Ch* &nbsp; &nbsp; &nbsp; where extra column &quot;Country&quot; begins with &quot;Ch&quot;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;------------------------------------------------------------------------</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_vfbycolumns"></a><span class="f_TextTitleIn">Visual Filters by Columns</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You can also filter the file list by the data shown in any other columns. All columns (apart from &quot;Index&quot;) are supported. Simply use the column header (in your interface language) caption has selector.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Examples:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">Ext: jpg</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">Ext: j*g</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">Size: &gt;= 500000</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">Size: 529 KB</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">Size: 528.49 KB</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">Size: &lt;= 528.49 KB</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">Modified: 2014-09-21 12:55:09</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">Label: Green</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">Tags: Charlie</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">Comment: A cool and easy to use feature!</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">Len: 108</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">Attr: R &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (R must be among the attributes)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">AttrList: HSDLI &nbsp; (attributes must perfectly match)</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_vfbycustomcolumns"></a><span class="f_TextTitleIn">Visual Filters by Custom Columns</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You can also filter the file list by the data shown in Custom Columns.</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">You can reference the columns by their canonic name and also by their caption (the latter can be ambiguous).</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">Like with other filters you can use numeric operators (&gt;=, &lt;, ==, etc) and wildcards (*, ?). What makes sense when, only you can know since you wrote the Custom Columns.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">Note that the filtering also works for columns that are not currently present in the list. So you now have handy shortcuts to ever so complex filters.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">Examples:</span><br>
+<span class="f_CodeNarrow">Filter Pattern &nbsp; &nbsp; &nbsp; &nbsp;Used Column Reference &nbsp; &nbsp;Matches</span><br>
+<span class="f_CodeNarrow">----------------------------------------------------------------</span><br>
+<span class="f_CodeNarrow">cc18: &gt;= 2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Canonic Name &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; all numbers &gt;= 2</span><br>
+<span class="f_CodeNarrow">Date Done: *25 days &nbsp; Caption &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1 month &nbsp;25 days</span></td></tr></table></div><p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_vfbyproperties"></a><span class="f_TextTitleIn">Visual Filters by Properties</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You can also filter by Shell Properties and Special Properties. Works independently of any currently visible columns. Simply use the property name as selector, for example:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Item type: TXT File</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;MD5: d41d8cd98f00b204e9800998ecf8427e</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Aspect Ratio: 2:3</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_genericfiletypes"></a><span class="f_TextTitleIn">Visual Filters by Generic File Types</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You can filter certain file types, e.g. image, using the syntax </span><span class="f_CodeBlue">{:Type}</span><span class="f_TextIn">, for example </span><span class="f_CodeBlue">{:Image}</span><span class="f_TextIn">. This spares you typing long list of extensions (*.png; *.jpg; *.psd; ...). The following </span><span class="f_TextIn" style="font-weight: bold;">generic file types</span><span class="f_TextIn"> are supported:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;{:Text} &nbsp; &nbsp; &nbsp; *</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;{:Image} &nbsp; &nbsp; &nbsp;*</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;{:Photo} &nbsp; &nbsp; &nbsp;* &nbsp; = All image formats that may contain Exif data.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;{:Audio} &nbsp; &nbsp; &nbsp;*</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;{:Video} &nbsp; &nbsp; &nbsp;*</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;{:Media} &nbsp; &nbsp; &nbsp;* &nbsp; = Audio &amp; Video</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;{:Font} &nbsp; &nbsp; &nbsp; *</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;{:Vector}</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;{:Web} &nbsp; &nbsp; &nbsp; &nbsp;*</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;{:Document} &nbsp; *</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;{:Archive}</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;{:Executable}</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Examples that can be pasted right into the Address Bar:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;|{:Image} &nbsp; &nbsp; &nbsp; Show only image files in the current location</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;D:\|{:Text} &nbsp; &nbsp; Show only text files in the root folder D:\ </span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Note:</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The types marked * in the list above can be customized in <a href="idh_settings.htm#idh_settingsprevformat">Configuration | Previewed Formats</a>. &nbsp; &nbsp;  </span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_mustmatchpatterns"></a><span class="f_TextTitleIn">Must-Match-Patterns</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Matching a Must-Match-Pattern is necessary but not sufficient if there are more patterns to be checked. There are two special prefixes that go in front of any other prefixes and turn the following pattern into a Must-Match-Pattern: </span><span class="f_TextIn" style="font-weight: bold;">nec</span><span class="f_TextIn"> and </span><span class="f_TextIn" style="font-weight: bold;">no</span><span class="f_TextIn">.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;nec:ageM: y; *.jpg; *.raf &nbsp; &nbsp;//show all JPGs and RAFs modified this year</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;*.jpg; nec:ageM: y; *.raf &nbsp; &nbsp;//show all JPGs, and all RAFs modified this year</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;no:ageM: y; *.jpg; *.raf &nbsp; &nbsp; //show all JPGs and RAFs NOT modified this year</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;*.jpg; no:ageM: y; *.raf &nbsp; &nbsp; //show all JPGs, and all RAFs NOT modified this year</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Tip for understanding: </span><span class="f_TextIn" style="font-weight: bold;">nec</span><span class="f_TextIn"> and </span><span class="f_TextIn" style="font-weight: bold;">no</span><span class="f_TextIn"> mean to AND this pattern with everything coming afterwards:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;nec:a;b;c;d &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = a AND (b OR c OR d)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;no:a;no:b;c;d &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = NOT a AND (NOT b AND (c OR d))</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;nec:a;b;nec:c;d &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = a AND (b OR (c AND d))</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">More examples:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;XY Visual Filter Syntax &nbsp; &nbsp; Equals in Boolean Notation</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;------------------------------------------------------------------------</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;nec:ageM: y; size: &gt; 50KB &nbsp; modified this year AND larger than 50KB</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;nec:*.txt; a*; b* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;*.txt&quot; AND (&quot;a*&quot; OR &quot;b*&quot;)  </span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;x*; nec:*.txt; a*; b* &nbsp; &nbsp; &nbsp; &quot;x*&quot; OR (&quot;*.txt&quot; AND (&quot;a*&quot; OR &quot;b*&quot;))</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;no:ageM: y; size: &gt; 50KB &nbsp; &nbsp;NOT modified this year AND larger than 50KB</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;no:*.txt; a*; b* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;NOT &quot;*.txt&quot; AND (&quot;a*&quot; OR &quot;b*&quot;)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;no:*.txt;no:*.ini;ageM: y &nbsp; NOT *.txt AND NOT *.ini AND modified this year</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleChar"><a name="idh_visualfilterspowerfilters"></a><span class="f_TextTitleChar">Power Filters</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The &quot;Toggle Visual Filter&quot; toolbar button got an arrow dropdown featuring a set of predefined visual filters called &quot;Power Filters&quot;, e.g. &quot;Image Files&quot;, &quot;Modified Today&quot;, &quot;Empty Files&quot; and many more. These filters can be customized in List Management.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Using Power Filters to Select Files</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You can as well use the Power Filters menu to (un)select files by type, just like you know it from the &quot;Type Stats and Filter&quot; menu:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">Hold CTRL: Add all files of this type to the selection.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">Hold SHIFT: Remove all files of this type from the selection.</span></td></tr></table></div><p class="p_TextIn"><span class="f_TextIn">The actually applied selection filter patterns are displayed in the Status Bar.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Note, however, that more complex Power Filters (age, size, attr) are not supported here. </span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleChar"><a name="idh_globalvisualfilters"></a><span class="f_TextTitleChar">Global Visual Filters</span></p>
+<p class="p_TextIn"><span class="f_TextIn">A Global Visual Filter (GVF) is applied to all Lists in both panes.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Any local Visual Filters (VF) are applied after the GVF. Effectively any local VFs then work on top of the GVF, i.e. they further narrow down what has passed the GVF.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">With Global Visual Filters you can tell your file manager to list only TXT files, or only files smaller than 1KB, or to list only files modified this month. Globally, in each tab. This can be immensely useful.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Usage notes:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">GVF syntax is identical to VF syntax.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">Both GVFs and VFs support Master Invert (show all items that do NOT match the filter) by a prefixed &quot;!&quot;, for normal patterns as well as for RegExp.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">Both GVFs and VFs support their own private scope prefixes (show all folders, hide all folders, etc).</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">You can add captions and comments to both GVFs and VFs.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">Mixed separators (| and ;) are okay: GVF can be &quot;*.txt|*.xys&quot; and VF at the same time can be &quot;a*;b*&quot;. </span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">Mixed syntaxes are okay: You can combine a GVF RegExp with a VF RegExp or with a VF wildcard pattern (or pattern list) or vice versa.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">A GVF will not show filter information in the list or in tab headers. So it's more stealth than a local VF.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">The active GVF pattern is displayed in the Status Bar tooltip (first section of the bar).</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">Just like VFs, GVFs apply only to the List, not the Tree, and they don't affect the dropdowns in the Address Bar (both as opposed to Ghost Filter).</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">The GVF is remembered between sessions.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">There is a Toolbar button to toggle the last GVF.</span></td></tr></table></div><p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleChar"><a name="idh_globalpowerlfilters"></a><span class="f_TextTitleChar">Global Power Filters</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The &quot;Toggle Global Visual Filter&quot; toolbar button got an arrow dropdown featuring a set of predefined visual filters called &quot;Global Power Filters&quot;, e.g. &quot;Image Files&quot;, &quot;Modified Today&quot;, &quot;Empty Files&quot; and many more. These filters can be customized in List Management.</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>User</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="User menu,Menu Commands,Manage Commands,Options (Manage User-Defined Commands),Show Menu Icons (Manage User-Defined Commands),Show Status Bar Message (Manage User-Defined Commands)" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#F6F8FA">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Title"><span class="f_Title">User Menu</span></p>
+
+    </td>
+    <td align="right">
+     <span style="font-size: 9pt">
+     <a href="idh_intro.htm"><img src="arrow-up-icon24.png" border=0 alt="Top"></a>&nbsp;
+     <a href="idh_mentags.htm"><img src="arrow-left-icon24.png" border=0 alt="Previous"></a>&nbsp;
+     <a href="idh_menscripting.htm"><img src="arrow-right-icon24.png" border=0 alt="Next"></a>
+     </span>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p class="p_Title"><span class="f_Title">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">User Menu Commands</span></p>
+<p class="p_Text"><span class="f_Text" style="font-size: 10pt; font-style: italic; color: #0080ff; background-color: #eeece1;">Note: If this menu is not visible, you can enable it in&nbsp;</span><span class="f_Text" style="font-size: 10pt; font-style: italic; font-weight: bold; color: #0080ff; background-color: #eeece1;">Configuration | Other | Features</span><span class="f_Text" style="font-size: 10pt; font-style: italic; color: #0080ff; background-color: #eeece1;">.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Manage Commands...</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Open the Manage User-Defined Commands interface.</span></p>
+<p class="p_TextIn"><span class="f_NoteSign">Tip:</span><span class="f_TextIn"> Dbl-clicking an item in the Commands list will trigger the &quot;Browse...&quot; or &quot;Edit...&quot; button (if there is any).</span></p>
+<p class="p_NoteSign" style="line-height: 1.20; margin: 4px 28px 4px 38px;"><span class="f_NoteSign">Shortcut: Ctrl+Alt+F9</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Goto, Open, Open With... etc</span></p>
+<p class="p_TextIn"><span class="f_TextIn">These submenus contain all the </span><span class="f_TextIn" style="font-weight: bold;">User-Defined Commands</span><span class="f_TextIn"> that you have defined before. See next paragraph.</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">&nbsp;</span></p>
+<p class="p_TextTitleChar"><a name="idh_udc"></a><span class="f_TextTitleChar">User-Defined Commands</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Introduction</span></p>
+<p class="p_TextIn"><span class="f_TextIn">User-Defined Commands (UDCs) are basically menu commands (all located in menu User), where you decide (1) what they do when clicked, (2) and what their caption is. Optionally, as with all menu commands in XYplorer, you may assign keyboard shortcuts to them. </span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Example 1:</span><span class="f_TextIn"> You currently work on a project with distributed locations you need quick access to. Define a UDC of category </span><span class="f_TextIn" style="font-weight: bold;">Go To</span><span class="f_TextIn"> for each of the </span><span class="f_TextIn" style="font-weight: bold;">Locations</span><span class="f_TextIn"> and assign a KS (Keyboard Shortcut) to each of them. This will take you maybe 20 seconds, and then, say, </span><span class="f_NoteSign">Ctrl+1</span><span class="f_TextIn"> will take you to </span><span class="f_TextIn" style="font-family: 'Times New Roman';">\\</span><span class="f_TextIn">yourserver\theshare\projectdata\ and </span><span class="f_NoteSign">Ctrl+2</span><span class="f_TextIn"> will take you to E:\project\images\.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Example 2:</span><span class="f_TextIn"> You like to open certain image files either with Photoshop or with ACDSee. Define two UDCs of category </span><span class="f_TextIn" style="font-weight: bold;">Open With</span><span class="f_TextIn">, one pointing to Photoshop, the other one to ACDSee. Again, assign a KS (Keyboard Shortcut) to each of them, and you are done. </span><span class="f_NoteSign">Ctrl+Alt+P</span><span class="f_TextIn"> (for example) will open all selected files with Photoshop, </span><span class="f_NoteSign">Ctrl+Alt+A</span><span class="f_TextIn"> (for example) will open all selected files with ACDSee.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Example 3:</span><span class="f_TextIn"> You regularly have to do certain rename operations for which you need a complex Regular Expression you always tend to forget. Define a UDC of category </span><span class="f_TextIn" style="font-weight: bold;">Rename</span><span class="f_TextIn">, enter your Regular Expression into the </span><span class="f_TextIn" style="font-weight: bold;">Pattern </span><span class="f_TextIn">field, and give it a descriptive caption (so that you later know what it does). Again, assign a KS (Keyboard Shortcut) to the UDC, and you are done. From now on, a single key stroke, e.g. </span><span class="f_NoteSign">Ctrl+Shift+8</span><span class="f_TextIn">, will apply the rename operation to all selected items.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Example 4:</span><span class="f_TextIn"> You quickly want to list only the *.exe and *.dll files present in the current folder. Define a UDC of category </span><span class="f_TextIn" style="font-weight: bold;">Go To</span><span class="f_TextIn"> and set the </span><span class="f_TextIn" style="font-weight: bold;">Location</span><span class="f_TextIn"> to </span><span class="f_TextIn" style="font-weight: bold;">|*.exe;*.dll</span><span class="f_TextIn"> – this will activate a Visual Filter for the current location. As you see in this example, UDCs know the full richness of XYplorer's location syntax. The possibilities are endless.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">How to create a User-Defined Command</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Open the Manage Commands (</span><span class="f_NoteSign">Ctrl+Alt+F9</span><span class="f_TextIn">) interface.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Select a Category.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Click the &quot;New&quot; button and select </span><span class="f_TextIn" style="font-weight: bold;">Add New Command</span><span class="f_TextIn">, or simply press </span><span class="f_TextIn" style="font-weight: bold;">INS</span><span class="f_TextIn">.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Now enter the </span><span class="f_TextIn" style="font-weight: bold;">Command Properties</span><span class="f_TextIn">. First you specify the main argument: that's the critical piece of data. It's where you specify the object of the Action which can be (depending on the Action) a Location, an Item, an Application, or a Pattern. Often it will be a file or folder, in which case a Browse button to the right of the edit field is enabled.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Required fields are marked by a bold label.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Optionally enter the Caption (for the menu item). If left empty, the main field (bold) will be used for the caption.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The changes are </span><span class="f_TextIn" style="font-weight: bold;">auto-applied</span><span class="f_TextIn"> when you OK the dialog, or select another category, another command, or create a new command. To undo any changes in the current Command Properties (an asterisk is shown in the frame title) press ESC. To undo all changes you made since opening the dialog simply Cancel the dialog.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Repeat for all UDCs you need.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Finally press OK to apply your changes to the current session of XYplorer. The new menus will be generated in a blink. Open the User menu and see yourself...</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Now you can assign a Keyboard Shortcut to your new UDC. Either click the </span><span class="f_TextIn" style="font-weight: bold;">Assign Keyboard Shortcut</span><span class="f_TextIn"> button and choose one, or open </span><span class="f_TextIn" style="font-weight: bold;">Customize Keyboard Shortcuts</span><span class="f_TextIn"> (</span><span class="f_NoteSign">Shift+F9</span><span class="f_TextIn">) from menu Tools (the UDCs are listed under category &quot;User&quot;).</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Of course, as always in XY, the UDCs will be saved to file on exit unless otherwise wanted. This file is called udc.dat.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">On KeyUp</span></p>
+<p class="p_TextIn"><span class="f_TextIn">For UDCs with a Keyboard Shortcut assigned, this checkbox gives you control about the exact point of action. When checked, the command is triggered when the key is released, else (default) the command is triggered when the key is pressed down.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">It is actually recommended that you enable &quot;On KeyUp&quot; on UDCs that pop a menu (and have a keyboard shortcut assigned, of course); otherwise you might experience that you trigger one of the menu items on releasing your keyboard shortcut because the released key is interpreted as an accelerator key!</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">How to quickly edit an existing User-Defined Command</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You can directly open the </span><span class="f_TextIn" style="font-weight: bold;">Manage User-Defined Commands</span><span class="f_TextIn"> dialog for a particular user command by holding CTRL while you click the menu item pointing to the command. The command will not be triggered then, of course.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">How to smartly pre-fill the dialog when creating a new User-Defined Command</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The Toolbar's </span><span class="f_TextIn" style="font-weight: bold;">Manage User-Defined Commands</span><span class="f_TextIn"> button's right-click menu enables you to directly create a new UDC with the </span><span class="f_TextIn" style="font-weight: bold;">argument field</span><span class="f_TextIn"> preset to some current context value. How? Simply hold CTRL while clicking one of the menu items! The preset values adjust to the command category:</span></p>
+<p class="p_TextIn"><span class="f_TextIn">- &quot;Go To&quot;, &quot;Open&quot;, &quot;Open With&quot;, &quot;New&quot;, &quot;Load Script File&quot; -&gt; current file (if any is selected)</span></p>
+<p class="p_TextIn"><span class="f_TextIn">- &quot;Rename&quot; -&gt; [empty]</span></p>
+<p class="p_TextIn"><span class="f_TextIn">- &quot;Run Script&quot; -&gt; [empty]</span></p>
+<p class="p_TextIn"><span class="f_TextIn">- else -&gt; current path</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">How to quickly duplicate a User-Defined Command</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You can duplicate the current command by pressing &quot;New&quot; or by pressing Ctrl+Ins. If the current command has a caption, then the new command's caption will have &quot;Copy of&quot; prefixed.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Command Line Parameters are supported</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The </span><span class="f_TextIn" style="font-weight: bold;">Open</span><span class="f_TextIn"> and </span><span class="f_TextIn" style="font-weight: bold;">Open With</span><span class="f_TextIn"> commands, when applied to applications, support the usage of Command Line Parameters. Of course, it is the called application that controls (1) which parameters are recognized, (2) what they do, (3) what format they must have, and (4) in which order they are expected. So, to use this feature, you must know the command line syntax of the application you want to open files with.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The only rule you have to know is: If you use Command Line Parameters, then the application term has to be in </span><span class="f_TextIn" style="text-decoration: underline;">quotes</span><span class="f_TextIn">!</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The possibilities arising from the support of parameters are absolutely astounding. For the following examples, I chose WinZip as the called application.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Example 5:</span><span class="f_TextIn"> Adding selected items to an archive. Open menu User | Manage Commands, and select category &quot;Open With&quot;. Set the option to &quot;Pass all the items to the same instance...&quot;. Then enter this line into the Application field in UDC | Open With:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp; &nbsp;&quot;winzip32&quot; -a UDCmade.zip &lt;items&gt;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&lt;items&gt; is a XYplorer variable, that in this context is set to a blank-separated list of all currently selected list items. Triggering this UDC will create (if not already existing) the archive UDCmade.zip in the current path and pack all currently selected files into it. If want the *.zip in some other place than the current path, state it with the desired full path.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Example 6:</span><span class="f_TextIn"> You may as well use </span><span class="f_TextIn" style="font-weight: bold;">XY date variables</span><span class="f_TextIn">, e.g.:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp; &nbsp;&quot;winzip32&quot; -a UDCmade-&lt;date yyyymmdd&gt;.zip &lt;items&gt;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">will create UDCmade-20071107.zip if today is 2007-11-07.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Example 7:</span><span class="f_TextIn"> Create a password protected archive and name it depending on the current folder:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp; &nbsp;&quot;winzip32&quot; -a -s&quot;Secret password &quot; &lt;curfolder&gt;-Secret.zip &lt;items&gt;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Remember that the quoting of the blank-containing password is part of WinZip's command line syntax! XYplorer is just passing this on to WinZip. What XYplorer does, however, is resolving the new XYplorer variable &lt;curfolder&gt;: it is set to the name of the current folder (not the whole path).</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Example 8:</span><span class="f_TextIn"> Extracting items from an archive to some folder:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp; &nbsp;&quot;winzip32&quot; -e &lt;items&gt; newfolder</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Will extract all items of the selected archive file into a newly created folder &quot;newfolder&quot; under the current path. Of course, you can as well give a full path for the target folder. Note that &lt;items&gt; here stands for the archive to extract! This example will only succeed when just *one* archive file is selected. This is a restriction of WinZip's command line syntax, not of XYplorer.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Example 9:</span><span class="f_TextIn"> Extracting items from an archive to some auto-named folder:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp; &nbsp;&quot;winzip32&quot; -e &lt;items&gt; &lt;curbase&gt;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The new XYplorer variable &lt;curbase&gt; will be set to the base (= name without extension) of the currently selected file (here: the archive to extract) -- it is always the file that is displayed in the status bar. For the case that the base contains blanks, you should put it in quotes else WinZip will choke:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp; &nbsp;&quot;winzip32&quot; -e &lt;items&gt; &quot;&lt;curbase&gt;&quot;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Of course, you can combine variable as you like:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp; &nbsp;&quot;winzip32&quot; -e &lt;items&gt; &quot;&lt;curbase&gt;_&lt;date yyyy-mm-dd&gt;&quot;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">If the archive is called &quot;test.zip&quot;, this would create a subfolder named &quot;test_2007-11-07&quot; and unpack the archive into it.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Example 10: </span><span class="f_TextIn">With any compare-tool accepting two-way comparisons via command line you can easily set up a one-click file comparison. Assuming you have a 3rd party software installed and registered called &quot;compare.exe&quot; then you could do:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp; &nbsp;&quot;compare&quot; &lt;item1&gt; &lt;item2&gt;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">This will your tool with the first two of all selected items in the given order. Any other selected items are ignored.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Some interesting examples for the &quot;New&quot; category</span></p>
+<p class="p_TextIn"><span class="f_TextIn">If the currently focused file is E:\Pics\ChristinaAguilera.jpg, dated 20070602:</span></p>
+<p class="p_Code"><span class="f_Code">==============================================================</span></p>
+<p class="p_Code"><span class="f_Code">Name field: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; New empty file created:</span></p>
+<p class="p_Code"><span class="f_Code">--------------------------------------------------------------</span></p>
+<p class="p_Code"><span class="f_Code">&lt;curfolder&gt;.txt &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Pics.txt</span></p>
+<p class="p_Code"><span class="f_Code">&lt;curtitle&gt;.txt &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ChristinaAguilera.jpg.txt</span></p>
+<p class="p_Code"><span class="f_Code">&lt;curbase&gt;.txt &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ChristinaAguilera.txt</span></p>
+<p class="p_Code"><span class="f_Code">&lt;curbase&gt;-&lt;curext&gt;.txt &nbsp; &nbsp;ChristinaAguilera-jpg.txt</span></p>
+<p class="p_Code"><span class="f_Code">&lt;curbase&gt;-&lt;datem yyyymmdd&gt;.txt ChristinaAguilera-20070602.txt</span></p>
+<p class="p_Code"><span class="f_Code">&lt;curbase&gt;-&lt;date yyyymmdd&gt;.txt ChristinaAguilera-20071209.txt</span></p>
+<p class="p_Code"><span class="f_Code">==============================================================</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The variable </span><span class="f_TextIn" style="font-weight: bold;">&lt;curver&gt;</span><span class="f_TextIn"> will extract the version number of the current file (if it has one). If the currently focused file is E:\XYplorer.exe, v6.60.0053:</span></p>
+<p class="p_Code"><span class="f_Code">--------------------------------------------------------------</span></p>
+<p class="p_Code"><span class="f_Code">&lt;curbase&gt;_&lt;curver&gt;.txt &nbsp; &nbsp;XYplorer_6.60.0053.txt</span></p>
+<p class="p_Code"><span class="f_Code">--------------------------------------------------------------</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">If you set the </span><span class="f_TextIn" style="font-weight: bold;">Source field</span><span class="f_TextIn"> to </span><span class="f_TextIn" style="font-weight: bold;">&lt;curitem&gt;</span><span class="f_TextIn">, you can emulate the behavior of &quot;Copy Here With Last Modified Date&quot; (see below). Or you can &quot;Copy Here With Version&quot;:</span></p>
+<p class="p_Code"><span class="f_Code">==============================================================</span></p>
+<p class="p_Code"><span class="f_Code">Name field: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Clone of Source created:</span></p>
+<p class="p_Code"><span class="f_Code">--------------------------------------------------------------</span></p>
+<p class="p_Code"><span class="f_Code">&lt;curbase&gt;_&lt;datem yyyymmdd&gt;.&lt;curext&gt; &nbsp;XYplorer_20071207.exe</span></p>
+<p class="p_Code"><span class="f_Code">&lt;curbase&gt;_&lt;curver&gt;.&lt;curext&gt; &nbsp; &nbsp; XYplorer_6.60.0045.exe &nbsp; </span></p>
+<p class="p_Code"><span class="f_Code">==============================================================</span></p>
+<p class="p_TextIn"><span class="f_TextIn">If a source is defined then the following variables in the </span><span class="f_TextIn" style="font-weight: bold;">Name field</span><span class="f_TextIn"> refer to the source: &lt;srcbase&gt;, &lt;srcext&gt;, &lt;srctitle&gt;, &lt;srcver&gt;, &lt;srcdatem yyyymmdd&gt;, &lt;srcdatec yyyymmdd&gt;, &lt;srcdatea yyyymmdd&gt;. They obviously correspond to &lt;curbase&gt;, &lt;curext&gt;, &lt;curtitle&gt;, &lt;curver&gt;, and &lt;datem yyyymmdd&gt;, which always refer to the current item.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Passing the full path</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You may as well pass a full path/name in the</span><span class="f_TextIn" style="font-weight: bold;"> Name field</span><span class="f_TextIn"> (only if no path is passed, the current path is taken as default). If the target folder does not exist it is </span><span class="f_TextIn" style="font-weight: bold;">created on the fly</span><span class="f_TextIn">. The &quot;last target&quot; path (used by Ctrl+Alt+F7) is set to the target folder.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Further remarks</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">No limit:</span><span class="f_TextIn"> There's virtually no limit to the number of commands, although, being menu-based and having a finite number of keys on your board you will hit a usability wall at some point.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Accelerators:</span><span class="f_TextIn"> You can create an accelerator simply by prefixing the letter to be used by the ampersand sign (&amp;). If you want to use the &amp; character itself in your caption, simply double it, e.g. &quot;This &amp;&amp; That&quot;.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Separators:</span><span class="f_TextIn"> If you want to organize your menus into sub sections you can use separators. Simply create a new command, and put the minus sign (-) as argument.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Short forms for applications:</span><span class="f_TextIn"> You will have noted the use of &quot;winzip32&quot; above. If the EXE to run is registered (known by the registry) it is not necessary to state the full path. The base name of the EXE file is enough. Both ways will work the same (UDC category </span><span class="f_TextIn" style="font-weight: bold;">OpenWith</span><span class="f_TextIn">):</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp;&quot;C:\Program Files (x86)\WinZip\Winzip32.exe&quot; -a UDCmade.zip &lt;items&gt;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp;&quot;winzip32&quot; -a UDCmade.zip &lt;items&gt;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Of course, the latter version is more </span><span class="f_TextIn" style="font-weight: bold;">portable</span><span class="f_TextIn">, because it will call WinZip successfully on systems where it has a different installation path from your home system.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Specifying Menu Icons:</span><span class="f_TextIn"> You can optionally pass a pointer to an icon along with the caption. The icon will be shown in the User menu. The general form is MenuCaption|MenuIcon, where MenuIcon can have various formats:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp;MenuCaption|C:\Beta\ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;full path/file to file or folder</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp;MenuCaption|fun.ico &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; path relative to the Icons Path (default: &lt;xydata&gt;\Icons)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp;MenuCaption|&lt;xydata&gt;\Icons\fun.ico &nbsp; &nbsp;support of XY native variables</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp;MenuCaption|:minitree &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; internal icon (toolbar buttons resource)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp;MenuCaption| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;nothing (no icon shown)</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Options: </span><span class="f_TextIn">The Options button pops a small menu with two options:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn" style="font-weight: bold;">Show Menu Icons</span><span class="f_TextIn">: Tick it to show icons in the User-Defined Commands menus.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn" style="font-weight: bold;">Show Status Bar Message</span><span class="f_TextIn">: Tick it to show a status bar message before and after each triggered User-Defined Command.</span></td></tr></table></div><p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Variables:</span><span class="f_TextIn"> See <a href="idh_variables.htm">Variables</a>.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

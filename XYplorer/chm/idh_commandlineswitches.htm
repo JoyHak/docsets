@@ -1,0 +1,213 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>Command Line Switches</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Command Line Switches,Start Parameters,Session Title,Startup with a Script,Fresh Instance,Read-Only Instance" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#F6F8FA">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Title"><span class="f_Title">Command Line Switches</span></p>
+
+    </td>
+    <td align="right">
+     <span style="font-size: 9pt">
+     <a href="idh_intro.htm"><img src="arrow-up-icon24.png" border=0 alt="Top"></a>&nbsp;
+     <a href="idh_adminsettings.htm"><img src="arrow-left-icon24.png" border=0 alt="Previous"></a>&nbsp;
+     <a href="idh_fileassociations.htm"><img src="arrow-right-icon24.png" border=0 alt="Next"></a>
+     </span>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p class="p_Title"><span class="f_Title">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">Command Line Switches</span></p>
+<p class="p_Text"><span class="f_Text">This is about the Windows command line, aka command prompt, as used e.g. in the DOS-Box or in the properties of shortcuts (LNK files).</span></p>
+<p class="p_Text"><span class="f_Text">The overall command line format is something like this (more switches exist, as shown below):</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;XYplorer.exe[ /win=min|max|normal][ /ini=myini][ startuppath]</span></p>
+<p class="p_Text"><span class="f_Text">The order of the switches is not relevant.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_commandlineswitches.htm#idh_cl_exp">/exp</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_commandlineswitches.htm#idh_cl_feed">/feed</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_commandlineswitches.htm#idh_cl_flg">/flg</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_commandlineswitches.htm#idh_cl_fresh">/fresh</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_commandlineswitches.htm#idh_cl_hwnd">/hwnd</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_commandlineswitches.htm#idh_cl_ini">/ini</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_commandlineswitches.htm#idh_cl_new">/new</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_commandlineswitches.htm#idh_cl_path">/path</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_commandlineswitches.htm#idh_cl_readonly">/readonly</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_commandlineswitches.htm#idh_cl_restore">/restore</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_commandlineswitches.htm#idh_cl_script">/script</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_commandlineswitches.htm#idh_cl_select">/select</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_commandlineswitches.htm#idh_cl_title">/title</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_commandlineswitches.htm#idh_cl_user">/user</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_commandlineswitches.htm#idh_cl_win">/win</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_commandlineswitches.htm#idh_cl_winex">/win (extended syntax)</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_TextTitleSection"><a name="idh_cl_exp"></a><span class="f_TextTitleSection">/exp</span></p>
+<p class="p_Text"><span class="f_Text">Add this switch to ensure the startup folder is expanded in the tree.</span></p>
+<p class="p_Text"><span class="f_Code"> &nbsp;XYplorer.exe /exp</span></p>
+<p class="p_Text"><span class="f_Code"> &nbsp;XYplorer.exe /path=C:\ /exp</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_TextTitleSection"><a name="idh_cl_feed"></a><span class="f_TextTitleSection">/feed</span></p>
+<p class="p_Text"><span class="f_Text">Lets you feed a script into an existing instance of XYplorer without changing the location or tabs of that instance. A practical shorthand of using switches </span><span class="f_Text" style="font-weight: bold;">/script</span><span class="f_Text"> and </span><span class="f_Text" style="font-weight: bold;">/flg=2</span><span class="f_Text">. The following lines are functionally identical:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;XYplorer.exe /script=&quot;::msg 'Hi!';&quot; /flg=2</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;XYplorer.exe /feed=&quot;::msg 'Hi!';&quot;</span></p>
+<p class="p_Text"><span class="f_Text">If you use both /script and /feed then /feed will overwrite /script.</span></p>
+<p class="p_Text"><span class="f_NoteSign">Tip:</span><span class="f_Text"> You can &quot;pipe&quot; a value instead of quoting it. This can be useful when unpredictable quotes (that might be returned from variables) make predictable parsing impossible, or simply to make a string more readable. For example, this is the same Command Line Switch, first quoted then piped:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;/feed=&quot;::text '&quot;R:\a b c&quot;';&quot; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="f_Text">(this would </span><span class="f_Text" style="font-weight: bold;">not</span><span class="f_Text"> work; parser cannot handle the ambiguous quotes)</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;/feed=|::text '&quot;R:\a b c&quot;';| &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="f_Text">(this </span><span class="f_Text" style="font-weight: bold;">does</span><span class="f_Text"> work)</span></p>
+<p class="p_Text"><span class="f_Text">Of course, you must be sure that no pipes can come up inside the value.</span></p>
+<p class="p_Text"><span class="f_Text">When called from a dos prompt the pipes have to be escaped, e.g.:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;XYplorer.exe /feed=^|::text '&quot;R:\a b c&quot;';^|</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">&nbsp;</span></p>
+<p class="p_TextTitleSection"><a name="idh_cl_flg"></a><span class="f_TextTitleSection">/flg</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">/flg=2:</span><span class="f_Text"> You can feed a script into an existing instance of XYplorer without changing the location or tabs of that instance. Simply pass the switch </span><span class="f_Text" style="font-weight: bold;">/flg=2</span><span class="f_Text"> in the command line, for example:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;XYplorer.exe /script=&quot;::msg 'Hi!';&quot; /flg=2</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">/flg=8: </span><span class="f_Text">No Custom Column scripts are executed. That way you can start XYplorer even when you messed up your scripts.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_TextTitleSection"><a name="idh_cl_fresh"></a><span class="f_TextTitleSection">/fresh</span></p>
+<p class="p_Text"><span class="f_Text">Run the application without loading any settings apart from the license data. This can be useful for isolating any issues under factory defaults conditions and thus can help the analysis.</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;XYplorer.exe /fresh</span></p>
+<p class="p_Text"><span class="f_Text">Note that a new instance is opened regardless of any settings or existing instances (like with switch /new).</span></p>
+<p class="p_Text"><span class="f_NoteSign">Tip 1:</span><span class="f_Text"> Open a fresh instance via Windows Run dialog:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;&quot;C:\Program Files\XYplorer\XYplorer.exe&quot; /fresh</span></p>
+<p class="p_Text"><span class="f_NoteSign">Tip 2:</span><span class="f_Text"> Or open a fresh instance using this mini script right from XYplorer's address bar:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;fresh;</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">&nbsp;</span></p>
+<p class="p_TextTitleSection"><a name="idh_cl_hwnd"></a><span class="f_TextTitleSection">/hwnd</span></p>
+<p class="p_Text"><span class="f_Text">If feeding a script into XYplorer you can pass the window handle of the target XYplorer instance with this switch if you know it. If you want to feed the script into this XYplorer, you can simply use the variable &lt;hwnd&gt;, for example:</span></p>
+<p class="p_Code"><span class="f_Code">run &quot;&lt;xy&gt; /script=&quot;&quot;::msg 'Hi!';&quot;&quot; /flg=2 /hwnd=&lt;hwnd&gt;&quot;, , 0, 0;</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">&nbsp;</span></p>
+<p class="p_TextTitleSection"><a name="idh_cl_ini"></a><span class="f_TextTitleSection">/ini</span></p>
+<p class="p_Text"><span class="f_Text">You can specify which INI file to load by starting the application as follows:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;/ini=myini &nbsp; &nbsp;-&gt; load [XYplorer application data path\] myini.ini</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text">Notes:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 28px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_Text" style="font-weight: bold;">myini</span><span class="f_Text"> can be just a </span><span class="f_Text" style="font-weight: bold;">base name </span><span class="f_Text">(myini) or include the extension </span><span class="f_Text" style="font-weight: bold;">.ini </span><span class="f_Text">(myini.ini). If you pass no path with it then the file is looked for in the </span><span class="f_Text" style="font-weight: bold;"><a href="idh_install.htm#idh_adp">Application Data Path</a></span><span class="f_Text">.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 28px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_Text" style="font-weight: bold;">myini</span><span class="f_Text"> must be quoted if the name contains any blanks.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 28px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_Text">If you use the /ini switch then you will </span><span class="f_Text" style="font-weight: bold;">always</span><span class="f_Text"> get a new instance even if </span><span class="f_Text" style="font-weight: bold;">Configuration | General | Startup &amp; Exit | Allow multiple instances</span><span class="f_Text"> is unchecked.</span></td></tr></table></div><p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text">Date variables, e.g. </span><span class="f_CodeChar">&lt;date yyyy&gt;</span><span class="f_Text">, are supported in the path. See examples below.</span></p>
+<p class="p_Text"><span class="f_Text">You can pass a non-existing path with the /ini switch, e.g.:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;XYplorer.exe /ini=%temp%\XY\ /fresh</span></p>
+<p class="p_Text"><span class="f_Text">Only on saving any settings, the path will be created. Usage: By passing a non-existing path you can ensure that no current settings are overwritten, e.g. like this:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;XYplorer.exe /ini=&quot;%temp%\XY_&lt;date yyyymmddhhnnss&gt;\&quot;</span></p>
+<p class="p_Text"><span class="f_Text">Or from the Address Bar:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;::run quote(&quot;&lt;xy&gt;&quot;) . ' /ini=&quot;%temp%\XY_&lt;date yyyymmddhhnnss&gt;\&quot;';</span></p>
+<p class="p_NoteSign" style="line-height: 1.20; margin: 4px 28px 4px 28px;"><span class="f_NoteSign">Tip:</span><span class="f_Text"> The currently used INI file and Application Data Path is displayed in the title bar of the <a href="idh_settings.htm">Configuration</a> window</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">&nbsp;</span></p>
+<p class="p_TextTitleSection"><a name="idh_cl_new"></a><span class="f_TextTitleSection">/new</span></p>
+<p class="p_Text"><span class="f_Text">Open a new instance regardless of any settings that would otherwise force any existing instance to be re-used.</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;XYplorer.exe /new</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">&nbsp;</span></p>
+<p class="p_TextTitleSection"><a name="idh_cl_path"></a><span class="f_TextTitleSection">/path</span></p>
+<p class="p_Text"><span class="f_Text">Lets you control the startup path, optionally quoted (quotes are needed if the path contains spaces).</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;XYplorer.exe /path=C:\</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;XYplorer.exe /path=&quot;C:\New Folder&quot;</span></p>
+<p class="p_Text"><span class="f_Text">Note that you can also pass the startup path as an unnamed switch, see <a href="idh_commandlineswitches.htm#idh_startuppath">below</a>. However, the /path switch will overwrite any unnamed switch.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">&nbsp;</span></p>
+<p class="p_TextTitleSection"><a name="idh_cl_readonly"></a><span class="f_TextTitleSection">/readonly</span></p>
+<p class="p_Text"><span class="f_Text">Run the application in read-only mode, i.e. the settings are read from disk but never written to disk. So your configuration on disk will be untouched by this instance.</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;XYplorer.exe /readonly</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn" style="font-weight: normal;">Notes:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 16px 0px 0px 28px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextTitleIn" style="font-weight: normal;">[READONLY] in shown in the window title bar when in read-only mode.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 16px 0px 0px 28px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextTitleIn" style="font-weight: normal;">You get a Status Bar message when you actively attempt to save settings in read-only mode.</span></td></tr></table></div><p class="p_TextTitleIn"><span class="f_TextTitleIn">&nbsp;</span></p>
+<p class="p_TextTitleSection"><a name="idh_cl_restore"></a><span class="f_TextTitleSection">/restore</span></p>
+<p class="p_Text"><span class="f_Text">Can be used to specify an alternative temporary application data path from which the configuration is read on startup. After startup, this path isn't used anymore and all writing goes to the regular application data path (whether it's the default or one set with the /ini switch). The typical use of /restore is to restore the configuration from a backup path. Example:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;/restore=&quot;E:\XYbackups\20240304\appdata\&quot;</span></p>
+<p class="p_Text"><span class="f_Text">Another use could be to always start the application with a certain configuration, similar to a read-only mode, but here you can save data to the regular appdata path, so there is an option to use the saved data later. Example:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;/restore=&quot;E:\XYconfigs\loveit\&quot;</span></p>
+<p class="p_Text"><span class="f_Text">Note that you can combine /ini and /restore in one command line:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;/ini=&quot;E:\XY\snapshot\&lt;date yyyymmdd&gt;\&quot; /restore=&quot;E:\XYconfigs\loveit\&quot;</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">&nbsp;</span></p>
+<p class="p_TextTitleSection"><a name="idh_cl_script"></a><span class="f_TextTitleSection">/script</span></p>
+<p class="p_Text"><span class="f_Text">You can run a script at startup directly from the command line. The switch is /script=[script resource], where [script resource] can be:</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">1) The path to a script file (commonly called *.xys).</span><span class="f_Text"> The file spec is resolved as in the script command </span><span class="f_Text" style="font-weight: bold;">load</span><span class="f_Text">, so you can skip the XYS extension. You can also skip the path if the XYS file is located in the default scripts folder. For example</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;XYplorer.exe /script=test</span></p>
+<p class="p_Text"><span class="f_Text">would run the file &lt;xyscripts&gt;\test.xys at startup. If the path contains spaces it must be quoted:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;XYplorer.exe /script=&quot;C:\Zen\test one.xys&quot;</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">2) A script.</span><span class="f_Text"> It must be preceded by ::, and it must not contain double quotes or other characters that might lead to problems when parsing the command line. For example</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;XYplorer.exe /script=&quot;::msg 'Welcome to XY!';&quot;</span></p>
+<p class="p_Text"><span class="f_Text">Note the double quotes surrounding the whole argument which are needed because of the spaces in the script line.</span></p>
+<p class="p_Text"><span class="f_Text">If your script needs double quotes you should use the </span><span class="f_Text" style="font-weight: bold;">quote()</span><span class="f_Text"> function or </span><span class="f_Text" style="font-weight: bold;">runq</span><span class="f_Text"> with single quotes:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;XYplorer.exe /script=&quot;::run quote('E:\Test\Has Space.txt');&quot;</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;XYplorer.exe /script=&quot;::runq 'E:\Test\Has Space.txt';&quot;</span></p>
+<p class="p_Text"><span class="f_NoteSign">Tip:</span><span class="f_Text"> See the <a href="idh_commandlineswitches.htm#idh_cl_feed">tip about &quot;piping&quot;</a> as an alternative to quoting.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">&nbsp;</span></p>
+<p class="p_TextTitleSection"><a name="idh_cl_select"></a><span class="f_TextTitleSection">/select</span></p>
+<p class="p_Text"><span class="f_Text">XYplorer will go to the parent path in the folder tree and select the item in the file list. For example, this will go to C:\ and select Windows in the list:</span><br>
+<span class="f_Code"> &nbsp;XYplorer.exe /select=C:\Windows</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">&nbsp;</span></p>
+<p class="p_TextTitleSection"><a name="idh_cl_title"></a><span class="f_TextTitleSection">/title</span></p>
+<p class="p_Text"><span class="f_Text">You can set a </span><span class="f_Text" style="font-weight: bold;">session title</span><span class="f_Text"> via the command line switch /title=[session title]. If the title contains any spaces it has to be quoted. Example:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;/title=&quot;Mars Project&quot;</span></p>
+<p class="p_Text"><span class="f_Text">A session title is useful when you need to distinguish several parallel sessions. See </span><span class="f_Text" style="font-weight: bold;">Title Bar Template</span><span class="f_Text"> in <a href="idh_settings.htm#idh_settingstemplates">Configuration | Templates</a>.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">&nbsp;</span></p>
+<p class="p_TextTitleSection"><a name="idh_cl_user"></a><span class="f_TextTitleSection">/user</span></p>
+<p class="p_Text"><span class="f_Text">Lets you pass a |-separated, optionally quoted, list of values to the application. The individual values can later be retrieved via scripting command </span><span class="f_Text" style="font-weight: bold;">get</span><span class="f_Text"> (with the named argument &quot;</span><span class="f_Text">CmdLineUser</span><span class="f_Text">&quot;). For example:</span></p>
+<p class="p_Code"><span class="f_Code">App Call:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;XYplorer.exe /user=a|b|c</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;XYplorer.exe /user=&quot;a|b|c&quot; &nbsp; &nbsp;(with optional quoting)</span></p>
+<p class="p_Code"><span class="f_Code">Scripting:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;echo get(&quot;CmdLineUser&quot;); //a|b|c</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;echo get(&quot;CmdLineUser&quot;, 1); //a</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;echo get(&quot;CmdLineUser&quot;, 2); //b</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;echo get(&quot;CmdLineUser&quot;, 3); //c</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">&nbsp;</span></p>
+<p class="p_TextTitleSection"><a name="idh_cl_win"></a><span class="f_TextTitleSection">/win</span></p>
+<p class="p_Text"><span class="f_Text">You can control the window state at startup:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;/win=min &nbsp; &nbsp; &nbsp;-&gt; start minimized</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;/win=max &nbsp; &nbsp; &nbsp;-&gt; start maximized</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;/win=normal &nbsp; -&gt; start normal</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;/win=tray &nbsp; &nbsp; -&gt; start minimized to tray</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">&nbsp;</span></p>
+<p class="p_TextTitleSection"><a name="idh_cl_winex"></a><span class="f_TextTitleSection">/win (extended syntax)</span></p>
+<p class="p_Text"><span class="f_Text">The switch /win can also be used to specify the main window position and dimension at startup, overwriting the values in the INI file. Each value is optional and if missing the value found in the INI file is used. General format:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;/win=[min|max|normal|tray],[x],[y],[width],[height]</span></p>
+<p class="p_Text"><span class="f_Text">Examples:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;/win=normal,40,20,1200,800</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;/win=,20,20,1200 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-&gt; window state and height from INI</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;/win=,,,1000,800 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-&gt; window state and position from INI</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;/win=min &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-&gt; start minimized (other values from INI)</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;/win=max,,,,400 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -&gt; start maximized, restore to height 400</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;/win=tray,40,20,1200,400 &nbsp; &nbsp;-&gt; start minimized to tray</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_appdatapath"></a><span class="f_TextTitleChar">Setting the Application Data Path (ADP)</span></p>
+<p class="p_Text"><span style="font-size: 9pt; font-family: 'Verdana';">You can specify an alternate Application Data Path (ADP) directly from the command line. Just use the </span><span style="font-size: 9pt; font-family: 'Verdana'; font-weight: bold;">/ini</span><span style="font-size: 9pt; font-family: 'Verdana';"> switch and pass a full path.</span></p>
+<p class="p_Text"><span style="font-size: 9pt; font-family: 'Verdana';">For example:</span></p>
+<p class="p_Code"><span style="font-size: 9pt; font-family: 'Courier New'; color: #000080;">XYplorer.exe /ini=C:\XYdata\XY.ini</span></p>
+<p class="p_Text"><span style="font-size: 9pt; font-family: 'Verdana';">Sets the ADP to C:\XYdata\, and loads XY.ini as main configuration file from there, as well as all other data files like cks.dat, udc.dat etc.</span></p>
+<p class="p_Text"><span style="font-size: 9pt; font-family: 'Verdana';">Note that portable syntax is supported:</span></p>
+<p class="p_Code"><span style="font-size: 9pt; font-family: 'Courier New'; color: #000080;">XYplorer.exe /ini=?:\XYdata\XY.ini</span></p>
+<p class="p_Text"><span style="font-size: 9pt; font-family: 'Verdana';">? will be set to the drive XY is running from.</span></p>
+<p class="p_Code"><span style="font-size: 9pt; font-family: 'Courier New'; color: #000080;">XYplorer.exe /ini=XYdata\XY.ini</span></p>
+<p class="p_Text"><span style="font-size: 9pt; font-family: 'Verdana';">Sets the ADP to [XY app path]\XYdata\</span></p>
+<p class="p_Text"><span style="font-size: 9pt; font-family: 'Verdana';">You can also pass the path alone without stating the INI file. Simply end the argument with a backslash:</span></p>
+<p class="p_Code"><span style="font-size: 9pt; font-family: 'Courier New'; color: #000080;">XYplorer.exe /ini=C:\XYdata\</span></p>
+<p class="p_Text"><span style="font-size: 9pt; font-family: 'Verdana';">Sets the ADP to C:\XYdata\, and loads XYplorer.ini (the default INI file). </span></p>
+<p class="p_Text"><span style="font-size: 9pt; font-family: 'Verdana';">This new support for passing the ADP via command lines means that you now can run completely independent configurations simply using Windows shortcuts.</span></p>
+<p class="p_NoteSign" style="line-height: 1.20; margin: 4px 28px 4px 28px;"><span style="font-size: 9pt; font-family: 'Verdana'; font-weight: bold; color: #800080;">Tip:</span><span style="font-size: 9pt; font-family: 'Verdana';"> The currently used INI file and Application Data Path is displayed in the title bar of the Configuration window.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_startuppath"></a><span class="f_TextTitleChar">Setting the Startup Path</span></p>
+<p class="p_Text"><span class="f_Text">The INI contains all settings including the current startup path. You can however overwrite this value by stating the startup path in an (unnamed) switch, e.g. as the right-most argument, optionally quoted (quotes are needed if the path contains spaces). For example:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;XYplorer.exe /ini=myini &quot;C:\Windows&quot;</span></p>
+<p class="p_Text"><span class="f_Text">You may also pass a startup path relative to the application path, e.g. &quot;..\..\&quot;. Passing just a dot (&quot;.&quot;) will startup at application path.</span></p>
+<p class="p_Text"><span class="f_NoteSign">Notes:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 28px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_Text">Special paths, e.g. &quot;Desktop\Blah\&quot;, are supported.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 28px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_Text">Paths to files are supported. XYplorer will go to the parent path in the folder tree and select the file in the file list.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 28px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_Text">Paper Folders are supported, e.g. &quot;paper:Photos&quot;.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 28px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_Text">You can inject a </span><span class="f_Text" style="font-weight: bold;">Dual Startup Path</span><span class="f_Text"> (one path for each pane) into the running or a new instance (depending on your settings) by passing two paths separated by a double-pipe (||). Example:</span><br>
+<span class="f_Code">XYplorer.exe &quot;C:\||D:\&quot;</span><br>
+<span class="f_Text">Note that Dual Startup Path forces startup in Dual Pane mode.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 28px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_Text">See also the </span><span class="f_Text" style="font-weight: bold;">/path</span><span class="f_Text"> switch above for another way to pass a startup path.</span></td></tr></table></div><p class="p_TextTitleIn"><span class="f_TextTitleIn">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

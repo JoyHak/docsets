@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>Copying files with XYplorer</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Copying files,Copying files comparative overview" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#F6F8FA">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Title"><span class="f_Title">Copying files with XYplorer</span></p>
+
+    </td>
+    <td align="right">
+     <span style="font-size: 9pt">
+     <a href="idh_intro.htm"><img src="arrow-up-icon24.png" border=0 alt="Top"></a>&nbsp;
+     <a href="idh_mendd.htm"><img src="arrow-left-icon24.png" border=0 alt="Previous"></a>&nbsp;
+     <a href="idh_richop.htm"><img src="arrow-right-icon24.png" border=0 alt="Next"></a>
+     </span>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p class="p_Title"><span class="f_Title">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text">There are four different file copy commands in XYplorer, so here's a quick comparative overview.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Copy</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The standard Windows file copy operation (the only copy Explorer can do).</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Source:</span><span class="f_TextIn"> All currently selected files/folders in List (normal browse or find results), or the currently selected folder in Tree.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Target:</span><span class="f_TextIn"> All files contained in the source are copied to one and the same target folder. Any folders contained in the source are created below the target folder including all their contents.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Prompts:</span><span class="f_TextIn"> When a file or folder with the same name already exists in the target location, you are asked whether you want to overwrite the existing item. Your choices are </span><span class="f_TextIn" style="font-weight: bold;">Yes</span><span class="f_TextIn">, </span><span class="f_TextIn" style="font-weight: bold;">Yes to All</span><span class="f_TextIn">, </span><span class="f_TextIn" style="font-weight: bold;">No</span><span class="f_TextIn">, or </span><span class="f_TextIn" style="font-weight: bold;">Cancel</span><span class="f_TextIn">. If you answer Yes or No, you will be asked again every time this happens.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Issue 1:</span><span class="f_TextIn"> since there is no </span><span class="f_TextIn" style="font-weight: bold;">No to all</span><span class="f_TextIn"> button you'll have a hard time clicking Yes or No when doing a large synchronize job. This issue is one of the reasons why there's the </span><span class="f_TextIn" style="font-weight: bold;">Backup</span><span class="f_TextIn"> command (see below).</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Issue 2:</span><span class="f_TextIn"> when using this command on find results of a recursive file find (subfolders included), the operation might lead to unwanted results: first, if the copy cargo contains files of the same name (eg. you might have found a lot of &quot;index.htm&quot; files in various locations), you'll face the overwrite prompt for every non-first file of the same name, since Copy puts all files to one and the same location; second, if the copy cargo contains folders, </span><span class="f_TextIn" style="font-weight: bold;">all</span><span class="f_TextIn"> their contents will be copied, too, although they probably do not all match your find criteria. This issue is one of the reasons why there's the </span><span class="f_TextIn" style="font-weight: bold;">Rich Copy</span><span class="f_TextIn"> command (see below).</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Custom Copy</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The details of this command are </span><span class="f_TextIn">described </span><span class="f_TextIn"><a href="idh_settings.htm#idh_settingscustomcopyoperations">here</a></span><span class="f_TextIn">.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Source:</span><span class="f_TextIn"> Same as </span><span class="f_TextIn" style="font-weight: bold;">Copy</span><span class="f_TextIn"> above.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Target:</span><span class="f_TextIn"> All files contained in the source are copied to their relative path below the target folder (any needed subfolders are automatically created along the way).</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Prompts:</span><span class="f_TextIn"> Can be configured.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Issues:</span><span class="f_TextIn"> This command avoids </span><span class="f_TextIn" style="font-weight: bold;">Issue 1</span><span class="f_TextIn"> (above).</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Backup</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The details of this command are </span><span class="f_TextIn">described </span><span class="f_LinkJump"><a href="idh_backup.htm">here</a></span><span class="f_TextIn">.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Source:</span><span class="f_TextIn"> Same as </span><span class="f_TextIn" style="font-weight: bold;">Copy</span><span class="f_TextIn"> above.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Target:</span><span class="f_TextIn"> All files contained in the source are copied to their relative path below the target folder (any needed subfolders are automatically created along the way).</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Prompts:</span><span class="f_TextIn"> Can be configured.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Issues:</span><span class="f_TextIn"> This command avoids </span><span class="f_TextIn" style="font-weight: bold;">Issue 1</span><span class="f_TextIn"> (above).</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Rich Copy</span></p>
+<p class="p_TextIn"><span class="f_TextIn">A special command only available in XYplorer: Copy find results along with their original folder structure. </span><span class="f_TextIn">Details are described </span><span class="f_LinkJump"><a href="idh_richop.htm">here</a></span><span class="f_TextIn">.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Source:</span><span class="f_TextIn"> All currently selected files/folders in List, but </span><span class="f_TextIn" style="font-weight: bold;">only when find results are displayed</span><span class="f_TextIn">.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Target:</span><span class="f_TextIn"> All files contained in the source are copied to their relative path below the target folder (any needed subfolders are automatically created along the way).</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Prompts:</span><span class="f_TextIn"> Same as </span><span class="f_TextIn" style="font-weight: bold;">Copy</span><span class="f_TextIn"> above. Or can be configured if </span><span class="f_TextIn" style="font-weight: bold;">Custom Copy</span><span class="f_TextIn"> is used.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Issues:</span><span class="f_TextIn"> This command avoids </span><span class="f_TextIn" style="font-weight: bold;">Issue 2</span><span class="f_TextIn"> (above).</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

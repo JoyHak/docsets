@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>Scripting</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Scripting Menu,Run Script...,Run Script Again,Step Mode,Debugging scripts,Syntax Checking,Try Script...,Permanent Variables,Load Selected Script File,Load Script File...,Go to Scripts Folder" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#F6F8FA">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Title"><span class="f_Title">Scripting Menu</span></p>
+
+    </td>
+    <td align="right">
+     <span style="font-size: 9pt">
+     <a href="idh_intro.htm"><img src="arrow-up-icon24.png" border=0 alt="Top"></a>&nbsp;
+     <a href="idh_menuser.htm"><img src="arrow-left-icon24.png" border=0 alt="Previous"></a>&nbsp;
+     <a href="idh_menpanes.htm"><img src="arrow-right-icon24.png" border=0 alt="Next"></a>
+     </span>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p class="p_Title"><span class="f_Title">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">Scripting Menu Commands</span></p>
+<p class="p_Text"><span class="f_Text" style="font-size: 10pt; font-style: italic; color: #0080ff; background-color: #eeece1;">Note: If this menu is not visible, you can enable it in&nbsp;</span><span class="f_Text" style="font-size: 10pt; font-style: italic; font-weight: bold; color: #0080ff; background-color: #eeece1;">Configuration | Other | Features</span><span class="f_Text" style="font-size: 10pt; font-style: italic; color: #0080ff; background-color: #eeece1;">.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Run Script...</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Enter and execute a script directly. The script can be multi-line, and you can enter more than one script (in which case a menu will pop up).</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The last entered script is remembered between sessions. Note that the dialog has context sensitive help: F1 will open the <a href="idh_scripting_comref.htm">Scripting Commands Reference</a>.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Run Script Again</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Runs the script previously entered in </span><span class="f_TextIn" style="font-weight: bold;">Run Script...</span><span class="f_TextIn"> or </span><span class="f_TextIn" style="font-weight: bold;">Try Script... </span><span class="f_TextIn">again.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Step Mode</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Toggle </span><span class="f_TextIn">Step Mode</span><span class="f_TextIn">. Stepping through scripts is recommended for debugging scripts, and for carefully testing scripts that you have received from other authors.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Syntax Checking</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Tick it show a warning on dubious syntax. Recommended for debugging scripts.</span></p>
+<p class="p_TextIn"><span class="f_NoteSign">Tip:</span><span class="f_TextIn"> You can suppress further validation for the current script by holding Ctrl while pressing &quot;Continue&quot; in the &quot;Dubious Syntax&quot; dialog.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Try Script...</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Like </span><span class="f_TextTitleIn">Run Script...</span><span class="f_TextTitleIn" style="font-weight: normal;"> above, but:</span><span class="f_TextIn"> </span><span class="f_TextIn" style="font-weight: bold;">Step Mode</span><span class="f_TextIn"> is always enabled for the script you run from the Try Script window. The previous state of </span><span class="f_TextIn" style="font-weight: bold;">Step Mode</span><span class="f_TextIn"> is restored when done.</span></p>
+<p class="p_NoteSign" style="line-height: 1.20; margin: 4px 28px 4px 38px;"><span class="f_NoteSign">Shortcut: Ctrl+Alt+S</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Permanent Variables</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Pops a list of all <a href="idh_scripting.htm#idh_scripting_globalvars">Permanent Variables</a> that are currently in memory. Tip: The list has a right-click menu.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You can double-click a variable in the listing to show its value. Here y</span><span class="f_Text">ou can </span><span class="f_Text" style="font-weight: bold;">edit</span><span class="f_Text"> the variable values after double-clicking them (or right-click / Show Value) in the list. Y</span><span class="f_TextIn">ou</span><span class="f_Text"> can as well </span><span class="f_Text" style="font-weight: bold;">unset</span><span class="f_Text"> these variables individually directly from the right-click menu in the variable list (command </span><span class="f_Text" style="font-weight: bold;">Unset</span><span class="f_Text">).</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Load Selected Script File</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Allows you to directly load a script resource from the file list. It's your responsibility to ensure that the selected file is a valid script file.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Load Script File...</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Here you can load a script file (*.xys) from application data path. If it contains exactly one script it will immediately executed, else a menu is popped up.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Go to Scripts Folder</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Brings you to the &quot;Scripts&quot; folder, a subfolder of the application data path.</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=Xyplorer.chm
+Contents file=XYplorer.hhc
+Display compile progress=No
+Index file=XYplorer.hhk
+Language=0x409 English (USA)
+Default Window=Guide
+Default topic=idh_scripting_comref.htm
+
+[INFOTYPES]
+

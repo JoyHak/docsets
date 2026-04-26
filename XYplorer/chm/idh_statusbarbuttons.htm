@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>Status Bar Buttons</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Status Bar Buttons,Background Jobs Button,Background Jobs Dialog,Queued File Operations,Info Panel Toggle" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#F6F8FA">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Title"><span class="f_Title">Status Bar Buttons</span></p>
+
+    </td>
+    <td align="right">
+     <span style="font-size: 9pt">
+     <a href="idh_intro.htm"><img src="arrow-up-icon24.png" border=0 alt="Top"></a>&nbsp;
+     <a href="idh_status.htm"><img src="arrow-left-icon24.png" border=0 alt="Previous"></a>&nbsp;
+     <a href="idh_panel.htm"><img src="arrow-right-icon24.png" border=0 alt="Next"></a>
+     </span>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p class="p_Title"><span class="f_Title">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">Status Bar Buttons</span></p>
+<p class="p_Text"><span class="f_Text">There's an optional mini toolbar at the right end of the <a href="idh_status.htm">Status Bar</a> containing two buttons. You can show/hide it using </span><span class="f_Text" style="font-weight: bold;">Show Status Bar Buttons </span><span class="f_Text">in menu </span><span class="f_Text" style="font-weight: bold;">Window</span><span class="f_Text">.</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">1. The Background Jobs Button</span></p>
+<p class="p_Text"><span class="f_Text">This button tells you about the status of <a href="idh_settings.htm#idh_settingsfop">background jobs</a> (if any) by showing an animated icon. If the animation is active the button's tooltip tells you how many jobs are not yet completed (either in progress or pending).</span></p>
+<p class="p_Text"><span class="f_Text">Clicking the button will open the Background Jobs dialog (see below). The button also has a right-click menu with some handy commands.</span></p>
+<p class="p_Text"><span class="f_Text">The &quot;Background Jobs&quot; button is only shown when background processing is enabled (Configuration | File Operations | File Operations | Background Processing | Enable background processing).</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_TextTitleChar"><a name="idh_bj"></a><span class="f_TextTitleChar">Background Jobs Dialog</span></p>
+<p class="p_Text"><span class="f_Text">The right-click menu of the</span><span class="f_Text"> Background Jobs button and the &quot;</span><span class="f_TextTitleIn" style="font-weight: normal;">Queue file operations&quot;</span><span class="f_Text"> toolbar button has an item</span><span class="f_Text" style="font-weight: bold;"> Background Jobs...</span><span class="f_Text"> where you can display the background file operations that are completed, in progress, or pending within the current session, as list in a non-modal window. You will also see which jobs have been skipped, cancelled, or only partially completed. The position and size of the window is stored between calls and sessions.</span></p>
+<p class="p_Text"><span class="f_Text">The status is auto-updated each second. You can force an immediate update by pressing F5.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Hide completed and skipped</span></p>
+<p class="p_Text"><span class="f_Text">Check to show only pending and in-progress jobs in the list.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Pause queue</span></p>
+<p class="p_Text"><span class="f_Text">You can completely pause the queue using the checkbox &quot;Pause queue&quot;. Jobs that are already in progress are not affected by pausing. On unpause the processing starts with the next pending queued job.</span></p>
+<p class="p_Text"><span class="f_Text">The setting is also available in the context menu of the Background Jobs button.</span></p>
+<p class="p_Text"><span class="f_Text">When you close XYplorer all pending jobs in a paused queue are forgotten. You are prompted whether you really want to purge the jobs.</span></p>
+<p class="p_Text"><span class="f_NoteSign">Note:</span><span class="f_Text"> Pausing only affects *queued* (pending and new) jobs. If </span><span class="f_Text" style="font-weight: bold;"><a href="idh_settings.htm#idh_settingsfop">Queue file operations</a></span><span class="f_Text"> is off then new background jobs will be started immediately regardless of the state of &quot;Pause queue&quot;.</span></p>
+<p class="p_Text"><span class="f_NoteSign">Tip:</span><span class="f_Text"> While the queue is paused you can still add new jobs to the queue. Once the queue is to your liking you can release the Pause and go have a coffee while your machine is working the queue.</span></p>
+<p class="p_TextTitleIn"><span class="f_Text" style="font-weight: bold;">Background </span><span class="f_TextTitleIn">Jobs Context Menu</span></p>
+<p class="p_Text"><span class="f_Text">Each job has a context menu with a number of commands.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Details...</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Here, you can view the list of source files for each job, as well as the error message in case of a failed job.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Cancel Job</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Here you can cancel the currently running job. The next job in the queue is automatically started.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Skip Job</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Here you can temporarily or permanently skip pending jobs. A job will not be started as long as it is skipped.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You can </span><span class="f_TextIn" style="font-weight: bold;">unskip</span><span class="f_TextIn"> a job at any point in time. If other jobs are in progress while you unskip a job then it will be started whenever its turn comes.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Start Job Now</span></p>
+<p class="p_TextIn"><span class="f_TextIn">This command is only present in the context menu of paused pending jobs. It allows you to single-click-start a particular job from a paused queue, regardless of the paused state and regardless of the original queue order.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The command is also available on the context menu of skipped jobs, so if you change your mind and want to do a skipped job now you don't need to unskip it first. Simply click &quot;Start Job Now&quot;.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">2. The Info Panel Toggle</span></p>
+<p class="p_TextIn"><span class="f_TextIn">This button toggles the <a href="idh_panel.htm">Info Panel</a>. The button's right-click menu has a couple of related commands.</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>Click and Search</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Click and Search,Combined Searches,Tag Clouds,Label Clouds,Use category for searching,Operator,Location,Comments as Captions (Click and Search)" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#F6F8FA">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Title"><span class="f_Title">Click and Search</span></p>
+
+    </td>
+    <td align="right">
+     <span style="font-size: 9pt">
+     <a href="idh_intro.htm"><img src="arrow-up-icon24.png" border=0 alt="Top"></a>&nbsp;
+     <a href="idh_catalog.htm"><img src="arrow-left-icon24.png" border=0 alt="Previous"></a>&nbsp;
+     <a href="idh_status.htm"><img src="arrow-right-icon24.png" border=0 alt="Next"></a>
+     </span>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p class="p_Title"><span class="f_Title">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">Click and Search</span></p>
+<p class="p_Text"><span class="f_Text">Catalog categories can be turned into something that will make searching for files your favorite pastime.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Defining a Click and Search category</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Add a category to the Catalog and open the category's </span><span class="f_TextIn" style="font-weight: bold;">Properties</span><span class="f_TextIn"> dialog via its right-click menu. Now in the </span><span class="f_TextIn" style="font-weight: bold;">Advanced</span><span class="f_TextIn"> frame:</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Use category for searching</span><span class="f_TextIn">: Tick this t</span><span class="f_TextIn">o enable the feature, i.e. to turn the category into a Click and Search category.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Operator</span><span class="f_TextIn">: </span><span class="f_TextIn">Here you can define the</span><span class="f_TextIn"> Boolean operator</span><span class="f_TextIn"> to be used in a </span><span class="f_TextIn" style="font-weight: bold;">Combined Search</span><span class="f_TextIn"> (see below): AND or OR.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Location</span><span class="f_TextIn">: Here</span><span class="f_TextIn"> you can state the </span><span class="f_TextIn">location </span><span class="f_TextIn">to be searched</span><span class="f_TextIn">. Leave the field empty to always search the current location. Enter * (asterisk) to search the whole PC.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">In the Location field you can also enter <a href="idh_quicknamesearch.htm#idh_qnsswitches">search switches</a> (after the path if there is one). So here is the place to control whether the search is recursive (/r) (i.e. including subfolders) or not (/n), or whether only the tags database should be searched (/t). Examples for Location:#</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;E:\Test &nbsp; &nbsp; &nbsp; = search E:\Test (Include Subfolders is taken from the setting in the Find Files tab)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;E:\Test /r &nbsp; &nbsp;= search E:\Test (Include Subfolders)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;E:\Test /n &nbsp; &nbsp;= search E:\Test (Do Not Include Subfolders)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;E:\Test;E:\Pics = search E:\Test and E:\Pics</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;/r &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= search the current location (Include Subfolders)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;/n &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= search the current location (Do Not Include Subfolders)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = search the whole PC</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;/t &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= search the tags database only (for items in the current location)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;* /t &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= search the tags database only (for items anywhere)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;* /T &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= search the tags database only (for items anywhere), the patterns are Tags</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;* /L &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= search the tags database only (for items anywhere), the patterns are Labels</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Defining the Items in a Click and Search category</span></p>
+<p class="p_TextIn"><span class="f_TextIn">All items in a Click and Search category are expected to contain search patterns. You can add the items manually (Tip: Press INS to quickly add an item), or automatically (see below).</span></p>
+<p class="p_TextIn"><span class="f_TextIn">In each item you enter a search pattern into the field &quot;Pattern&quot;. Here are some examples for search patterns:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;*.png</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;!*.png &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;(NOT *.png)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;prop:#AspectRatio: 16:9</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;lbl:red</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;tags:jazz</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;tags:rock</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;tags:pop</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;jazz &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;seen as tag if Location has switch /T</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;red &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; seen as label if Location has switch /L</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;a* OR b* /n &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; name is a* or b* (a Boolean term, with switch &quot;don't include subfolders&quot;)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;dateM: !dw 6-7 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;NOT modified on a weekend</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;ageM: 1 d &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; modified yesterday</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;ageM: 1 w &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; modified last week</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Clicking an item will run the search (functionally it's identical to a <a href="idh_quicknamesearch.htm">Quick Search</a>) for location defined in the Location field, or, if none is defined, for the current location.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Combined Searches</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Additionally to running the category items individually you can also combine the items in one search.</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">The items can be individually enabled via checkboxes. Clicking the category will run a combined search of all ticked items.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">A combined search can be either AND- or OR-combined. This can be configured in the category's Properties dialog (see above).</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">Any switches are removed from the combined terms.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">Toggling the state of any item's checkbox will also run a combined search. Hold CTRL to suppress this trigger.</span></td></tr></table></div><p class="p_TextIn"><span class="f_TextIn">This feature becomes particularly interesting in combination with tags. See next paragraph.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Tag Clouds</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Now for something completely wonderful. The Catalog right-click menu has a command </span><span class="f_TextIn" style="font-weight: bold;">Insert as New Category Here | Tags</span><span class="f_TextIn"> by which you can add all Tags used in the tags database to the Catalog as a new &quot;Click and Search&quot; Category. The Location defaults to whole PC, tags database only, and the operator to &quot;AND&quot;.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Voil&agrave;, now you can list your tagged files in a most natural way, just like you know it from tag clouds.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Label Clouds</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The same is available for Labels. The Catalog right-click menu has a command </span><span class="f_TextIn" style="font-weight: bold;">Insert as New Category Here | Labels</span><span class="f_TextIn"> by which you can add &nbsp;all Labels defined in the tags database to the Catalog as a new &quot;Click and Search&quot; Category. The Location defaults to whole PC, tags database only, and the operator to &quot;OR&quot; (no file can have more than one label at the same time).</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Note that, contrary to the &quot;Tags&quot; category, also labels are listed that are currently not assigned to any item. This is done because getting an empty list when searching &quot;Urgent&quot; is an agreeable experience you should be allowed to have.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Comments as Captions</span></p>
+<p class="p_TextIn"><span class="f_TextIn">When clicking a category item the caption of that item (if there is any) will be passed as comment (if there is none already). That way you get the caption of the CAS item in the Quick Search bar which looks kind of natural and slick. </span></p>
+
+</td></tr></table>
+
+</body>
+</html>

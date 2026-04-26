@@ -1,0 +1,559 @@
+/* Text Styles */
+hr { color: #000000}
+body, table, tr, th /* Normal */
+{
+ font-size: 12pt;
+ font-family: 'Times New Roman';
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+}
+span.f_Code /* Code */
+{
+ font-size: 9pt;
+ font-family: 'Courier New';
+ color: #000080;
+}
+span.f_CodeBlue /* Code Blue */
+{
+ font-size: 9pt;
+ font-family: 'Courier New';
+ color: #000080;
+ background-color: #e8eef7;
+}
+span.f_CodeChar /* Code Char */
+{
+ font-size: 9pt;
+ font-family: 'Courier New';
+ color: #000080;
+}
+span.f_CodeExample /* Code Example */
+{
+ font-size: 9pt;
+ font-family: 'Courier New';
+}
+span.f_CodeNarrow /* CodeNarrow */
+{
+ font-size: 9pt;
+ font-family: 'Courier New';
+ color: #000080;
+}
+span.f_CodeNarrowChar /* CodeNarrow Char */
+{
+ font-size: 9pt;
+ font-family: 'Courier New';
+ color: #000080;
+}
+span.f_Comment /* Comment */
+{
+}
+span.f_DefaultParagraphFont /* Default Paragraph Font */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+}
+span.f_FileList /* File List */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+}
+span.f_footnotereference /* footnote reference */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+ color: #808080;
+}
+span.f_Geeks /* Geeks */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+ font-style: italic;
+ background-color: #ffff80;
+}
+span.f_Glossary /* Glossary */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+}
+span.f_Heading1 /* Heading1 */
+{
+ font-size: 16pt;
+ font-weight: bold;
+}
+span.f_ImageCaption /* Image Caption */
+{
+ font-size: 8pt;
+ font-weight: bold;
+}
+span.f_IndexTopic /* IndexTopic */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+}
+span.f_LinkJump /* LinkJump */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+ color: #008000;
+ text-decoration: underline;
+}
+span.f_LinkPopup /* LinkPopup */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+ color: #008000;
+ text-decoration: underline;
+}
+span.f_LinkTarget /* LinkTarget */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+ color: #800000;
+}
+span.f_List2008 /* List 2008 */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+}
+span.f_List2008-15 /* List 2008-15 */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+}
+span.f_List2008-25 /* List 2008-25 */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+}
+span.f_List2008-35 /* List 2008-35 */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+}
+span.f_List2015-wide /* List 2015-wide */
+{
+ font-size: 9pt;
+ font-family: 'Courier New';
+}
+span.f_List2021-wide /* List 2021-wide */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+}
+span.f_List3inch /* List 3inch */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+}
+span.f_List4inch /* List 4inch */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+}
+span.f_ListAutoNumber /* List Auto Number */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+}
+span.f_Note /* Note */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+}
+span.f_NoteIn /* Note In */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+}
+span.f_NoteSign /* Note Sign */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+ font-weight: bold;
+ color: #800080;
+}
+span.f_Notes /* Notes */
+{
+}
+span.f_PopCode /* PopCode */
+{
+ font-size: 8pt;
+ font-family: 'Courier New';
+ color: #008080;
+}
+span.f_PopText /* PopText */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+}
+span.f_PopTextHang /* PopTextHang */
+{
+ font-size: 9pt;
+ font-family: 'Tahoma';
+}
+span.f_PopTitle /* PopTitle */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+ font-weight: bold;
+}
+span.f_postbody1 /* postbody1 */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+}
+span.f_QuoteBlue /* QuoteBlue */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+ color: #57769e;
+}
+span.f_script /* script */
+{
+ font-size: 9pt;
+ font-family: 'Courier New';
+ color: #993300;
+ background-color: #f6f3c9;
+}
+span.f_scriptblock /* scriptblock */
+{
+ font-size: 9pt;
+ font-family: 'Courier New';
+ color: #993300;
+}
+span.f_ScriptIn /* ScriptIn */
+{
+ font-size: 9pt;
+ font-family: 'Courier New';
+ color: #993300;
+ background-color: #f6f3c9;
+}
+span.f_Text /* Text */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+}
+span.f_TextChar /* Text Char */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+}
+span.f_TextIn /* Text In */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+}
+span.f_TextNon-scroll /* Text Non-scroll */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+}
+span.f_TextNon-scrollChar /* Text Non-scroll Char */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+}
+span.f_TextTitleChar /* Text Title Char */
+{
+ font-size: 16pt;
+ font-family: 'Arial';
+ color: #414141;
+}
+span.f_TextTitleCharChar /* Text Title Char Char */
+{
+ font-size: 14pt;
+ font-family: 'Arial';
+ color: #003366;
+}
+span.f_TextTitleIn /* Text Title In */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+ font-weight: bold;
+}
+span.f_TextTitleSection /* Text Title Section */
+{
+ font-size: 11pt;
+ font-family: 'Verdana';
+ font-weight: bold;
+ color: #4f81bd;
+}
+span.f_TextLeft /* TextLeft */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+}
+span.f_TextTab35 /* TextTab35 */
+{
+ font-size: 9pt;
+ font-family: 'Verdana';
+}
+span.f_TitelChar /* Titel Char */
+{
+ font-size: 18pt;
+ font-family: 'Arial';
+ color: #003366;
+}
+span.f_TitelBigChar /* TitelBig Char */
+{
+ font-size: 18pt;
+ font-family: 'Arial';
+ color: #003366;
+}
+span.f_Title /* Title */
+{
+ font-size: 24pt;
+ font-family: 'Arial';
+ color: #555555;
+}
+/* Paragraph styles */
+p /* Normal */
+{
+ text-align: left;
+ text-indent: 0px;
+ line-height: 1.50;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+.p_Code /* Code */
+{
+ line-height: 1.20;
+ margin: 4px 28px 4px 38px;
+}
+.p_CodeBlue /* Code Blue */
+{
+ line-height: 1.0;
+ margin: 0px 28px 2px 38px;
+}
+.p_CodeChar /* Code Char */
+{
+ line-height: 1.0;
+}
+.p_CodeExample /* Code Example */
+{
+ line-height: 1.0;
+ white-space: nowrap;
+}
+.p_CodeNarrow /* CodeNarrow */
+{
+ line-height: 1.0;
+ margin: 2px 28px 6px 38px;
+}
+.p_CodeNarrowChar /* CodeNarrow Char */
+{
+ line-height: 1.0;
+}
+.p_Comment /* Comment */
+{
+}
+.p_DefaultParagraphFont /* Default Paragraph Font */
+{
+ line-height: 1.0;
+}
+.p_FileList /* File List */
+{
+ text-indent: -154px;
+ margin: 4px 28px 4px 192px;
+}
+.p_footnotereference /* footnote reference */
+{
+ line-height: 1.0;
+}
+.p_Geeks /* Geeks */
+{
+ margin: 16px 0px 0px 28px;
+}
+.p_Glossary /* Glossary */
+{
+ text-indent: -265px;
+ margin: 4px 28px 4px 274px;
+}
+.p_Heading1 /* Heading1 */
+{
+}
+.p_ImageCaption /* Image Caption */
+{
+}
+.p_IndexTopic /* IndexTopic */
+{
+ line-height: 1.0;
+ margin: 4px 28px 4px 28px;
+}
+.p_LinkJump /* LinkJump */
+{
+ line-height: 1.0;
+}
+.p_LinkPopup /* LinkPopup */
+{
+ line-height: 1.0;
+}
+.p_LinkTarget /* LinkTarget */
+{
+ line-height: 1.0;
+}
+.p_List2008 /* List 2008 */
+{
+ text-indent: -34px;
+ margin: 4px 28px 4px 72px;
+}
+.p_List2008-15 /* List 2008-15 */
+{
+ text-indent: -19px;
+ margin: 4px 28px 4px 57px;
+}
+.p_List2008-25 /* List 2008-25 */
+{
+ text-indent: -58px;
+ margin: 4px 28px 4px 96px;
+}
+.p_List2008-35 /* List 2008-35 */
+{
+ text-indent: -94px;
+ margin: 4px 28px 4px 132px;
+}
+.p_List2015-wide /* List 2015-wide */
+{
+ text-indent: -250px;
+ line-height: 1.0;
+ margin: 4px 28px 4px 288px;
+}
+.p_List2021-wide /* List 2021-wide */
+{
+ text-indent: -154px;
+ margin: 4px 28px 4px 192px;
+}
+.p_List3inch /* List 3inch */
+{
+ text-indent: -250px;
+ margin: 4px 28px 4px 288px;
+}
+.p_List4inch /* List 4inch */
+{
+ text-indent: -250px;
+ margin: 4px 28px 4px 288px;
+}
+.p_ListAutoNumber /* List Auto Number */
+{
+ text-indent: -26px;
+ margin: 4px 28px 4px 73px;
+}
+.p_Note /* Note */
+{
+ text-indent: -38px;
+ margin: 8px 189px 4px 66px;
+}
+.p_NoteIn /* Note In */
+{
+ text-indent: -46px;
+ margin: 8px 189px 4px 84px;
+}
+.p_NoteSign /* Note Sign */
+{
+ line-height: 1.0;
+}
+.p_Notes /* Notes */
+{
+}
+.p_PopCode /* PopCode */
+{
+ line-height: 1.0;
+ margin: 4px 28px 4px 9px;
+}
+.p_PopText /* PopText */
+{
+ margin: 4px 28px 4px 9px;
+}
+.p_PopTextHang /* PopTextHang */
+{
+ text-indent: -142px;
+ margin: 4px 28px 4px 151px;
+}
+.p_PopTitle /* PopTitle */
+{
+ margin: 4px 28px 4px 9px;
+}
+.p_postbody1 /* postbody1 */
+{
+ line-height: 1.0;
+}
+.p_QuoteBlue /* QuoteBlue */
+{
+ margin: 4px 105px 4px 96px;
+}
+.p_script /* script */
+{
+ line-height: 1.20;
+ margin: 4px 28px 4px 38px;
+}
+.p_scriptblock /* scriptblock */
+{
+ border-color: #f0eba6;
+ border-style: solid;
+ border-width: 1px;
+ background: #f6f3c9;
+ padding: 3px 3px 3px 3px;
+ margin: 7px 76px 7px 35px;
+}
+.p_ScriptIn /* ScriptIn */
+{
+ line-height: 1.20;
+ margin: 4px 28px 4px 38px;
+}
+.p_Text /* Text */
+{
+ margin: 4px 28px 4px 28px;
+}
+.p_TextChar /* Text Char */
+{
+ line-height: 1.0;
+}
+.p_TextIn /* Text In */
+{
+ margin: 4px 28px 4px 38px;
+}
+.p_TextNon-scroll /* Text Non-scroll */
+{
+ margin: 4px 0px 0px 9px;
+}
+.p_TextNon-scrollChar /* Text Non-scroll Char */
+{
+ line-height: 1.0;
+}
+.p_TextTitleChar /* Text Title Char */
+{
+ margin: 4px 28px 4px 9px;
+}
+.p_TextTitleCharChar /* Text Title Char Char */
+{
+ line-height: 1.0;
+}
+.p_TextTitleIn /* Text Title In */
+{
+ margin: 16px 0px 0px 28px;
+}
+.p_TextTitleSection /* Text Title Section */
+{
+ margin: 16px 0px 0px 28px;
+}
+.p_TextLeft /* TextLeft */
+{
+ margin: 4px 28px 4px 9px;
+}
+.p_TextTab35 /* TextTab35 */
+{
+ margin: 4px 28px 4px 28px;
+}
+.p_TitelChar /* Titel Char */
+{
+ line-height: 1.0;
+}
+.p_TitelBigChar /* TitelBig Char */
+{
+ line-height: 1.0;
+}
+.p_Title /* Title */
+{
+ line-height: 1.0;
+ margin: 24px 0px 24px 9px;
+}

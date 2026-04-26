@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>Favorites</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Favorites menu,Menu Commands,Common (Favorites menu),Favorites,Mark Favorites,Fuzzy Favorites,Toggle Favorite Folder,Manage Favorite Folders...,Toggle Highlighted Folder,Highlighted Folder,Set Highlight Color,Toggle Boxed Branch,Boxed Branch,Set Box Color,Favorite Files,Toggle Favorite File,Manage Favorite Files...,Special System Folders" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#F6F8FA">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Title"><span class="f_Title">Favorites Menu</span></p>
+
+    </td>
+    <td align="right">
+     <span style="font-size: 9pt">
+     <a href="idh_intro.htm"><img src="arrow-up-icon24.png" border=0 alt="Top"></a>&nbsp;
+     <a href="idh_mengo.htm"><img src="arrow-left-icon24.png" border=0 alt="Previous"></a>&nbsp;
+     <a href="idh_mentags.htm"><img src="arrow-right-icon24.png" border=0 alt="Next"></a>
+     </span>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p class="p_Title"><span class="f_Title">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">Favorites Menu Commands</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Favorite Folders</span></p>
+<p class="p_TextIn"><span class="f_TextIn">All locations you have previously defined as favorites (e.g. by pressing </span><span class="f_NoteSign">Ctrl+B </span><span class="f_TextIn">= </span><span class="f_TextIn" style="font-weight: bold;">Toggle Favorite Folder</span><span class="f_TextIn">).</span></p>
+<p class="p_TextIn"><span class="f_NoteSign">Note</span><span class="f_TextIn">: The Favorite Folders submenu pops up when you right-click anywhere in the free area (not on a folder) of the Tree.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Toggle Favorite Folder</span></p>
+<p class="p_TextIn"><span class="f_TextIn">(Un)marks a folder as favorite. Favorite Folders are added to the Favorites Listing within this menu. When you rename a favorite folder the favorites are automatically updated so that the link is kept alive.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">In the Tree Favorite Folders can be shown bold if you tick &quot;Tools | Customize Tree | Mark Favorites (Bold)&quot;.</span></p>
+<p class="p_TextIn"><span class="f_NoteSign">Shortcut: Ctrl+B</span></p>
+<p class="p_TextIn"><a name="idh_duallocations"></a><span class="f_TextIn" style="font-weight: bold;">Dual Locations</span><span class="f_TextIn"> are supported here (and generally in all places that can take a location). In a Dual Location both folders are separated by </span><span class="f_TextIn" style="font-weight: bold;">||</span><span class="f_TextIn"> (double pipe). The first folder will be opened in the active pane, the second in the inactive pane, quite useful if you work in dual pane mode. For example:</span></p>
+<p class="p_TextIn"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;\\VEGA\Users\Donald||D:\</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You can use this syntax to only browse the inactive pane:</span></p>
+<p class="p_TextIn"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;||D:\download</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Note that dual pane mode is automatically enabled when necessary, and dual location favorites are not bolded in the tree.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">With Dual Locations you can also use fancy stuff like filters and searches in both locations:</span></p>
+<p class="p_TextIn"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;D:\Test|a*||E:\Test|b* &nbsp; &nbsp; &nbsp; &nbsp;//visual filters for both panes</span></p>
+<p class="p_TextIn"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;D:\Test?cat||E:\Test?dog &nbsp; &nbsp; &nbsp;//quick searches in both panes</span></p>
+<p class="p_TextIn"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;|cat|||dog &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//filter active pane by cat, inactive pane by dog</span></p>
+<p class="p_TextIn"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;?*.txt||?*.jpg &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//search active pane for *.txt, inactive pane for *.jpg</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Of course, you can do different things on each side of ||. Filter here, search there, etc.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Even dual scripts work. Note that internally the inactive pane becomes active will being processed, so &lt;curpath&gt; works on both sides:</span></p>
+<p class="p_TextIn"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;echo &quot;active: &lt;curpath&gt;&quot;;||echo &quot;inactive: &lt;curpath&gt;&quot;;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Dual locations have their own default icon in the address bar, lists, and menus. </span></p>
+<p class="p_TextIn"><span class="f_NoteSign">Tip:</span><span class="f_TextIn"> The right-click menu of the &quot;Favorite Folders&quot; toolbar button lets you add/remove a Dual Location to/from your favorite folders with a single click on the command </span><span class="f_TextIn" style="font-weight: bold;">Toggle Dual Favorite Folder</span><span class="f_TextIn">.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Manage Favorite Folders...</span></p>
+<p class="p_TextIn"><span class="f_TextIn">A shortcut to menu </span><span class="f_TextIn" style="font-weight: bold;">Tools | List Management | Favorite Folders</span><span class="f_TextIn">. Here you can add or remove favorite folders, and also reorder the list and add menu separators by inserting items with a single hyphen (minus sign) as caption.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Captions:</span><span class="f_TextIn"> You can also define custom menu captions for the items. Simply prefix the caption in quotes (optionally followed by any number of blanks). These will work identically:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;&quot;caption&quot; location</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;&quot;caption&quot;location</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;&quot;caption&quot; &nbsp; &nbsp; &nbsp;location</span></p>
+<p class="p_TextIn"><span class="f_TextIn">This allows you to attach catchy aliases to long and hard-to-read paths! For example:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;&quot;Transparent PNGs&quot; E:\VB-Don\TestFiles\Media\image-formats\trans\png\ARGB 32bit\</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Custom Icons: </span><span class="f_TextIn">You can append a custom icon specification to the caption, separated by a | character:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;&quot;caption|[icon spec]&quot; location</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The icon spec can be an icon file (path resolved relative the XYplorer icon path </span><span class="f_CodeBlue">&lt;xyicons&gt;</span><span class="f_TextIn">), any other file, a toolbar button key (prefixed with :), or some icon resource with icon index (exe; dll; cpl; ocx; scr; icl; bpl; wlx; wfx; wcx; wdx; acm):</span></p>
+<p class="p_TextIn"><span class="f_CodeNarrow"> &nbsp;&quot;caption|Kiss.ico&quot; location</span></p>
+<p class="p_TextIn"><span class="f_CodeNarrow"> &nbsp;&quot;caption|C:\WINDOWS\notepad.exe&quot; location</span></p>
+<p class="p_TextIn"><span class="f_CodeNarrow"> &nbsp;&quot;caption|:dice&quot; location</span></p>
+<p class="p_TextIn"><span class="f_CodeNarrow"> &nbsp;&quot;caption|%winsysdir%\shell32.dll /160&quot; location</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Scripts as Favorites:</span><span class="f_TextIn"> Here is a custom favorite folder where the &quot;location&quot; is a quick script (prefixed by script marker ::):</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;&quot;Script to append modified date&quot; ::rename , '*-&lt;datem yyyymmdd&gt;'</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Will show &quot;Script to append modified date&quot; (without quotes) in the menu; when you click it, the script is executed. So you now have another, very comfortable way to place some heavy-rotation scripts right under your mouse button! </span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Fuzzy Favorites:</span><span class="f_TextIn"> Favorite Folders and Favorite Files support the wildcards * (stands for &quot;any number of characters including none&quot;). With a </span><span class="f_TextIn" style="font-weight: bold;">Fuzzy Favorite</span><span class="f_TextIn"> the first match will be used. This can be useful when you need to reference Favorites with variable names.</span></p>
+<p class="p_NoteSign" style="line-height: 1.20; margin: 4px 28px 4px 38px;"><span class="f_NoteSign">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Toggle Highlighted Folder: </span><span class="f_Text">Throws a highlight (color configurable) on the current folder. It's 8 pixels wider than the selection rectangle to keep it visible when the folder is selected.</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Set Highlight Color:</span><span class="f_Text"> Define the highlight color for the current tree folder. Enables </span><span class="f_Text" style="font-weight: bold;">Highlighted Folder</span><span class="f_Text"> for this folder if not yet enabled anyway.</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Toggle Boxed Branch: </span><span class="f_Text">Draws a colored rectangle on the background of the whole branch.</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Set Box Color:</span><span class="f_Text"> Define the box color for the current tree folder. Enables </span><span class="f_Text" style="font-weight: bold;">Boxed Branch</span><span class="f_Text"> for this folder if not yet enabled anyway.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Favorite Files</span></p>
+<p class="p_TextIn"><span class="f_TextIn">All files you have previously defined as favorite files. You can directly jump to any file by a single click.</span></p>
+<p class="p_TextIn"><span class="f_NoteSign">Tip:</span><span class="f_TextIn"> Tick </span><span class="f_TextIn" style="font-weight: bold;">Configuration | Controls &amp; More | Miscellaneous | Open favorite files directly</span><span class="f_TextIn"> to open the files instead of jumping to them,</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Toggle Favorite File</span></p>
+<p class="p_TextIn"><span class="f_TextIn">(Un)marks a file as favorite. Applies to the currently focused file.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Manage Favorite Files...</span></p>
+<p class="p_TextIn"><span class="f_TextIn">A shortcut to menu </span><span class="f_TextIn" style="font-weight: bold;">Tools | List Management | Favorite Files</span><span class="f_TextIn">. Here you can add or remove favorite files, and also reorder the list and add menu separators by inserting items with a single hyphen (minus sign) as caption.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Special System Folders</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Browse to various special system folders.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>Rich Copy</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Rich File Operations (Copy/Move items with their folder structure),Rich Copy (Copy items with their folder structure),Rich Move (Move items with their folder structure),Menu Commands,Copy items with their folder structure,Copy items with their source location structure,Copy/Move items with their folder structure,Archiving file find results,Keeping the folder structure when copying files,Preserve the folder structure when copying files,Duplicate files with folder tree structure,Automatic Redundancy Removal,Automatic Rich File Operations,Rich Paste" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#F6F8FA">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Title"><span class="f_Title">Rich Copy/Move</span></p>
+
+    </td>
+    <td align="right">
+     <span style="font-size: 9pt">
+     <a href="idh_intro.htm"><img src="arrow-up-icon24.png" border=0 alt="Top"></a>&nbsp;
+     <a href="idh_copyfiles.htm"><img src="arrow-left-icon24.png" border=0 alt="Previous"></a>&nbsp;
+     <a href="idh_backup.htm"><img src="arrow-right-icon24.png" border=0 alt="Next"></a>
+     </span>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p class="p_Title"><span class="f_Title">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">Copy/Move items with their folder structure</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Rich Copy</span><span class="f_Text"> (Rich Move) is a highly useful feature for archiving </span><span class="f_Text" style="font-weight: bold;">recursive search results</span><span class="f_Text"> or </span><span class="f_Text" style="font-weight: bold;">Branch Views</span><span class="f_Text">: It enables you to copy/move files to a destination along with their folder structure, i.e. whatever directories are needed are automatically created under the destination path. You get a perfect image of the files as they were organized in their original location.</span></p>
+<p class="p_Text"><span class="f_NoteSign">Note:</span><span class="f_Text"> You find the Rich Copy commands </span><span class="f_Text" style="font-weight: bold;">only in the drag and drop context menu</span><span class="f_Text">. To do a Rich Copy, drag the selected items from the search results list to the destination folder (in XYplorer's folder </span><span class="f_TextIn">Tree, </span><span class="f_Text">in the file list, the Catalog, or a Tab header) using the </span><span class="f_Text" style="font-weight: bold;">right mouse button</span><span class="f_Text">: On drop, a popup menu will give you the choice between normal and rich operations. </span></p>
+<p class="p_Text"><span class="f_NoteSign">Note:</span><span class="f_Text"> Of course, Rich Copy commands will not appear when you drop outside XYplorer, e.g. to the Desktop! This is because Rich Copy is a feature of XYplorer, not of the Desktop.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">Target folder structure</span></p>
+<p class="p_Text"><span class="f_Text">The target folder created by Rich Copy structure is defined by the path where you started the File Find and the target path of your copy/move operation. Example: let's say you do an Rich Copy of just one file, which you have found by doing a find starting in </span><span class="f_Text" style="font-family: 'Courier New'; color: #008000;">J:\Test\MyStuff\</span><span class="f_Text">, and you drag and drop this file to </span><span class="f_Text" style="font-family: 'Courier New'; color: #008000;">E:\MyStuffArchive\</span><span class="f_Text">, the new folder </span><span class="f_Text" style="font-family: 'Courier New';">Dir1\</span><span class="f_Text"> is created under the destination folder and the file is copied there.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">Source: </span><span class="f_CodeNarrow" style="color: #008000;">J:\Test\MyStuff\</span><span class="f_CodeNarrow">Dir1\Bvb.ico</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">Target: </span><span class="f_CodeNarrow" style="color: #008000;">E:\MyStuffArchive\</span><span class="f_CodeNarrow">Dir1\Bvb.ico</span></p>
+<p class="p_Text"><span class="f_Text">As you see, for every file in the find results, the File Find start path is replaced by the target path of the operation.</span></p>
+<p class="p_Text"><span class="f_Text">If the File Find started in Computer, the drive letter of the found files is converted into a folder, eg:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">Source: </span><span class="f_CodeNarrow" style="color: #008000;">[Computer]</span><span class="f_CodeNarrow">J:\Test\MyStuff\Dir1\Bvb.ico</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">Target: </span><span class="f_CodeNarrow" style="color: #008000;">E:\MyStuffArchive\</span><span class="f_CodeNarrow">J\Test\MyStuff\Dir1\Bvb.ico</span></p>
+<p class="p_Text" style="text-indent: 19px;"><span class="f_Text">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">Automatic Redundancy Removal</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Recursive Search Results</span><span class="f_Text"> and </span><span class="f_Text" style="font-weight: bold;">Branch Views</span><span class="f_Text">: In such &quot;deep data&quot; (where containers can be listed side by side with their contents) you will run into name collisions or other unwanted situations when you select e.g. a folder AND any of its contents and then copy, move, or delete the selected items. To avoid this there is </span><span class="f_Text" style="font-weight: bold;">smartness built-in</span><span class="f_Text"> which will silently remove any redundant items from the job before processing continues.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">Automatic Rich File Operations</span></p>
+<p class="p_Text"><span class="f_Text">Any copy/move operation (drop, paste, to new subfolder, etc.) will check whether its direct sources are &quot;rich&quot; (= come from more than one folder), and then offer to do a Rich Copy or Move instead of the standard flat operation (where things might collide/merge).</span></p>
+<p class="p_Text"><span class="f_Text">An example for a </span><span class="f_Text" style="font-weight: bold;">Rich Paste</span><span class="f_Text"> would be pasting two files D:\Test.txt and E:\Test.txt in one go to F:\Target:</span></p>
+<p class="p_Text"><span class="f_Text">Sources:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">D:\Test.txt</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">E:\Test.txt</span></p>
+<p class="p_Text"><span class="f_Text">Targets:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow" style="color: #008000;">F:\Target\</span><span class="f_CodeNarrow">D\Test.txt</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow" style="color: #008000;">F:\Target\</span><span class="f_CodeNarrow">E\Test.txt</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text">Note that &quot;rich sources&quot; typically come from recursive search results or branch views (i.e. including subfolders).</span></p>
+<p class="p_Text"><span class="f_Text">The root path for such a rich operation is the greatest common parent folder of the sources.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">Scripting and Rich Operations</span></p>
+<p class="p_Text"><span class="f_Text">Note that the scripting commands <a href="idh_scripting_comref.htm#idh_sc_moveto">copyto</a> and <a href="idh_scripting_comref.htm#idh_sc_moveto">moveto</a> support rich operations.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

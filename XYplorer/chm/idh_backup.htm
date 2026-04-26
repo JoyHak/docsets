@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>Backup</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Backup,Archiving files,Laws of Backup,Preserving file dates on copy" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#F6F8FA">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Title"><span class="f_Title">Backup</span></p>
+
+    </td>
+    <td align="right">
+     <span style="font-size: 9pt">
+     <a href="idh_intro.htm"><img src="arrow-up-icon24.png" border=0 alt="Top"></a>&nbsp;
+     <a href="idh_richop.htm"><img src="arrow-left-icon24.png" border=0 alt="Previous"></a>&nbsp;
+     <a href="idh_undo.htm"><img src="arrow-right-icon24.png" border=0 alt="Next"></a>
+     </span>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p class="p_Title"><span class="f_Title">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">Backup</span></p>
+<p class="p_Text"><span class="f_Text">What is called &quot;Backup&quot; in XYplorer is a highly customizable file copy operation. You don't necessarily have to use it for backing up files. &quot;Backup&quot; is just a label for an alternative copy, alternative to Windows's shell copy (which has so many pitfalls).</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">Where to find the Backup command</span></p>
+<p class="p_Text"><span class="f_Text">You find the backup command in various menus:</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Backup Here</span><span class="f_Text"> in the drag and drop context menu (popped when dropping items dragged with the right-mouse button).</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Backup To</span><span class="f_Text"> in the Edit menu and in the file context menu (which is as well available in the main window menu when any items are selected).</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Backup To Other Pane</span><span class="f_Text"> in the Panes menu.</span></p>
+<p class="p_Text"><span class="f_Text">All those commands offer exactly the same operation (as it is configured in</span><span class="f_TextIn"> <a href="idh_settings.htm#idh_settingsconfigurekopy">Configuration | File Operations | Backup Operations</a>) </span><span class="f_Text">and differ only in the way you choose your target. </span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">The laws of backup</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">1st, copy only those files that need to be copied.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">If a file does not exist in the target location, it will be copied.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">If a file does exist in the target location, the target file will be overwritten only if it is older than the source file.</span></p>
+<p class="p_TextIn"><span class="f_NoteSign">Note:</span><span class="f_TextIn"> This behavior (&quot;Overwrite if newer&quot;) can be modified in <a href="idh_settings.htm#idh_settingsconfigurekopy">Configuration | File Operations | Backup Operations</a>.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">2nd, recreate the folder structure of the source.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The folder structure of the backup will be an exact image of the source's folder structure.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">3rd, have a documentation of the backup.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">A log-file is optionally created for every backup operation, where every single file operation is exactly documented.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">A progress dialog tells you exactly what's happening and provides you with a final report. Alternatively (progress dialog turned off) you get a status bar message after the operation is completed giving you a minimal summary report:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="94"><span class="f_List2008-35">- new: &nbsp; &nbsp; </span></td><td><span class="f_List2008-35">files of that name did not exist in target</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="94"><span class="f_List2008-35">- over:  </span></td><td><span class="f_List2008-35">files of the same name were overwritten</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="94"><span class="f_List2008-35">- skip:  </span></td><td><span class="f_List2008-35">files were not copied, e.g. because they were older than files of same name in target</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="94"><span class="f_List2008-35">- fail:</span></td><td><span class="f_List2008-35">files that failed for some reason</span></td></tr></table></div><p class="p_TextIn"><span class="f_NoteSign">Note:</span><span class="f_TextIn"> This behavior (&quot;Show progress dialog&quot;, &quot;Create log file&quot;) can be modified in <a href="idh_settings.htm#idh_settingsconfigurekopy">Configuration | File Operations | Backup Operations</a>.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">4th, preserve all file dates.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The Backup file operation preserves all three dates (modified, created, accessed) in all copied files and folders.</span></p>
+<p class="p_TextIn"><span class="f_NoteSign">Note:</span><span class="f_TextIn"> This behavior (&quot;Preserve item dates&quot;) can be turned off in <a href="idh_settings.htm#idh_settingsconfigurekopy">Configuration | File Operations | Backup Operations</a>.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

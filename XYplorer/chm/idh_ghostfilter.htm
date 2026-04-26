@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>Ghost Filter</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Ghost Filter" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#F6F8FA">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Title"><span class="f_Title">Ghost Filter</span></p>
+
+    </td>
+    <td align="right">
+     <span style="font-size: 9pt">
+     <a href="idh_intro.htm"><img src="arrow-up-icon24.png" border=0 alt="Top"></a>&nbsp;
+     <a href="idh_darkmode.htm"><img src="arrow-left-icon24.png" border=0 alt="Previous"></a>&nbsp;
+     <a href="idh_paperfolders.htm"><img src="arrow-right-icon24.png" border=0 alt="Next"></a>
+     </span>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p class="p_Title"><span class="f_Title">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">Ghost Filter</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The Ghost Filter lets you globally hide particular files and folders from Tree and List (all tabs, both panes).</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The items to be hidden are identified by </span><span class="f_TextIn" style="font-weight: bold;">wildcard patterns</span><span class="f_TextIn"> matching their name. To enter the desired patterns click </span><span class="f_TextIn" style="font-weight: bold;">View | Show Items | Edit Ghost Filter...</span><span class="f_TextIn">. You can enter any number of patterns, one per line. Examples:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="250"><span class="f_List2015-wide">.*</span></td><td><span class="f_List2015-wide">Hide all items beginning with a dot.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="250"><span class="f_List2015-wide">desktop.ini</span></td><td><span class="f_List2015-wide">Hide all items called &quot;desktop.ini&quot;.</span></td></tr></table></div><p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You toggle the Ghost Filter either by clicking </span><span class="f_TextIn" style="font-weight: bold;">View | Show Items | Ghost Filter</span><span class="f_TextIn"> or by clicking the toolbar button &quot;Ghost Filter&quot; (it looks like a ghost).</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Hiding will equally affect</span><span class="f_TextIn" style="font-weight: bold;"> files and folders</span><span class="f_TextIn"> (unless you employ scope prefixes, see below).</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Hiding will happen in </span><span class="f_TextIn" style="font-weight: bold;">Tree and List</span><span class="f_TextIn">.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Hidden items will </span><span class="f_TextIn" style="font-weight: bold;">not appear in search results</span><span class="f_TextIn"> (unless </span><span class="f_TextIn" style="font-weight: bold;">Find Hidden</span><span class="f_TextIn"> is ticked)</span><span class="f_TextIn">. But hidden folders are searched for any non-hidden items they might contain.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">If the current list is actually hiding items by the current Ghost Filter, a little </span><span class="f_TextIn" style="font-weight: bold;">ghost icon</span><span class="f_TextIn"> is shown in the first section of the status bar.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The </span><span class="f_TextIn" style="font-weight: bold;">number of &quot;ghosted&quot; items</span><span class="f_TextIn"> in the List is counted and shown in the status bar tooltip (left-most section).</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The Mini Tree is not affected by this, just the </span><span class="f_TextIn" style="font-weight: bold;">Maxi Tree</span><span class="f_TextIn">.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Named drives are supported if </span><span class="f_TextIn" style="font-weight: bold;">Configuration | Controls &amp; More | Miscellaneous | Support volume labels in paths</span><span class="f_TextIn"> is ticked. For example, this Ghost Filter pattern will hide folder T:\DVD and all of its contents if named drive &quot;Terra:\&quot; maps to &quot;T:\&quot;:</span></p>
+<p class="p_List2015-wide"><span class="f_List2015-wide">d: &quot;Terra:\DVD&quot;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">Patterns</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Patterns are </span><span class="f_TextIn" style="font-weight: bold;">not case-sensitive</span><span class="f_TextIn">.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Name Match</span><span class="f_TextIn">: Patterns are matched with the filename only (no path), unless they contain backslashes.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Path Match</span><span class="f_TextIn">: If a pattern contains backslashes it is compared with the full path of the item:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="250"><span class="f_List2015-wide">&quot;E:\Test\hidden\readme.txt&quot;</span></td><td><span class="f_List2015-wide">Match just this item.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="250"><span class="f_List2015-wide">E:\*.txt &nbsp;  </span></td><td><span class="f_List2015-wide">Match all TXT files on drive E:.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="250"><span class="f_List2015-wide">*\junk\* &nbsp;  </span></td><td><span class="f_List2015-wide">Match all items under a folder &quot;junk&quot; (not necessarily the immediate parent!)</span></td></tr></table></div><p class="p_List2015-wide"><span class="f_List2015-wide">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Scope Prefixes</span><span class="f_TextIn">: You can define whether a pattern affects files (f:), directories (d:), or both (no scope prefix). Note that there must be at least one space after the &quot;:&quot;.</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="250"><span class="f_List2015-wide">.* </span></td><td><span class="f_List2015-wide">Affects files and directories.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="250"><span class="f_List2015-wide">f: .* </span></td><td><span class="f_List2015-wide">Affects files only.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="250"><span class="f_List2015-wide">d: .* </span></td><td><span class="f_List2015-wide">Affects directories only.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="250"><span class="f_List2015-wide">f: &quot;readme.txt&quot; </span></td><td><span class="f_List2015-wide">Affects files called readme.txt. </span></td></tr></table></div><p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Auto-wildcards</span><span class="f_TextIn">: Patterns without wildcards are auto-surrounded by wildcards, unless they are double-quoted (just like Visual Filters).</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Exact Match</span><span class="f_TextIn">: Double-quote patterns to force an exact match:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="250"><span class="f_List2015-wide">readme.txt</span></td><td><span class="f_List2015-wide">Matches &quot;readme.txt&quot; and &quot;alsoreadme.txt&quot;.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="250"><span class="f_List2015-wide">&quot;readme.txt&quot; </span></td><td><span class="f_List2015-wide">Matches only &quot;readme.txt&quot;.</span></td></tr></table></div><p class="p_List2015-wide"><span class="f_List2015-wide">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">No-Extension</span><span class="f_TextIn">: Patterns ending with a dot match files that have no extension. Folders never match such a pattern.</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="250"><span class="f_List2015-wide">*.</span></td><td><span class="f_List2015-wide">Match any files without extension.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: normal;"><tr style="vertical-align:baseline" valign="baseline"><td width="250"><span class="f_List2015-wide">a*.</span></td><td><span class="f_List2015-wide">Match all files beginning with &quot;a&quot; and without extension.</span></td></tr></table></div><p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">Warning</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold; background-color: #ffff00;">The Ghost Filter should be used with care: It might trick you into believing that files went AWOL!</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

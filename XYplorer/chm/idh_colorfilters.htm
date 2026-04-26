@@ -1,0 +1,527 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>Color Filters</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Color Filters,Color Coding" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#F6F8FA">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Title"><span class="f_Title">Color Filters</span></p>
+
+    </td>
+    <td align="right">
+     <span style="font-size: 9pt">
+     <a href="idh_intro.htm"><img src="arrow-up-icon24.png" border=0 alt="Top"></a>&nbsp;
+     <a href="idh_lfb.htm"><img src="arrow-left-icon24.png" border=0 alt="Previous"></a>&nbsp;
+     <a href="idh_tags.htm"><img src="arrow-right-icon24.png" border=0 alt="Next"></a>
+     </span>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p class="p_Title"><span class="f_Title">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">Index</span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_colorfilters.htm#idh_cfoverview">Color Filters Overview</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_colorfilters.htm#idh_cfcontrol">Control Selector</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_colorfilters.htm#idh_cfscope">Scope Suffix</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_colorfilters.htm#idh_cfswitches">Switches</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_colorfilters.htm#idh_cfstyleswitches">Style Switches</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_colorfilters.htm#idh_cfexactmatching">Exact Matching</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_colorfilters.htm#idh_cfbooleanlogic">Boolean Logic</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_colorfilters.htm#idh_cftypes">The Types of Color Filters</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_colorfilters.htm#idh_cfname">Color-coding based on file or folder names (name:)</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_colorfilters.htm#idh_cfdir">Color-coding based on folder names (dir:)</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_colorfilters.htm#idh_cfattr">Color-coding based on file attributes (attr:)</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_colorfilters.htm#idh_cfattrlist">Color-coding based on a list of file attributes (attrlist:)</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_colorfilters.htm#idh_cfsize">Color-coding based on file size (size:)</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_colorfilters.htm#idh_cfdate">Color-coding based on file date (date:)</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_colorfilters.htm#idh_cfage">Color-coding based on file age (age:)</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_colorfilters.htm#idh_cflen">Color-coding based on name length (len: and lenT:)</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_colorfilters.htm#idh_cfprop">Color-coding based on properties (prop:)</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_colorfilters.htm#idh_cftags">Color-coding based on tag (lbl:, tags:, cmt:)</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_colorfilters.htm#idh_cfinstant">Instant Color Filters</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic">&nbsp;</span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic">&nbsp;</span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic">&nbsp;</span></p>
+<p class="p_TextTitleChar"><a name="idh_cfoverview"></a><span class="f_TextTitleChar">Color Filters Overview</span></p>
+<p class="p_Text"><span class="f_Text">Color filters allow you to color-code</span><span class="f_TextIn"> the files and folders currently visible in the List pane </span><span class="f_Text">based on various criteria like </span><span class="f_Text" style="font-weight: bold;">name, attributes, size, date, age, name length, </span><span class="f_Text">and</span><span class="f_Text" style="font-weight: bold;"> properties</span><span class="f_Text">.</span><span class="f_TextIn"> Filters based on </span><span class="f_TextIn" style="font-weight: bold;">name</span><span class="f_Text" style="font-weight: bold;">, age, len, lent,</span><span class="f_TextIn"> and </span><span class="f_Text" style="font-weight: bold;">attributes</span><span class="f_TextIn"> optionally also work in the Tree pane. Color-coding items helps to easily spot and distinguish particular items.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Configuration of Color Filter</span></p>
+<p class="p_TextIn"><span class="f_TextIn">See <a href="idh_settings.htm#idh_settings409">Configuration | Color Filters</a>.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">General Color Filter Syntax</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Color Filters are defined by a selector and a pattern in the general form </span><span class="f_CodeChar">selector: pattern</span><span class="f_TextIn">. The following selectors (= filter types) are available:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Filter Type &nbsp; &nbsp; Selector &nbsp; 2nd Selector</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;----------------------------------------------</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Name &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[name:]</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Folder Name &nbsp; &nbsp; dir:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Attributes &nbsp; &nbsp; &nbsp;attr:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Size &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;size:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Date Created &nbsp; &nbsp;dateC:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Date Modified &nbsp; dateM:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Date Accessed &nbsp; dateA:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Age Created &nbsp; &nbsp; ageC:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Age Modified &nbsp; &nbsp;ageM:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Age Accessed &nbsp; &nbsp;ageA:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Name Length &nbsp; &nbsp; len:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Title Length &nbsp; &nbsp;lenT:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Property &nbsp; &nbsp; &nbsp; &nbsp;prop: &nbsp; &nbsp; &nbsp;property selector:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Examples:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;name: *.txt &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= named *.txt</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;dir: *.txt &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = folder named *.txt</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;attr: system &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = SYSTEM attribute set</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;size: &gt;= 1.5 GB &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= 1.5 GB or bigger</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;dateM: 2010-01-01 - &nbsp; &nbsp; &nbsp; &nbsp;= modified 2010 or later</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;dateC: dw 6-7 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= created on a weekend</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;ageA: &lt; 5 d &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= accessed less than 5 days ago</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;len: &gt; 260 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = path/name longer than 260 characters</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;prop:dimensions: 1500 x * &nbsp;= 1500 pixels wide</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Notes:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">The Name Selector is optional: if no other selector is found then Name is assumed by default. </span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">The space between selector and pattern is optional. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">Case does not matter in selectors.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">Property filters are special in that they need an additional </span><span class="f_TextIn">property selector</span><span class="f_TextIn"> to specify the sort of property. This can be a verbal identifier (e.g. </span><span class="f_CodeNarrow">prop:dimensions:</span><span class="f_TextIn">) or a numeric identifier (e.g. </span><span class="f_CodeNarrow">prop:#31:</span><span class="f_TextIn">).</span></td></tr></table></div><p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleChar"><a name="idh_cfcontrol"></a><span class="f_TextTitleIn">Control Selector</span></p>
+<p class="p_TextIn"><span class="f_TextIn">An optional control selector lets you define whether a filter is applied to the Tree, or to the List, or to both, for each filter individually.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;Control Selector &nbsp; &nbsp; &nbsp; &nbsp;Function</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;------------------------------------------------------</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;T: or t: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Limit color filter to the Tree</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;L: or l: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Limit color filter to the List</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;B: or b: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Apply color filter to both Tree and List (useful for filters that are by default applied only to the List)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;else &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;No limits (use defaults)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The control selectors are prefixed to the filter definition (but come after any caption).</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Examples:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;T:ageM: &lt;= 24 h</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;L:ageM: &lt;= 24 h</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;&quot;Modified Today&quot; T:ageM: d</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Remarks:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">Control selectors also allow you to color code the same criteria differently in Tree and List (whatever that would be good for).</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">In case of normal (non-instant) Color Filters the control selectors are limited by the global settings &quot;Apply color filters to the List&quot; and &quot;Apply color filters to the Tree&quot;: If any of them are disabled, then a Control Selector cannot overwrite this. </span></td></tr></table></div><p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleChar"><a name="idh_cfscope"></a><span class="f_TextTitleIn">Scope Suffix</span></p>
+<p class="p_TextIn"><span class="f_TextIn">An optional scope suffix can be used to limit color filters to directories or to files.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Scope suffixes are appended to the primary selector separated by a space. &quot;d&quot; stands for &quot;directories&quot;, &quot;f&quot; stands for &quot;files&quot;, &quot;df&quot; (or &quot;fd&quot;) for both (i.e. unlimited scope). A missing scope suffix defaults to &quot;df&quot; (unlimited scope) but see some obvious exceptions below.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Usage:</span><span class="f_TextIn"> For example, you want to color folders by age created in Tree and List but don't want to color the files.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Examples:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;ageC d:d //folders created today</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;ageM f:d //files modified today</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;prop d:#HardLinks: &gt; 1 //folders with more than one hardlink</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Exceptions:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">&quot;dir:&quot; is always directory-only by definition</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">[no selector] is equivalent to &quot;name f:&quot; (name files-only), for example: </span><span class="f_CodeNarrow">*.txt</span></td></tr></table></div><p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleChar"><a name="idh_cfswitches"></a><span class="f_TextTitleIn">Switches</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The switch </span><span class="f_CodeBlue">/r</span><span class="f_TextIn"> can be used to assign a color filter to a folder and all of its subfolders. It has to be appended to the selector (including any scope suffix) separated by a single space.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Examples, using a quoted pattern for exact matching:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">Pattern &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Auto-adjusted to &nbsp; &nbsp; Match &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; No Match</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">-----------------------------------------------------------------------</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">dir:&quot;code&quot; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*\code\ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;C:\code\ &nbsp; &nbsp; &nbsp; &nbsp;C:\code\sub\</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">dir /r:&quot;code&quot; &nbsp; &nbsp; &nbsp; *\code\* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; C:\code\</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; C:\code\sub\</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">name d /r:&quot;code&quot; &nbsp; &nbsp;*\code\* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; C:\code\</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; C:\code\sub\</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">-----------------------------------------------------------------------</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Of course, you could also use non-exact patterns (</span><span class="f_CodeBlue">dir /r:code</span><span class="f_TextIn">) for broader matching.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleChar"><a name="idh_cfstyleswitches"></a><span class="f_TextTitleIn">Style Switches</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Optionally append style switches to the end of the pattern (but before any comment), separated by |. Switches can control the look of the color-coding on a per-filter level. Each switch is represented by a single letter (case-sensitive). The sequence of the letters has no significance.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Available switches:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;b = Draw background colors as bold frame (2 pixels wide unfilled rectangle).</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;f = Draw background colors as frame (1 pixel wide unfilled rectangle).</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;p = Number plate style (frame with filled background); has to be combined with switch f (frame) or b (bold frame).</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;r = Draw background colors with rounded corners.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;s = Draw background colors in distinctive shapes.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;w = Draw background colors as wide as the column.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Available reversed switches, prefixed with &quot;-&quot; (minus):</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;-r = Don't draw background colors with rounded corners (even if the general setting is enabled).</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;-s = Don't draw background colors in distinctive shapes (even if the general setting is enabled).</span></p>
+<p class="p_CodeNarrow"><span class="f_TextIn">Notes:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">With &quot;f&quot; it is recommendable to leave the text color undefined (click the &quot;Clear&quot; button) when you like to switch between dark and light mode.</span></td></tr></table></div><p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Examples for Configuration | Colors and Styles | Color Filters:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;B:prop:#empty:2|swf &nbsp; &nbsp; //shape, wide, frame</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;len:&gt;=260|-r &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//sharp corners</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Examples for Tools | List Management | Color Filters...:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;len:&gt;=260|f //overlong items&gt;,DF2076 &nbsp; &nbsp;//frame, text color undefined</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;*.|r //no extension&gt;,D8F0A6 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //round corners, text color undefined</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleChar"><a name="idh_cfexactmatching"></a><span class="f_TextTitleIn">Exact Matching</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You can force an exact match by wrapping your pattern in quotes. Otherwise the pattern is automatically wrapped into asterisks (*), unless it already contains any wildcards.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Examples:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">Pattern &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Matches</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">----------------------------------------------------------------</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">File-31.jpg &nbsp; &nbsp; &nbsp; &nbsp; File-31.jpg, File-31.jpg.webp, MyFile-31.jpg</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&quot;File-31.jpg&quot; &nbsp; &nbsp; &nbsp; File-31.jpg</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">dir:&quot;This Folder&quot; &nbsp; This Folder</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">dir:This Folder &nbsp; &nbsp; This Folder, This Folder 2, Whatthis Folder</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">----------------------------------------------------------------</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleChar"><a name="idh_cfbooleanlogic"></a><span class="f_TextTitleIn">Boolean Logic</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">OR: </span><span class="f_TextIn">In each line of the Color Filter List you can state an </span><span class="f_TextIn">unlimited number of filters</span><span class="f_TextIn"> separated by </span><span class="f_TextIn" style="font-weight: bold;">;</span><span class="f_TextIn"> (semi-colon). These will be logically combined with OR: The colors are applied if any of the filters in the line matches.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You can also OR-connect Color Filters by </span><span class="f_TextIn" style="font-weight: bold;">OR</span><span class="f_TextIn"> or </span><span class="f_TextIn" style="font-weight: bold;">|</span><span class="f_TextIn"> (both surrounded by spaces; </span><span class="f_TextIn" style="font-weight: bold;">OR</span><span class="f_TextIn"> is not case-sensitive, so </span><span class="f_TextIn" style="font-weight: bold;">or</span><span class="f_TextIn"> works as well).</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">AND:</span><span class="f_TextIn"> Filters in each line can also be connected by logical AND. The operator is </span><span class="f_TextIn" style="font-weight: bold;">AND</span><span class="f_TextIn"> (surrounded by spaces!); it's not case-sensitive, so </span><span class="f_TextIn" style="font-weight: bold;">and</span><span class="f_TextIn"> works as well.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You can also AND-connect Color Filters by </span><span class="f_TextIn" style="font-weight: bold;">AND</span><span class="f_TextIn"> or </span><span class="f_TextIn" style="font-weight: bold;">&amp;</span><span class="f_TextIn"> (both surrounded by spaces; </span><span class="f_TextIn" style="font-weight: bold;">AND</span><span class="f_TextIn"> is not case-sensitive, so </span><span class="f_TextIn" style="font-weight: bold;">and</span><span class="f_TextIn"> works as well).</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">NOT:</span><span class="f_TextIn"> The prefixed unary </span><span class="f_TextIn" style="font-weight: bold;">NOT</span><span class="f_TextIn"> operator &quot;!&quot; is supported. The operator can also be used for individual operands in a Boolean expression. Note that this works only for non-first operands, since the NOT operator in front of the first operand is interpreted as NOT operator for the whole expression (see examples below). Also the verbal NOT-operator &quot;NOT &quot; (or &quot;not &quot;, or &quot;Not &quot;, it's case-insensitive) is supported.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Notes:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">The semi-colon (which works as Boolean OR) has a lower precedence than AND.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">Color Filters which contain the strings &quot; AND &quot; or &quot;;&quot; can/should be quoted.</span></td></tr></table></div><p class="p_TextIn"><span class="f_TextIn">Examples:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">TXT files modified in any of the last 5 days at the 11th hour:</span><br>
+<span class="f_CodeNarrow">ageM: &lt;= 5 d AND dateC: h 11 AND *.txt</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">Files named &quot;A AND B*&quot; and larger than 1MB:</span><br>
+<span class="f_CodeNarrow">&quot;A AND B*&quot; AND size: &gt; 1MB</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">Files modified Mondays at 11 OR Tuesdays at 12:</span><br>
+<span class="f_CodeNarrow">dateM: dw 1 AND dateM: h 11; dateM: dw 2 AND dateM: h 12;</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">Items not beginning with a:</span><br>
+<span class="f_CodeNarrow">!a*</span><br>
+<span class="f_CodeNarrow">NOT a*</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">Items not beginning with a or b (NOT operator refers to whole expression):</span><br>
+<span class="f_CodeNarrow">!a*;b*</span><br>
+<span class="f_CodeNarrow">NOT a*;b*</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">Items beginning with a or not with b (NOT operator refers only to 2nd operand):</span><br>
+<span class="f_CodeNarrow">a*;!b*</span><br>
+<span class="f_CodeNarrow">a*;NOT b*</span></td></tr></table></div><p class="p_TextTitleIn"><span class="f_TextTitleIn">Captions</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Color Filters support captions prefixed in quotes to the filter definition. Currently only <a href="idh_colorfilters.htm#idh_cfinstant">Instant Color Filters</a> actually use this caption, where it is displayed as the menu item caption in the Instant Color Filters popup menu. For example:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;&quot;Created or Modified Today&quot; ageC: d;ageM: d&gt;FFFFFF,70B926</span></p>
+<p class="p_Geeks"><span class="f_Geeks" style="font-weight: bold;">Comments</span><span class="f_Geeks">&nbsp;</span><span class="f_Geeks">(Advanced Feature only for Geeks)</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You can add a free form user comment to the end of </span><span class="f_TextIn">each line of the Color Filter List</span><span class="f_TextIn">, separated from the rest of the line by &quot;//&quot;, e.g.:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;ageM: d AND *.txt //text files modified today</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Note that the general form of the comments section is (see </span><span class="f_TextTitleIn">Switches</span><span class="f_TextTitleIn" style="font-weight: normal;"> and </span><span class="f_TextTitleIn">Pre-Filters</span><span class="f_TextTitleIn" style="font-weight: normal;"> in the following paragraphs)</span><span class="f_TextIn">:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">//[switches]|[filter:pre-filters]|free form user comment</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_Geeks"><span class="f_Geeks" style="font-weight: bold;">Switches</span><span class="f_Geeks">&nbsp;</span><span class="f_Geeks">(Advanced Feature only for Geeks)</span></p>
+<p class="p_TextIn"><span class="f_TextIn">There are two switches that can be placed in the comments section of a filter right after &quot;//&quot; and followed by a &quot;|&quot; (pipe) , </span><span class="f_TextIn" style="font-weight: bold;">m</span><span class="f_TextIn"> (merge) and </span><span class="f_TextIn" style="font-weight: bold;">n</span><span class="f_TextIn"> (no more). If switches are used, the user comments have to be placed after the &quot;|&quot; (see example below).</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">m-switch: merge</span></p>
+<p class="p_TextIn"><span class="f_TextIn">This switch can be used to merge the back color of the first matching filter with the text color of the next matching filter. </span></p>
+<p class="p_TextIn"><span class="f_TextIn">In the following example (copied from </span><span class="f_TextIn" style="font-weight: bold;">List Management | Color Filters</span><span class="f_TextIn"> to show the color codes), any TXT file that was modified today will now be displayed with &nbsp;colors 38A050,6798E0. What the </span><span class="f_TextIn" style="font-weight: bold;">m</span><span class="f_TextIn">-switch actually does is: Instead of taking this color filter's text color, look for the next matching color filter that has NO backcolor defined and take its text color.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">+ageM: d //m|modified today&gt;FFFFFF,6798E0</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">+name:*.txt&gt;38A050,</span></p>
+<p class="p_TextIn"><span class="f_TextIn">This example will set a light yellow background color to all items with SYSTEM attribute, and use the text color of the next matching color filter that has only a text color defined (note that the &quot;|&quot; after &quot;m&quot; is obligatory!):</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">+attr:s//m|&gt;,FFFF80</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">n-switch: no more</span></p>
+<p class="p_TextIn"><span class="f_TextIn">In Details mode, the first matching filter *with* backcolor (if any) is displayed combined with the first matching filter *without* backcolor (if any). The filter *with* backcolor must be the first match. The name column will show Text/Back color of the first match, the other columns will show the Text color of the second match.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">This behavior can be suppressed using the </span><span class="f_TextIn" style="font-weight: bold;">n</span><span class="f_TextIn">-switch. For example:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;*.bak //n|Only color the name column</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_Geeks"><span class="f_Geeks" style="font-weight: bold;">Pre-Filters</span><span class="f_Geeks">&nbsp;</span><span class="f_Geeks">(Advanced Feature only for Geeks)</span></p>
+<p class="p_TextIn"><span class="f_TextIn">There is a way to pre-filter the files that are checked for matching a particular Color Filter. This is very welcome for slow Color Filters such as the &quot;prop:&quot; filter because it can considerably speed up the processing.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">All pre-filters are case-insensitive.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Filter</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The pre-filter is located in the optional comments section of a filter, i.e. after &quot;//&quot;. As the first part of the comments section is reserved for certain switches (&quot;m&quot; and &quot;n&quot;, see above), the pre-filter is to be placed in the second part, after the first &quot;|&quot;; it has to be prefixed by &quot;</span><span class="f_TextIn" style="font-weight: bold;">filter:</span><span class="f_TextIn">&quot;. Any number of filters can be stated, separated by &quot;;&quot; which stands for logical OR. Pre-filters can include whole paths, actually anything that will work in a simple pattern matching against the full path/file name of the item in question. So you can limit the job to certain folders or branches if you like.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Examples:</span></p>
+<p class="p_TextIn"><span class="f_TextIn">These p</span><span class="f_TextTitleIn" style="font-weight: normal;">re-filters limit the items that are checked for the CameraModel property to CRW and JPG files, or to the folders E:\photos and F:\photos:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;prop:CameraModel:*Canon* //|filter:*.crw;*.jpg</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;prop:CameraModel:*Canon* //|filter:E:\photos\;F:\photos\</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Filternot</span></p>
+<p class="p_TextIn"><span class="f_TextIn">There is also a logical inversion of the above. The &quot;</span><span class="f_TextIn" style="font-weight: bold;">filternot:</span><span class="f_TextIn">&quot; prefix specifies a list of patterns that must </span><span class="f_TextIn" style="font-weight: bold;">not</span><span class="f_TextIn"> be matched.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Note that &quot;filternot:&quot; has to be in the 3rd section (separated by |) of the comment part.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Examples:</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Match all files created today:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;ageC f: d</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Match all files created today, located in branch E:\Test\:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;ageC f: d //|filter:E:\Test\*</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Match all files created today, located in branch E:\Test, but not JPGs or PNGs:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;ageC f: d //|filter:E:\Test\*|filternot:*jpg;*.png</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Match all files created today, but not JPGs or PNGs:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;ageC f: d //||filternot:*jpg;*.png</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Content-based Color Filters like these make listing huge folders quite slow. &nbsp;The &quot;</span><span class="f_TextIn" style="font-weight: bold;">filternot:</span><span class="f_TextIn">&quot; prefix allows you to exclude those folder:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;B:prop:#empty:2|fl //||filternot:T:\Test ManyFiles\*</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;L:prop:#nosubs:2 //||filternot:T:\Test ManyFiles\*</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleChar"><a name="idh_cftypes"></a><span class="f_TextTitleChar">The Types of Color Filters</span></p>
+<p class="p_TextTitleIn"><a name="idh_cfname"></a><span class="f_TextTitleIn">Color-coding based on file or folder names (name:)</span></p>
+<p class="p_TextIn"><span class="f_TextIn">For example to color all TXT files blue, add the pattern </span><span class="f_TextIn" style="font-weight: bold;">name:*.txt</span><span class="f_TextIn"> to the list and then choose a nice blue. Or give an extraterrestrial ultra-violet to all files containing a space in their name by adding the pattern </span><span class="f_TextIn" style="font-weight: bold;">name:* *</span><span class="f_TextIn">.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Note that the selector </span><span class="f_TextIn" style="font-weight: bold;">name:</span><span class="f_TextIn"> is optional (in other words, this is the default color filter type). Simply </span><span class="f_TextIn" style="font-weight: bold;">*.txt</span><span class="f_TextIn"> will do as well.</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">Color Filter pattern matching is </span><span class="f_TextIn" style="font-weight: bold;">not case-sensitive</span><span class="f_TextIn">: a=A.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">Only </span><span class="f_TextIn" style="font-weight: bold;">*</span><span class="f_TextIn"> and </span><span class="f_TextIn" style="font-weight: bold;">?</span><span class="f_TextIn"> count as wildcards. There is </span><span class="f_TextIn" style="font-weight: bold;">no extended pattern matching</span><span class="f_TextIn"> for Color Filters, so </span><span class="f_TextIn" style="font-weight: bold;">#</span><span class="f_TextIn">, </span><span class="f_TextIn" style="font-weight: bold;">[</span><span class="f_TextIn">, and </span><span class="f_TextIn" style="font-weight: bold;">]</span><span class="f_TextIn"> are treated as literal characters.</span></td></tr></table></div><p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Loose matches:</span><span class="f_TextIn"> Name and Dir patterns support Loose Match, i.e. wildcards (*) are internally auto-added left and right of a pattern if no wildcards (* or ?) are contained in the pattern. So &quot;cat&quot; will match &quot;wildcat.txt&quot;.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Advanced filename patterns</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You can as well color certain List items </span><span class="f_TextIn" style="font-weight: bold;">in specific directories</span><span class="f_TextIn"> by stating a pattern that will be matched against the full path of each item.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Rules:</span></p>
+<p class="p_TextIn"><span class="f_TextIn"> &nbsp;If the pattern contains the character &quot;\&quot; then</span></p>
+<p class="p_TextIn"><span class="f_TextIn"> &nbsp; &nbsp;it's treated against the full path (relative/portable syntax supported)</span></p>
+<p class="p_TextIn"><span class="f_TextIn"> &nbsp;Else</span></p>
+<p class="p_TextIn"><span class="f_TextIn"> &nbsp; &nbsp;it's treated against the file name (without path)</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Examples:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;?:\*.png &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-&gt; matches only those PNG files that are located on XY's home drive.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;C:\Windows\*.dll &nbsp; &nbsp;-&gt; matches only those DLL files that are located in C:\Windows\.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;C:\Windows\* &nbsp; &nbsp; &nbsp; &nbsp;-&gt; matches all items that are located in C:\Windows\.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You can define patterns with flanking spaces. Simply quote the whole pattern. For example, this will match all filenames ending with a space (invalid under Windows but possible anyway):</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;name:&quot;* &quot;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Note that quoted patterns have to start with &quot;name:&quot; or &quot;dir:&quot; to avoid a parsing ambiguity with pattern captions (which are also quoted). Alternatively you can supply a caption:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;&quot;Invalid Names&quot; &quot;* &quot;;*.;dir:&quot;* &quot;;dir:*.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">To match files without extension end the pattern with a dot:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;*.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_cfdir"></a><span class="f_TextTitleIn">Color-coding based on folder names (dir:)</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Works identical to the </span><span class="f_TextIn" style="font-weight: bold;">name:</span><span class="f_TextIn"> filter above, but is confined to folders. If &quot;Apply color filters to the Tree&quot; is ticked the coloring is also applied to the Tree.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">For example to color all folders named &quot;*_work&quot; brown, add the pattern </span><span class="f_CodeNarrow">dir:*_work</span><span class="f_TextIn"> to the list and then choose a nice brown.</span></p>
+<p class="p_TextIn"><span class="f_NoteSign">Tip:</span><span class="f_TextIn"> You can color code the folder of the inactive pane in the tree with this pattern: </span><span class="f_CodeNarrow">T:dir:&lt;otherpath&gt;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_cfattr"></a><span class="f_TextTitleIn">Color-coding </span><span class="f_TextTitleIn">based on</span><span class="f_TextTitleIn"> file attributes (attr:)</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You add an attribute pattern by simply adding the name of the attribute, preceded by </span><span class="f_Code">attr:</span><span class="f_TextIn">, to the color filters list (tip: stating the first letter is enough; case is ignored).</span></p>
+<p class="p_TextIn"><span class="f_TextIn">These are the available file attributes:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;attr:readonly &nbsp; (or attr:r) -&gt; matches all items with READONLY set</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;attr:hidden &nbsp; &nbsp; (or attr:h) -&gt; matches all items with HIDDEN set</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;attr:system &nbsp; &nbsp; (or attr:s) -&gt; matches all items with SYSTEM set</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;attr:directory &nbsp;(or attr:d) -&gt; matches all items with DIRECTORY set</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;attr:archive &nbsp; &nbsp;(or attr:a) -&gt; matches all items with ARCHIVE set</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;attr:normal &nbsp; &nbsp; (or attr:n) -&gt; matches all items with NORMAL set</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;attr:temporary &nbsp;(or attr:t) -&gt; matches all items with TEMPORARY set</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;attr:junction &nbsp; (or attr:l) -&gt; matches all items with REPARSE POINT set (sic: l)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;attr:compressed (or attr:c) -&gt; matches all items with COMPRESSED set</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;attr:offline &nbsp; &nbsp;(or attr:o) -&gt; matches all items with OFFLINE set</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;attr:encrypted &nbsp;(or attr:e) -&gt; matches all items with ENCRYPTED set</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;attr:indexednot (or attr:i) -&gt; matches all items with NOT_CONTENT_INDEXED set</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;attr:pinned &nbsp; &nbsp; (or attr:p) -&gt; matches all items with PINNED set</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;attr:unpinned &nbsp; (or attr:u) -&gt; matches all items with UNPINNED set</span></p>
+<p class="p_TextIn"><span class="f_CodeNarrow"> &nbsp;attr:j &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-&gt; matches all items with RECALL_ON_DATA_ACCESS set</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Attribute patterns can be freely OR-combined with each other and with name patterns into one filter definition, e.g.:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;attr:c; attr:r &nbsp; -&gt; matches all items that are compressed or readonly </span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;attr:d; *.txt &nbsp; &nbsp;-&gt; matches all directories and all TXT files</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_cfattrlist"></a><span class="f_TextTitleIn">Color-coding </span><span class="f_TextTitleIn">based on</span><span class="f_TextTitleIn"> a list of file attributes (attrlist:)</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Use </span><span class="f_Code">attrlist:</span><span class="f_TextIn"> as selector for a combination of file attributes. To match the pattern an item has to have all of the listed attributes (it can have additional attributes but none of the listed ones must be missing). Each attribute is represented by its first letter (the sequence of the letters does not matter).</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Examples:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;attrlist: hs &nbsp;= color all items HIDDEN AND SYSTEM</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;attrlist: hsr &nbsp;= color all items HIDDEN AND SYSTEM AND READONLY</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_cfsize"></a><span class="f_TextTitleIn">Color-coding </span><span class="f_TextTitleIn">based on</span><span class="f_TextTitleIn"> file size (size:)</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Using size-based color filters you can, for example, color all empty files in a certain way, or all files bigger than a certain size.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You add an size pattern according to the following syntax:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;size: n &nbsp; &nbsp; &nbsp; &nbsp;= exact size</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;size: == n &nbsp; &nbsp; = exact (identical to the above)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;size: &lt; n &nbsp; &nbsp; &nbsp;= smaller than n</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;size: &gt; n &nbsp; &nbsp; &nbsp;= bigger than n</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;size: &lt;= n &nbsp; &nbsp; = n or smaller</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;size: &gt;= n &nbsp; &nbsp; = n or bigger</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;size: min - max &nbsp; &nbsp;= from min to max (both inclusive)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;size: min -&lt; max &nbsp; = from min to max (max exclusive)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;size: min &gt;- max &nbsp; = from min to max (min exclusive)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;size: min &gt;&lt; max &nbsp; = from min to max (both exclusive)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;size: min- &nbsp; &nbsp; &nbsp; &nbsp; = min or bigger &nbsp;(same as &gt;=n)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;size: -max &nbsp; &nbsp; &nbsp; &nbsp; = max or smaller &nbsp;(same as &lt;=n)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Here are some examples:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;size: 0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= size 0 bytes (empty file)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;size: 1000 &nbsp; &nbsp; &nbsp; &nbsp; = size 1000 bytes</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;size: &lt; 10 &nbsp; &nbsp; &nbsp; &nbsp; = smaller than 10 bytes</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;size: &gt; 1 MB &nbsp; &nbsp; &nbsp; = bigger than 1 MB</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;size: &gt;= 1.5 GB &nbsp; &nbsp;= 1.5 GB or bigger</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;size: 1KB - 20KB &nbsp; = from 1 KB to 20 KB (both incl.)</span></p>
+<p class="p_TextIn"><span class="f_TextIn">As you see, size-based filters support human-friendly size formats, recognized units are KB, MB, GB, TB, PB, and B (B is optional for bytes). Fractional values are okay, case does not matter, and you can throw in spaces as you like.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_cfdate"></a><span class="f_TextTitleIn">Color-coding </span><span class="f_TextTitleIn">based on</span><span class="f_TextTitleIn"> file date (date:) - Part 1: Absolute Dates</span></p>
+<p class="p_TextIn"><span class="f_TextIn">All three file dates (Created, Modified, Accessed) are supported. So you can, for example, color all files that were modified on a certain day, or that were created before the year 2008.</span></p>
+<p class="p_TextIn"><span class="f_TextIn"> &nbsp; &nbsp; &nbsp;General syntax: &nbsp; &nbsp; &nbsp;  </span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;dateC: = Date Created</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;dateM: = Date Modified</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;dateA: = Date Accessed</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp;  </span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;dateM: [date] &nbsp; &nbsp; &nbsp; &nbsp;= exact date (down to the second)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;dateM: == [date] &nbsp; &nbsp; = exact date (down to the second)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;dateM: &lt; [date] &nbsp; &nbsp; &nbsp;= earlier than</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;dateM: &gt; [date] &nbsp; &nbsp; &nbsp;= later than</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;dateM: &lt;= [date] &nbsp; &nbsp; = same or earlier</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;dateM: &gt;= [date] &nbsp; &nbsp; = same or later</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;dateM: [date] - [date] = from earliest to latest (both inclusive)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;dateM: [date] -&lt; [date] = from earliest to latest (latest exclusive)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;dateM: [date] &gt;- [date] = from earliest to latest (earliest exclusive)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;dateM: [date] &gt;&lt; [date] = from earliest to latest (both exclusive)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;dateM: [date] - &nbsp; &nbsp; &nbsp;= same or later &nbsp;(same as &gt;= )</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;dateM: - [date] &nbsp; &nbsp; &nbsp;= same or earlier &nbsp;(same as &lt;= )</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp;  </span></p>
+<p class="p_TextIn"><span class="f_TextIn"> &nbsp; &nbsp; &nbsp;Examples with time part:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;dateM: == 2010-11-16 10:30:12 &nbsp; &nbsp;(all items modified then)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;dateA: &gt;= 2026-11-11 11:11:11 &nbsp; &nbsp;(all items accessed in this Carnival and later)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn"> &nbsp; &nbsp; &nbsp;Examples without time part:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;dateC: &lt; 2008-01-01 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;(all items created before 2008)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;dateM: 2010-01-01 - &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;(all items modified 2010 and later)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;dateM: 2010-11-14 - 2010-11-15 &nbsp; (all items modified 2010-11-14 or 2010-11-15)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;dateC: 05/22/2011 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;(all items created 05/22/2011; this date format works in US locale)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;Modified: 2025 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (all items modified in 2025; using the English column name as selector; needs ISO 8601 date format)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;Created: 2025-07 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (all items created in July 2025; using the English column name as selector; needs ISO 8601 date format)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Notes:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="19"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_List2008-15">The date has to be given in a form that is recognized as a valid date format on your locale.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="19"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_List2008-15">The time part can be skipped. In this case, when operators are used in the term, the time it is internally set to 00:00:00 or 23:59:59, depending on the semantics of the term. When no operators are used (you just give a date without the time part) the term is interpreted as a time range covering that whole day (see examples above).</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="19"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_List2008-15">The selector is not case-sensitive:</span><span class="f_List2008-15" style="font-weight: bold;"> DaTem:</span><span class="f_List2008-15"> would work as well. </span><span class="f_List2008-15" style="font-weight: bold;">date:</span><span class="f_List2008-15"> = defaults to &quot;Date Modified&quot;.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="19"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_List2008-15">A trailing &quot;;&quot; is optional. Like with all color filters, &quot;;&quot; can also be used to concatenate patterns assigned to the same colors.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="19"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_List2008-15">These filters work for files and folders but only in the List (not in the Tree). &nbsp; &nbsp;  </span></td></tr></table></div><p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Color-coding </span><span class="f_TextTitleIn">based on</span><span class="f_TextTitleIn"> file date (date:) - Part 2: Subranges</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You also can color items if their file times match certain subranges, e.g. created from 8:00-10:00 in the morning, last modified on a weekend, last accessed in an April (of any year). To achieve this a unit selector is prefixed to a number or range (using the usual set of operators).</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Unit selectors:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;y = year (1601 - 32767)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;q = quarter of year (1 - 4)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;m = month (1 - 12)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;dw = day of week (Monday = 1 ... Sunday = 7)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;dy = day of year (1st January = 1)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;d = day (of month)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;h = hour (0 - 23)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;n = minute (0 - 59)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;s = second (0 - 59)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;ms = millisecond (0 - 999)</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Examples:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;dateC: h 8-10 &nbsp; &nbsp; &nbsp;= created from 8:00-10:00 (of any day)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;dateM: m 4 &nbsp; &nbsp; &nbsp; &nbsp; = last modified in an April (of any year)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;dateM: dw 6-7 &nbsp; &nbsp; &nbsp;= last modified on a weekend</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;dateM: dw 7-2 &nbsp; &nbsp; &nbsp;= last modified from sunday to tuesday</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;dateC: dy 1-100 &nbsp; &nbsp;= created in the first 100 days (of any year)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;dateC: q 3 &nbsp; &nbsp; &nbsp; &nbsp; = created in the 3rd quarter (of any year)</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Notes:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="19"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_List2008-15">The Unit selectors can (but don't have to) be separated from the unit number or range by at least one space.</span></td></tr></table></div><p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_cfage"></a><span class="f_TextTitleIn">Color-coding </span><span class="f_TextTitleIn">based on</span><span class="f_TextTitleIn"> file age (age:)</span></p>
+<p class="p_TextIn"><span class="f_TextIn">All three file dates (Created, Modified, Accessed) are supported. You can, for example, color all files that were modified today or last week, or that were created more than 10 years ago. This filter also supports folders in the folder Tree.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">General syntax: &nbsp; &nbsp; &nbsp;  </span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;ageC: = Date Created</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;ageM: = Date Modified</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;ageA: = Date Accessed</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The usual operators apply; [n] is a number and [u] a unit selector. There MUST be a space between counter and unit! For example:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;ageM: [n] [u] &nbsp; &nbsp; &nbsp; &nbsp;= specific unit</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;ageM: == [n] [u] &nbsp; &nbsp; = specific unit</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;ageM: &lt; [n] [u] &nbsp; &nbsp; &nbsp;= less than so many units</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;ageM: &gt; [n] [u] &nbsp; &nbsp; &nbsp;= more than so many units</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;ageM: &lt;= [n] [u] &nbsp; &nbsp; = so many units or less</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;ageM: &gt;= [n] [u] &nbsp; &nbsp; = so many units or more</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;ageM: [min] - [max] [u] = from min to max units (both included)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Unit selectors:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;y = year</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;q = quarter of year</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;m = month</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;w = week (Monday - Sunday)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;d = day [default unit!]</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;h = hour</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;n = minute</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;s = second</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp;  </span></p>
+<p class="p_TextIn"><span class="f_TextIn">Examples:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;ageM: &lt; 5 n &nbsp; &nbsp;= modified less than 5 minutes ago</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;ageM: &gt;= 3 h &nbsp; = modified 3 or more hours ago</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;ageM: 1 w &nbsp; &nbsp; &nbsp;= modified last week (previous Monday - Sunday)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;ageM: 0 d &nbsp; &nbsp; &nbsp;= modified today (from 00:00:00 till 23:59:59)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;age: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = modified today (same as above, all defaults used)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;ageM: 1 d &nbsp; &nbsp; &nbsp;= modified yesterday</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;ageM: &lt; 0 d &nbsp; &nbsp;= modified in the future (tomorrow or later)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;ageM: -1 d &nbsp; &nbsp; = modified tomorrow</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Notes:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">The Unit selectors can </span><span class="f_List2008-15">(but don't have to)</span><span class="f_TextIn"> be separated from the unit number or range by at least one space.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">The Age selector is not case-sensitive: </span><span class="f_TextIn" style="font-weight: bold;">AgEm:</span><span class="f_TextIn"> would work as well.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn" style="font-weight: bold;">age:</span><span class="f_TextIn"> defaults to &quot;Date Modified&quot;.</span></td></tr></table></div><p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_cflen"></a><span class="f_TextTitleIn">Color-coding </span><span class="f_TextTitleIn">based on</span><span class="f_TextTitleIn"> name length (len: and lenT:)</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Name length here refers filename length (with full path) (</span><span class="f_TextIn" style="font-weight: bold;">len:</span><span class="f_TextIn">) and file title length (name without path) (</span><span class="f_TextIn" style="font-weight: bold;">lenT:</span><span class="f_TextIn">). The syntax is identical to the one of the &quot;size:&quot; selector, so you can use all sorts of numerical comparison operators to define limits and ranges. </span><span class="f_TextIn">If &quot;Apply color filters to the Tree&quot; is ticked the coloring is also applied to the Tree.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Examples:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;len: &gt; 260 &nbsp; &nbsp;= color all files with a path/name longer than 260 characters</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;lent: &lt;= 12 &nbsp; = color all files with a name with 12 or fewer characters</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_cfprop"></a><span class="f_TextTitleIn">Color-coding </span><span class="f_TextTitleIn">based on</span><span class="f_TextTitleIn"> properties (prop:)</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Properties here refers to shell properties, that's the properties you see in the File Info Tips when hovering a file. The Properties filter is an extremely powerful color filter with a vast number of options. Win7 and later offer over 250 shell properties (of course, not all are used by each file type).</span></p>
+<p class="p_TextIn"><span class="f_TextIn">There is a drawback though: </span><span class="f_TextIn">Property filters are quite </span><span class="f_TextIn">slow! This is because retrieving shell properties has to rely on a slow shell mechanism. Each active &quot;prop:&quot; color filter will notably slow down listing and scrolling a list and selecting items in the list, and the more items are displayed simultaneously in the visible part of the list the slower it will be. Nevertheless, the &quot;prop:&quot; color filter can be of significant value. There is also a way to reduce the loss of speed (see </span><span class="f_TextIn" style="font-weight: bold;">Pre-Filters</span><span class="f_TextIn"> above).</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Property filters are special in that they need an additional property selector to specify the sort of property. This can be a verbal identifier (e.g. </span><span class="f_CodeChar">prop:dimensions:</span><span class="f_TextIn">) or a numeric identifier (e.g. </span><span class="f_CodeChar">prop:#31:</span><span class="f_TextIn">).</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Examples:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;prop:dimensions:1500 x * &nbsp; &nbsp;= color all files 1500 pixels wide</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;prop:#26:1500 x * &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = (same as above on WinXP)</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Note that #26 is identical to &quot;dimensions&quot; on WinXP but not on Win7 where &quot;dimensions&quot; is #31. You can find the correct indices in the list under </span><span class="f_TextIn" style="font-weight: bold;">Configuration | File Info Tips &amp; Hover Box | Show these fields</span><span class="f_TextIn">.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">More examples:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;prop:fileversion:8.60 &nbsp; &nbsp; &nbsp; = color all files versioned 8.60</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;prop:#26:1024 x 768 &nbsp; &nbsp; &nbsp; &nbsp; = color all files sized 1024 x 768</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;prop:CameraModel:*Canon* &nbsp; &nbsp;= color all files snapped with a Canon</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Also XYplorer-specific named arguments (see <a href="idh_scripting_comref.htm#idh_specialproperties">Special Properties</a>) are supported, e.g.:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;prop:#tags:dogs &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = color all files tagged &quot;dogs&quot; exactly</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;prop:#tags:*dogs* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = color all files tagged &quot;dogs&quot; (and other tags)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;prop:#ShortcutTarget:*.jpg &nbsp;= color all files linking to JPGs</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;prop:#JunctionTarget:*blah* = color all junctions to &quot;*blah*&quot;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;prop:#HardLinks: &gt; 1 &nbsp; &nbsp; &nbsp; &nbsp;= color all files with more than one hard link</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;prop:#AspectRatio: 16:9 &nbsp; &nbsp; = color all image files with a 16:9 aspect ratio</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Also the #Hash property is supported, but it is not recommended because it would extremely slow down browsing. For example (don't do this at home), this color filter will color all files with a certain MD5 value:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;prop:#Hash.MD5:58172fd15526e1249ac8bfd690ced076</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Note that &quot;prop:&quot; filters have their own distinctive background color shapes (in case you enabled </span><span class="f_TextIn" style="font-weight: bold;">Configuration | Color Filters | Draw background colors in distinctive shapes</span><span class="f_TextIn">).</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Numeric Properties</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The &quot;prop:&quot; filter also supports numeric comparisons. For example to color all JPG and PNG images with a width of at least 1024 pixels use any of these (two ways to express the same):</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;prop:#162:1024 - //|filter:*.jpg;*.png</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;prop:#162:&gt;=1024 //|filter:*.jpg;*.png</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Note that #162 is the numeric property identifier for &quot;Width&quot; on one Win7 system. It might be different on your system. You can find the correct indices in the list under </span><span class="f_TextIn" style="font-weight: bold;">Configuration | File Info Tips &amp; Hover Box | Show these fields</span><span class="f_TextIn">.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Date </span><span class="f_TextTitleIn">Properties</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The &quot;prop:&quot; filters also support dates. For example, to color all files with a specific shooting time (valid date/time syntax varies with your locale):</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;prop:#25:02.08.2011 13:52 //|filter:*.jpg</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You can omit the time part to only search for JPG images shot on a certain day:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;prop:#25:02.08.2011 //|filter:*.jpg</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You can as well specify ranges using the complete operator syntax that's already supported by the Date Color Filters (&quot;dateM:&quot; etc.). For example, to color all JPG images shot between 01.01.2011 and 31.12.2011 (both dates inclusive):</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;prop:#25:01.01.2011 - 31.12.2011 //|filter:*.jpg</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Note that the numeric property identifier &quot;#25&quot; is preferred to the verbal &quot;WhenTaken&quot; because the latter returns the time in UTC (Coordinated Universal Time) instead of local time -- a mysterious shell anomaly. Note further that #25 is only valid for Windows XP, whereas Win7 needs #11 here.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Using </span><span class="f_TextTitleIn">Property-based color-coding in the Tree</span></p>
+<p class="p_TextIn"><span class="f_TextIn">To apply a Color Filter of type &quot;prop&quot; to the Tree you have to prefix the <a href="idh_colorfilters.htm#idh_cfcontrol">control selector</a> &quot;T:&quot; or &quot;B:&quot; to the pattern. With other Color Filters the control selector &quot;B:&quot; is not necessary since the absence of any control selector does the same: Both Tree and List. With Color Filters of type &quot;prop&quot;, however, the absence of any control selector defaults to &quot;List only&quot;.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Now, most Properties don't have so much use in the Tree, but here is an interesting one:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; T:prop:#empty:2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//matches all empty folders in tree</span></p>
+<p class="p_TextIn"><span class="f_TextIn">This lets you </span><span class="f_TextIn" style="font-weight: bold;">color-code empty folders in the tree</span><span class="f_TextIn"> which is quite a cool usability gain.</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">Note that this option has to be ticked, of course, to color-code the tree:</span><br>
+<span class="f_TextIn">Configuration | Colors and Styles | Color Filters | Apply color filters to the Tree</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">It's limited to normal folders at the moment. No drives, or other non-straightforward folders.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">Also no UNC paths (unavailable network paths could slow this down unbearably).</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">If Auto-Refresh is enabled the folder coloring state should auto-update when the empty-state changes.</span></td></tr></table></div><p class="p_TextIn"><span class="f_TextIn">More examples:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;prop:#empty:2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//List only</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;T:prop:#empty:2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//Tree only</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;L:prop:#empty:2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//List only</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;B:prop:#empty:2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//Both Tree and List</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;L:prop:#contains.*.jpg:0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//matches all folders in List NOT containing any JPG files</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;B:prop:#contains.desktop.ini:1 &nbsp; &nbsp; &nbsp; &nbsp;//matches all folders in both Tree and List that contain a file &quot;desktop.ini&quot;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;B:prop:#contains.desktop.ini:1 AND B:prop:#itemcount:1 //folders containing only Desktop.ini</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_cftags"></a><span class="f_TextTitleIn">Color-coding </span><span class="f_TextTitleIn">based on tags</span><span class="f_TextTitleIn"> (lbl:, tags:, cmt:)</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You can as well color-code items by their tags. The syntax is identical to that of <a href="idh_visualfilters.htm#idh_vfbytags">Visual Filters by Tags</a>.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Partial matches</span><span class="f_TextIn"> are supported in the Comment field without the need to add wildcards. To force an exact match enclose the pattern in quotes. For example:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;Comment:Linda &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-&gt; match items where the comment contains Linda</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;Comment:&quot;Linda&quot; &nbsp; &nbsp; &nbsp; &nbsp;-&gt; match items where the comment is Linda</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Dirty Tags</span><span class="f_TextIn">: You can define a filter that matches items where any of the tags (Label, Tags, Comment, Extra) are </span><span class="f_TextIn" style="font-weight: bold;">dirty</span><span class="f_TextIn"> (i.e. not yet saved to disk). The pseudo pattern used for this is </span><span class="f_CodeNarrow">&quot;*&quot;</span><span class="f_TextIn">:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;tags:&quot;*&quot; //dirty tags</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleChar"><a name="idh_cfinstant"></a><span class="f_TextTitleChar">Instant Color Filters</span></p>
+<p class="p_TextIn"><span class="f_TextIn">XYplorer comes with a predefined set of so-called </span><span class="f_TextIn" style="font-weight: bold;">Instant Color Filters</span><span class="f_TextIn"> that can be applied individually and independently of the normal Color Filters.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Usage</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Instant Color Filters are applied via the </span><span class="f_TextIn" style="font-weight: bold;">toolbar button</span><span class="f_TextIn"> &quot;Toggle Instant Color Filter&quot;. The button has an arrow-dropdown where the filters can be </span><span class="f_TextIn">individually applied. The button itself toggles the last applied filter.</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">If you activate a new filter, the old filter is replaced by it. So you cannot have two at the same time.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">If you activate the same filter again it is deactivated (toggle).</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">The filters activated by this command are completely independent of the Color Filters (which are defined and enabled via <a href="idh_colorfilters.htm">Configuration | Color Filters</a>). They even work if the normal Color Filters are disabled.</span></td></tr></table></div><p class="p_TextIn"><span class="f_NoteSign">Tip:</span><span class="f_TextIn"> The button has a right-click menu with some useful options.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Advantages</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Instant Color Filters have a couple of advantages over the normal color filters:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">You can quickly and individually turn them on/off without going through Configuration.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">This means you can spotlight the files you are interested in now, just in time. With normal Color Filters you are often bothered with colors all over that are distracting rather than helpful.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">They are always processed on top of all other color filters, so you always see all matches. Whereas in normal color filters it's common that the first match covers any possible other matches because usually only one color can be shown at the time for each item (exception: Details view allows two colors simultaneously per item under certain conditions).</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">Because lists of filters are supported you can use this function to toggle whole color schemes which would be very cumbersome to do using the normal color filters.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">It's also easy to share color schemes between users via user button snippets or included catalogs.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_TextIn">Just like normal Color Filters, Instant color filters are retained across sessions.</span></td></tr></table></div><p class="p_TextIn"><span class="f_NoteSign">Tip:</span><span class="f_TextIn"> You can assign a </span><span class="f_TextIn" style="font-weight: bold;">keyboard shortcut</span><span class="f_TextIn"> to </span><span class="f_TextIn">toggle the last applied filter via </span><span class="f_TextIn" style="font-style: italic;">Customize Keyboard Shortcuts | Miscellaneous | Various | Toggle Instant Color Filter</span><span class="f_TextIn">.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Customization</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The predefined filters can be freely customized via </span><span class="f_TextIn" style="font-weight: bold;">List Management | Instant Color Filters</span><span class="f_TextIn">. Of course, the customizations are retained between sessions.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The color filter syntax is identical to that of normal <a href="idh_colorfilters.htm">Color Filters</a>. The color filter definition uses the full Color Filter syntax including colors in RRGGBB and leading &quot;+&quot; (the &quot;+&quot; is optional here, the filters will also be applied without the &quot;+&quot;). You can see this syntax in List Management | Color Filters, in Editor Mode (F6).</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Multi-Filter Definitions</span><span class="f_TextIn">: There is one thing where ICFs go beyond normal CFs. You can append several filter definitions in one line separated by &quot;||&quot;. Example:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&quot;Files Shaded By Size&quot; size: &gt;= 1 GB&gt;000000,8A939F||size: &gt;= 100 MB&gt;003080,8EA4C4||size: &gt;= 10 MB&gt;004080,A9BAD3||size: &gt;= 1 MB&gt;0053A6,BCCCDE||size: &gt;= 1 KB&gt;0E80DC,D1DAE9||size: &gt; 0&gt;4F91D2,E2E3EB||size: 0&gt;96ABB8,ECEDF2</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Note that the coloring displayed in List Management only takes the left-most filter into account if there are many filters in a line.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Factory Defaults</span></p>
+<p class="p_TextIn"><span class="f_TextIn">For reference, the following</span><span class="f_TextIn"> Instant Color Filters are supplied by factory default.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&quot;Created or Modified Today&quot; ageC: d;ageM: d&gt;FFFFFF,70B926</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&quot;Created or Modified This Week&quot; ageC: w;ageM: w&gt;FFFFFF,B97026</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&quot;Folders Created Recently&quot; ageC d: &lt;= 3 h //folders created last 3 hours&gt;FFFF00,0073E6||ageC d: d //folders created today&gt;FFFF80,379BFF||ageC d: w //folders created this week&gt;FFFFFF,71B8FF</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&quot;Files Modified Recently&quot; ageM f: &lt;= 5 n //files modified last 5 min&gt;FFFF00,4F831B||ageM f: &lt;= 1 h //files modified last hour&gt;FFFF00,63A521||ageM f: &lt;= 24 h //files modified last 24 hours&gt;FFFFFF,70B926</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">-</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&quot;Empty Files&quot; size: 0&gt;96ABB8,ECEDF2</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&quot;Files Shaded By Size&quot; size: &gt;= 1 GB&gt;000000,8A939F||size: &gt;= 100 MB&gt;003080,8EA4C4||size: &gt;= 10 MB&gt;004080,A9BAD3||size: &gt;= 1 MB&gt;0053A6,BCCCDE||size: &gt;= 1 KB&gt;0E80DC,D1DAE9||size: &gt; 0&gt;4F91D2,E2E3EB||size: 0&gt;96ABB8,ECEDF2</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">-</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&quot;Overlong Filenames&quot; len: &gt; 260&gt;FFFF80,FB4F04</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">-</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&quot;Read Only Files&quot; attr f:readonly&gt;47A905,FFFF80</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&quot;System Files&quot; attr f:system&gt;FF0080,FFFF00</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">-</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&quot;Common Executables&quot; *.exe;*.bat;*.cmd;*.com;*.scr&gt;804000,FFFFAA</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&quot;Common Image Files&quot; *.gif;*.jpg;*.png;*.tif&gt;36530F,E6F786</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">-</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&quot;Image Aspect Ratio 16:9&quot; prop:#AspectRatio: 16:9&gt;5A4F36,F7E686</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">-</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&quot;Black Out&quot; name: *&gt;222222,222222</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_NoteSign">Tip:</span><span class="f_TextIn"> You can easily reset your filter collection to factory defaults by deleting all filters in </span><span class="f_TextIn" style="font-weight: bold;">List Management | Instant Color Filters</span><span class="f_TextIn">.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Scripting support</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The scripting function </span><span class="f_TextIn" style="font-weight: bold;">colorfilter()</span><span class="f_TextIn"> can also be used to apply </span><span class="f_TextIn" style="font-weight: bold;">Instant Color Filters</span><span class="f_TextIn">. For details see <a href="idh_scripting_comref.htm#idh_sc_colorfilter">colorfilter()</a>.</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

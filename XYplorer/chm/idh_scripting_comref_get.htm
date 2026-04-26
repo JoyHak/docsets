@@ -1,0 +1,805 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>Scripting Command Get</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#F6F8FA">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Title"><span class="f_Title">Scripting Command Get</span></p>
+
+    </td>
+    <td align="right">
+     <span style="font-size: 9pt">
+     <a href="idh_intro.htm"><img src="arrow-up-icon24.png" border=0 alt="Top"></a>&nbsp;
+     <a href="idh_scripting_comref.htm"><img src="arrow-left-icon24.png" border=0 alt="Previous"></a>&nbsp;
+     <a href="idh_startupini.htm"><img src="arrow-right-icon24.png" border=0 alt="Next"></a>
+     </span>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p class="p_Title"><span class="f_Title">&nbsp;</span></p>
+<p class="p_footnotereference" style="line-height: 1.20; margin: 4px 28px 4px 9px;"><a name="idh_sc_get"></a><span class="f_TextTitleChar">get()</span></p>
+<p class="p_Text"><span class="f_Text">Returns various information.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Syntax</span></p>
+<p class="p_script"><span class="f_script">get(info, [param1], [param2], [param3])</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="94"><span class="f_List2008-35" style="font-weight: bold;">info</span><span class="f_List2008-35">:</span></td><td><span class="f_List2008-35">[required] Sort of info (</span><span class="f_List2008-35" style="font-style: italic;">not</span><span class="f_List2008-35"> case-sensitive, A==a).</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="94"><span class="f_List2008-35" style="font-weight: bold;">param1</span><span class="f_List2008-35">: </span></td><td><span class="f_List2008-35">[optional] Depends on info.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="94"><span class="f_List2008-35" style="font-weight: bold;">param2</span><span class="f_List2008-35">: </span></td><td><span class="f_List2008-35">[optional] Depends on info.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="94"><span class="f_List2008-35" style="font-weight: bold;">param3</span><span class="f_List2008-35">: </span></td><td><span class="f_List2008-35">[optional] Format template.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="94"><span class="f_List2008-35" style="font-weight: bold;">return</span><span class="f_List2008-35">: </span></td><td><span class="f_List2008-35">Retrieved info</span><span class="f_TextIn"> .</span></td></tr></table></div><p class="p_TextTitleIn"><span class="f_TextTitleIn">Optional Format Template (param3)</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You now can pass an optional format template in the 3rd argument after the property selector. The * is a place holder for the value (if missing the value is simply appended to the template). Must be wrapped in single or double quotes if a space is included:</span></p>
+<p class="p_script"><span class="f_ScriptIn">echo &lt;get BytesSelected a 1 'Bytes: *'&gt;; //Bytes: 1,436,919</span></p>
+<p class="p_script"><span class="f_ScriptIn">echo &lt;get BytesSelected a 1 '* Bytes'&gt;; &nbsp;//1,436,919 Bytes</span></p>
+<p class="p_script"><span class="f_ScriptIn">echo &lt;get LengthsSelected a 4 'Duration [*]'&gt;; &nbsp;//Duration [01:00:52]</span></p>
+<p class="p_script"><span class="f_ScriptIn">echo &lt;get LengthsSelected a 4 'Duration: '&gt;; &nbsp;//Duration: 01:00:52</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Possible Values for info, param1, and param2</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">Alias</span></p>
+<p class="p_List2008"><span class="f_script">&quot;Alias&quot;, [AliasName]</span><br>
+<span class="f_List2008">Returns the value of the alias &quot;AliasName&quot;. If the alias does not exist then AliasName itself is returned unchanged.</span><br>
+<span class="f_List2008">The value of the alias is returned without resolving any arguments within the alias. Example:</span><br>
+<span class="f_List2008">alias: </span><span class="f_CodeBlue">@Greet=::echo &quot;Hello, &lt;@1&gt;! It's &lt;@2 Dewey&gt;!&quot;;</span><br>
+<span class="f_script">echo get(&quot;alias&quot;, &quot;Greet&quot;); //::echo &quot;Hello, &lt;@1&gt;! It's &lt;@2 Dewey&gt;!&quot;;</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">Bitness</span></p>
+<p class="p_List2008"><span class="f_script">&quot;Bitness&quot;, [file]</span><br>
+<span class="f_List2008">Returns the bitness (target platform) of a binary file (typically EXE or DLL). One of these values is returned:</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">16-bit</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">32-bit</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">64-bit</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">64-bit Itanium</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">(unknown)</span><br>
+<span class="f_List2008">Examples:</span><br>
+<span class="f_script">echo get(&quot;bitness&quot;); &nbsp;//bitness of the selected file</span><br>
+<span class="f_script">echo get(&quot;bitness&quot;, &quot;C:\Program Files\XYplorer\XYplorer.exe&quot;); &nbsp;//64-bit</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">Box</span></p>
+<p class="p_List2008"><span class="f_script">&quot;box&quot;, [path]</span><br>
+<span class="f_List2008">path: If missing the current tree path is used.</span><br>
+<span class="f_List2008">return: If boxed: the background color in RRGGBB; Else: nothing</span><br>
+<span class="f_List2008">Use it to find out whether a tree folder is boxed and what's the background color.</span><br>
+<span class="f_List2008">In dark mode it still returns the color it would have in light mode. That's the value you can use for SC box.</span><br>
+<span class="f_List2008">It does not return a color for a node within a box, just for the boxed node itself.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">BytesSelected</span></p>
+<p class="p_List2008"><span class="f_script">&quot;BytesSelected&quot;, [pane=a], [flags]</span><br>
+<span class="f_List2008">Returns the sum of bytes of all selected items of any of the two panes. If folder sizes are shown then they are included in the byte count.</span><br>
+<span class="f_List2008">pane:</span><br>
+<span class="f_List2008"> &nbsp;a = [default] active pane</span><br>
+<span class="f_List2008"> &nbsp;i = inactive pane</span><br>
+<span class="f_List2008"> &nbsp;1 = pane 1</span><br>
+<span class="f_List2008"> &nbsp;2 = pane 2</span><br>
+<span class="f_List2008">flags: (bit field)</span><br>
+<span class="f_List2008"> &nbsp;1 = Show thousand separators. On combination with flag 2: Show exact size as well.</span><br>
+<span class="f_List2008"> &nbsp;2 = Friendly format.</span><br>
+<span class="f_List2008"> &nbsp;4 = Size on disk.</span><br>
+<span class="f_List2008">Example:</span><br>
+<span class="f_script">status &lt;get 'BytesSelected' '' 7&gt;; //friendly size on disk with exact size</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">BytesTotal</span></p>
+<p class="p_List2008"><span class="f_script">&quot;BytesTotal&quot;, [pane=a]</span><br>
+<span class="f_List2008">Returns the sum of bytes of all items of any of the two panes. Syntax see &quot;BytesSelected&quot; above.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">Char</span></p>
+<p class="p_List2008"><span class="f_script">&quot;char&quot;, [codepoint][+codepoint][+codepoint]...</span><br>
+<span class="f_List2008">Returns the character (or string of characters) defined by the codepoint(s). Each codepoint is passed as 4-digit hex value, so all 16-bit Unicode characters can be returned here if you know their number. Examples:</span><br>
+<span class="f_script">echo &lt;get char 0041&gt;; //A</span><br>
+<span class="f_script">echo &lt;get char 0041&gt;.&lt;get char 0042&gt;; //AB</span><br>
+<span class="f_script">echo &lt;get char 0041+0042&gt;; //AB</span><br>
+<span class="f_List2008">There is a shorthand &lt;U+[codepoint]&gt;:</span><br>
+<span class="f_script">echo &lt;U+0041&gt;; //A</span><br>
+<span class="f_script">echo &lt;U+0041&gt;.&lt;U+0042&gt;; //AB</span><br>
+<span class="f_script">echo &lt;U+0041+0042&gt;; //AB</span><br>
+<span class="f_List2008">1-digit, 2-digit, 3-digit hex values work as well:</span><br>
+<span class="f_script">echo &lt;U+41+42+43&gt;; //ABC</span><br>
+<span class="f_List2008"> Also mixed digit counts is okay:</span><br>
+<span class="f_script">echo hexdump(&lt;U+9+09+009+0009&gt;, , &quot;r&quot;); //09 09 09 09</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">CmdLine</span></p>
+<p class="p_List2008"><span class="f_script">&quot;CmdLine&quot;, [token]</span><br>
+<span class="f_List2008">Returns the app's command line, or a specific </span><span class="f_List2008" style="font-weight: bold;">token</span><span class="f_List2008"> of it. Examples:</span><br>
+<span class="f_ScriptIn">echo get(&quot;CmdLine&quot;); &nbsp; &nbsp;//returns the command line (without application)</span><br>
+<span class="f_ScriptIn">echo get(&quot;CmdLine&quot;, 0); //returns the application as called</span><br>
+<span class="f_ScriptIn">echo get(&quot;CmdLine&quot;, 1); //returns the 1st argument</span><br>
+<span class="f_ScriptIn">echo get(&quot;CmdLine&quot;, 2); //returns the 2nd argument, etc.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">CmdLineUser</span></p>
+<p class="p_List2008"><span class="f_script">&quot;CmdLineUser&quot;, [token]</span><br>
+<span class="f_List2008">Returns the user field of the command line (passed via <a href="idh_commandlineswitches.htm">command line switch</a> </span><span class="f_List2008" style="font-weight: bold;">/user</span><span class="f_List2008">), or a specific </span><span class="f_List2008" style="font-weight: bold;">token</span><span class="f_List2008"> of it.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">#CommandID</span></p>
+<p class="p_List2008"><span class="f_script">#CommandID, [ReturnOnTrue = 1], [ReturnOnFalse = 0]</span><br>
+<span class="f_List2008">Here you can retrieve the current state of a number of toggles with a command ID, and control what is returned on what state. Currently supported are the following Command IDs:</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#178 = Floating Preview</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#311 = Branch View &nbsp; &nbsp; &nbsp; &nbsp;(True when the active list is in Branch View)</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#312 = Show Sort Headers In All Views</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#315 = Touchscreen Mode</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#316 = Dark Mode</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#333 = Sort Folders Apart</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#388 = Hide Protected Operating System Files</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#391 to #399, #418, #419, #431, #466 to #468, #488 (all toggles in the &quot;Tools | Customize Tree&quot; submenu)</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#401 to #417 (all toggles in the &quot;Tools | Customize List&quot; submenu)</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#471 = Enable Folder View Settings</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#480 = Auto-Refresh</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#481 = Auto-Refresh is suspended or off</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#489 = Mini Tree</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#491 = Show Floppy Drives</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#492 = Show Hidden Drives</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#493 = Show Hidden Files and Folders </span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#494 = Show System Files and Folders</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#495 = Show Junctions</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#496 = Show Folders in List</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#497 = Ghost Filter</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#548 = Skip Custom Columns</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#660 = Show Address Bar</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#661 = Show Toolbar</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#662 = Show Tab Bar</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#663 = Show Navigation Panels</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#664 = Show Catalog</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#665 = Show Info Panel</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#668 = Show Tree</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#669 = Show Status Bar Buttons</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#670 = Show Status Bar</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#675 = Show Live Filter Box</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#685 = Wide Info Panel</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#686 = Catalog First</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#689 = Allow Multiple Button Rows</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#800 = Dual Pane</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#801 = Horizontal Panes</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#813 = Sync Scroll</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#814 = Sync Browse</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_List2008">#1061 = Miscellaneous | General Functions | Show/Hide Main Menu</span><br>
+<span class="f_List2008">For example, this returns &quot;DP&quot; when Dual Pane is enabled, and &quot;SP&quot; when it's not:</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_script">text get(&quot;#800&quot;, &quot;DP&quot;, &quot;SP&quot;);</span><br>
+<span class="f_List2008">And this returns &quot;1&quot; or &quot;0&quot;:</span><br>
+<span style="width:72px">&nbsp;</span><span class="f_script">text get(&quot;#800&quot;);</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Examples</span></p>
+<p class="p_script"><span class="f_script">$a = get(&quot;CountSelected&quot;); msg $a;</span></p>
+<p class="p_script"><span class="f_script">$a = get(&quot;SelectedItemsPathNames&quot;, &quot;|&quot;); msg $a;</span></p>
+<p class="p_script"><span class="f_script">msg get(&quot;selecteditemsnames&quot;, chr(10));</span></p>
+<p class="p_script"><span class="f_script">text get(&quot;tree&quot;, &lt;crlf&gt;); //one path per line</span></p>
+<p class="p_script"><span class="f_script">echo get(&quot;bytesselected&quot;, i); &nbsp;//inactive pane's sel. bytes</span></p>
+<p class="p_script"><span class="f_script">text get(&quot;selecteditemsnames&quot;, , &quot;i&quot;); //inactive pane's sel. items, one per line</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">CopiedData</span></p>
+<p class="p_List2008"><span class="f_script">&quot;CopiedData&quot;</span><span class="f_script">, [token]</span><br>
+<span class="f_List2008">Returns the last data copied to this window via WM_COPYDATA. The returned data depends on the value of the &quot;token&quot; argument:</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp;0: hWndSender|dwData|Data</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp;1: hWndSender</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp;2: dwData</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp;3: Data</span><br>
+<span class="f_List2008">For example, this 2-line script will retrieve the value of &lt;curitem&gt; in another instance of XYplorer (721424), and then display it in a message box in this XYplorer (&lt;hwnd&gt;):</span><br>
+<span class="f_ScriptIn">copydata 721424, &quot;::copydata &lt;hwnd&gt;, &quot; . '&lt;curitem&gt;' . &quot;;&quot;, 1; echo &lt;get copieddata 3&gt;;</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">CountIcons</span></p>
+<p class="p_List2008"><span class="f_script">&quot;CountIcons&quot;</span><span class="f_script">, [file]</span><br>
+<span class="f_List2008">Retrieve the number of embedded icons in a file.</span><br>
+<span class="f_List2008"> &nbsp;file: &nbsp; &nbsp; &nbsp; &nbsp;Full path to the file. If missing the currently focused file is used.</span><br>
+<span class="f_List2008"> &nbsp;return: &nbsp; &nbsp; &nbsp; &nbsp;The number of embedded icons in the file.</span><br>
+<span class="f_List2008">The following file type are scanned for embedded icons: .exe.dll.cpl.ocx.scr.icl.bpl.wlx.wfx.wcx.wdx.acm</span><br>
+<span class="f_List2008">Additionally it can count the number of images in an ICO and CUR resource (*.ico, *.cur).</span><br>
+<span class="f_List2008">Example for a Custom Column of type Template (the quotes are necessary to handle items with spaces in the name):</span><br>
+<span class="f_ScriptIn">&lt;get counticons &quot;&lt;cc_item&gt;&quot;&gt;</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">CountItems</span></p>
+<p class="p_List2008"><span class="f_script">&quot;CountItems&quot;</span><span class="f_script">, [pane=a]</span><br>
+<span class="f_List2008">Count of items in List.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">CountSelected</span></p>
+<p class="p_List2008"><span class="f_script">&quot;CountSelected&quot;</span><span class="f_script">, [pane=a], [flags]</span><br>
+<span class="f_List2008">Count of selected items in List.</span><br>
+<span class="f_List2008">pane: see above at </span><span class="f_script">&quot;BytesSelected&quot;</span><br>
+<span class="f_List2008">flags: (bit field)</span><br>
+<span class="f_List2008"> &nbsp;1 = Show thousand separators.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">CurItem</span></p>
+<p class="p_List2008"><span class="f_script">&quot;curitem&quot;</span><span class="f_script">, [part], [flags]</span><span class="f_Text"> and </span><span class="f_script">&quot;curitemprev&quot;</span><span class="f_script">, [part], [flags]</span><br>
+<span class="f_List2008">Returns the current/previous item on whatever pane. Both take optional parameters path, file, base, and ext.</span><br>
+<span class="f_List2008"> &nbsp;flags: (bit field)</span><br>
+<span class="f_List2008"> &nbsp; &nbsp;1: Mind folders when returning &quot;base&quot; or &quot;ext&quot;.</span><br>
+<span class="f_List2008">Note: get(curitem) differs from the native variable &lt;curitem&gt; in that it will return the previously selected and focused item if the currently focused item is not selected.</span><br>
+<span class="f_List2008">Examples:</span><br>
+<span class="f_ScriptIn">echo get(&quot;curitem&quot;,); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //E:\Test\b\c\Jane.txt</span><br>
+<span class="f_ScriptIn">echo get(&quot;curitem&quot;, &quot;drive&quot;); &nbsp; //&quot;E:&quot; or &quot;\\VEGA\Users&quot;</span><br>
+<span class="f_ScriptIn">echo get(&quot;curitem&quot;, &quot;path&quot;); &nbsp; &nbsp;//E:\Test\b\c</span><br>
+<span class="f_ScriptIn">echo get(&quot;curitem&quot;, &quot;file&quot;); &nbsp; &nbsp;//Jane.txt</span><br>
+<span class="f_ScriptIn">echo get(&quot;curitem&quot;, &quot;base&quot;); &nbsp; &nbsp;//Jane</span><br>
+<span class="f_ScriptIn">echo get(&quot;curitem&quot;, &quot;ext&quot;); &nbsp; &nbsp; //txt (original case extension)</span><br>
+<span class="f_ScriptIn">echo get(&quot;curitem&quot;, &quot;lext&quot;); &nbsp; &nbsp;//txt (lower case extension)</span><br>
+<span class="f_ScriptIn">echo get(&quot;curitem&quot;, &quot;base&quot;); &nbsp; &nbsp;//treats file and folders the same</span><br>
+<span class="f_ScriptIn">echo get(&quot;curitem&quot;, &quot;base&quot;, 1); //treats folders differently (folders have no extensions)</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">CursorPos</span></p>
+<p class="p_List2008"><span class="f_script">&quot;cursorpos&quot;</span><span class="f_script">, param1</span><br>
+<span class="f_List2008">Returns the current mouse cursor position on screen.</span><br>
+<span class="f_List2008">Syntax: get(&quot;cursorpos&quot;, param1)</span><br>
+<span class="f_List2008"> &nbsp;param1:</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; x,X: X position</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; y,Y: Y position</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; [else]: Separator between X and Y position</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; If empty it defaults to &quot;;&quot;</span><br>
+<span class="f_List2008"> &nbsp;return: Mouse cursor position on screen.</span><br>
+<span class="f_List2008">Examples:</span><br>
+<span class="f_script">echo get(&quot;cursorpos&quot;); &nbsp; &nbsp; &nbsp;//425;237</span><br>
+<span class="f_script">echo get(&quot;cursorpos&quot;, &quot;,&quot;); //425,237</span><br>
+<span class="f_script">echo get(&quot;cursorpos&quot;, &quot;, &quot;); //425, 237</span><br>
+<span class="f_script">echo get(&quot;cursorpos&quot;, &quot;X&quot;); //425</span><br>
+<span class="f_script">echo get(&quot;cursorpos&quot;, &quot;y&quot;); //237</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">Darkness</span></p>
+<p class="p_List2008"><span class="f_script">&quot;darkness&quot;</span><br>
+<span class="f_List2008">Returns the value of &quot;Configuration | Colors and Styles | Highlights &amp; Dark Mode | Dark mode | Level of darkness (0 is darkest)&quot;.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">DarkContrast</span></p>
+<p class="p_List2008"><span class="f_script">&quot;darkcontrast&quot;</span><br>
+<span class="f_List2008">Returns the value of &quot;Configuration | Colors and Styles | Highlights &amp; Dark Mode | Dark mode | Text contrast&quot;.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">DefaultTab</span></p>
+<p class="p_List2008"><span class="f_script">&quot;defaulttab&quot;, [pane=a]</span><br>
+<span class="f_List2008">Returns the index of the default tab; &quot;1&quot; for the first tab; &quot;&quot; if no default tab exists.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">Dimensions</span></p>
+<p class="p_List2008"><span class="f_script">&quot;dimensions&quot;, [file], [template=&quot;%w% x %h%&quot;]</span><br>
+<span class="f_List2008">Returns various basic image properties.</span><br>
+<span class="f_List2008">file: The file. Defaults to the currently focused file.</span><br>
+<span class="f_List2008">template: Format of the returned string. Supports the following variables:</span><br>
+<span class="f_List2008" style="font-weight: bold;">%w%</span><span class="f_List2008"> = width</span><br>
+<span class="f_List2008" style="font-weight: bold;">%h%</span><span class="f_List2008"> = height</span><br>
+<span class="f_List2008" style="font-weight: bold;">%r%</span><span class="f_List2008"> = aspect ratio term, e.g. &quot;1:2&quot;</span><br>
+<span class="f_List2008" style="font-weight: bold;">%rq%</span><span class="f_List2008"> = aspect ratio quotient, e.g. &quot;0.5&quot;</span><br>
+<span class="f_List2008" style="font-weight: bold;">%a%</span><span class="f_List2008"> = area raw, e.g. &quot;1048576&quot;</span><br>
+<span class="f_List2008" style="font-weight: bold;">%af%</span><span class="f_List2008"> = area formatted or friendly, e.g. &quot;1,048,576&quot;</span><br>
+<span class="f_List2008">Defaults to &quot;%w% x %h%&quot;.</span><br>
+<span class="f_List2008">return: &nbsp; Dimensions, area, and/or aspect ratio, depending on the template.</span><br>
+<span class="f_List2008">Examples, using the &lt;get ...&gt; syntax:</span><br>
+<span class="f_script">text &lt;get dimensions&gt;; //1200 x 1600</span><br>
+<span class="f_script">text &lt;get dimensions &nbsp;&quot;%w% x %h% [%r%]&quot;&gt;; //1200 x 1600 [3:4]</span><br>
+<span class="f_script">text &lt;get dimensions &nbsp;&quot;ratio=%rq%&quot;&gt;; //ratio=0.75</span><br>
+<span class="f_script">echo &lt;get dimensions &nbsp;%a%&gt;; //1920000</span><br>
+<span class="f_script">echo &lt;get dimensions &nbsp;&quot;%af% square pixels&quot;&gt;; //1,920,000 square pixels</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">DriveLetter</span></p>
+<p class="p_List2008"><span class="f_script">&quot;driveletter&quot;, [drivename], [path]</span><br>
+<span class="f_List2008">Returns the first drive letter matching the given drivename (aka volume label). An optional path parameter can be used to format the returned string.</span><br>
+<span class="f_List2008">drivename: &nbsp;Drive name (defaults to the current path).</span><br>
+<span class="f_List2008">path: Any path with a drive letter, or a &quot;?&quot; in the place of the drive letter. If the function finds a matching drive letter then it will replace the drive letter in [path] with it and return the new path.</span><br>
+<span class="f_List2008">return: The drive letter, or the path with the drive letter. If no matching drive letter is found nothing is returned.</span><br>
+<span class="f_List2008">Example (drive F:\ is named &quot;Fun&quot;):</span><br>
+<span class="f_script">echo &lt;get driveletter &quot;Fun&quot; &quot;C:\Windows&quot;&gt;; //F:\Windows</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">DriveName</span></p>
+<p class="p_List2008"><span class="f_script">&quot;drivename&quot;, [path], [flags]</span><br>
+<span class="f_List2008">Returns the name of the drive (aka volume label) where path is on.</span><br>
+<span class="f_List2008">path: Path (defaults to the current path).</span><br>
+<span class="f_List2008">flags:</span><br>
+<span class="f_List2008"> &nbsp;0 = return drive name without drive letter</span><br>
+<span class="f_List2008"> &nbsp;1 = return the drive letter as well (formatted according to system settings found in registry)</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">Drives</span></p>
+<p class="p_List2008"><span class="f_script">&quot;drives&quot;, [type], [separator=&quot;|&quot;]</span><br>
+<span class="f_List2008">Returns a list of drives.</span><br>
+<span class="f_List2008">The &quot;type&quot; parameter corresponds to the Windows drive types enumeration:</span><br>
+<span class="f_CodeNarrow">DRIVE_UNKNOWN &nbsp; &nbsp; &nbsp; = 0</span><br>
+<span class="f_CodeNarrow">DRIVE_NO_ROOT_DIR &nbsp; = 1</span><br>
+<span class="f_CodeNarrow">DRIVE_REMOVABLE &nbsp; &nbsp; = 2</span><br>
+<span class="f_CodeNarrow">DRIVE_FIXED &nbsp; &nbsp; &nbsp; &nbsp; = 3</span><br>
+<span class="f_CodeNarrow">DRIVE_REMOTE &nbsp; &nbsp; &nbsp; &nbsp;= 4</span><br>
+<span class="f_CodeNarrow">DRIVE_CDROM &nbsp; &nbsp; &nbsp; &nbsp; = 5</span><br>
+<span class="f_CodeNarrow">DRIVE_RAMDISK &nbsp; &nbsp; &nbsp; = 6</span><br>
+<span class="f_List2008">If you omit the &quot;type&quot; parameter then all existing drives are returned.</span><br>
+<span class="f_List2008">Examples:</span><br>
+<span class="f_ScriptIn">text get(&quot;drives&quot;); //A:\|C:\|D:\|E:\|F:\|H:\|T:\|X:\|Y:\|Z:\</span><br>
+<span class="f_ScriptIn">text get(&quot;drives&quot;, 0); &nbsp;//</span><br>
+<span class="f_ScriptIn">text get(&quot;drives&quot;, 1); &nbsp;//Z:\</span><br>
+<span class="f_ScriptIn">text get(&quot;drives&quot;, 2); &nbsp;//A:\</span><br>
+<span class="f_ScriptIn">text get(&quot;drives&quot;, 3); &nbsp;//C:\|D:\|E:\|F:\|T:\</span><br>
+<span class="f_ScriptIn">text get(&quot;drives&quot;, 4); &nbsp;//X:\|Y:\</span><br>
+<span class="f_ScriptIn">text get(&quot;drives&quot;, 5); &nbsp;//H:\</span><br>
+<span class="f_ScriptIn">text get(&quot;drives&quot;, 6); &nbsp;//</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">Drop</span></p>
+<p class="p_List2008"><span class="f_script">&quot;drop&quot;, [separator=CRLF]</span><br>
+<span class="f_List2008">Returns the items dropped onto a script in Catalog or onto a script file.</span><br>
+<span class="f_List2008">See <a href="idh_scripting.htm#idh_droponscript">Drop on a Script File</a>.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">Exif</span></p>
+<p class="p_List2008"><span class="f_script">&quot;exif&quot;, TagID, [file=&quot;&lt;curitem&gt;&quot;]</span><br>
+<span class="f_List2008">Returns the raw EXIF (Exchangeable image file format) value found in the file by the Exif tag ID.</span><br>
+<span class="f_List2008">Examples:</span><br>
+<span class="f_ScriptIn">echo get(&quot;exif&quot;, 33434); //ExposureTime (Exposure time, given in seconds), e.g.: &quot;10/1250&quot;</span><br>
+<span class="f_ScriptIn">echo get(&quot;exif&quot;, 0x829A); //ExposureTime (Exposure time, given in seconds), e.g.: &quot;10/1250&quot;</span><br>
+<span class="f_ScriptIn">&nbsp;</span><br>
+<span class="f_List2008">Usually TagID is numeric but the function knows two special cases where it can be a string used to retrieve formatted GPS data from photo files (JPEG):</span><br>
+<span class="f_ScriptIn">echo get(&quot;exif&quot;, &quot;gps&quot;); &nbsp; &nbsp;//coords, eg: 51&deg;10'41.8&quot;N 1&deg;49'35.9&quot;W</span><br>
+<span class="f_ScriptIn">echo get(&quot;exif&quot;, &quot;gpsdec&quot;); //decimal, eg: 51.178278, -1.826639</span><br>
+<span class="f_List2008">Both formats work with Google Maps when appended to https://www.google.com/maps/place/</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">FileSystem</span></p>
+<p class="p_List2008"><span class="f_script">&quot;filesystem&quot;, [path]</span><br>
+<span class="f_List2008">Returns the file system (NTFS, FAT32 ...) for the current or the specified path. Examples using the analog variable &lt;get ...&gt;:</span><br>
+<span class="f_ScriptIn">echo &lt;get FileSystem&gt;;</span><br>
+<span class="f_ScriptIn">echo &lt;get FileSystem J:&gt;;</span><br>
+<span class="f_ScriptIn">echo &lt;get FileSystem &quot;J:\rocky 3.jpg&quot;&gt;;</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">Find_Contents</span></p>
+<p class="p_List2008"><span class="f_script">&quot;find_contents&quot;, [(unused)]</span><br>
+<span class="f_List2008">Returns the contents of the Contents field of the last search in the current pane in this session.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">Find_QueryParsed</span></p>
+<p class="p_List2008"><span class="f_script">&quot;find_queryparsed&quot;, [(unused)]</span><br>
+<span class="f_List2008">Returns the parsed search query of the most recent search in the current pane (it's stored for each pane separately), in a human-friendly format.</span><br>
+<span class="f_List2008">Note that you get this value only *after* the search has started. Works for both, Find Files and Quick Search.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">Find_QueryParsed_Last</span></p>
+<p class="p_List2008"><span class="f_script">&quot;find_queryparsed_last&quot;, [(unused)]</span><br>
+<span class="f_List2008">Like </span><span class="f_script">&quot;find_queryparsed&quot;</span><span class="f_List2008"> but includes searches via SC <a href="idh_scripting_comref.htm#idh_sc_quicksearch">quicksearch</a>().</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">FocusedControl</span></p>
+<p class="p_List2008"><span class="f_script">&quot;FocusedControl&quot;, [(unused)]</span><br>
+<span class="f_List2008">&quot;A&quot; for AddressBar, &quot;T&quot; for Tree, &quot;C&quot; for Catalog, &quot;L&quot; for List, &quot;LFB&quot; for Live Filter Box, &quot;X&quot; for other.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">FocusedPos</span></p>
+<p class="p_List2008"><span class="f_script">&quot;FocusedPos&quot;</span><span class="f_script">, [pane=a]</span><br>
+<span class="f_List2008">Position of focused item from top (top = 1) in List.</span><br>
+<span class="f_List2008">For the optional &quot;pane&quot; argument see &quot;BytesSelected&quot; above.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">FreeSpace</span></p>
+<p class="p_List2008"><span class="f_script">&quot;FreeSpace&quot;, [item], [flags]</span><br>
+<span class="f_List2008">Lets you retrieve the free space on a drive.</span><br>
+<span class="f_List2008">item: &nbsp; &nbsp; Full path to a drive, or item on a drive. If missing the currently focused item is used. If item is not a drive itself then the item's drive is used for the calculation.</span><br>
+<span class="f_List2008">flags:  &nbsp; &nbsp; &nbsp; &nbsp;0: Flexible format (unit depends on size, e.g. 77.58 GB, 1.17 MB, 120.24 KB, 123 bytes)</span><br>
+<span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_List2008">1: Return the exact bytes (no formatting).</span><br>
+<span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_List2008">2: Return the exact bytes with thousand separators.</span><br>
+<span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_List2008">4: Flexible format + formatted exact bytes.</span><br>
+<span style="width:72px">&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_List2008">8: Append the percentage relative to the total capacity.</span><br>
+<span class="f_List2008">return: &nbsp; The number of free bytes on the drive, depending on flags formatted or raw.</span><br>
+<span class="f_List2008">Note: &nbsp; &nbsp; &nbsp;Mount points are honored.</span><br>
+<span class="f_List2008">Examples:</span><br>
+<span class="f_script">echo get(&quot;freespace&quot;);</span><br>
+<span class="f_script">echo get(&quot;freespace&quot;, &quot;E:\Test&quot;);</span><br>
+<span class="f_script">echo get(&quot;freespace&quot;, , 1); //return raw bytes</span><br>
+<span class="f_script">echo &lt;get freespace '' 4&gt;; &nbsp;//12.05 GB (12,939,067,392 bytes)</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">GVF</span></p>
+<p class="p_List2008"><span class="f_script">&quot;gvf&quot;</span><br>
+<span class="f_List2008">Returns the current <a href="idh_visualfilters.htm#idh_globalvisualfilters">Global Visual Filter</a>.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">Instance</span></p>
+<p class="p_List2008"><span class="f_script">&quot;Instance&quot;, [on_first=1], [on_nonfirst=2]</span><br>
+<span class="f_List2008">Tells you whether the current instance is the first instance or not. The latter can be the case if you opened multiple instances of XYplorer. Note that even if you later close the first instance of two, the remaining instance will continue to report that it is non-first.</span><br>
+<span class="f_List2008">[on_first]: String to return if current instance is the first instance. Defaults to &quot;1&quot;.</span><br>
+<span class="f_List2008">[on_nonfirst]: String to return if current instance is not the first instance. Defaults to &quot;2&quot;.</span><br>
+<span class="f_List2008">Example: </span><span class="f_script">echo get(&quot;instance&quot;, &quot;First&quot;, &quot;Second&quot;);</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">Item</span></p>
+<p class="p_List2008"><span class="f_script">&quot;Item&quot;, [pane=a], [pos]</span><br>
+<span class="f_List2008">Returns the focused item of any of the two panes.</span><br>
+<span class="f_List2008">pane:  &nbsp; &nbsp; &nbsp; &nbsp;For the &quot;pane&quot; argument see &quot;BytesSelected&quot; above.</span><br>
+<span class="f_List2008">pos:  &nbsp; &nbsp; &nbsp; &nbsp;Pass the position of the item in the list (the first position is &quot;1&quot;). If missing the focused item is returned.</span><br>
+<span class="f_List2008">Example: &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="f_script">echo get(&quot;</span><span class="f_script">Item</span><span class="f_script">&quot;, i); &nbsp;//inactive pane's focused item</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">ItemsNames</span></p>
+<p class="p_List2008"><span class="f_script">&quot;ItemsNames&quot;, [separator=CRLF]</span><span class="f_script">, [pane=a]</span><br>
+<span class="f_List2008">All items (name, no path) in List, separated by param1.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">ItemsPathNames</span></p>
+<p class="p_List2008"><span class="f_script">&quot;ItemsPathNames&quot;, [separator=CRLF]</span><span class="f_script">, [pane=a]</span><br>
+<span class="f_List2008">All items (full path) in List, separated by param1.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">ItemsPathNamesSlashed</span></p>
+<p class="p_List2008"><span class="f_script">&quot;ItemsPathNamesSlashed&quot;, [separator=CRLF]</span><span class="f_script">, [pane=a]</span><br>
+<span class="f_List2008">All items (full path) in List, separated by param1. Identical to &quot;ItemsPathNames&quot; but returned folders come with a trailing backslash.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">LengthsSelected</span></p>
+<p class="p_List2008"><span class="f_script">&quot;LengthsSelected&quot;, [pane=a], [flags]</span><br>
+<span class="f_List2008">Returns the sum for the durations of all selected media files.</span><br>
+<span class="f_List2008">pane:</span><br>
+<span class="f_List2008"> &nbsp;a = [default] active pane; i = inactive pane; 1 = pane 1; 2 = pane 2</span><br>
+<span class="f_List2008">flags: (bit field)</span><br>
+<span class="f_List2008"> &nbsp;1 = Show milliseconds.</span><br>
+<span class="f_List2008"> &nbsp;2 = Return value only if the Length column is visible (i.e. if it can be pulled from that column).</span><br>
+<span class="f_List2008"> &nbsp;4 = Use the shell property &quot;Length&quot; (otherwise use XYplorer's native and more exact special property &quot;audio.length&quot;).</span><br>
+<span class="f_List2008">return: Sum of durations in format [hh:]nn:ss[.fff].</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">List_BatchRename</span></p>
+<p class="p_List2008"><span class="f_script">&quot;list_batchrename&quot;, [separator=CRLF]</span><br>
+<span class="f_List2008">List of Batch Rename patterns (as used in File | Rename Special | Batch Rename...).</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">List_CopyTo</span></p>
+<p class="p_List2008"><span class="f_script">&quot;list_copyto&quot;, [separator=CRLF]</span><br>
+<span class="f_List2008">List of current MRU items used in Copy To / Move To / Backup To.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">List_HiliteFolder</span></p>
+<p class="p_List2008"><span class="f_script">&quot;list_hilitefolder&quot;, [separator=CRLF], [flags]</span><br>
+<span class="f_List2008">[separator]: &nbsp;String to place between items. Defaults to CRLF (line feed).</span><br>
+<span class="f_List2008">flags: &nbsp; &nbsp; &nbsp; &nbsp;Defaults to &quot;fc&quot;.</span><br>
+<span class="f_List2008"> &nbsp;f = Return folders.</span><br>
+<span class="f_List2008"> &nbsp;c = Return colors.</span><br>
+<span class="f_List2008"> &nbsp;fc = Return folders and colors.</span><br>
+<span class="f_List2008">return: &nbsp; &nbsp; &nbsp; List of highlighted tree folders with their colors in RRGGBB (depending on flags). Format is identical to that used in the INI file.</span><br>
+<span class="f_List2008">This example loads a Mini Tree with all highlighted folders:</span><br>
+<span class="f_script">loadtree get(&quot;list_hilitefolder&quot;, &quot;|&quot;, &quot;f&quot;);</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">List_History</span></p>
+<p class="p_List2008"><span class="f_script">&quot;list_history&quot;, [separator=CRLF], [tab_index]</span><br>
+<span class="f_List2008">[separator]: &nbsp;String to place between items. Defaults to CRLF (line feed).</span><br>
+<span class="f_List2008">tab_index: &nbsp; &nbsp; &nbsp; &nbsp;Tab index (first tab = 0) for a tab-specific history. If missing then the global history of the pane is returned.</span><br>
+<span class="f_List2008">return:  &nbsp; &nbsp; &nbsp; &nbsp;List of historical locations (identical to menu Go | History), ordered in backward chronology from latest to earliest. The current position in history is ignored.</span><br>
+<span class="f_List2008">Examples:</span><br>
+<span class="f_script">text get(&quot;list_history&quot;); &nbsp; &nbsp; &nbsp; //global history of the current pane</span><br>
+<span class="f_script">text get(&quot;list_history&quot;, , 1); &nbsp;//history of the 2nd tab of the current pane</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">List_RecentLocations</span></p>
+<p class="p_List2008"><span class="f_script">&quot;list_recentlocations&quot;, [separator=CRLF]</span><br>
+<span class="f_List2008">List of recent locations (identical to menu Go | Recent Locations).</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">List_RecentlyOpenedFiles</span></p>
+<p class="p_List2008"><span class="f_script">&quot;list_recentlyopenedfiles&quot;, [separator=CRLF]</span><br>
+<span class="f_List2008">List of recently opened files (as used in menu File | Open...). Example:</span><br>
+<span class="f_script">open inputselect(&quot;Open any of the Recently Opened Files&quot;, get(&quot;list_recentlyopenedfiles&quot;), &lt;crlf&gt;, 5);</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">ListOfCommands</span></p>
+<p class="p_List2008"><span class="f_script">&quot;listofcommands&quot;, [flags], [separator=CRLF]</span><br>
+<span class="f_List2008">Returns the list of all commands.</span><br>
+<span class="f_List2008">flags: (bit field)</span><br>
+<span class="f_List2008"> &nbsp;1 = Prepend Command IDs, separated by a TAB.</span><br>
+<span class="f_List2008"> &nbsp;2 = Append Keyboard Shortcuts, separated by a TAB.</span><br>
+<span class="f_List2008"> &nbsp;4 = Include accelerators.</span><br>
+<span class="f_List2008">return: &nbsp; &nbsp; &nbsp; The list of all commands.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">LiveFilter</span></p>
+<p class="p_List2008"><span class="f_script">&quot;livefilter&quot;, [pane=a]</span><br>
+<span class="f_List2008">Returns the currently active live filter (or nothing if none).</span><br>
+<span class="f_List2008">For the optional &quot;pane&quot; argument see &quot;BytesSelected&quot; above.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">LoadTimes</span></p>
+<p class="p_List2008"><span class="f_script">&quot;LoadTimes&quot;, [threshold=10]</span><br>
+<span class="f_List2008">Returns the load times as string.</span><br>
+<span class="f_List2008">threshold:  &nbsp; &nbsp; &nbsp; &nbsp;Threshold in milliseconds to filter the load times listing. The default is 10 ms, i.e. only events that took at least 10 ms are listed.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">MenuCaption</span></p>
+<p class="p_List2008"><span class="f_script">&quot;MenuCaption&quot;, command_ID, flags]</span><br>
+<span class="f_List2008">Returns the command's menu caption in the currently loaded language.</span><br>
+<span class="f_List2008">command_ID: &nbsp; Command ID.</span><br>
+<span class="f_List2008">flags: (bit field)</span><br>
+<span class="f_List2008"> &nbsp;1 = Append the currently assigned KS, separated by a TAB.</span><br>
+<span class="f_List2008"> &nbsp;2 = Strip accelerators.</span><br>
+<span class="f_List2008"> &nbsp;4 = Show error message if command_ID does not exist.</span><br>
+<span class="f_List2008">return: &nbsp; &nbsp; &nbsp; The menu caption.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">Network</span></p>
+<p class="p_List2008"><span class="f_script">&quot;network&quot;, [method=0]</span><br>
+<span class="f_List2008">Returns the network items (items listed directly under the Network node).</span><br>
+<span class="f_List2008">method:</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp;  </span><span class="f_List2008" style="font-weight: bold;">0</span><span class="f_List2008">: [Default] Shell. Works everywhere, but is not the fastest.</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp;  </span><span class="f_List2008" style="font-weight: bold;">1</span><span class="f_List2008">: NetServerEnum. Works fast if it works.</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp;  </span><span class="f_List2008" style="font-weight: bold;">2</span><span class="f_List2008">: WNet. Works great on Win8 and earlier, but needs SMB1 and hence fails on Win10 and later.</span><br>
+<span class="f_List2008">Example: </span><span class="f_script">text get(&quot;network&quot;, 1); &nbsp; //NetServerEnum</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">Pane</span></p>
+<p class="p_List2008"><span class="f_script">&quot;Pane&quot;, [(unused)]</span><br>
+<span class="f_List2008">Returns &quot;1&quot; if the first pane is active, &quot;2&quot; if the second pane is active.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">Path</span></p>
+<p class="p_List2008"><span class="f_script">&quot;Path&quot;, [pane=a]</span><br>
+<span class="f_List2008">Returns the path of any of the two panes, without the trailing slash.</span><br>
+<span class="f_List2008">For the optional &quot;pane&quot; argument see &quot;BytesSelected&quot; above.</span><br>
+<span class="f_List2008">Example: </span><span class="f_script">echo get(&quot;path&quot;, i); &nbsp;//inactive pane's path</span><span class="f_List2008"> </span><br>
+<span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">Pick</span></p>
+<p class="p_List2008"><span class="f_script">&quot;pick&quot;, [filter=-1], [folder]</span><br>
+<span class="f_List2008">Return a subset of files (no folders) from a given folder (not recursive, i.e. not including subfolders).</span><br>
+<span class="f_List2008">filter: if numeric: Number of files to pick.</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; </span><span class="f_List2008" style="font-weight: bold;">-1</span><span class="f_List2008"> [Default]: pick all files.</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Append </span><span class="f_List2008" style="font-weight: bold;">.m</span><span class="f_List2008">, </span><span class="f_List2008" style="font-weight: bold;">.c</span><span class="f_List2008">, or </span><span class="f_List2008" style="font-weight: bold;">.a </span><span class="f_List2008">to the number to pick the latest files by Modified, Created, or Accessed date.</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Append </span><span class="f_List2008" style="font-weight: bold;">.n </span><span class="f_List2008">to the number to pick the top files by Name.</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Append </span><span class="f_List2008" style="font-weight: bold;">.x </span><span class="f_List2008">to the number to pick the top files without any active sorting.</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Append </span><span class="f_List2008" style="font-weight: bold;">r</span><span class="f_List2008"> to the above sort switch reverse the order (pick the oldest/bottom).</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp;if textual: Simple filename pattern (case-insensitive: A==a).</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Automatically surrounded by asterisks if there are no wildcards.</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;A list of patterns separated by | or ; is okay, too.</span></p>
+<p class="p_List2008"><span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp;folder: Folder to pick files from. Final backslash is optional.</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Defaults to the current tree folder.</span><br>
+<span class="f_List2008">return: Set of files (no folders), one per line, each with full path.</span></p>
+<p class="p_List2008"><span class="f_List2008" style="font-weight: bold;">Remarks</span><br>
+<span class="f_List2008">This command has been specially tailored for the use in <a href="idh_virtualfolders.htm">Virtual Folders</a>.</span></p>
+<p class="p_List2008"><span class="f_List2008">There are related parameters that can return folders as well:</span><br>
+<span class="f_List2008" style="font-weight: bold;">pick</span><span class="f_List2008">: &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;pick all files</span><br>
+<span class="f_List2008" style="font-weight: bold;">pickfiles</span><span class="f_List2008">:   &nbsp; &nbsp; &nbsp; &nbsp;pick all files (synonym of pick)</span><br>
+<span class="f_List2008" style="font-weight: bold;">pickdirs</span><span class="f_List2008">:   &nbsp; &nbsp; &nbsp; &nbsp;pick all folders</span><br>
+<span class="f_List2008" style="font-weight: bold;">pickall</span><span class="f_List2008">: &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp;pick all files and folders</span></p>
+<p class="p_List2008"><span class="f_List2008">There are related parameters that can pick items from the current list instead of the current folder. This makes picking work in Search Results, Branch View, Visual or Live Filtered lists, or Virtual Folders (one can pick from another!):</span><br>
+<span class="f_List2008" style="font-weight: bold;">pick_list</span><span class="f_List2008">: &nbsp; &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp;pick all files from the current list</span><br>
+<span class="f_List2008" style="font-weight: bold;">pickfiles_list</span><span class="f_List2008">:   &nbsp; &nbsp; &nbsp; &nbsp;pick all files (synonym of pick_list) from the current list</span><br>
+<span class="f_List2008" style="font-weight: bold;">pickdirs_list</span><span class="f_List2008">: &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;pick all folders from the current list</span><br>
+<span class="f_List2008" style="font-weight: bold;">pickall_list</span><span class="f_List2008">: &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;pick all files and folders from the current list</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_List2008"><span class="f_List2008" style="font-weight: bold;">Examples</span><br>
+<span class="f_script">text &lt;get pick&gt;; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//pick all files</span><br>
+<span class="f_script">text &lt;get pick 8&gt;; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//pick any 8 files</span><br>
+<span class="f_script">text &lt;get pick 8.m&gt;; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//pick the latest 8 files</span><br>
+<span class="f_script">text &lt;get pick 8.mr&gt;; &nbsp; &nbsp; &nbsp; &nbsp; //pick the oldest 8 files</span><br>
+<span class="f_script">text &lt;get pick *.txt&gt;; &nbsp; &nbsp; &nbsp; &nbsp;//pick all TXT files</span><br>
+<span class="f_script">text &lt;get pick 7/*.txt&gt;; &nbsp; &nbsp; &nbsp;//pick any 7 TXT files</span><br>
+<span class="f_script">text &lt;get pick 7.m/*.txt&gt;; &nbsp; &nbsp;//pick the latest 7 TXT files</span><br>
+<span class="f_script">text &lt;get pick {:Image}&gt;; &nbsp; &nbsp; //pick all image files</span><br>
+<span class="f_script">text &lt;get pick 3/{:Image}&gt;; &nbsp; //pick any 3 image files</span><br>
+<span class="f_script">text &lt;get pick 3.m/{:Image}&gt;; //pick the latest 3 image files</span><br>
+<span class="f_script">text &lt;get pick 4&gt;; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//pick 4 from the current tree folder</span><br>
+<span class="f_script">text &lt;get pick 12 &quot;E:\Test\Text&quot;&gt;; &nbsp; &nbsp;//pick 12 from E:\Test\Text</span></p>
+<p class="p_List2008"><span style="width:72px">&nbsp;</span><span class="f_List2008">The folder can be soft:</span><br>
+<span class="f_script">text &lt;get pick 12 %SystemRoot%&gt;; &nbsp; //pick 12 files from C:\Windows</span><br>
+<span class="f_script">text &lt;get pick 12 &lt;xyscripts&gt;&gt;; &nbsp; &nbsp;//pick 12 files from XYplorer's scripts path</span><br>
+<span class="f_script">text &lt;get pick 12 paper:Pictures&gt;; //pick 12 files from Paper Folder &quot;Pictures&quot;</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_List2008"><span class="f_List2008" style="font-weight: bold;">Examples using the short form without &quot;get&quot; and within a Virtual Folder definition</span><br>
+<span class="f_script">vi:&lt;pickall 12.m&gt; &nbsp; &nbsp; //the newest 12 items (files and folders) from the current folder</span><br>
+<span class="f_script">vi:&lt;pick_list 12.n&gt; &nbsp; //the top 12 items from the current list (after sorting the list by name)</span><br>
+<span class="f_script">vi:&lt;pick_list 12.x&gt; &nbsp; //the top 12 items from the current list (no sorting)</span><br>
+<span class="f_script">vi:&lt;pick_list 12.xr&gt; &nbsp;//the bottom 12 items from the current list (no sorting)</span><br>
+<span class="f_script">vi:&lt;pick_list&gt;; &nbsp; &nbsp; &nbsp; //all items from the current list, one per line</span><br>
+<span class="f_script">vi:&lt;pick_list a*&gt;; &nbsp; &nbsp;//all items starting with a* from the current list, one per line</span><br>
+<span class="f_script">vi:&lt;pick_list 12.m&gt; &nbsp; //the newest 12 items from the current list</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">PreviewHandler</span></p>
+<p class="p_List2008"><span class="f_script">&quot;PreviewHandler&quot;, [extension], [separator=CRLF]</span><br>
+<span class="f_List2008">Retrieve the GUID, Standard value, and DisplayName of the default preview handler associated with a given extension.</span><br>
+<span class="f_List2008">extension: &nbsp; &nbsp; &nbsp; &nbsp;Any registered file extension. Defaults to the extension of the currently selected list item.</span><br>
+<span class="f_List2008">separator:  &nbsp; &nbsp; &nbsp; &nbsp;Separator between GUID, Standard, and DisplayName in the returned string.</span><br>
+<span class="f_List2008">return:  &nbsp; &nbsp; &nbsp; &nbsp;GUID,separator,Standard,separator,DisplayName. Nothing if no preview handler is found.</span><br>
+<span class="f_List2008">Example: </span><span class="f_script">text get(&quot;previewhandler&quot;, &quot;pdf&quot;);</span><br>
+<span class="f_List2008">Omit the extension parameter to learn about the currently active preview handler while a preview is being shown.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">Properties</span></p>
+<p class="p_List2008"><span class="f_script">&quot;properties&quot;, [flags=14], [item]</span><br>
+<span class="f_List2008">Retrieve all available properties of an item.</span><br>
+<span class="f_List2008">- flags: &nbsp; &nbsp;(bit field) </span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1: Show empty properties as well.</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;2: Show XY Special Properties.</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;4: Show Shell Properties.</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;8: Show System Properties (see Notes!).</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Defaults to 14 (2+4+8).</span><br>
+<span class="f_List2008">- item: &nbsp; &nbsp; Full path to an item.</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;If missing the currently focused item is used.</span><br>
+<span class="f_List2008">- return: &nbsp; The properties in form of a block of text.</span></p>
+<p class="p_List2008"><span style="width:72px">&nbsp;</span><span class="f_List2008">Notes:</span><br>
+<span class="f_List2008">- Will take one or more seconds to return.</span></p>
+<p class="p_List2008"><span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp;- For the System Properties to work you need a helper file that contains all names of the properties. This file must be called &quot;SystemProperties.txt&quot; and it has be located in the scripts folder (&lt;xyscripts&gt;). Download one here: <a href="https://www.xyplorer.com/download/SystemProperties.txt" target="_blank" class="weblink">https://www.xyplorer.com/download/SystemProperties.txt</a></span></p>
+<p class="p_List2008"><span style="width:72px">&nbsp;</span><span class="f_List2008">Examples:</span><br>
+<span class="f_script">text &lt;get properties&gt;; //show all available non-empty properties of the focused item</span><br>
+<span class="f_script">text &lt;get properties 1&gt;; //show all available properties of the focused item</span><br>
+<span class="f_script">text &lt;get properties 2&gt;; //show the non-empty XY Special Properties</span><br>
+<span class="f_script">text &lt;get properties 3&gt;; //show all XY Special Properties</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">PropertyIndex</span></p>
+<p class="p_List2008"><span class="f_script">&quot;PropertyIndex&quot;, PropertyName</span><br>
+<span class="f_List2008">- PropertyName: Name of the property. It's identical to the column header in Details view, and has to be in the system locale (e.g. in German in a German Windows).</span><br>
+<span class="f_List2008">- return: The numerical index of that property.</span><br>
+<span class="f_List2008">Note: The return varies from Windows to Windows, and from system to system.</span><br>
+<span class="f_List2008">Usage: Make scripts using extended properties (SC property, SC report with &quot;prop:&quot;) portable and working under different Windows versions.</span><br>
+<span class="f_List2008">Examples:</span><br>
+<span class="f_script">text get(&quot;propertyindex&quot;, &quot;besitzer&quot;); &nbsp; &nbsp;// -&gt; might return &quot;8&quot; in a German XP</span><br>
+<span class="f_script">text get(&quot;propertyindex&quot;, &quot;orientation&quot;); // -&gt; might return &quot;254&quot; in a English Win7</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">RegCmd</span></p>
+<p class="p_List2008"><span class="f_script">&quot;regcmd&quot;, extension</span><br>
+<span class="f_List2008">Retrieves the default verb and command line (the one triggered by dbl-click) for any registered file type from the registry.</span><br>
+<span class="f_List2008">Example: </span><span class="f_script">text get(&quot;regcmd&quot;, &quot;mp3&quot;);</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">RowCountView</span></p>
+<p class="p_List2008"><span class="f_script">&quot;RowCountView&quot;</span><br>
+<span class="f_List2008">Returns the number of fully visible rows in the current viewport of the list. Note that the value can be larger than the number of items in the list, namely in small lists without visible scrollbars. Half-visible rows are not counted.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection" style="font-size: 9pt;">RS</span></p>
+<p class="p_List2008"><span class="f_script">&quot;rs&quot;, [length=8] [characters=&quot;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&quot;]</span><br>
+<span class="f_List2008">Returns a random string.</span><br>
+<span class="f_List2008">- length: Length (character count) of the returned string. Defaults to 8. You can also give a min and a max value separated by &quot;-&quot; for a random length, e.g. &quot;8-12&quot;. There is an arbitrary maximum length of 32768, just to protect you from yourself.</span><br>
+<span class="f_List2008">- characters: Characters from which the returned string is built. Defaults to &quot;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&quot;.</span><br>
+<span class="f_List2008">Examples:</span><br>
+<span class="f_script">echo get(&quot;rs&quot;);</span><br>
+<span class="f_script">echo get(&quot;rs&quot;, &quot;4-12&quot;, &quot;abc&quot;);</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">SaveOnExit</span></p>
+<p class="p_List2008"><span class="f_script">&quot;saveonexit&quot;</span><br>
+<span class="f_List2008">Returns the value of &quot;Configuration | General | Startup &amp; Exit | Save Settings | Save settings on exit&quot; (0 = unticked, 1 = ticked).</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">Screen</span></p>
+<p class="p_List2008"><span class="f_script">&quot;Screen&quot;, [width|height|dpi]</span><br>
+<span class="f_List2008">Returns the screen width or height in pixels, or DPI (dots per inch).</span><br>
+<span class="f_List2008">Returns &quot;width|height|dpi&quot; when the 2nd argument is omitted.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">SelectedItemsNames</span></p>
+<p class="p_List2008"><span class="f_script">&quot;SelectedItemsNames&quot;, [separator=CRLF]</span><span class="f_script">, [pane=a]</span><br>
+<span class="f_List2008">All selected items (name, no path) in List, separated by param1.</span><br>
+<span class="f_List2008">Alternative short form: </span><span class="f_script">&quot;sin&quot;</span><br>
+<span class="f_List2008" style="font-size: 8pt; color: #008080;">Note that before v9.40.0007 the separator was actually a delimiter (i.e. it was returned after each item, not between the items).</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">SelectedItemsPathNames</span></p>
+<p class="p_List2008"><span class="f_script">&quot;SelectedItemsPathNames&quot;, [separator=CRLF]</span><span class="f_script">, [pane=a]</span><br>
+<span class="f_List2008">All selected items (full path) in List, separated by param1.</span><br>
+<span class="f_List2008">Alternative short form: </span><span class="f_script">&quot;sip&quot;</span><br>
+<span class="f_List2008" style="font-size: 8pt; color: #008080;">See note above.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">SelectedItemsPathNamesSlashed</span></p>
+<p class="p_List2008"><span class="f_script">&quot;SelectedItemsPathNamesSlashed&quot;, [separator=CRLF]</span><span class="f_script">, [pane=a]</span><br>
+<span class="f_List2008">Identical to &quot;SelectedItemsPathNames&quot; but returned folders come with a trailing backslash.</span><br>
+<span class="f_List2008">Alternative short form: </span><span class="f_script">&quot;sips&quot;</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">SelExt</span></p>
+<p class="p_List2008"><span class="f_script">&quot;SelExt&quot;, [separator=&quot;;&quot;]</span><br>
+<span class="f_List2008">Returns a list of all currently selected file extensions in the common format &quot;*.aaa;*.bbb;*.ccc&quot;.</span><br>
+<span class="f_List2008">For files without extension the pattern &quot;*.&quot; is returned.</span><br>
+<span class="f_List2008">Selected folders are ignored. If only folders are selected then nothing is returned.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">Shift</span></p>
+<p class="p_List2008"><span class="f_script">&quot;Shift&quot;</span><br>
+<span class="f_List2008">Returns the held modifier keys:</span><br>
+<span class="f_List2008">0 = No keys held</span><br>
+<span class="f_List2008">1 = Shift</span><br>
+<span class="f_List2008">2 = Ctrl</span><br>
+<span class="f_List2008">3 = Ctrl + Shift</span><br>
+<span class="f_List2008">4 = Alt</span><br>
+<span class="f_List2008">5 = Shift + Alt</span><br>
+<span class="f_List2008">6 = Ctrl + Alt</span><br>
+<span class="f_List2008">7 = Ctrl + Shift + Alt</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">Sort</span></p>
+<p class="p_List2008"><span class="f_script">&quot;Sort&quot;</span><span class="f_script">, [pane=a], [dimension=1]</span><br>
+<span class="f_List2008">Returns the </span><span class="f_List2008">sorted column name and sort direction for the primary or secondary sort order.</span><br>
+<span class="f_List2008">pane: a = [default] active pane; i = inactive pane; 1 = pane 1; 2 = pane 2</span><br>
+<span class="f_List2008">dimension: 1 (default) or 2 for primary or secondary sort order.</span><br>
+<span class="f_List2008">Examples for returns:</span><br>
+<span class="f_List2008">&quot;Name,a&quot; &nbsp; &nbsp; //Name, ascending</span><br>
+<span class="f_List2008">&quot;Name,d&quot; &nbsp; &nbsp; //Name, descending</span><br>
+<span class="f_List2008">&quot;Modified,d&quot; //Modified, descending</span><br>
+<span class="f_List2008">&quot;Random&quot; &nbsp; &nbsp;//Random Order</span><br>
+<span class="f_List2008">&quot;Unsorted&quot; &nbsp; //Unsorted</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">SpecialFolder</span></p>
+<p class="p_List2008"><span class="f_script">&quot;SpecialFolder&quot;, [CSIDL]</span><br>
+<span class="f_List2008">[CSIDL]: Numerical constant predefined by the OS. Defaults to 0 (= Desktop folder). You can easily find those values in the web.</span><br>
+<span class="f_List2008">Returns the full path to the special folder.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">SpotPatterns</span></p>
+<p class="p_List2008"><span class="f_script">&quot;SpotPatterns&quot;</span><br>
+<span class="f_List2008">Returns the last applied Type Ahead Find or Spot patterns in a |-separated list. BTW, these patterns are not remembered across sessions.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">Status</span></p>
+<p class="p_List2008"><span class="f_script">&quot;Status&quot;, [section]</span><br>
+<span class="f_List2008">Returns the current contents of the Status Bar.</span><br>
+<span class="f_List2008">The optional &quot;section&quot; argument can be:</span><br>
+<span class="f_List2008">1,2,3: Index of the section, the first section being number 1.</span><br>
+<span class="f_List2008">help: Last displayed help text (shell context menu hovering).</span><br>
+<span class="f_List2008">If missing all numbered sections are returned.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">Stepping</span></p>
+<p class="p_List2008"><span class="f_script">&quot;stepping&quot;</span><br>
+<span class="f_List2008">Returns whether the script is currently in step mode. 0 = step mode OFF, 1 = step mode ON.</span><br>
+<span class="f_List2008">Note that the return is not identical to the current setting of &quot;Scripting | Step Mode&quot;. This is only one factor that affects whether you are actually in step mode.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">Tabs</span></p>
+<p class="p_List2008"><span class="f_script">&quot;Tabs&quot;, [separator=&quot;|&quot;], [pane=a]</span><br>
+<span class="f_List2008">Returns the paths of all tabs in the current pane, from left to right, separated by separator.</span><br>
+<span class="f_List2008">For the optional &quot;pane&quot; argument see &quot;BytesSelected&quot; above.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">Tabs_sf</span></p>
+<p class="p_List2008"><span class="f_script">&quot;Tabs_sf&quot;, [separator=&quot;|&quot;], [pane=a]</span><br>
+<span class="f_List2008">Same as &quot;Tabs&quot; above but the path of the selected tab returned first.</span><br>
+<span class="f_List2008">For the optional &quot;pane&quot; argument see &quot;BytesSelected&quot; above.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">TargetItems</span></p>
+<p class="p_List2008"><span class="f_script">&quot;TargetItems&quot;, [separator=CRLF]</span><br>
+<span class="f_List2008">Full paths of all target items of the last file operation (copy, move, backup, create new, add to paper folder).</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">TextMetrics</span></p>
+<p class="p_List2008"><span class="f_script">&quot;TextMetrics&quot;, text</span><br>
+<span class="f_List2008">text: &nbsp; text string to measure</span><br>
+<span class="f_List2008">return: - Width and height of text in pixels if it would be printed to the file list with the current font settings.</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- Current font settings of the file list.</span><br>
+<span class="f_List2008">The Width entry additionally compares the results of three different measurement methods. They should be identical when the font is well constructed. The third result is from the method used for the file list.</span><br>
+<span class="f_List2008">Example: </span><span class="f_script">echo get(&quot;textmetrics&quot;, &quot;abc&quot;);</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">ThumbnailProvider</span></p>
+<p class="p_List2008"><span class="f_script">&quot;ThumbnailProvider&quot;, extension, separator=CRLF</span><br>
+<span class="f_List2008">Like &quot;PreviewHandler&quot; above, only that it retrieves information on the thumbnail provider.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">Thumbs_Cache</span></p>
+<p class="p_List2008"><span class="f_script">&quot;thumbs_cache&quot;</span><br>
+<span class="f_List2008">Full path of the currently used thumbnails cache file if any, e.g. &quot;E:\XYThumbs\00aa5de8b596e9448481100523751227.dbits&quot;.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">Tree</span></p>
+<p class="p_List2008"><span class="f_script">&quot;Tree&quot;, [separator=&quot;|&quot;]</span><br>
+<span class="f_List2008">List of paths present in the current tree, separated by separator. The current path is the first in the list.</span><br>
+<span class="f_List2008">Usage: Mainly useful for creating the pathlist argument for the loadtree command.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">Trigger</span></p>
+<p class="p_List2008"><span class="f_script">&quot;Trigger&quot;</span><span class="f_script">, [mode=&quot;mousebtn&quot;]</span><br>
+<span class="f_List2008" style="font-weight: bold;">mousebtn:</span><span class="f_List2008"> Returns the mouse button that triggered a script of a Custom Toolbar Button. Returned values:</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp;0 = None = 0</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp;1 = LeftClick = 1</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp;2 = RightClick = 2</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp;4 = MiddleClick = 4 &nbsp;(planned)</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp;16 = Drop (OR-ed with the button values if triggered by drag-and-drop)</span></p>
+<p class="p_List2008"><span style="width:72px">&nbsp;</span><span class="f_List2008" style="font-weight: bold;">ctbindex:</span><span class="f_List2008"> Returns the user button index that triggered the script.</span></p>
+<p class="p_List2008"><span style="width:72px">&nbsp;</span><span class="f_List2008" style="font-weight: bold;">context:</span><span class="f_List2008"> Returns the context in which the current script was called. Returned values:</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp;0 = manually started</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp;1 = Custom Column</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp;2 = User Button</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp;4 = UDC (User-Defined Command)</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp;8 = CEA (Custom Event Action)</span></p>
+<p class="p_List2008"><span style="width:72px">&nbsp;</span><span class="f_List2008" style="font-weight: bold;">callshift:</span><span class="f_List2008"> Returns combined shift buttons value at the moment the current script was called.</span><br>
+<span class="f_List2008">The Shift keys have the following values that can be combined in a bit field:</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp;1 = Shift</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp;2 = Ctrl</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp;4 = Alt</span></p>
+<p class="p_List2008"><span style="width:72px">&nbsp;</span><span class="f_List2008" style="font-weight: bold;">menushift:</span><span class="f_List2008"> Returns combined shift buttons value at the moment the last popup menu item was clicked.</span><br>
+<span class="f_List2008">The Shift keys have the following values that can be combined in a bit field:</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp;1 = Shift</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp;2 = Ctrl</span><br>
+<span class="f_List2008"> &nbsp; &nbsp; &nbsp; &nbsp;4 = Alt &nbsp; (rather theoretical since Alt will kill any popup menus)</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_List2008"><span style="width:72px">&nbsp;</span><span class="f_List2008">Notes on </span><span class="f_List2008" style="font-weight: bold;">mousebtn </span><span class="f_List2008">and</span><span class="f_List2008" style="font-weight: bold;"> ctbindex</span><span class="f_List2008">:</span><br>
+<span class="f_List2008">- The &lt;get trigger&gt; variable is cleared after the script is processed.</span><br>
+<span class="f_List2008">- Currently implemented only for Custom Toolbar Buttons.</span><br>
+<span class="f_List2008">Notes on </span><span class="f_List2008" style="font-weight: bold;">callshift</span><span class="f_List2008"> and </span><span class="f_List2008" style="font-weight: bold;">menushift</span><span class="f_List2008">:</span><br>
+<span class="f_List2008">- The value is never reset within the running session, so you can retrieve it even hours after the last menu was clicked.</span><br>
+<span class="f_List2008">- Example: </span><span class="f_script">echo &quot;&lt;get trigger menushift&gt;&quot;; // e.g. 3 = Ctrl+Shift was held down</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">UsedSpace</span></p>
+<p class="p_List2008"><span class="f_script">&quot;UsedSpace&quot;, [item], [flags]</span><br>
+<span class="f_List2008">Lets you retrieve the used space on a drive.</span><br>
+<span class="f_List2008">Syntax analog to &quot;freespace&quot; (see above).</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">UserName</span></p>
+<p class="p_List2008"><span class="f_script">&quot;Username&quot;, [(unused)]</span><br>
+<span class="f_List2008">Returns the name of the user associated with the current thread.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">UserRole</span></p>
+<p class="p_List2008"><span class="f_script">&quot;Userrole&quot;, [(unused)]</span><br>
+<span class="f_List2008">Returns the user's membership (or his security role in the current process) in one of the following security groups: Admin, User, Guest, Power User. If any other groups apply then &quot;Other&quot; is returned.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">UTCoffset</span></p>
+<p class="p_List2008"><span class="f_script">&quot;UTCoffset&quot;</span><span class="f_script">, [(unused)]</span><br>
+<span class="f_List2008">The offset in minutes of the local time from the UTC &nbsp;(Coordinated Universal Time).</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">VisualFilter</span></p>
+<p class="p_List2008"><span class="f_script">&quot;VisualFilter&quot;, [pane=a]</span><br>
+<span class="f_List2008">Returns the currently active visual filter (or nothing if none).</span><br>
+<span class="f_List2008">For the optional &quot;pane&quot; argument see &quot;BytesSelected&quot; above.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">View</span></p>
+<p class="p_List2008"><span class="f_script">&quot;View&quot;</span><span class="f_script">, [pane=a]</span><br>
+<span class="f_List2008">Returns the index of the current list view.</span><br>
+<span class="f_List2008">For the optional &quot;pane&quot; argument see &quot;BytesSelected&quot; above.</span><br>
+<span class="f_List2008">Possible returns and their meanings:</span><br>
+<span class="f_List2008">0 = Details</span><br>
+<span class="f_List2008">1 = Details with Thumbnails#1</span><br>
+<span class="f_List2008">2 = List</span><br>
+<span class="f_List2008">3 = Small Icons</span><br>
+<span class="f_List2008">4 = Thumbnails #1</span><br>
+<span class="f_List2008">5 = Thumbnails #2</span><br>
+<span class="f_List2008">6 = Thumbnails #3</span><br>
+<span class="f_List2008">7 = Large Icons</span><br>
+<span class="f_List2008">8 = Small Tiles</span><br>
+<span class="f_List2008">9 = Large Tiles</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+<p class="p_TextTitleSection"><span class="f_TextTitleSection">XYcopy_Pending</span></p>
+<p class="p_List2008"><span class="f_script">&quot;XYcopy_Pending&quot;</span><span class="f_script">, [(unused)]</span><br>
+<span class="f_List2008">The number of file operations to be handled in the background (by XYcopy) that are not yet completed.</span></p>
+<p class="p_List2008"><span class="f_List2008">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

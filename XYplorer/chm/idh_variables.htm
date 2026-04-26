@@ -1,0 +1,337 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>Variables</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Variables" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#F6F8FA">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Title"><span class="f_Title">Variables</span></p>
+
+    </td>
+    <td align="right">
+     <span style="font-size: 9pt">
+     <a href="idh_intro.htm"><img src="arrow-up-icon24.png" border=0 alt="Top"></a>&nbsp;
+     <a href="idh_startupini.htm"><img src="arrow-left-icon24.png" border=0 alt="Previous"></a>&nbsp;
+     <a href="idh_tweaks.htm"><img src="arrow-right-icon24.png" border=0 alt="Next"></a>
+     </span>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p class="p_Title"><span class="f_Title">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">Index</span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_variables.htm#idh_var_native">XYplorer Native Variables</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_variables.htm#idh_var_simple">Simple Variables</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_variables.htm#idh_var_date">Date Variables</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_variables.htm#idh_var_curver">Variable &lt;curver&gt;</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_variables.htm#idh_var_selitems">Variables &lt;selitems ...&gt; and &lt;allitems ...&gt;</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_variables.htm#idh_var_get">Variable &lt;get ...&gt;</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_variables.htm#idh_var_pad">Variable &lt;pad ...&gt;</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_variables.htm#idh_var_perm">Variable &lt;perm ...&gt;</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_variables.htm#idh_var_prop">Variable &lt;prop ...&gt;</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_variables.htm#idh_var_file">Variable &lt;file filename&gt;</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic"><a href="idh_variables.htm#idh_environmentvariables">Environment Variables</a></span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_var_native"></a><span class="f_TextTitleChar">XYplorer Native Variables</span></p>
+<p class="p_Text"><span class="f_Text">These variables that can be used in <a href="idh_menuser.htm">User-Defined Commands</a>, <a href="idh_scripting.htm">Scripting</a>, <a href="idh_menfile.htm#idh_menfilespecrename">Batch Rename</a>, and other contexts. Note that all of these variables are </span><span class="f_Text" style="font-weight: bold;">read-only</span><span class="f_Text">, i.e. you cannot deliberately alter their values.</span></p>
+<p class="p_IndexTopic"><span class="f_IndexTopic">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_var_simple"></a><span class="f_TextTitleIn">Simple Variables</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;curpath&gt; &nbsp; &nbsp;real current path (unslashed)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;e.g. C:\Dokumente und Einstellungen\Donald\Desktop</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; C:\Dokumente und Einstellungen\Donald\Desktop\New Stuff</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; C:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;curpath_s&gt; &nbsp;special current path (if applicable, else = &lt;curpath&gt;)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;e.g. Desktop</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Desktop\New Stuff</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; C:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;curpath_dos&gt; current path in DOS format (8.3)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;curpathprev&gt; previous path of current pane, unslashed</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;curtab&gt; &nbsp; &nbsp; location term of the current tab, e.g. %USERPROFILE%</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;curfolder&gt; &nbsp;name of the current folder (without path)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;curitem&gt; &nbsp; &nbsp;current (selected &amp; focused) list item (full path)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;curitemprev&gt; previous current (selected &amp; focused) list item (full path)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;curitem_dos&gt; current item in DOS format (8.3)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;curitempath&gt; current (selected &amp; focused) list item's full path</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;curbase&gt; &nbsp; &nbsp;base-name of the current list item</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;curext&gt; &nbsp; &nbsp; extension of the current list item</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;curname&gt; &nbsp; &nbsp;name (base.ext) of the current list item</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;cursize&gt; &nbsp; &nbsp;file size in bytes of the current list item</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;curver&gt; &nbsp; &nbsp; version of the current list item (so-called &quot;fixed file version&quot; format, eg &quot;23.60.0.5&quot;)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;curvers&gt; &nbsp; &nbsp;version of the current list item (so-called &quot;string file version&quot; format, eg &quot;23.60.0005&quot;)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;curlen&gt; &nbsp; &nbsp; length in characters of the current list item</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;thispath&gt; &nbsp; path of the active pane in the way it is current displayed, i.e. instead of a real path it can also be a special path like &quot;Documents\Songs&quot;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;otherpath&gt; &nbsp;path of the inactive pane in the way it is current displayed, i.e. instead of a real path it can also be a special path like &quot;Documents\Songs&quot;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;focitem&gt; &nbsp; &nbsp;focused item in tree (if tree has focus) or list (else);</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; note that, contrary to &lt;curitem&gt;, &lt;focitem&gt; will also</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return the focused item if it is not selected</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;selitem&gt; &nbsp; &nbsp;the first selected list item, no matter which item is focused</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;selitems&gt; &nbsp; space-separated list of all currently selected list items in quotes</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ... </span><span class="f_CodeNarrow">see <a href="idh_variables.htm#idh_var_selitems">below</a></span><span class="f_CodeNarrow"> for options!</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;allitems&gt; &nbsp; space-separated list of all currently listed items in quotes</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ... </span><span class="f_CodeNarrow">see <a href="idh_variables.htm#idh_var_selitems">below</a></span><span class="f_CodeNarrow"> for options!</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;datem yyyymmdd_hhnnss&gt; &nbsp;modified date/time of the current list item</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;date yyyymmdd_hhnnss&gt; &nbsp; date/time now</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ... </span><span class="f_CodeNarrow">see <a href="idh_variables.htm#idh_var_date">below</a></span><span class="f_CodeNarrow"> for more on date variables!</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;xy&gt; &nbsp; &nbsp; &nbsp; &nbsp; XYplorer executable path and name</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;xyexe&gt; &nbsp; &nbsp; &nbsp;XYplorer executable name</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;xypath&gt; &nbsp; &nbsp; XYplorer application path</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;xyparent&gt; &nbsp; parent of XYplorer application path</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;xydata&gt; &nbsp; &nbsp; XYplorer data path</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;xycatalogs&gt; XYplorer catalogs path</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;xythumbs&gt; &nbsp; XYplorer thumbnails cache path</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;xyicons&gt; &nbsp; &nbsp;XYplorer icons path</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;xypaper&gt; &nbsp; &nbsp;XYplorer Paper Folders path</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;xypane&gt; &nbsp; &nbsp; XYplorer active pane data path</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;xypane1&gt; &nbsp; &nbsp;pane 1 data path</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;xypane2&gt; &nbsp; &nbsp;pane 2 data path</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;xytagdat&gt; &nbsp; &nbsp; XYplorer current tags database path/file</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;xytagdatfile&gt; XYplorer tags database file (without path)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;xytagdatdef&gt; &nbsp;XYplorer default tags database path/file</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;xynewitems&gt; XYplorer new items path</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;xyscripts&gt; &nbsp;XYplorer scripts path</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;xyini&gt; &nbsp; &nbsp; &nbsp;current XYplorer INI file (without path)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;xyac&gt; &nbsp; &nbsp; &nbsp; full path of the actually used Admin.ini file</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;xydrive&gt; &nbsp; &nbsp;XYplorer drive (unslashed), e.g. C: or \\Server\Share</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;xyver&gt; &nbsp; &nbsp; &nbsp;XYplorer version</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;xysource&gt; &nbsp; &quot;VB&quot; or &quot;TB&quot; depending on the language in which the source code was written.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;xybitness&gt; &nbsp;&quot;32-bit&quot; or &quot;64-bit&quot; depending on the bitness of the executable (XYplorer.exe)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;xybitness n&gt; &nbsp;&quot;32&quot; or &quot;64&quot; depending on the bitness of the executable (XYplorer.exe)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;path 1&gt; &nbsp; &nbsp; current path of pane 1</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;path 2&gt; &nbsp; &nbsp; current path of pane 2</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;path a&gt; &nbsp; &nbsp; current path of active pane</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;path i&gt; &nbsp; &nbsp; current path of inactive pane</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow" style="font-weight: bold;">Scripting only</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;clipboard&gt; &nbsp;Current clipboard contents; if files are on the clipboard then their path/names are returned as text, one per line.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;clp&gt; &nbsp; &nbsp; &nbsp; &nbsp;Shorthand for &lt;clipboard&gt;.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;drop&gt; &nbsp; &nbsp; &nbsp; A synonym for <a href="idh_scripting.htm#idh_droponscript">&lt;get drop&gt;</a>.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;dropsel&gt; &nbsp; &nbsp;It's a combination of &lt;drop&gt; and &lt;selitems &lt;crlf&gt;&gt;. If there is a drop, it resolves to the dropped items, otherwise </span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; it resolves to the currently selected list items. Useful for scripted bookmark buttons.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;taggeditem&gt; &nbsp; &nbsp;Resolves to the item (full path) that is being tagged via clicking a column cell.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;taggedcolumn&gt; &nbsp;Resolves to the column caption that is being tagged via clicking a column cell.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;hwnd&gt; &nbsp; &nbsp; &nbsp; Handle of the main application window.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow" style="font-weight: bold;">Scripting with Custom File Associations enabled only (previously called Portable File Associations)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;pfaitem&gt; &nbsp; &nbsp;The item (full path) the opening application or script in a Custom File Association is associated with.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;pfaitems&gt; &nbsp; The items (full path) that are being opened via a Custom File Association.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow" style="font-weight: bold;">Constants</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;crlf&gt; &nbsp; &nbsp; &nbsp; Carriage Return Line Feed (0x0D0A)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;cr&gt; &nbsp; &nbsp; &nbsp; &nbsp; Carriage Return (0x0D)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;lf&gt; &nbsp; &nbsp; &nbsp; &nbsp; Line Feed (0x0A)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;space&gt; &nbsp; &nbsp; &nbsp;Space character (0x20)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;tab&gt; &nbsp; &nbsp; &nbsp; &nbsp;Tab character (0x09)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">Note that &lt;crlf&gt;, &lt;cr&gt;, &lt;lf&gt;, &lt;space&gt;, and &lt;tab&gt; take an optional count parameter for repetition. Example:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> </span><span class="f_ScriptIn">&nbsp;::echo &quot;Catch&lt;crlf 22&gt;22&quot;;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow" style="font-weight: bold;">User-Defined Command &quot;Open With&quot; only</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;items&gt; &nbsp; &nbsp; &nbsp;space-separated list of the currently selected list items in quotes</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;item1&gt; &lt;item2&gt; the first two of all selected items</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;base&gt; &nbsp; &nbsp; &nbsp; base (= base name only, no path and no extension) of currently processed item</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (only meaningful when calling multiple instances)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; You can use it like this:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;winzip32&quot; -e &lt;items&gt; &quot;&lt;base&gt;&quot;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; This will extract all currently selected archives, each into a </span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; folder auto-named to the base-name of the respective archive.</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&lt;title&gt; &nbsp; &nbsp; &nbsp;title (= base and extension) of currently processed item</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (only meaningful when calling multiple instances)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; You can use it like this:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;winzip32&quot; -a &quot;&lt;title&gt;.zip&quot; &lt;items&gt;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; This will add all currently selected items, each to an archive </span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; auto-named to the title of the respective item.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_var_date"></a><span class="f_TextTitleIn">Date Variables</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Without any format argument, the format used will be the general system date format:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;&lt;date&gt; &nbsp; &nbsp; &nbsp;current date</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;&lt;datem&gt; &nbsp; &nbsp; modified date of the current list item</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;&lt;datec&gt; &nbsp; &nbsp; created date of the current list item</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;&lt;datea&gt; &nbsp; &nbsp; accessed date of the current list item</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;&lt;dateexif&gt; &nbsp;EXIF date of the current list item (JPG and RAW formats)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;&lt;datemedia&gt; Media Created date of the current list item (audio and video formats)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Use a format argument to specify a user-defined format:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;&lt;date yyyy&gt;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;&lt;datem yyyy-mm-dd&gt;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;&lt;datec yyyy-mm-dd hh:nn:ss&gt;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;&lt;datea yymmdd_hh_nn_ss&gt;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Use &nbsp;argument &quot;List&quot; to apply the current file list date format:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;&lt;date List&gt;, &lt;datem List&gt; ...</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Date Shifting:</span><span class="f_TextIn"> Pass an optional extra argument to shift the date to the past or the future by a certain number of time units. Supported units are y = years, m = months, w = weeks, d = days, h = hours, n = minutes, s = seconds:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;&lt;datem +8h yyyymmdd_hhnnss&gt; &nbsp; &nbsp; //a file's modified date + 8 hours</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;&lt;datec -8d yyyymmdd&gt; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//a file's created date - 8 days</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;&lt;date -70000d yyyy-mm-dd&gt; &nbsp; &nbsp; &nbsp; //70000 days before now</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;&lt;date +2y yyyy-mm-dd&gt; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //2 years from now</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;&lt;date +7s yyyy-mm-dd hh:nn:ss&gt; &nbsp;//7 seconds from now &nbsp; &nbsp; &nbsp;  </span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Special Date Arguments:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp; &nbsp; &nbsp;&lt;date ISOWeek&gt; will resolve to &quot;2008-W25-5&quot;.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_var_curver"></a><span class="f_TextTitleIn">Variable &lt;curver&gt;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You can add a textual context to </span><span class="f_TextIn" style="font-weight: bold;">&lt;curver&gt; </span><span class="f_TextIn">that only will be returned when an actual file version is present. This allows for better formatting control. The general syntax is </span><span class="f_TextIn" style="font-weight: bold;">&lt;curver|text*text&gt;</span><span class="f_TextIn">, where * is the place holder for the actual version number. If you omit * then text is by default prefixed to the version info proper.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Examples, each resolved for two items, one with version info, and one without version info:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="34"><span class="f_List2008">(1)</span></td><td><span class="f_script">echo &quot;&lt;curname&gt;&lt;curver|, v&gt;&quot;;</span></td></tr></table></div><p class="p_List2008"><span style="width:72px">&nbsp;</span><span class="f_List2008">XYplorer.exe, v24.0.0.706</span></p>
+<p class="p_List2008"><span style="width:72px">&nbsp;</span><span class="f_List2008">History.txt</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="34"><span class="f_List2008">(2)</span></td><td><span class="f_script">echo &quot;&lt;curname&gt;&lt;curver| [ver *]&gt;&quot;;</span></td></tr></table></div><p class="p_List2008"><span style="width:72px">&nbsp;</span><span class="f_List2008">XYplorer.exe [ver 24.0.0.706]</span></p>
+<p class="p_List2008"><span style="width:72px">&nbsp;</span><span class="f_List2008">History.txt</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="34"><span class="f_List2008">(3)</span></td><td><span class="f_script">echo &quot;&lt;curname&gt; &lt;curver&gt;&quot;;</span></td></tr></table></div><p class="p_List2008"><span style="width:72px">&nbsp;</span><span class="f_List2008">XYplorer.exe 24.0.0.706</span></p>
+<p class="p_List2008"><span style="width:72px">&nbsp;</span><span class="f_List2008">History.txt </span></p>
+<p class="p_TextTitleIn"><a name="idh_var_selitems"></a><span class="f_TextTitleIn">Variables &lt;selitems ...&gt; and &lt;allitems ...&gt;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The native variable &lt;selitems...&gt; returns the currently selected list items with full path. You can pass a separator (one or more characters; the space character is not possible here). If a separator is passed then the individual items are not quoted. Examples:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">text &quot;&lt;selitems&gt;&quot;; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//items are quoted, separated by space</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">text &quot;&lt;selitems ;&gt;&quot;; &nbsp; &nbsp; &nbsp; &nbsp;//items are separated by ;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">text &quot;&lt;selitems |&gt;&quot;; &nbsp; &nbsp; &nbsp; &nbsp;//items are separated by |</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">text &quot;&lt;selitems //&gt;&quot;; &nbsp; &nbsp; &nbsp; //items are separated by //</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">text &quot;&lt;selitems &lt;crlf&gt;&gt;&quot;; &nbsp; //items are separated by CRLF</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The native variable &lt;allitems...&gt; works exactly like &lt;selitems&gt;, but returns all list items, not only the selected ones.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_var_get"></a><span class="f_TextTitleIn">Variable &lt;get ...&gt;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The native variable &lt;get ...&gt; corresponds to the scripting function </span><span class="f_TextIn" style="font-weight: bold;"><a href="idh_scripting_comref.htm#idh_sc_get">get()</a></span><span class="f_TextIn">.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Syntax: </span><span class="f_CodeBlue">&lt;get info [param1]&gt;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Examples:</span></p>
+<p class="p_TextIn"><span class="f_script">text &quot;&lt;get specialfolder 9&gt;&quot;; //returns sendto folder</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Quoted Parameters:</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Note that &lt;get ...&gt; supports quoted parameters in some contexts. This is useful when passing parameters containing spaces (because the space character also serves to separate the parameters in this context). The parameters themselves are unquoted after parsing. For example, this returns &quot;Dual Pane&quot; when Dual Pane is enabled, and &quot;Single Pane&quot; when it's not:</span></p>
+<p class="p_ScriptIn"><span class="f_ScriptIn">text &lt;get #800 &quot;Dual Pane&quot; &quot;Single Pane&quot;&gt;;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You can even pass embedded quotes by doubling them:</span></p>
+<p class="p_ScriptIn"><span class="f_ScriptIn">text &lt;get #800 &quot;&quot;&quot;Dual Pane&quot;&quot;&quot; &quot;Single Pane&quot;&gt;;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_NoteSign">Tip:</span><span class="f_TextIn"> There is an special shorthand for </span><span class="f_Code">&lt;get alias [name]&gt;</span><span class="f_TextIn">: </span><span class="f_CodeChar">&lt;@[name]&gt;</span><span class="f_TextIn">. So instead of </span><span class="f_Code">&lt;get alias icons&gt;</span><span class="f_TextIn"> you can do </span><span class="f_Code">&lt;@icons&gt;</span><span class="f_TextIn">.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_var_pad"></a><span class="f_TextTitleIn">Variable &lt;pad ...&gt;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The native variable &lt;pad ...&gt; can be used to pad a string with a number of characters at a specified position until the string reaches a specified length.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Syntax: </span><span class="f_CodeBlue">&lt;pad length [char] [switches]&gt;</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="94"><span class="f_List2008-35"> &nbsp; &nbsp; &nbsp;  </span><span class="f_List2008-35" style="font-weight: bold;">length</span></td><td><span class="f_List2008-35">Final length of the padded string, or of the padded number within the string (depends on the switches).</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="94"><span class="f_List2008-35"> &nbsp; &nbsp; &nbsp;  </span><span class="f_List2008-35" style="font-weight: bold;">char</span></td><td><span class="f_List2008-35">Character to pad with.</span><br>
+<span class="f_List2008-35">If missing it defaults to &quot; &quot; (space).</span><br>
+<span class="f_List2008-35">Note that strings longer than one character are supported, although it's hard to see a good use for this.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="94"><span class="f_List2008-35"> &nbsp; &nbsp; &nbsp;  </span><span class="f_List2008-35" style="font-weight: bold;">switches</span></td><td><span class="f_List2008-35" style="font-weight: bold;">b</span><span class="f_List2008-35"> = only work on the base of a filename (exclude the extension)</span><br>
+<span class="f_List2008-35" style="font-weight: bold;">n</span><span class="f_List2008-35"> = pad the first (left-most) number in the string</span><br>
+<span class="f_List2008-35" style="font-weight: bold;">nr</span><span class="f_List2008-35"> = pad the last (right-most) number in the string</span></td></tr></table></div><p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Examples:</span></p>
+<p class="p_ScriptIn"><span class="f_ScriptIn">echo &quot;ab&lt;pad 12&gt;cd&quot;; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//ab &nbsp; &nbsp; &nbsp; &nbsp;cd &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--&gt; pad char defaults to space</span></p>
+<p class="p_ScriptIn"><span class="f_ScriptIn">echo &quot;ab&lt;pad 12 -&gt;cd&quot;; &nbsp; &nbsp; &nbsp; &nbsp;//ab--------cd</span></p>
+<p class="p_ScriptIn"><span class="f_ScriptIn">echo &quot;&lt;pad 8 0&gt;98.mkv&quot;; &nbsp; &nbsp; &nbsp; //0098.mkv</span></p>
+<p class="p_ScriptIn"><span class="f_ScriptIn">echo &quot;&lt;pad 8 0&gt;64.mpeg&quot;; &nbsp; &nbsp; &nbsp;//064.mpeg</span></p>
+<p class="p_ScriptIn"><span class="f_ScriptIn">echo &quot;&lt;pad 4 0 b&gt;98.mkv&quot;; &nbsp; &nbsp; //0098.mkv</span></p>
+<p class="p_ScriptIn"><span class="f_ScriptIn">echo &quot;&lt;pad 4 0 b&gt;64.mpeg&quot;; &nbsp; &nbsp;//0064.mpeg</span></p>
+<p class="p_ScriptIn"><span class="f_ScriptIn">echo &quot;64&lt;pad 4 0 b&gt;.mpeg&quot;; &nbsp; &nbsp;//6400.mpeg</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Examples for number padding:</span></p>
+<p class="p_ScriptIn"><span class="f_ScriptIn">echo &quot;&lt;pad 4 0 n&gt;Text 1.&quot;; &nbsp; &nbsp; &nbsp;//Text 0001.</span></p>
+<p class="p_ScriptIn"><span class="f_ScriptIn">echo &quot;&lt;pad 4 0 n&gt;Text 12.&quot;; &nbsp; &nbsp; //Text 0012.</span></p>
+<p class="p_ScriptIn"><span class="f_ScriptIn">echo &quot;&lt;pad 4 0 n&gt;Text 123.&quot;; &nbsp; &nbsp;//Text 0123.</span></p>
+<p class="p_ScriptIn"><span class="f_ScriptIn">echo &quot;&lt;pad 4 0 n&gt;Text 12 34.&quot;; &nbsp;//Text 0012 34.&nbsp;</span></p>
+<p class="p_ScriptIn"><span class="f_ScriptIn">echo &quot;&lt;pad 4 0 nr&gt;Text 12 34.&quot;; //Text 12 0034.&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Examples of use in Batch Rename (note that the asterisk is necessary, though its position is irrelevant):</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">1) Pattern: &lt;pad 4 0 n&gt;* &nbsp; &nbsp; &nbsp; &nbsp; = (only the left-most number is padded)</span></p>
+<p class="p_TextIn"><span class="f_TextIn"> &nbsp;Old Name: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; New Name:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp;image_1.jpg &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; image_0001.jpg</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp;image_23.jpg &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;image_0023.jpg</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp;image_345.jpg &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; image_0345.jpg</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp;image_4567.jpg &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;image_4567.jpg</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">2) Pattern: &lt;pad 4 0 nr&gt;* &nbsp; &nbsp; &nbsp; &nbsp; = (only the right-most number is padded)</span></p>
+<p class="p_TextIn"><span class="f_TextIn"> &nbsp;Old Name: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; New Name:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp;24h-image_1.jpg &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 24h-image_0001.jpg</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp;24h-image_23.jpg &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;24h-image_0023.jpg</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp;24h-image_345.jpg &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 24h-image_0345.jpg</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp;24h-image_4567.jpg &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;24h-image_4567.jpg</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">3) Pattern: &lt;pad 4 0 bnr&gt;* &nbsp; &nbsp; &nbsp; &nbsp;= (only the right-most number in the base is padded)</span></p>
+<p class="p_TextIn"><span class="f_TextIn"> &nbsp;Old Name: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; New Name:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp;1.FC 1 vs FC Porto.mp4 &nbsp; &nbsp; &nbsp; &nbsp;1.FC 0001 vs FC Porto.mp4</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp;1.FC 20 vs FC Porto.mp4 &nbsp; &nbsp; &nbsp; 1.FC 0020 vs FC Porto.mp4</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp; &nbsp;1.FC 300 vs FC Porto.mp4 &nbsp; &nbsp; &nbsp;1.FC 0300 vs FC Porto.mp4</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_var_perm"></a><span class="f_TextTitleIn">Variable &lt;perm ...&gt;</span></p>
+<p class="p_TextIn"><span class="f_TextIn"><a href="idh_scripting.htm#idh_scripting_globalvars">Permanent variables</a> can be accessed from anywhere in the app using the</span><span class="f_Text"> </span><span class="f_CodeBlue">&lt;perm ...&gt;</span><span class="f_TextIn"> meta variable. For example:</span></p>
+<p class="p_TextIn"><span class="f_script">perm $xy = &quot;XYplorer&quot;; echo &quot;Perm test: &lt;perm xy&gt;.&quot;; &nbsp;//Perm test: XYplorer.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Once the permanent variable is defined you can always access it wherever XY native variables are supported, e.g. as path in the address bar:</span></p>
+<p class="p_TextIn"><span class="f_CodeBlue">C:\Users\%user%\AppData\Roaming\&lt;perm xy&gt;\</span></p>
+<p class="p_TextIn"><span class="f_TextIn">If a permanent variable does not exist, </span><span class="f_CodeBlue">&lt;perm ...&gt;</span><span class="f_TextIn"> is not resolved:</span></p>
+<p class="p_TextIn"><span class="f_script">echo &quot;Perm test: &lt;perm grrg&gt;.&quot;; //Perm test: &lt;perm grrg&gt;.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">So here you have user defined global variables that persist across sessions.</span></p>
+<p class="p_TextIn"><span class="f_NoteSign">Tip:</span><span class="f_TextIn"> You can review and change your permanent variables at any time using the &quot;Scripting | Permanent Variables&quot; command.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_var_prop"></a><span class="f_TextTitleIn">Variable &lt;prop ...&gt;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The native variable  </span><span class="f_CodeBlue">&lt;prop ...&gt;</span><span class="f_TextIn"> corresponds to the scripting function </span><span class="f_TextIn" style="font-weight: bold;"><a href="idh_scripting_comref.htm#idh_sc_property">property()</a></span><span class="f_TextIn">. It returns any available Shell Property value of the current item. See </span><span class="f_TextIn" style="font-weight: bold;"><a href="idh_scripting_comref.htm#idh_sc_property">property()</a></span><span class="f_TextIn"> for details and caveats.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Syntax:</span></p>
+<p class="p_Code"><span class="f_CodeBlue">&lt;prop property_index_or_name [format_template]&gt;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Example scripts:</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Retrieve Size, Type, and Version of the current item (under XP):</span></p>
+<p class="p_TextIn"><span class="f_script">echo &quot;&lt;prop #1&gt;, &lt;prop #2&gt;, &lt;prop fileversion&gt;&quot;;</span></p>
+<p class="p_TextIn"><span class="f_List2008-35">Suffix &quot; n&quot; to the property index return the (locale aware) name of the property</span><span class="f_TextIn">:</span></p>
+<p class="p_TextIn"><span class="f_script">echo</span><span class="f_ScriptIn">&nbsp;</span><span class="f_script">&quot;&lt;prop #1 n&gt;, &lt;prop #2 n&gt;, &lt;prop fileversion&gt;&quot;;</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Usage with Rename</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Append the file version to the name:</span></p>
+<p class="p_TextIn"><span class="f_script">rename b, '*-&lt;prop fileversion&gt;', p;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Append width and height to the name (images only; some videos work as well):</span></p>
+<p class="p_TextIn"><span class="f_script">rename b, '*-&lt;prop ImageX&gt;x&lt;prop ImageY&gt;', p;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Append camera model to the name (photos only, of course): </span></p>
+<p class="p_TextIn"><span class="f_script">rename b, '*-&lt;prop CameraModel&gt;', p;</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Usage in Status Bar Template</span></p>
+<p class="p_TextIn"><span class="f_TextIn">To have the camera model of the current file on the status bar, use this template in </span><span class="f_TextIn" style="font-weight: bold;">Configuration | Colors and Styles | Templates | Status Bar</span><span class="f_TextIn">:</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">&lt;curname&gt;, Camera: &lt;prop CameraModel&gt;</span><span class="f_TextIn">  &nbsp; &nbsp; &nbsp; &nbsp;--&gt; Pacific.jpg, Camera: NIKON D80</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">&lt;curname&gt;&lt;prop , Camera:CameraModel&gt; &nbsp; &nbsp; &nbsp; &nbsp;</span><span class="f_TextIn">--&gt; (cooler version: only adds &quot;, Camera: [...]&quot; when a value is returned)</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Alternatively you can pass the &quot;n&quot; (for &quot;name&quot;) switch to return the original</span><span class="f_List2008-35"> (locale aware) </span><span class="f_TextIn">name of that property:</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">&lt;prop #hash.md5 n&gt;</span><span class="f_TextIn">  &nbsp; &nbsp; &nbsp; &nbsp;--&gt; MD5: 9e156af7feda895cebc70d42256f819a</span></p>
+<p class="p_TextIn"><span class="f_TextIn">For numbered shell properties it works just the same:</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">&lt;prop Boss:#10&gt;</span><span class="f_TextIn">  &nbsp; &nbsp; &nbsp; &nbsp;--&gt; Boss: Donald</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">&lt;prop #10 n&gt;</span><span class="f_TextIn">  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;--&gt; Owner: Donald</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Optional Field Prefix</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You can optionally prefix a name of your choice (it can even have spaces) to the property selector, separated by &quot;:&quot;. It will be prefixed to the result (only if there is a result, that's the cool part) separated by colon-space (&quot;: &quot;):</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">&lt;prop Size:#image.dimensions&gt; &nbsp; &nbsp; --&gt; Size: 123 x 456</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">&lt;prop The Size:#image.dimensions&gt; --&gt; The Size: 123 x 456</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Using the Format Template</span></p>
+<p class="p_TextIn"><span class="f_TextIn">You can pass an optional format template in the argument after the property selector. The * is a place holder for the value (if missing the value is simply appended to the template). The template must be wrapped in single or double quotes if a space is included:</span></p>
+<p class="p_TextIn"><span class="f_script">echo &lt;prop #image.dimensions 'Size: * px'&gt;; //Size: 1024 x 460 px</span></p>
+<p class="p_TextIn"><span class="f_script">echo &lt;prop #image.dimensions &quot;Size: * px&quot;&gt;; //Size: 1024 x 460 px</span></p>
+<p class="p_TextIn"><span class="f_script">echo &lt;prop #image.dimensions &quot;Size: &quot;&gt;; //Size: 1024 x 460</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Using the Variant &lt;propt ...&gt;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">There is an alternative form </span><span class="f_CodeBlue">&lt;propt ...&gt;</span><span class="f_TextIn"> which will retrieve the properties from the link target if there is any. For example, if &quot;rocky-3.jpg.lnk&quot; is selected:</span></p>
+<p class="p_TextIn"><span class="f_script">echo &lt;prop #image.dimensions&gt;; &nbsp;//returns nothing (LNK is not an image)</span></p>
+<p class="p_TextIn"><span class="f_script">echo &lt;propt #image.dimensions&gt;; &nbsp;//returns &quot;770 x 513&quot;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">If &quot;rocky-3.jpg&quot; is selected then both return the same (&quot;770 x 513&quot;).</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_Text"><span class="f_NoteSign">Tip 1:</span><span class="f_Text"> Note that the &lt;prop ...&gt; variable is also supported by Rename Special (regular UI, not only via scripting).</span></p>
+<p class="p_Text"><span class="f_NoteSign">Tip 2:</span><span class="f_Text"> Also supported are XYplorer-specific named properties like </span><span class="f_Text" style="font-weight: bold;">#JunctionTarget</span><span class="f_Text">, </span><span class="f_Text" style="font-weight: bold;">#Tags</span><span class="f_Text">, or </span><span class="f_Text" style="font-weight: bold;">#Comment</span><span class="f_Text">. </span><span class="f_TextIn">See </span><span class="f_TextIn" style="font-weight: bold;"><a href="idh_scripting_comref.htm#idh_sc_property">property()</a></span><span class="f_TextIn"> for details.</span></p>
+<p class="p_Text"><span class="f_NoteSign">Tip 3:</span><span class="f_Text"> Also supported is the asterisk syntax </span><span class="f_CodeBlue">&lt;prop *width&gt;</span><span class="f_Text"> as described in</span><span class="f_TextIn"> </span><span class="f_TextIn" style="font-weight: bold;"><a href="idh_scripting_comref.htm#idh_sc_property">property()</a></span><span class="f_TextIn">.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_TextTitleIn"><a name="idh_var_file"></a><span class="f_TextTitleIn">Variable &lt;file filename&gt;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">The variable &lt;file filename&gt; is resolved to the contents of the file specified by the &quot;filename&quot; argument (resolved relative to the Scripts path). If the file is not found or cannot be opened, the variable is kept unresolved.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">This script, for example, shows the contents of the file exclude.txt:</span></p>
+<p class="p_TextIn"><span class="f_script">text &lt;file exclude.txt&gt;;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">This Quick Search line uses the &lt;file filename&gt; variable for defining the excluded paths (BTW: /excl supports CRLF as separator, but take care not to mix separators in your switch):</span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">?*.jpg /excl=&lt;file exclude.txt&gt;</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_TextTitleChar"><a name="idh_environmentvariables"></a><span class="f_TextTitleChar">Environment Variables</span></p>
+<p class="p_Text"><span class="f_Text">To see a list of all valid environment variables and their values click menu </span><span class="f_Text" style="font-weight: bold;">Help | Environment Variables</span><span class="f_Text">.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Some of them are  </span><span class="f_TextTitleIn">XYplorer only:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 39px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="201"><span class="f_List2008-35"> &nbsp; &nbsp;%rapidaccess%</span></td><td><span class="f_List2008-35">&quot;Rapid Access&quot; special folder (listing the Rapid Access Folders)</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 39px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="201"><span class="f_List2008-35"> &nbsp; &nbsp;%computer%</span></td><td><span class="f_List2008-35">&quot;Computer&quot; special folder (listing the logical drives)</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 39px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="201"><span class="f_List2008-35"> &nbsp; &nbsp;%desktop%</span></td><td><span class="f_List2008-35">&quot;Desktop&quot; special folder</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 39px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="201"><span class="f_List2008-35"> &nbsp; &nbsp;%net%</span></td><td><span class="f_List2008-35">&quot;My Network Places&quot; special folder</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 39px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="201"><span class="f_List2008-35"> &nbsp; &nbsp;%recycler%</span></td><td><span class="f_List2008-35">&quot;Recycle Bin&quot; special folder</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 39px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="201"><span class="f_List2008-35"> &nbsp; &nbsp;%personal%</span></td><td><span class="f_List2008-35">&quot;My Documents&quot; special folder</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 39px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="201"><span class="f_List2008-35"> &nbsp; &nbsp;%desktopreal%</span></td><td><span class="f_List2008-35">&quot;Desktop&quot; real path (this user)</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 39px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="201"><span class="f_List2008-35"> &nbsp; &nbsp;%personalreal%</span></td><td><span class="f_List2008-35">&quot;My Documents&quot; real path</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 39px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="201"><span class="f_List2008-35"> &nbsp; &nbsp;%winsysdir%</span></td><td><span class="f_List2008-35">Windows system directory</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 39px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="201"><span class="f_List2008-35"> &nbsp; &nbsp;%winsysnative%</span></td><td><span class="f_List2008-35">&quot;System32&quot; path on 32-bit Windows, &quot;SysNative&quot; path on 64-bit Windows</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 39px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="201"><span class="f_List2008-35"> &nbsp; &nbsp;%commonappdata%</span></td><td><span class="f_List2008-35">All Users application data folder</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 39px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="201"><span class="f_List2008-35"> &nbsp; &nbsp;%commondesktop%</span></td><td><span class="f_List2008-35">All Users desktop folder</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 39px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="201"><span class="f_List2008-35"> &nbsp; &nbsp;%winver%</span></td><td><span class="f_List2008-35">Current Windows version number (e.g. 5.1)</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 39px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="201"><span class="f_List2008-35"> &nbsp; &nbsp;%osbitness%</span></td><td><span class="f_List2008-35">OS bitness (e.g. 64 on a 64-bit Windows)</span></td></tr></table></div><p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_Text"><span class="f_TextIn">Note that with</span><span class="f_Text"> environment variables case is ignored: %desktop% = %DESKTOP%.</span></p>
+<p class="p_Text"><span class="f_Text">Note that all paths</span><span class="f_TextIn"> are returned </span><span class="f_TextIn" style="font-weight: bold;">without</span><span class="f_TextIn"> backslash.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

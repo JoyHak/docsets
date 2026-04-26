@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>Search Templates</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Search Templates,Search Templates Load Template,Search Templates Load saved results,Search Templates Run search at once,Search Templates Load search location,Search Templates Load Excluded Folders,Search Templates Save to Template...,Search Templates Save search results,Find Files by templates,Templates,Batch files for search jobs" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#F6F8FA">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Title"><span class="f_Title">Search Templates</span></p>
+
+    </td>
+    <td align="right">
+     <span style="font-size: 9pt">
+     <a href="idh_intro.htm"><img src="arrow-up-icon24.png" border=0 alt="Top"></a>&nbsp;
+     <a href="idh_previewpane.htm"><img src="arrow-left-icon24.png" border=0 alt="Previous"></a>&nbsp;
+     <a href="idh_flatview.htm"><img src="arrow-right-icon24.png" border=0 alt="Next"></a>
+     </span>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p class="p_footnotereference" style="line-height: 1.20; margin: 4px 28px 4px 9px;"><span class="f_TextTitleChar">Search Templates</span></p>
+<p class="p_Text"><span class="f_Text">The command to open the Search </span><span class="f_TextIn">Templates dialog is found in menu </span><span class="f_TextIn" style="font-weight: bold;">Edit</span><span class="f_TextIn">. It is also found in the context menu of the Find Files button on </span><span class="f_TextIn" style="font-weight: bold;">Info Panel | Find Files</span><span class="f_TextIn">.</span></p>
+<p class="p_Text"><span class="f_Text">You can save your current Find Files settings to template files, which are stored as simple INI files in a subdirectory of the application data path called &quot;FindTemplates&quot;. For the template name you can use all characters including those that are invalid for filenames (&lt;,&gt;,?,&quot;,: etc.).</span></p>
+<p class="p_Text"><span class="f_Text">A template contains all settings found on the Find Files tab, with the exception of the Name and Location </span><span class="f_TextIn">dropdowns</span><span class="f_Text">, where only the current top entry is remembered.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Load Template</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Load the selected template and close the </span><span class="f_Text">Search </span><span class="f_TextIn">Templates dialog. Alternatively double-click the template name in the list. There are some options:</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Load saved results:</span><span class="f_TextIn"> Here you have a choice whether to load any cached results (see </span><span class="f_TextIn" style="font-weight: bold;">Caching</span><span class="f_TextIn"> below) or not. The enabled state of the checkbox tells you whether cached results are existing in the template or not. Any implied states of the other options are auto-handled for you.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Run search at once:</span><span class="f_TextIn"> If checked the search will start immediately after you clicked </span><span class="f_TextIn" style="font-weight: bold;">Load Template</span><span class="f_TextIn">.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Load search location:</span><span class="f_TextIn"> When loading a (previously stored) template you have the option whether to use the current location or the location stored in the template for the search.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Load Excluded Folders:</span><span class="f_TextIn"> Check to overwrite the current excluded folders listing by the one stored in the template. The default is unchecked because it is assumed that the excluded folders are usually a global affair.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Save to Template...</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Save current Find Files settings to template file. If you enter an already existing template name this template will be overwritten/updated.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Save search results:</span><span class="f_TextIn"> If checked then search results are stored with the template and can be reloaded at a later point. Of course, the option is only enabled when search results are present in the file list.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Note: You cannot store any Quick Searches, but only searches triggered through the Find Files tab.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Note: You cannot cache the results of any visually filtered searches anymore. Reason: The filter is not stored along with the template so when loading the Search Templates you have no way to find out by what the data had been filtered.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Caching</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Beginning with version 8.40 Search Templates support caching. i.e. you can save search results in a template file (in &lt;xydata&gt;\FindTemplates), and load them back into the list at any point in future via the Search Templates dialog.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Writing the cache:</span><span class="f_TextIn"> You can control whether search results are stored on a per-template basis using the new option &quot;Save search results&quot; below the &quot;Save to Template...&quot; button.</span></p>
+<p class="p_TextIn"><span class="f_TextIn" style="font-weight: bold;">Reading the cache:</span><span class="f_TextIn"> Any previously cached results are read when you check the </span><span class="f_TextIn" style="font-weight: bold;">Load saved results</span><span class="f_TextIn"> option. If you do, the other three options are implied as well. Reason: Otherwise the displayed results would be out of sync with the Find Files panel.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

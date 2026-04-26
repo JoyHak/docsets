@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>Tabsets</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Tabsets,Tab sets,Workspaces (= Tabsets),Environments (= Tabsets),Read-only tabsets,Revert to Saved,Go to Tabset Folder" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#F6F8FA">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Title"><span class="f_Title">Tabsets</span></p>
+
+    </td>
+    <td align="right">
+     <span style="font-size: 9pt">
+     <a href="idh_intro.htm"><img src="arrow-up-icon24.png" border=0 alt="Top"></a>&nbsp;
+     <a href="idh_tabs.htm"><img src="arrow-left-icon24.png" border=0 alt="Previous"></a>&nbsp;
+     <a href="idh_bc.htm"><img src="arrow-right-icon24.png" border=0 alt="Next"></a>
+     </span>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p class="p_Title"><span class="f_Title">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">Tabsets</span></p>
+<p class="p_Text"><span class="f_Text">You can save and load the tabset of a pane, that's all tabs including their layout (tab settings and tabwise list settings) and contents (cached search data, find settings, homes, history, etc.). This concept is also known as </span><span class="f_Text" style="font-weight: bold;">Workspaces</span><span class="f_Text"> or </span><span class="f_Text" style="font-weight: bold;">Environments</span><span class="f_Text">.</span></p>
+<p class="p_Text"><span class="f_Text">While each pane always has exactly one tabset loaded, you can have any number of tabsets available on disk to choose from. The definition of each tabset is held in a folder (also referred to as &quot;pane data path&quot;) containing all necessary information within a couple of files. The name of the folder is identical to the name of the tabset. Thus tabsets are perfectly portable and easily maintainable.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Interface</span></p>
+<p class="p_Text"><span class="f_Text">The commands related to tabsets are found in the main menu </span><span class="f_Text" style="font-weight: bold;">&quot;Tabsets&quot;</span><span class="f_Text">, in the toolbar button </span><span class="f_Text" style="font-weight: bold;">&quot;Tabsets&quot;</span><span class="f_Text">, and can also be accessed via the scripting command </span><span class="f_Text" style="font-weight: bold;">tabset()</span><span class="f_Text">.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">1. Main Menu Commands</span></p>
+<p class="p_Text"><span class="f_Text">See <a href="idh_mentabsets.htm">Tabsets Menu</a>.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">2. Toolbar Button &quot;Tabsets&quot;</span></p>
+<p class="p_Text"><span class="f_Text">The names of the current tabsets are now shown in the button's tooltip.</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">MRU list:</span><span class="f_Text"> The button's left-click dropdown contains a list of the most recently used tabsets (MRU list) of the active pane. Click an item to load that tabset. The MRU tabsets lists hold 32 items per pane. The lists are stored between sessions in a portable manner</span></p>
+<p class="p_Text"><span class="f_NoteSign">Tip:</span><span class="f_Text"> Hold CTRL when selecting a tabset from the MRU list to load it as a clone.</span></p>
+<p class="p_Text"><span class="f_Text">The button's right-click menu mirrors the main menu.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">3. Scripting Command tabset()</span></p>
+<p class="p_Text"><span class="f_Text">See </span><span class="f_TextTitleIn" style="font-weight: normal;"><a href="idh_scripting_comref.htm#idh_sc_tabset">tabset()</a>.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">&nbsp;</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Further Remarks</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="34"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_List2008">On loading a new tabset the previous tabset will only be auto-saved if </span><span class="f_List2008" style="font-weight: bold;"><a href="idh_settings.htm#idh_settingstabs">Configuration | Tabs</a> | Auto-save tabsets on switch</span><span class="f_List2008"> is checked. As long as no explicit Save or Auto-save is performed, you can always revert to the stored state of a tabset using the </span><span class="f_List2008" style="font-weight: bold;">Revert to Saved</span><span class="f_List2008"> command.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="34"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_List2008">You are not allowed to load the same tabset into both panes, i.e. to point both panes to the same pane data path, because this would lead to sure trouble.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="34"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_List2008">The current pane data paths are shown in Various Information window (menu Help). They are also available in the new variables &lt;xypane1&gt; and &lt;xypane2&gt;.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="34"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_List2008">The pane data paths are typically located under &lt;xydata&gt;\Panes, and they can be referenced relative to this location. It is recommended that you store all your tabsets here; makes it easier for you to handle.</span><br>
+<span class="f_List2008">However, tabsets can be stored anywhere in the system, even in a network path. This means users can share tabsets over the network. Note, however, that currently no measures are implemented to handle concurrent save operations of such a shared tabset.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="34"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_List2008">The pane data paths are stored in the INI file in a portable way relative to &lt;xydata&gt;\Panes.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="34"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_List2008-35">The name of the current tabset can be shown in the title bar using the variable &lt;tabset&gt;. The variables &lt;tabset1&gt; and &lt;tabset2&gt; can be used to show the tabset names of both panes.</span></td></tr></table></div><p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p>&nbsp;</p>
+
+</td></tr></table>
+
+</body>
+</html>

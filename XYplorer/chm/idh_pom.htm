@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>Portable Openwith Menu</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Portable Openwith Menu,POM (Portable Openwith Menu)" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#F6F8FA">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Title"><span class="f_Title">Portable Openwith Menu (POM)</span></p>
+
+    </td>
+    <td align="right">
+     <span style="font-size: 9pt">
+     <a href="idh_intro.htm"><img src="arrow-up-icon24.png" border=0 alt="Top"></a>&nbsp;
+     <a href="idh_fileassociations.htm"><img src="arrow-left-icon24.png" border=0 alt="Previous"></a>&nbsp;
+     <a href="idh_user_defined_commands.htm"><img src="arrow-right-icon24.png" border=0 alt="Next"></a>
+     </span>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p class="p_Title"><span class="f_Title">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">Introduction</span></p>
+<p class="p_Text"><span class="f_Text">You probably know the situation: You need to open a file with a specific application that happens to be </span><span class="f_Text" style="font-style: italic;">not</span><span class="f_Text"> the one associated to that file by Windows. What now? You may be lucky to find the application listed in the &quot;Open With...&quot; section of the file's Shell context menu -- but even then this is a clumsy way to work (at least one right-click, then expand a submenu, then a left-click), it lacks configurability (what if you need command line parameters?), and it's not portable (away from home, the Shell's &quot;Open With...&quot; is defined by the host system, not by your needs). All these issues are elegantly tackled by the </span><span class="f_Text" style="font-weight: bold;">Portable Openwith Menu (POM)</span><span class="f_Text">.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text">The Portable Openwith Menu (POM) is opened via menu File | Open With... (Ctrl+Alt+Enter), or via the &quot;Open With&quot; toolbar button. It is closely interrelated with your </span><span class="f_LinkJump" style="color: #000000;"><a href="idh_fileassociations.htm">Custom File Associations</a></span><span class="f_Text"> (CFA) and will not show anything interesting before you have defined a couple of CFAs. Once done, a single click or keyboard shortcut will popup a </span><span class="f_Text" style="font-weight: bold;">context specific menu</span><span class="f_Text"> presenting an array of applications to open the currently selected file(s) with. The specific contents of this menu depend (A) on the currently selected files, and (B) on your </span><span class="f_LinkJump" style="color: #000000;"><a href="idh_fileassociations.htm">Custom File Associations</a></span><span class="f_Text"> (CFA) setup, hence it is portable and utterly easy to manage.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text">With POM it makes sense to have more than one Custom File Association match the same pattern. As before, the standard &quot;Open&quot; command (Dbl- click/Enter) will only make use of the first matching CFA. However, the new &quot;Open With&quot; popup menu will list </span><span class="f_Text" style="font-weight: bold;">all</span><span class="f_Text"> matches, in the order given in the CFA customization dialog.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text">The POM has up to 3 sections (the first is only present, of course, when matching CFAs are found):</span></p>
+<p class="p_Text"><span class="f_Text"> &nbsp; &nbsp; &nbsp; &nbsp;----------------------------------------</span></p>
+<p class="p_Text"><span class="f_Text"> &nbsp; &nbsp; &nbsp; &nbsp;[Custom File Association(s)]</span></p>
+<p class="p_Text"><span class="f_Text"> &nbsp; &nbsp; &nbsp; &nbsp;...</span></p>
+<p class="p_Text"><span class="f_Text"> &nbsp; &nbsp; &nbsp; &nbsp;----------------------------------------</span></p>
+<p class="p_Text"><span class="f_Text"> &nbsp; &nbsp; &nbsp; &nbsp;[OS File Association]</span></p>
+<p class="p_Text"><span class="f_Text"> &nbsp; &nbsp; &nbsp; &nbsp;----------------------------------------</span></p>
+<p class="p_Text"><span class="f_Text"> &nbsp; &nbsp; &nbsp; &nbsp;Customize File Associations...</span></p>
+<p class="p_Text"><span class="f_Text"> &nbsp; &nbsp; &nbsp; &nbsp;----------------------------------------</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">Basic Usage</span></p>
+<p class="p_Text"><span class="f_Text">The following example assumes you have Photoshop and ACDSee32 installed.</span></p>
+<p class="p_Text"><span class="f_Text">Set up these CFAs:</span></p>
+<p class="p_Code"><span class="f_Code">jpg;png;gif&gt;ACDSee32</span></p>
+<p class="p_Code"><span class="f_Code">gif&gt;C:\Program Files (x86)\Adobe\Photoshop 7.0\ImageReady.exe</span></p>
+<p class="p_Code"><span class="f_Code">jpg;png;gif;tif&gt;Photoshop</span></p>
+<p class="p_Text"><span class="f_Text">Now, when open the POM on a GIF file, it will offer the following apps to open it with:</span></p>
+<p class="p_Code"><span class="f_Code">ACDSee 32</span></p>
+<p class="p_Code"><span class="f_Code">ImageReady</span></p>
+<p class="p_Code"><span class="f_Code">Adobe Photoshop</span></p>
+<p class="p_Text"><span class="f_Text">When open the POM on a PNG file, it will offer the following apps to open it with:</span></p>
+<p class="p_Code"><span class="f_Code">ACDSee 32</span></p>
+<p class="p_Code"><span class="f_Code">Adobe Photoshop</span></p>
+<p class="p_Text"><span class="f_Text">And when open the POM on a TIF file, it will offer the following apps to open it with:</span></p>
+<p class="p_Code"><span class="f_Code">Adobe Photoshop</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">Advanced Usage</span></p>
+<p class="p_Text"><span class="f_Text">For advanced users the POM, in close collaboration with CFA, has a lot to offer:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="34"><span class="f_List2008">(1)</span></td><td><span class="f_List2008">Rather than just extensions, you can define any </span><span class="f_List2008" style="font-weight: bold;">wildcarded filename patterns</span><span class="f_List2008">, including paths and individual filenames. Thus you can have specific context menus for all &quot;Readme.txt&quot; files, or for all items in C:\Windows\, or for all items containing German umlauts (pattern: *[&auml;&ouml;&uuml;]*).</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="34"><span class="f_List2008">(2)</span></td><td><span class="f_List2008">Rather than just files, you can also associate </span><span class="f_List2008" style="font-weight: bold;">folders</span><span class="f_List2008"> with applications. Tip: A single backslash (\) will match all folders.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="34"><span class="f_List2008">(3)</span></td><td><span class="f_List2008">Rather than just executables, you can specify any kind and number of </span><span class="f_List2008" style="font-weight: bold;">command line parameters</span><span class="f_List2008"> in your Custom File Associations, which then will be used when triggering an Open operation from the POM.</span><br>
+<span class="f_List2008">The syntax is identical to all the other places where command line parameters are supported: Catalog (Open Selected Item(s) With), User-Defined Commands Open With, scripting &quot;openwith&quot;. It's basically one simple rule: The application must be </span><span class="f_List2008" style="font-weight: bold;">quoted</span><span class="f_List2008"> when command line parameters are used. For example:</span><br>
+<span class="f_CodeChar">jpg;png;gif;tif&gt;&quot;ACDSee32&quot; /v</span><br>
+<span class="f_CodeChar">jpg;png;gif;tif&gt;&quot;C:\Program Files (x86)\ACDSee32\ACDSee32.exe&quot; /v</span><br>
+<span class="f_List2008">By the way, quoting is also okay (but not necessary) when you have no parameters.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="34"><span class="f_List2008">(4)</span></td><td><span class="f_List2008">Rather than just applications, you can also </span><span class="f_List2008" style="font-weight: bold;">associate scripts</span><span class="f_List2008"> with filename patterns, and thus directly run a specific script from the POM.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="34"><span class="f_List2008">(5)</span></td><td><span class="f_List2008">Within the Custom File Associations dialog, you can define </span><span class="f_List2008" style="font-weight: bold;">friendly captions</span><span class="f_List2008"> for the POM items that make it easier for you to spot the right item in a POM. The syntax is identical to captions in Favorites. Simply prefix the caption in quotes (optionally followed by any number of blanks). For example:</span><br>
+<span class="f_CodeChar">|&quot;Edit with Notepad&quot; txt;ini;xys&gt;C:\WINDOWS\notepad.exe</span><br>
+<span class="f_CodeChar">|&quot;Edit with UltraEdit&quot; *&gt;UEdit32</span><br>
+<span class="f_List2008">If a caption is defined for a CFA, then the caption will be shown in the menu instead of the app's friendly name (which is drawn from the registry if the app is registered).</span><br>
+<span class="f_List2008">You can define an accelerator by prefixing the &quot;&amp;&quot; (ampersand) character to the desired character.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="34"><span class="f_List2008">(6)</span></td><td><span class="f_List2008">The </span><span class="f_List2008" style="font-weight: bold;">captions</span><span class="f_List2008"> may contain XYplorer variables. They are resolved in the moment the POM is generated. For example:</span><br>
+<span class="f_CodeChar">|&quot;Search IMDB for '&lt;curbase&gt;'&quot; *&gt;::Open(&quot;https://www.imdb.com/find?s=tt&amp;q=&lt;curbase&gt;&quot;);</span><br>
+<span class="f_List2008">Will show the caption &quot;Search IMDB for 'Mad Max'&quot; when the current file is &quot;Mad Max.jpg&quot;.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="34"><span class="f_List2008">(7)</span></td><td><span class="f_List2008">In the POM, hold Ctrl when clicking an item to </span><span class="f_List2008" style="font-weight: bold;">go to the application</span><span class="f_List2008"> instead of opening it.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="34"><span class="f_List2008">(8)</span></td><td><span class="f_List2008">Tip: Ctrl+Alt+Enter is identical to AltGr+Enter, so you can pop up the POM easily using the </span><span class="f_List2008" style="font-weight: bold;">right hand only</span><span class="f_List2008">.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="34"><span class="f_List2008">(9)</span></td><td><span class="f_List2008">You can define associations that should </span><span class="f_List2008" style="font-weight: bold;">only be listed in the POM</span><span class="f_List2008">, but not be triggered on &quot;open&quot;. It's done by simply prefixing the | (pipe) character to the CFA. The following example allows you to have this CFA enabled and listed in the POM:</span><br>
+<span class="f_CodeChar">|exe;dll&gt;::copytext &lt;curname&gt; &lt;curver&gt;</span><br>
+<span class="f_List2008">while double-clicking an EXE file will still run the EXE, and not the CFA. In the CFA dialog, prefixed (= POM-only) items are shown in color &quot;Marked Text 2&quot; (see </span><span class="f_List2008"><a href="idh_settings.htm#idh_settings407">Configuration | Colors</a></span><span class="f_List2008">).</span></td></tr></table></div><p class="p_TextTitleChar"><span class="f_TextTitleChar">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">Examples</span></p>
+<p class="p_Text"><span class="f_Text">The following CFA will add a command to the POM that will open the selected folder(s) in ACDSee32:</span></p>
+<p class="p_Code"><span class="f_Code" style="font-family: 'Times New Roman';">\</span><span class="f_Code">&gt;ACDSee32</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text">Open *.txt, *.ini, and *.xys files with Notepad (Editor), but only show this command in POM, do not trigger it on &quot;open&quot;:</span></p>
+<p class="p_Code"><span class="f_Code">|&quot;Edit with Notepad&quot; txt;ini;xys&gt;C:\WINDOWS\notepad.exe</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text">Open any file (but not a folder) in UltraEdit:</span></p>
+<p class="p_Code"><span class="f_Code">&quot;Edit with UltraEdit&quot; *&gt;UEdit32</span></p>
+<p class="p_Text"><span class="f_Text">Open any folder in UltraEdit:</span></p>
+<p class="p_Code"><span class="f_Code">&quot;Edit with UltraEdit&quot; </span><span class="f_Code" style="font-family: 'Times New Roman';">\</span><span class="f_Code">&gt;UEdit32</span></p>
+<p class="p_Text"><span class="f_Text">Open any file or folder in UltraEdit:</span></p>
+<p class="p_Code"><span class="f_Code">&quot;Edit with UltraEdit&quot; *;\&gt;UEdit32</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text">Open PNG files in ACDSee, using comand line parameter /v</span></p>
+<p class="p_Code"><span class="f_Code">&quot;ACDSee in View Mode&quot; png&gt;&quot;ACDSee32&quot; /v</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

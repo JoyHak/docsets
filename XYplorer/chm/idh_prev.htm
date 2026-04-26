@@ -1,0 +1,216 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>Preview Tab</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Preview,Preview tab,Viewer,Internal Viewer" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#F6F8FA">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Title"><span class="f_Title">Info Panel: Preview Tab</span></p>
+
+    </td>
+    <td align="right">
+     <span style="font-size: 9pt">
+     <a href="idh_intro.htm"><img src="arrow-up-icon24.png" border=0 alt="Top"></a>&nbsp;
+     <a href="idh_ipmeta.htm"><img src="arrow-left-icon24.png" border=0 alt="Previous"></a>&nbsp;
+     <a href="idh_fileview.htm"><img src="arrow-right-icon24.png" border=0 alt="Next"></a>
+     </span>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p class="p_Title"><span class="f_Title">&nbsp;</span></p>
+<p class="p_TextTitleChar"><span class="f_TextTitleChar">Preview Tab</span></p>
+<p class="p_Text"><span class="f_Text">Here you can preview files of the following types: </span><span class="f_Text" style="font-weight: bold;">Text Files, Document Files, Web Files, Font Files, Icon Files, Image Files, Audio Files,</span><span class="f_Text"> and </span><span class="f_Text" style="font-weight: bold;">Video Files</span><span class="f_Text">. All previews are invoked by selecting a file in the List by left-mouse click or keyboard. No preview is shown when you select a file with the right mouse button.</span></p>
+<p class="p_Text"><span class="f_Text">The order of precedence of the various previews is:</span></p>
+<p class="p_Text"><span class="f_Text"> &nbsp; &nbsp; &nbsp; &nbsp;  </span><span class="f_Text" style="font-weight: bold;">Text &gt; Document &gt; Web &gt; Font &gt; Icon &gt; Image &gt; Audio &gt; Video</span></p>
+<p class="p_Text"><span class="f_Text">So, to preview HTML as Web File (like in a browser), go to Configuration | Previewed Formats and uncheck HTML under &quot;Text Files&quot; and check it under &quot;Web Files&quot;. If you want to preview HTML as source code leave it checked under &quot;Text Files&quot;.</span></p>
+<p class="p_Text"><span class="f_Text">Note that also </span><span class="f_Text" style="font-weight: bold;">shortcuts</span><span class="f_Text"> (LNK files) are resolved and then previewed where applicable.</span></p>
+<p class="p_Text"><span class="f_Text">Invoking a preview needs the Preview tab selected and visible. Press F12 to show the Info Panel containing that tab.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 8px 189px 4px 28px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.20;"><tr style="vertical-align:baseline" valign="baseline"><td width="38"><a name="idh_prevsplitter"></a><span class="f_NoteSign">Tip</span></td><td><span class="f_Note">To enlarge or shrink the display area, use the horizontal splitter, which is the 3 pixel high line located just above the Info Panel tabs, and below the status area for the list. When positioned on the splitter, your cursor will become double headed arrows.</span></td></tr></table></div><p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_TextTitleChar"><a name="idh_prevtext"></a><span class="f_TextTitleChar">Text preview</span></p>
+<p class="p_Text"><span class="f_Text">Preview more than 50 different </span><span class="f_Text" style="font-weight: bold;">plain text</span><span class="f_Text"> formats. For huge text files only the first 5 MB are shown for performance reasons.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Dropdown Menu (Orange Button)</span></p>
+<p class="p_Text"><span class="f_Text">In the dropdown menu on the Preview tab, you can manually select a different encoding for text file to preview. Choosing </span><span class="f_Text" style="font-weight: bold;">System Default</span><span class="f_Text"> enables auto-detection for UTF-16LE, UTF-16BE, and UTF-8. In parentheses &quot;System Default&quot; shows the Default ANSI Code Page, e.g. &quot;System Default (1252)&quot;. Choose UTF-16LE, UTF-16BE, UTF-8, and UTF-7 to force decoding the current file in any of these formats.</span></p>
+<p class="p_Text"><span class="f_Text">A couple of Western code pages and East Asian languages using DBCS encoding are also supported. Click any of the code pages to reload the current file with that specific encoding. When reloading a previewed text the scroll position is preserved as good as possible.</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Word wrap:</span><span class="f_Text"> Wrap lines at window border. Also controls word wrapping of text previews in in the </span><span class="f_Text" style="font-weight: bold;">Floating Preview</span><span class="f_Text"> and in the </span><span class="f_Text" style="font-weight: bold;">Preview Pane</span><span class="f_Text">.</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Edit User Code Pages</span><span class="f_Text">: Here you can add any number of user-defined code pages. You can optionally also state the line length, aka record size.</span></p>
+<p class="p_Text"><span class="f_Text">General Format: </span></p>
+<p class="p_CodeBlue"><span class="f_CodeBlue">CodepageName=CodepageValue[,RecordSize]</span></p>
+<p class="p_Text"><span class="f_Text">Examples:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">IBM 437 (DOS-US)=437</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">IBM 850 (DOS-Latin-1)=850</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">IBM EBCDIC International=500,82</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Remember Selected Code Page:</span><span class="f_Text"> If ticked then you can, for example, set the codepage to Arabic (1256) and all text previews will use this codepage to interpret the bytes in the file. Advantage: You don't have to set the system-wide default codepage to Arabic. If unticked then the codepage will automatically switch back to the system default code page for the next preview.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_footnotereference" style="line-height: 1.20; margin: 4px 28px 4px 9px;"><a name="idh_prevdocument"></a><span class="f_TextTitleChar">Document preview</span></p>
+<p class="p_Text"><span class="f_Text">Preview for document files of the following types: *.cdr, *.csv, *.doc, *.docm, *.docx, *.dot, *.dotx, *.dwfx, *.dwg, *.dxf, *.easmx, *.edrwx, *.eml, *.eprtx, *.eps, *.jtx, *.msg, *.nws, *.odp, *.ods, *.odt, *.one, *.oxps, *.pdf, *.pot, *.potx, *.pps, *.ppsx, *.ppt, *.pptx, *.rtf, *.sldasm, *.slddrw, *.sldprt, *.wpd, *.wpf, *.xls, *.xlsm, *.xlsx, *.xlt, *.xltx, *.xps</span></p>
+<p class="p_Text"><span class="f_Text">More types can be added via Configuration | Previewed Formats | Category.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_footnotereference" style="line-height: 1.20; margin: 4px 28px 4px 9px;"><a name="idh_prevhtml"></a><span class="f_TextTitleChar">Web preview</span></p>
+<p class="p_Text"><span class="f_Text">Preview for web files of the following types: *.asp, *.aspx, *.cfg, *.htaccess, *.htm, *.html, *.inc, *.mht, *.mhtm, *.mhtml, *.php, *.php3, *.php4, *.php5, *.shtml, *.svg, *.svgz, *.swf, *.url, *.xml</span></p>
+<p class="p_Text"><span class="f_Text">More types can be added via Configuration | Previewed Formats | Category.</span></p>
+<p class="p_Text"><span class="f_Text">From the web preview you can follow links to the internet. It's nothing less than a fully capable browser based on the Internet Explorer rendering machine.</span></p>
+<p class="p_Text"><span class="f_Text">You can drag pictures from the previewed page to file list: drag with right-mouse or hold CTRL when start dragging to force a copy operation.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Server Mappings</span></p>
+<p class="p_Text"><span class="f_Text">Configurable</span><span class="f_Text"> server mappings</span><span class="f_Text"> allow you to pass local files through a local web server (eg your local Apache installation; this server must be running, of course) before displaying them in the preview. In </span><span class="f_Text" style="font-weight: bold;">Configuration | Preview | Web Preview</span><span class="f_Text">:</span></p>
+<p class="p_TextIn"><span class="f_TextIn">Check the &quot;</span><span class="f_TextIn" style="font-weight: bold;">Enable server mappings</span><span class="f_TextIn">&quot; option.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">In the 1st field enter the local file path where documents are stored, for example: D:\wwwroot\.</span></p>
+<p class="p_TextIn"><span class="f_TextIn">In the 2nd field enter, for example, http://localhost/ if using a web server installed on the local system that's configured to serve files from the path above. Or enter a remote web server address to preview files that are stored on a remote server. The mapping is a simple string replacement.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_footnotereference" style="line-height: 1.20; margin: 4px 28px 4px 9px;"><a name="idh_prevfonts"></a><span class="f_TextTitleChar">Font preview</span></p>
+<p class="p_Text"><span class="f_Text">Preview for installed or uninstalled &nbsp;Windows font files. The following types are supported:</span></p>
+<p class="p_TextIn"><span class="f_TextIn">*.ttf = TrueType fonts</span></p>
+<p class="p_TextIn"><span class="f_TextIn">*.otf = OpenType fonts</span></p>
+<p class="p_TextIn"><span class="f_TextIn">*.pfb; *.pfm = Type-1 fonts (both files must be present in the same path)</span></p>
+<p class="p_TextIn"><span class="f_TextIn">*.fon = Bitmap/raster fonts</span></p>
+<p class="p_Text"><span class="f_Text">Additionally you get some version and copyright information.</span></p>
+<p class="p_Text"><span class="f_Text">With currently installed fonts, the displayed font name is blue.</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Font size selection:</span><span class="f_Text"> Right of the sample text box you find a scrollbar where you can set the font size of the first preview line (1-128). Set size to 0 (zero) to hide the first line.</span></p>
+<p class="p_TextTitleIn"><span class="f_TextTitleIn">Activate/deactivate fonts on the fly </span></p>
+<p class="p_Text"><span class="f_Text">You can activate/deactivate fonts on the fly by simply clicking on the bold font name shown in the font preview's info frame. Very comfortable for screen and print designers who often need a number of fonts for a quick one-time job, and do not wish to go through the awkward font installation procedure provided by Windows while cluttering up their fonts folder with hundreds of never-again-used fonts. </span></p>
+<p class="p_Text"><span class="f_Text">The font file to be activated can sit anywhere. Take care however, that you do not move/delete it while it is activated, else you can neither use it nor deactivate it.</span></p>
+<p class="p_Text"><span class="f_Text">An activated font file will NOT be copied to the Windows font folder.</span></p>
+<p class="p_Text"><span class="f_Text">Deactivation does NOT delete the font file.</span></p>
+<p class="p_Text"><span class="f_Text">The activation/deactivation lasts only for the current Windows session -- no files are moved, the registry is not touched.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_footnotereference" style="line-height: 1.20; margin: 4px 28px 4px 9px;"><a name="idh_previmg"></a><span class="f_TextTitleChar">Image preview</span></p>
+<p class="p_Text"><span class="f_Text">Shows a thumbnail for the following image file types:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.arw, Sony Raw Image</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.bmp, ACDSee BMP Image</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.cr2, Canon Raw Image</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.crw, Canon Raw Image</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.cur, Cursor</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.dcr, Kodak Raw Image</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.dib, ACDSee DIB Image</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.dng, Adobe DNG Image</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.emf, EMF-Bild</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.erf, Epson Raw Image</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.fff, Hasselblad Raw Image</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.gif, ACDSee GIF Image</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.ico, Icon</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.jpe, JPEG-Bild</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.jpeg, JPEG-Bild</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.jpg, JPEG-Bild</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.mef, Mamiya Raw Image</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.mrw, Minolta Raw Image</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.nef, Nikon Raw Image</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.nrw, Nikon Raw Image</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.orf, Olympus Raw Image</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.pef, Pentax Raw Image</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.png, ACDSee PNG Image</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.psb, Adobe Photoshop Large Document Format</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.psd, Adobe Photoshop Image</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.raf, Fuji Raw Image</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.raw, Leica Raw Image</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.rle, ACDSee RLE Image</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.rw2, Panasonic Raw Image</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.rwl, Leica Raw Image</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.sr2, Sony Raw Image</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.srf, Sony Raw Image</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.srw, Samsung Raw Image</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.tga, ACDSee TGA Image</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.tif, ACDSee TIF Image</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.tiff, ACDSee TIFF Image</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.wmf, ACDSee WMF Image</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">*.x3f, Sigma X3F Image</span></p>
+<p class="p_Text"><span class="f_Text">Note that Codecs for RAW image formats need to be installed on the system (they are not included in XYplorer).</span></p>
+<p class="p_Text"><span class="f_Text">Previewing </span><span class="f_Text" style="font-weight: bold;">Animated GIFs</span><span class="f_Text"> is supported since version 12.90 in the Preview tab, in Mouse Down Blow Up, and in the <a href="idh_floatingpreview.htm">Floating Preview</a>. The number of frames is displayed in the info section.</span></p>
+<p class="p_Text"><span class="f_Text">Depending on the image format you get various information:</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Size:</span><span class="f_Text"> the original size of the image in pixels, and the size of the thumbnail.</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Colors:</span><span class="f_Text"> maximal number of different colors used in the picture (aka color depth).</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Area:</span><span class="f_Text"> space used by the image display in square pixels. </span><span class="f_Text" style="font-weight: bold;">Video bytes:</span><span class="f_Text"> number of bytes used up by your video memory when displaying the image in full size. This number is calculated by multiplying the area of the image with the current color depth of your monitor. For example: if your system is set to 32-bit (True color), 4 bytes are used for the display of every pixel.</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">File size:</span><span class="f_Text"> number of bytes used by the image file.</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Compression ratio:</span><span class="f_Text"> tells you the degree of compression of the image file. Percentages below 100 mean that the file is compressed. This number is calculated like this: FileSize / (Width * Height * (BitsPerColor / 8)), where BitsPerColor is the color depth of the image, not of your display.</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Hotspot at:</span><span class="f_Text"> (cursor files only) the position (x, y) of the hotspot, that's the pixel of the cursor image that corresponds to the exact mouse position.</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Icons contained:</span><span class="f_Text"> (icon files only) number of icons contained in the file. Icon and Cursor files can contain more than one image. (This information is only given when more than image is contained and only for icons, since it's rare to find multiple images in cursors and there the space is used up already by the hotspot information.)</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Dropdown Menu (Orange Button)</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Copy Compact Info:</span><span class="f_Text"> copy a one-liner describing the currently previewed file to the clipboard.</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Copy Extended Info:</span><span class="f_Text"> copy all information available on the currently previewed file to the clipboard.</span></p>
+<p class="p_Text"><span class="f_Text">The following for images only:</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Copy Original:</span><span class="f_Text"> copy the image (original size) to the clipboard.</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Copy Preview:</span><span class="f_Text"> copy the image (preview size) to the clipboard.</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Full Screen:</span><span class="f_Text"> enter full screen mode. Note that you can full screen preview the currently selected image file even when the Info Panel is hidden by simply pressing Shift+F11!</span></p>
+<p class="p_Text"><span class="f_Text">The Full Screen Preview (Shift+F11) also works for HTML, MHT, URL, NWS, EML, and MSG files in perfect original size quality. Note that -- just like with thumbnails for non-picture files -- this service depends on the capabilities of your operating system and the installed software.</span></p>
+<p class="p_NoteSign" style="line-height: 1.20; margin: 4px 28px 4px 28px;"><span class="f_NoteSign">Shortcut: Shift+F11</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Full screen preview:</span><span class="f_Text"> Press Shift+F11 &nbsp;to see the image in full screen mode. If the image is larger than the screen it is shrunk to fit. In </span><span class="f_Text" style="font-weight: bold;">Configuration | Preview</span><span class="f_Text"> you find options regarding background color, zooming, and more.</span></p>
+<p class="p_Text"><span class="f_Text">While in full screen mode, you can use the <a href="idh_short.htm#idh_fullscreenpreviewkeys">these keys</a> to browse through the images found in the current list.</span></p>
+<p class="p_Text"><span class="f_Text">Other keyboard tricks see </span><span class="f_LinkPopup" style="color: #000000;"><a href="idh_pophimgprev.htm">here</a></span><span class="f_Text">.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_footnotereference" style="line-height: 1.20; margin: 4px 28px 4px 28px;"><a name="idh_previmgmdbu"></a><span class="f_Text" style="font-weight: bold;">Mouse Down Blow Up</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Showing the preview image in original size:</span><span class="f_Text"> When you move the mouse over the preview image and hold down the </span><span class="f_Text" style="font-weight: bold;">left</span><span class="f_Text"> mouse button the original image pops up. If the image is larger than XYplorer's window, you can scroll about the image by moving the mouse while holding it down. This feature is called </span><span class="f_Text" style="font-weight: bold;">&quot;Mouse Down Blow Up&quot;</span><span class="f_Text">.</span></p>
+<p class="p_Text"><span class="f_Text">Note that the blow up exactly zooms into the point where you downed the mouse. Of course, this positioning only applies if &quot;Configuration | Preview | Shrink to fit&quot; is OFF.</span></p>
+<p class="p_Text"><span class="f_Text">Note that also the Thumbnails, the <a href="idh_floatingpreview.htm">Floating Preview</a>, and the Full Screen Preview support </span><span class="f_Text">Mouse Down Blow Up.</span></p>
+<p class="p_footnotereference" style="line-height: 1.20; margin: 4px 28px 4px 28px;"><span class="f_footnotereference">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_footnotereference" style="line-height: 1.20; margin: 4px 28px 4px 9px;"><a name="idh_prevaudvid"></a><span class="f_TextTitleChar">Audio/Video preview</span></p>
+<p class="p_Text"><span class="f_Text">Plays an audio/video file, and shows various information depending on the format of the file:</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Size:</span><span class="f_Text"> (for videos only) the original size of the video in pixels, and the size of the thumbnail.</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Length:</span><span class="f_Text"> [hours:]minutes:seconds &nbsp;milliseconds</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Format:</span><span class="f_Text"> [depends on the type of file] for example: sample rate (Hz), bits per sample, and number of channels (Mono/Stereo), number of tracks (MIDI).</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Track:</span><span class="f_Text"> (CD-Audio only) choose the track you want to play ...</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Progress Bar</span></p>
+<p class="p_Text"><span class="f_Text">The progress bar indicates the relative position of the audio/video currently playing. It also allows for some mouse interaction:</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="94"><span class="f_List2008-35" style="font-weight: bold;">Left-Click</span></td><td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_List2008-35">Play from here.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="94"><span class="f_List2008-35" style="font-weight: bold;">Right-Click</span></td><td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_List2008-35">Toggle pause/play (also by key </span><span class="f_List2008-35" style="font-weight: bold;">Space</span><span class="f_List2008-35">).</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="94"><span class="f_List2008-35" style="font-weight: bold;">Shift+Left-Click</span></td><td> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_List2008-35">Restart the sound from beginning.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="94"><span class="f_List2008-35" style="font-weight: bold;">Shift+Right-Click</span></td><td><span class="f_List2008-35">Go to beginning and stop (also by key </span><span class="f_List2008-35" style="font-weight: bold;">Shift+Space</span><span class="f_List2008-35">).</span></td></tr></table></div><p class="p_Text"><span class="f_Text">The progress bar's tooltip shows the timeline position of the cursor.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Wind Backward and Forward</span></p>
+<p class="p_Text"><span class="f_Text">There's keyboard-driven backward and forward. Works in paused and running mode, on audio and video.</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="94"><span class="f_List2008-35" style="font-weight: bold;">Left </span><span class="f_FileList" style="font-weight: bold;">Arrow</span></td><td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_List2008-35">5 sec backward</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="94"><span class="f_List2008-35" style="font-weight: bold;">Right </span><span class="f_FileList" style="font-weight: bold;">Arrow</span></td><td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_List2008-35">5 sec forward</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="94"><span class="f_List2008-35" style="font-weight: bold;">Shift+Left </span><span class="f_FileList" style="font-weight: bold;">Arrow</span></td><td><span class="f_List2008-35">30 sec backward</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="94"><span class="f_List2008-35" style="font-weight: bold;">Shift+Right </span><span class="f_FileList" style="font-weight: bold;">Arrow</span></td><td><span class="f_List2008-35">30 sec forward</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="94"><span class="f_List2008-35" style="font-weight: bold;">Ctrl+Left </span><span class="f_FileList" style="font-weight: bold;">Arrow</span></td><td> &nbsp; &nbsp; &nbsp; &nbsp;<span class="f_List2008-35">1 sec backward (Video: Frame step backward)</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="94"><span class="f_List2008-35" style="font-weight: bold;">Ctrl+Right </span><span class="f_FileList" style="font-weight: bold;">Arrow</span></td><td><span class="f_List2008-35">1 sec forward &nbsp;(Video: Frame step forward)</span></td></tr></table></div><p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">A-B repeat (Sub-Loop)</span></p>
+<p class="p_Text"><span class="f_Text">To repeat any particular section of the medium (audio or video), aka &quot;A-B repeat&quot;, looping must be enabled (tick &quot;Play Again&quot;). The section is defined by clicking on the progress bar while the medium is previewed (no matter whether running or paused):</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="94"><span class="f_List2008-35" style="font-weight: bold;">Ctrl+Left-Click  </span></td><td><span class="f_List2008-35">Set start of section to this point</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="94"><span class="f_List2008-35" style="font-weight: bold;">Ctrl+Right-Click</span></td><td><span class="f_List2008-35">Set end of section to this point</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 38px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="94"><span class="f_List2008-35" style="font-weight: bold;">Ctrl+Alt+Left-Click </span></td><td><span class="f_List2008-35">Unset any section</span></td></tr></table></div><p class="p_Text"><span class="f_Text">If a section start is defined then &quot;Go To Beginning&quot; (Shift+Space, or Shift+Click) will go to the beginning of the section. There is no visual marking of the section.</span></p>
+<p class="p_Text"><span class="f_Text">The section is auto-unset when you preview the next file.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Media Control Buttons</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 28px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_Text">Both &quot;Play&quot; and &quot;Pause&quot; have identical functionality, namely toggle Play / Pause, with inverse pressed-states.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 28px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_Text">&quot;Stop&quot; rewinds to beginning and stops there.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 28px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_Text">&quot;Autoplay&quot; toggles Autoplay.</span></td></tr></table></div><p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Snapshot (Video only)</span></p>
+<p class="p_Text"><span class="f_Text">Copies a bitmap image (preview size) of the current scene to the clipboard (shoot a film still). Note that this works while the video is running or stopped.</span></p>
+<p class="p_Text"><span class="f_Text">Important: You cannot snapshot non-AVI videos when you have OS hardware acceleration on! If you want you have to Adjust Hardware Acceleration. Here's what to do in Win2K, XP, and higher:</span></p>
+<p class="p_Text"><span class="f_Text">1. Right-click on your desktop</span></p>
+<p class="p_Text"><span class="f_Text">2. Select Properties-&gt;Settings-&gt;Advanced-&gt;Troubleshoot</span></p>
+<p class="p_Text"><span class="f_Text">3. Then set the hardware acceleration slider to the third notch (from left) and apply the changes</span></p>
+<p class="p_Text"><span class="f_Text">4. Press Ok (Computer Restart maybe required)</span></p>
+<p class="p_FileList"><span class="f_FileList">&nbsp;</span></p>
+<p class="p_NoteSign" style="text-indent: -38px; line-height: 1.20; margin: 8px 189px 4px 66px;"><span class="f_NoteSign">Note: </span><span class="f_Note">You cannot rename, copy, move, or delete an audio/video file while it is playing. The preview is automatically stopped when you start dragging a file.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_footnotereference" style="line-height: 1.20; margin: 4px 28px 4px 28px;"><a name="idh_prevaudvidformat"></a><span class="f_Text" style="font-weight: bold;">Supported Audio/Video file formats</span></p>
+<p class="p_Text"><span class="f_Text">Among the supported files types are: *.aif; *.aifc; *.aiff; *.ape; *.asf; *.au; *.avi; *.cda; *.dsd; *.dsf; *.flac; *.m1v; *.m4a; *.m4r; *.mid; *.mov; *.mp+; *.mp2; *.mp3; *.mp4; *.mpa; *.mpc; *.mpe; *.mpeg; *.mpg; *.mpp; *.mpv2; *.ogg; *.ogm; *.rmi; *.snd; *.ts; *.vob; *.wav; *.wma; *.wmv</span></p>
+<p class="p_Text"><span class="f_Text">More types can be added via Configuration | Preview | Previewed Formats | Categories.</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">What formats actually work is dependent on the configuration of your local system:</span><span class="f_Text"> the Windows version, the version of Media Player is installed, the version of Internet Explorer is installed. By rule of thumb: If WindowsMediaPlayer can play it, XYplorer can play it too.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_footnotereference" style="line-height: 1.20; margin: 4px 28px 4px 28px;"><a name="idh_previd3"></a><span class="f_Text" style="font-weight: bold;">ID3 tag editing</span></p>
+<p class="p_Text"><span class="f_Text">While previewing an MP3 file you can view and edit its ID3v1-tags or ID3v2 tags.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Dropdown Menu (Orange Button)</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Copy Compact Info:</span><span class="f_Text"> Copy a one-liner describing the currently previewed file to the clipboard.</span></p>
+<p class="p_Text"><span class="f_Text" style="font-weight: bold;">Copy Extended Info:</span><span class="f_Text"> Copy all information available on the currently previewed file to the clipboard.</span></p>
+<p class="p_Text"><span class="f_Text">Next, there are some settings for audio/video file preview only like </span><span class="f_Text" style="font-weight: bold;">Play/Pause</span><span class="f_Text">, </span><span class="f_Text" style="font-weight: bold;">Stop</span><span class="f_Text">, </span><span class="f_Text" style="font-weight: bold;">Autoplay</span><span class="f_Text">, etc, which are just repetitions of the same settings in <a href="idh_settings.htm#idh_settingsprev">Configuration | Preview | Preview | Audio/Video preview</a>.</span></p>
+<p class="p_Text"><span class="f_Text">The only option that only lives here is </span><span class="f_Text" style="font-weight: bold;">Playback Speed:</span><span class="f_Text"> You can change the playback speed. Choose from 0.5, 1, 1.5, 2, or 4.</span></p>
+<div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 28px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_Text">You can change the speed on the fly while the media is playing.</span></td></tr></table></div><div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; margin: 4px 28px 4px 28px;"><table border="0" cellpadding="0" cellspacing="0" style="line-height: 1.50;"><tr style="vertical-align:baseline" valign="baseline"><td width="13"><span style="font-size: 9pt; font-family: 'Symbol'; font-style: normal; color: #000000; text-decoration: none;">&#183;</span></td><td><span class="f_Text">Changing the speed also changes the pitch of the sound. It's not like YouTube, where the pitch is kept constant.</span></td></tr></table></div><p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_footnotereference" style="line-height: 1.20; margin: 4px 28px 4px 9px;"><span class="f_footnotereference">&nbsp;</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

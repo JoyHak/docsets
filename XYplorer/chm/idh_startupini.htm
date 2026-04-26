@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <title>Startup Settings</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="Startup.ini,Using Startup.ini,UAC (User Account Control),User Account Control,Application Data Path,Redirecting Startup.ini" />
+   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+   <meta http-equiv="Content-Style-Type" content="text/css" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+<script type="text/javascript" src="helpman_topicinit.js"></script>
+</head>
+<body style="margin: 0px 0px 0px 0px; background: #FFFFFF;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#F6F8FA">
+  <tr valign="middle">
+    <td align="left">
+      <p class="p_Title"><span class="f_Title">Startup Settings</span></p>
+
+    </td>
+    <td align="right">
+     <span style="font-size: 9pt">
+     <a href="idh_intro.htm"><img src="arrow-up-icon24.png" border=0 alt="Top"></a>&nbsp;
+     <a href="idh_scripting_comref_get.htm"><img src="arrow-left-icon24.png" border=0 alt="Previous"></a>&nbsp;
+     <a href="idh_variables.htm"><img src="arrow-right-icon24.png" border=0 alt="Next"></a>
+     </span>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Placeholder for topic body. -->
+<table width="100%" border="0" cellspacing="0" cellpadding="5"><tr valign="top"><td align="left">
+<p class="p_Title"><span class="f_Title">&nbsp;</span></p>
+<p class="p_footnotereference" style="line-height: 1.20; margin: 4px 28px 4px 9px;"><span class="f_TextTitleChar">Using Startup.ini</span></p>
+<p class="p_Text"><span class="f_Text">Here is a way to control the </span><span class="f_Text" style="font-weight: bold;">Application Data Path (ADP)</span><span class="f_Text"> used by XYplorer and thus avoid any issues with </span><span class="f_Text" style="font-weight: bold;">UAC (User Account Control)</span><span class="f_Text">. You can set ADP to any location you like by manually editing the file &quot;</span><span class="f_Text" style="font-weight: bold;">Startup.ini</span><span class="f_Text">&quot; in the application path.</span></p>
+<p class="p_Text"><span class="f_Text">The format of Startup.ini is that of INI files, and it has only one section and one key. Here's an example with a hard-coded application data path on drive E:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;[Appdata]</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;Path=E:\XYplorer\appdata</span></p>
+<p class="p_Text"><span class="f_Text">Here's an example with a soft-coded application data path using an environment variable. It is resolved depending on the current user account:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;[Appdata]</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;Path=%appdata%\XYplorer64</span></p>
+<p class="p_Text"><span class="f_Text">You may as well state a path relative to the application path (where XYplorer.exe is located), for example:</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;[Appdata]</span></p>
+<p class="p_Code"><span class="f_Code"> &nbsp;Path=appdata</span></p>
+<p class="p_Text"><span class="f_Text">The following files and folders are written to and read from ADP:</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">Catalogs &lt;DIR&gt;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow"> &nbsp;catalog.dat</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">FindTemplates &lt;DIR&gt;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">NewItems &lt;DIR&gt;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">Panes &lt;DIR&gt;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">Scripts &lt;DIR&gt;</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">Thumbnails &lt;DIR&gt; &nbsp; &nbsp; &nbsp; &nbsp;(configurable)</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">action.dat</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">fvs.dat</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">ks.dat</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">lastini.dat</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">servers.ini</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">tag.dat</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">udc.dat</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">XYplorer.ini (and other, alternative INIs)</span></p>
+<p class="p_Text"><span class="f_Text">Naturally, if you change the ADP you will have to move your current application data to the new path if you want to continue working in the same state as you left the application before changing the ADP.</span></p>
+<p class="p_NoteSign" style="line-height: 1.20; margin: 4px 28px 4px 28px;"><span class="f_NoteSign">Tip:</span><span class="f_Text"> If you still get an UAC prompt at startup then look on the &quot;Compatibility&quot; tab of the properties for the xyplorer.exe file and/or the shortcut you're using to start XYplorer. If the &quot;Run this program as an administrator&quot; box is checked, then uncheck it to avoid the UAC prompt.</span></p>
+<p class="p_NoteSign" style="line-height: 1.20; margin: 4px 28px 4px 28px;"><span class="f_NoteSign">Tip: </span><span class="f_Text">You can set the ADP also using a command line switch! See </span><span class="f_LinkJump" style="color: #000000;"><a href="idh_commandlineswitches.htm">Command Line Switches</a></span><span class="f_Text">.</span></p>
+<p class="p_Text"><span class="f_Text">&nbsp;</span></p>
+<p class="p_footnotereference" style="line-height: 1.20; margin: 4px 28px 4px 9px;"><span class="f_TextTitleChar">Redirecting Startup.ini</span></p>
+<p class="p_Text"><span class="f_Text">There is a way to read the startup settings from a file other than Startup.ini. Add this section to the beginning of Startup.ini (the path is an example):</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">[Redirect]</span></p>
+<p class="p_CodeNarrow"><span class="f_CodeNarrow">Path=\\ANDROMEDA_CORP\XYplorer\StartupCentral.ini</span></p>
+<p class="p_Text"><span class="f_Text">If this key is found, and if the file exists and can be read, the rest of this Startup.ini file is ignored and all startup settings are read from the new file. This allows managing a multi-user setup from one central location.</span></p>
+
+</td></tr></table>
+
+</body>
+</html>

@@ -91,7 +91,7 @@ background-color:#eff0f1
 }
 
 pre,code,table.info .code {
-font-family:Consolas,Monaco,Courier New,monospace
+font-family:Maple Mono NF CN;
 }
 
 .Syntax {
@@ -320,7 +320,7 @@ box-shadow:0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px #fff inset;
 color:#333;
 background-color: #fff;
 display:inline-block;
-font-family:Consolas,Monaco,Courier New,monospace;
+font-family:Maple Mono NF CN;
 line-height: 1;
 padding: 2px 4px;
 text-shadow:0 1px 0 #fff;
@@ -356,7 +356,7 @@ margin:0.2em 0.2em
 .regex {
 background-color:#FFEED3;
 font-weight:bold;
-font-family: Consolas,Monaco,Courier New,monospace;
+font-family:Maple Mono NF CN;
 word-break: break-word;
 }
 
@@ -373,4 +373,109 @@ padding-left: 0;
 
 ul.indent ul {
 list-style-type: disc;
+}
+
+code, kbd, .codebox code {
+    border-radius: 3px;
+}
+
+#left .input input.match,
+.Syntax,
+.button,
+.search-box,
+.search-box .inputbox,
+a.button1,
+a.button2,
+input.button1,
+input.button3,
+input.button2,
+.tabs .tab > a,
+blockquote {
+    border-radius: 6px;
+}
+
+button, input, optgroup, select {
+    margin: 0;
+    border-radius: 6px;
+}
+
+ul.linklist {
+    padding: 0;
+    list-style-type: none;
+}
+
+.code,
+.codebox,
+.highlight {
+    font-family: Maple Mono NF CN NF CN !important;
+}
+
+
+.code,
+.codebox,
+.highlight {
+    font-family: Maple Mono NF CN !important;
+}
+
+pre.origin em, code em,
+.highlight .cmt {
+    font-family: Maple Mono NF CN !important;
+    color: #4e4e4e;
+}
+
+.highlight>.dec, .highlight>.cfs, .highlight>.dir {
+    font-family: Maple Mono NF CN !important;
+    color: #693e65;
+}
+
+.highlight>.biv {
+    font-family: Maple Mono NF CN !important;
+    color: #416d48;
+}
+
+.highlight .str>.esc {
+    font-family: Maple Mono NF CN !important;
+    color: #92223f;
+}
+
+.highlight>.opr, .highlight>.opt, .Syntax span.optional:before, .Syntax span.optional:after {
+    font-family: Maple Mono NF CN !important;
+    color: #92223f;
+}
+
+.highlight>.str {
+    font-family: Maple Mono NF CN !important;
+    color: #257325;
+}
+
+.highlight>.num {
+    font-family: Maple Mono NF CN !important;
+    color: #374570;
+}
+
+.Syntax span.func,
+.highlight span>a,
+.highlight>.cmd, .highlight>.fun {
+    color: #305481;
+    font-family: Maple Mono NF CN !important;
+}
+
+.highlight>.lab {
+    color: #356b89;
+    font-family: Maple Mono NF CN !important;
+}
+
+.highlight>.met {
+    color: #20165F;
+    font-family: Maple Mono NF CN !important;
+}
+
+.highlight>.hot {
+    font-family: Maple Mono NF CN !important;
+    color: #5c5918;
+}
+
+.highlight>.prp {
+    color: #665223;
+    font-family: Maple Mono NF CN !important;
 }

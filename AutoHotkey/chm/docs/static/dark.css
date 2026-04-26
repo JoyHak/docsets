@@ -3,26 +3,26 @@
 /* general */
 
 * {
-  scrollbar-base-color: #1c1d20;
+  scrollbar-base-color: #191919;
   scrollbar-face-color: #34363c;
-  scrollbar-3dlight-color: #1c1d20;
-  scrollbar-highlight-color: #1c1d20;
-  scrollbar-track-color: #1c1d20;
+  scrollbar-3dlight-color: #191919;
+  scrollbar-highlight-color: #191919;
+  scrollbar-track-color: #191919;
   scrollbar-arrow-color: #34363c;
-  scrollbar-shadow-color: #1c1d20;
+  scrollbar-shadow-color: #191919;
 }
 
 ::-webkit-scrollbar {
-  background-color: #1c1d20;
+  background-color: #191919;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #1c1d20;
+  background-color: #191919;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: #34363c;
-  border: 2px solid #1c1d20;
+  border: 2px solid #191919;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -34,27 +34,27 @@
 }
 
 ::-ms-expand {
-  background-color: #202124;
+  background-color: #191919;
   color: #34363c;
-  border-color: #1c1d20;
+  border-color: #191919;
 }
 
 hr {
-  border-color: #353535;
+  border-color: #191919;
   background-color: #353535;
 }
 
 select {
   border-color: #353535;
-  background-color: #202124;
+  background-color: #191919;
   color: inherit;
 }
 
 /* theme.css */
 
 body {
-  background-color: #202124;
-  color: #bdc1c6;
+  background-color: #191919;
+  color: #D1D1D1;
 }
 
 h1 {
@@ -100,7 +100,7 @@ table.info td {
 }
 
 table.info th {
-  background-color: #1c1d20;
+  background-color: #191919;
   border-color: #353535;
 }
 
@@ -151,7 +151,7 @@ dd {
 kbd {
   border-color: #202124;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px #353535 inset;
-  color: #bdc1c6;
+  color: #D1D1D1;
   background-color: #202124;
   text-shadow: 0 1px 0 #000;
 }
@@ -170,114 +170,8 @@ kbd {
 
 /* content.css */
 
-#head {
-  background-color: #171717;
-  color: #a3a3a3;
-}
-
-#head li:hover {
-  background-color: inherit;
-  color: #fff;
-}
-
-#head .selected {
-  background-color: #6a6e72;
-  color: #171717;
-}
-
-#head li.selected:hover {
-  background-color: #6a6e72;
-  color: #fff;
-}
-
-#left {
-  background-color: #1c1d20;
-  color: #bdc1c6;
-}
-
 .lds-dual-ring:after {
   border-color: #a3a3a3 transparent #a3a3a3 transparent;
-}
-
-#left .toc ul, #left .quick .main ul {
-  color: #a3a3a3;
-}
-
-#left .toc ul > li > ul, #left .quick .main > ul {
-  border-left-color: #353535;
-}
-
-#left .toc ul > li.highlighted > ul {
-  border-left-color: #a3a3a3;
-}
-
-#left .toc li.closed > span, #left .toc li.opened > span {
-  color: #bdc1c6;
-}
-
-#left .toc .selected {
-  border-left-color: #a3a3a3;
-}
-
-#left .input input {
-  border-color: #353535;
-  background-color: #202124;
-}
-
-#left .input input.match {
-  background-color: #324232;
-}
-
-#left .input input.mismatch {
-  background-color: #664766;
-}
-
-#left .select select {
-  border-color: #353535;
-  background-color: #202124;
-}
-
-#left .select select > option {
-  color: #bdc1c6;
-}
-
-#left .select .empty {
-  color: grey !important;
-}
-
-#left .list {
-  background-color: #202124;
-  border-color: #353535;
-}
-
-#left .search .checkbox label {
-  border-color: #353535;
-}
-
-#left .search .checkbox .updown {
-  border-color: #353535;
-}
-
-#left .list > a:hover {
-  background-color: #353535;
-}
-
-#left .list > a.selected {
-  background-color: #6a6e72;
-  color: #171717;
-}
-
-#left .deprecated {
-  color: indianred !important;
-}
-
-#left .quick .header {
-  border-top-color: #353535;
-  border-bottom-color: #353535;
-}
-
-.dragbar {
-  background-color: #353535;
 }
 
 #right .footer {
@@ -303,11 +197,11 @@ kbd {
 }
 
 #right table.mobile tbody > tr:first-child {
-  background-color: #1c1d20;
+  background-color: #191919;
 }
 
 #right table.mobile td:first-child {
-  background-color: #1c1d20;
+  background-color: #191919;
 }
 
 #right .deprecated {
@@ -321,4 +215,152 @@ kbd {
 
 pre.origin em, code em {
   color: #6a9955;
+}
+
+html,
+body,
+.inputbox,
+.panel,
+.bg2,
+.codebox,
+.codebox code,
+.section-posting .bg3.panel,
+#message-box textarea,
+.forabg ul.topiclist li.row, .forumbg ul.topiclist li.row {
+  background-color: #191919;
+  border-color: #191919;
+}
+
+
+.bg1 {
+  background-color: #1d1c1c;
+}
+
+.wrap {
+  max-width: 98%;
+  min-width: 98%;
+  background-color: #191919;
+  border-color: #191919;
+  color: #191919;
+}
+
+blockquote cite {
+  color: #6A71D2 !important;
+}
+
+.inline_code {
+  font-family: Maple mono !important;
+  color: #ff7df4;
+  background: #281c28;
+  overflow: visible;
+  display: inline-block;
+  border-radius: 6px;
+}
+
+.codebox code {
+  background-color: #191919;
+  background-image: none;
+}
+
+kbd {
+  border: 0px;
+  border-radius: 3px;
+  box-shadow: none;
+  color: #fac84d;
+  background-color: #312b26;
+  text-shadow: none;
+  white-space: nowrap;
+}
+
+bg1 {
+  background-color: #191919;
+  color: #A968F6;
+  background-image: none;
+}
+
+#left .input input.match,
+.Syntax,
+.button,
+.search-box,
+.search-box .inputbox,
+a.button1,
+a.button2,
+input.button1,
+input.button3,
+input.button2,
+.tabs .tab > a,
+blockquote {
+  background-color: #2b2b2b;
+  color: #333333;
+  border-radius: 6px;
+}
+
+button, input, optgroup, select {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+  border-radius: 6px;
+}
+
+pre.origin em, code em,
+.highlight .cmt {
+  font-family: Maple Mono NF CN !important;
+  color: #828282;
+}
+
+.highlight>.dec, .highlight>.cfs, .highlight>.dir {
+  font-family: Maple Mono NF CN !important;
+  color: #f892ef;
+}
+
+.highlight>.biv {
+  font-family: Maple Mono NF CN !important;
+  color: #92f8a2;
+}
+
+.highlight .str>.esc {
+  font-family: Maple Mono NF CN !important;
+  color: #F73A6B;
+}
+
+.highlight>.opr, .highlight>.opt, .Syntax span.optional:before, .Syntax span.optional:after {
+  font-family: Maple Mono NF CN !important;
+  color: #e72265d9;
+}
+
+.highlight>.str {
+  font-family: Maple Mono NF CN !important;
+  color: #48e048;
+}
+
+.highlight>.num {
+  font-family: Maple Mono NF CN !important;
+  color: #98aff9;
+}
+
+.Syntax span.func,
+.highlight span>a,
+.highlight>.cmd, .highlight>.fun {
+  color: #70a5eb;
+  font-family: Maple Mono NF CN !important;
+}
+
+.highlight>.lab {
+  color: #6DBBE6;
+  font-family: Maple Mono NF CN !important;
+}
+
+.highlight>.met {
+  color: #2200FFD6;
+  font-family: Maple Mono NF CN !important;
+}
+
+.highlight>.hot {
+  font-family: Maple Mono NF CN !important;
+  color: #FEF324;
+}
+
+.highlight>.prp {
+  color: #fac84d;
+  font-family: Maple Mono NF CN !important;
 }

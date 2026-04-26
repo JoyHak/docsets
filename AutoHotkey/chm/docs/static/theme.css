@@ -9,25 +9,25 @@ counter-reset: ex_number;
 }
 
 html {
-font:.9em/1.6 Arial,sans-serif;
+font:0.9em/1.6 Arial;
 margin:0px;
 padding:0px
 }
 
 h1 {
-font-size:2em;
+font-size:1.6em;
 font-weight:700;
 border-bottom-color:#FFF;
-border-bottom-width:2px;
-margin-top:8px;
+border-bottom-width:1.5px;
+margin-top:6px;
 color:#3F5770;
 word-wrap:break-word;
 overflow-wrap:break-word
 }
 
 h2 {
-margin-top:1.1em;
-margin-bottom:.5em;
+margin-top:1em;
+margin-bottom:.3em;
 color:#A04040
 }
 

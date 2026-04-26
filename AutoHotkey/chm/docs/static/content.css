@@ -24,7 +24,6 @@ display:inline-block
 
 #main {
 height:100%;
-padding-top:3em;
 box-sizing:border-box
 }
 
@@ -83,6 +82,10 @@ height:100%;
 width:100%;
 display:table;
 table-layout:fixed
+}
+
+#head {
+display:none !important;
 }
 
 #head .h-tabs {
@@ -208,6 +211,7 @@ display:none
 }
 
 #left {
+display:none !important;
 z-index:999;
 background:#f9f9f9;
 color:#000;
@@ -651,6 +655,7 @@ content: '\25B6';
 }
 
 .dragbar {
+display:none !important;
 background-color:#eee;
 width:3px;
 cursor:col-resize;

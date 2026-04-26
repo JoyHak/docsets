@@ -4,11 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bcfcdcb1-c33e-4f8a-9931-239e96578a84" name="Changes" comment="" />
+    <list default="true" id="bcfcdcb1-c33e-4f8a-9931-239e96578a84" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/AutoHotkey/autohotkey_docset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutoHotkey/chm/docs/index.htm" beforeDir="false" afterPath="$PROJECT_DIR$/AutoHotkey/chm/docs/index.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XYplorer/xyplorer_docset.py" beforeDir="false" afterPath="$PROJECT_DIR$/XYplorer/xyplorer_docset.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/XYplorer/xyplorer_docset.py" root0="FORCE_HIGHLIGHTING" />
@@ -28,10 +36,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.autohotkey_docset.executor": "Run",
     "Python.xyplorer_docset.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.codeium.enabled": "true",
-    "last_opened_file_path": "C:/Users/ToYu/AppData/Local/Zeal/Zeal/docsets/XYplorer.docset/Contents/Resources/docSet.dsidx",
+    "git-widget-placeholder": "gitbutler/workspace",
+    "last_opened_file_path": "C:/Users/ToYu/AppData/Local/Zeal/Zeal/docs/AutoHotkey",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -43,6 +53,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ToYu\AppData\Local\Zeal\Zeal\docs\AutoHotkey" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -67,6 +82,7 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/docs$xyplorer_docset.coverage" NAME="xyplorer_docset Coverage Results" MODIFIED="1777141551815" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/XYplorer" />
+    <SUITE FILE_PATH="coverage/docs$xyplorer_docset.coverage" NAME="xyplorer_docset Coverage Results" MODIFIED="1777196519231" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/XYplorer" />
+    <SUITE FILE_PATH="coverage/docs$autohotkey_docset.coverage" NAME="autohotkey_docset Coverage Results" MODIFIED="1777206191458" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/AutoHotkey" />
   </component>
 </project>

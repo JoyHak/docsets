@@ -2,6 +2,7 @@ import sqlite3
 from os import makedirs, listdir, environ
 from os.path import exists
 from shutil import rmtree, copy
+from re import search as regexMatch
 from bs4 import BeautifulSoup
 
 # noinspection SpellCheckingInspection
@@ -11,6 +12,7 @@ def generate_docset():
     # File structure
     source_dir  = 'chm'
     docset_name = 'XYplorer'
+    docset_alias = 'xy'
     docset_path = environ.get('LOCALAPPDATA') \
                 + r'\Zeal\Zeal\docsets' \
                 + '\\' + docset_name + '.docset'
@@ -27,8 +29,17 @@ def generate_docset():
 
     # Create docset directories
     makedirs(dest_path, exist_ok=True)
-    generate_meta(docset_path + r'\docset.json')
-    generate_plist(docset_path + r'\Contents\Info.plist')
+    generate_plist(docset_path + r'\Contents\info.plist', docset_name, docset_alias)
+
+    # Generate/update meta
+    docset_version = '28.10.0000'
+    with open(fr'{source_dir}\idh_intro.htm', 'r', encoding='utf-8') as f:
+        match = regexMatch(r'Help for XYplorer ([^ ]+)', f.read())
+        if match:
+            docset_version = match.group(1)
+
+    generate_meta(docset_path + r'\docset.json', docset_name, docset_alias, docset_version)
+    print(f'Version: {docset_version}')
 
     # Copy all relevant files
     for file in listdir(source_dir):
@@ -56,26 +67,27 @@ def generate_docset():
         hhk_content = f.read()
 
     soup = BeautifulSoup(hhk_content, 'html.parser')
-    ul = soup.find('ul')
+    for li in soup.find('ul').find_all('li'):
+        obj = li.find('object')
+        if not obj:
+            continue
 
-    if ul:
-        for li in ul.find_all('li'):
-            obj = li.find('object')
-            if obj:
-                name_param  = obj.find('param', {'name': 'Name'})
-                local_param = obj.find('param', {'name': 'Local'})
-                if name_param and local_param:
-                    name = name_param['value']
-                    path = local_param['value']
-                    file = path.split('#')[0]
-                    section = sections.get(file, 'Advanced')
+        name_param  = obj.find('param', {'name': 'Name'})
+        local_param = obj.find('param', {'name': 'Local'})
+        if not name_param or not local_param:
+            continue
 
-                    cur.execute(
-                     '''INSERT OR IGNORE INTO searchIndex(name, type, path)
-                        VALUES (?, ?, ?)''',
-                        (name, section, path))
+        name = name_param['value']
+        path = local_param['value']
+        file = path.split('#')[0]
+        section = sections.get(file, 'Advanced')
 
-                    # print(f'Indexed: {name} ({section}) -> {path}')
+        cur.execute(
+         '''INSERT OR IGNORE INTO searchIndex(name, type, path)
+            VALUES (?, ?, ?)''',
+            (name, section, path))
+
+        # print(f'Indexed: {name} ({section}) -> {path}')
 
     db.commit()
     db.close()
@@ -180,35 +192,43 @@ sections = {
     "idh_copyright.htm": "Legal"
 }
 
-def generate_meta(path):
-    content = """{
-    "name": "XYplorer",
-    "version": "28.10.0400",
-    "archive": "XYplorer.tgz",
-    "author": {
+def generate_meta(path, name, alias, version):
+    name_ = name.lower()
+
+    content = f'''{{
+    "name": "{name}",
+    "version": "{version}",
+    "archive": "{name}.tgz",
+    "author": {{
         "name": "Rafaello",
         "link": "https://github.com/JoyHak"
-    },
+    }},
     "aliases": [
-        "xyplorer", 
-        "xy"
+        "{alias}",
+        "{name_}"
     ],
     "specific_versions": []
-}"""
+}}'''
 
     with open(path, 'w', encoding='utf-8') as f:
         f.write(content)
 
-def generate_plist(path):
-    content = """<?xml version="1.0" encoding="UTF-8"?>
+def generate_plist(path, name, search_keyword):
+    content = f'''<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>CFBundleIdentifier</key>
-    <string>XYplorer</string>
-
     <key>CFBundleName</key>
-    <string>XYplorer</string>
+    <string>{name}</string>
+    
+    <key>CFBundleIdentifier</key>
+    <string>{search_keyword}</string>
+
+    <key>DashDocSetFamily</key>
+    <string>{search_keyword}</string>
+
+    <key>DocSetPlatformFamily</key>
+    <string>{search_keyword}</string>
 
     <key>DashDocSetFallbackURL</key>
     <string>https://www.google.com/search?q=site%3Axyplorer.com </string>
@@ -216,19 +236,13 @@ def generate_plist(path):
     <key>dashIndexFilePath</key>
     <string>idh_scripting_comref.htm</string>
 
-    <key>DashDocSetFamily</key>
-    <string>XYplorer</string>
-
-    <key>DocSetPlatformFamily</key>
-    <string>XYplorer</string>
-
     <key>isDashDocset</key>
     <true/>
 
     <key>isJavaScriptEnabled</key>
     <true/>
 </dict>
-</plist>"""
+</plist>'''
 
     with open(path, 'w', encoding='utf-8') as f:
         f.write(content)

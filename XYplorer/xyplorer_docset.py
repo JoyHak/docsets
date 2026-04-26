@@ -100,6 +100,7 @@ def generate_docset():
 
     print(f'Created docset: "{docset_path}"')
 
+# based on .\chm\XYplorer.hhc
 # noinspection SpellCheckingInspection
 sections = {
     "idh_scripting_comref.htm": "Command",

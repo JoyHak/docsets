@@ -1,22 +1,21 @@
 import sqlite3
 import re
-from os import makedirs, environ
-from os.path import exists
-from shutil import rmtree, copytree
+import subprocess
+from os import makedirs, environ, walk
+from os.path import exists, relpath, basename
+from shutil import rmtree
 
 
 def generate_docset():
     # File structure
-    aqua_dir   = environ.get('USERPROFILE') + r'\Documents\AutoHotkey\Lib\AquaHotkey'
+    aqua_dir   = r'{}\Documents\AutoHotkey\Lib\AquaHotkey'.format(environ['USERPROFILE'])
     source_dir = aqua_dir + r'\docs'
     main_file  = aqua_dir + r'\src\Core\AquaHotkeyX.ahk'
-    index_file = fr'{source_dir}\api-overview.md'
+    index_file = source_dir + r'\api-overview.md'
 
     docset_name = 'AquaHotkey'
     docset_alias = 'aqua'
-    docset_path = environ.get('LOCALAPPDATA') \
-                + r'\Zeal\Zeal\docsets' \
-                + '\\' + docset_name + '.docset'
+    docset_path = r'{}\Zeal\Zeal\docsets\{}.docset'.format(environ['LOCALAPPDATA'], docset_name)
 
     res_path  = docset_path + r'\Contents\Resources'
     dest_path = res_path + r'\Documents'
@@ -29,7 +28,7 @@ def generate_docset():
 
     # Create docset directories
     makedirs(dest_path, exist_ok=True)
-    generate_plist(docset_path + r'\Contents\info.plist', docset_name, docset_alias)
+    generate_plist(docset_path + r'\Contents\info.plist', docset_name, docset_alias, index_file)
 
     # Generate/update meta
     docset_version = '3.0.0'
@@ -41,10 +40,17 @@ def generate_docset():
     generate_meta(docset_path + r'\docset.json', docset_name, docset_alias, docset_version)
     print(f'Version: {docset_version}')
 
-    copytree(
-        source_dir, dest_path,
-        dirs_exist_ok=True
-    )
+    # Convert all markdown files to HTML
+    md_files = []
+    for root, dirs, files in walk(source_dir):
+        for file in files:
+            if file.endswith('.md'):
+                md_files.append(fr'{root}\{file}')
+
+    print(f'Converting {len(md_files)} markdown files to HTML...')
+    to_html(md_files, source_dir, dest_path)
+
+
     # Initialize SQLite database
     db = sqlite3.connect(db_path)
     cur = db.cursor()
@@ -61,25 +67,50 @@ def generate_docset():
         ON searchIndex (name, type, path)
     ;''')
 
-    for entry in parse_markdown_index(index_file, source_dir):
+    # Parse markdown index and add entries to database
+    for entry in parse_index(index_file, source_dir):
+        entry['path'] = entry['path'].replace('.md', '.html')
         cur.execute(
-            '''INSERT OR IGNORE INTO searchIndex(name, type, path)
-               VALUES (?, ?, ?)''',
-            (entry['name'], entry['type'], entry['path']))
+        '''INSERT OR IGNORE INTO searchIndex(name, type, path)
+           VALUES (?, ?, ?)''',
+        (entry['name'], entry['type'], entry['path'])
+        )
 
     db.commit()
     db.close()
 
-    # Compress for publication
-    # import tarfile
-    # import json
-    # with tarfile.open(docset_name + '.tgz', 'w:gz') as tar:
-    #    tar.add(docset_name, arcname=docset_name)
-
     print(f'Created docset: "{docset_path}"')
 
 
-def parse_markdown_index(index_path, source_dir):
+def to_html(md_files, source_dir, dest_path):
+    """Convert markdown files to HTML using Pandoc and copy to destination."""
+    for md_path in md_files:
+        rel_path = relpath(md_path, source_dir)
+        html_path = rel_path.replace('.md', '.html')
+        out_path = fr'{dest_path}\{html_path}'
+
+        cmd = [
+            r'C:\Program Files\Pandoc\pandoc.exe',
+            md_path,
+            '--output', out_path,
+            '-t', 'html5',
+            '--standalone',
+            '--syntax-definition', './ahk.xml',
+            '-f', 'gfm',
+            '--metadata', 'maxwidth=80%',
+            '--wrap', 'none'
+        ]
+        
+        result = subprocess.run(
+            cmd,
+            capture_output=True
+        )
+
+        if result.returncode != 0:
+            print(f'Error converting {md_path}: {result.stderr}')
+
+
+def parse_index(index_path, source_dir):
     """Parse markdown index file and extract documentation entries."""
     entries = []
 
@@ -88,7 +119,7 @@ def parse_markdown_index(index_path, source_dir):
 
     for line in content.split('\n'):
         # Match markdown links: [Name](./path/to/file.md)
-        match = re.search(r'^.*?\[([^\]]+)\]\(([^\)]+)\)', line)
+        match = re.search(r'^.*?\[([^\]]+)\]\(([^)]+)\)', line)
         if not match:
             continue
 
@@ -98,7 +129,11 @@ def parse_markdown_index(index_path, source_dir):
           .replace('./', '')
           .replace('\\', '/'))
 
-        section = clean_path.split('/')[0]
+        slash = clean_path.find('/')
+        if slash == -1:
+            section = basename(rel_path)
+        else:
+            section = clean_path[0:slash-1]
 
         entries.append({
             'name': name,
@@ -131,7 +166,7 @@ def generate_meta(path, name, alias, version):
         f.write(content)
 
 
-def generate_plist(path, name, search_keyword):
+def generate_plist(path, name, search_keyword, index):
     content = f'''<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -149,10 +184,10 @@ def generate_plist(path, name, search_keyword):
     <string>{search_keyword}</string>
 
     <key>DashDocSetFallbackURL</key>
-    <string>https://www.google.com/search?q=site%3Aahx-docs</string>
+    <string>https://github.com/search?type=code&q=repo%3A0w0Demonic%2FAquaHotkey+</string>
 
     <key>dashIndexFilePath</key>
-    <string>index.md</string>
+    <string>{index}</string>
 
     <key>isDashDocset</key>
     <true/>

@@ -2,8 +2,8 @@ import sqlite3
 import re
 import subprocess
 from os import makedirs, environ, walk
-from os.path import exists, relpath, basename
-from shutil import rmtree
+from os.path import exists, relpath, basename, dirname
+from shutil import rmtree, copy
 
 
 def generate_docset():
@@ -12,6 +12,7 @@ def generate_docset():
     source_dir = aqua_dir + r'\docs'
     main_file  = aqua_dir + r'\src\Core\AquaHotkeyX.ahk'
     index_file = source_dir + r'\api-overview.md'
+    css_file   = source_dir + r'\style.css'
 
     docset_name = 'AquaHotkey'
     docset_alias = 'aqua'
@@ -28,7 +29,12 @@ def generate_docset():
 
     # Create docset directories
     makedirs(dest_path, exist_ok=True)
-    generate_plist(docset_path + r'\Contents\info.plist', docset_name, docset_alias, index_file)
+    generate_plist(
+        docset_path + r'\Contents\info.plist',
+        docset_name, docset_alias,
+        r'api-overview.html'
+    )
+    copy(css_file, dest_path)
 
     # Generate/update meta
     docset_version = '3.0.0'
@@ -37,7 +43,10 @@ def generate_docset():
         if match:
             docset_version = match.group(1).strip()
 
-    generate_meta(docset_path + r'\docset.json', docset_name, docset_alias, docset_version)
+    generate_meta(
+        docset_path + r'\docset.json',
+        docset_name, docset_alias, docset_version
+    )
     print(f'Version: {docset_version}')
 
     # Convert all markdown files to HTML
@@ -48,7 +57,7 @@ def generate_docset():
                 md_files.append(fr'{root}\{file}')
 
     print(f'Converting {len(md_files)} markdown files to HTML...')
-    to_html(md_files, source_dir, dest_path)
+    to_html(md_files, css_file, source_dir, dest_path)
 
 
     # Initialize SQLite database
@@ -82,25 +91,32 @@ def generate_docset():
     print(f'Created docset: "{docset_path}"')
 
 
-def to_html(md_files, source_dir, dest_path):
+def to_html(md_files, css_file, source_dir, dest_path):
     """Convert markdown files to HTML using Pandoc and copy to destination."""
     for md_path in md_files:
         rel_path = relpath(md_path, source_dir)
         html_path = rel_path.replace('.md', '.html')
         out_path = fr'{dest_path}\{html_path}'
 
+        css_path = relpath(
+            css_file,
+            str(dirname(md_path))
+        )
+
         cmd = [
             r'C:\Program Files\Pandoc\pandoc.exe',
             md_path,
             '--output', out_path,
-            '-t', 'html5',
-            '--standalone',
-            '--syntax-definition', './ahk.xml',
-            '-f', 'gfm',
+            '--from', 'gfm',   # Github Flavored Markdown
+            '--to', 'html5',
+            '--standalone',    # self-contained HTML page
+            '--css', css_path,
+            '--syntax-definition', './syntax.xml',
+            '--lua-filter', './md-to-html.lua',
             '--metadata', 'maxwidth=80%',
             '--wrap', 'none'
         ]
-        
+
         result = subprocess.run(
             cmd,
             capture_output=True

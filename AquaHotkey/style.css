@@ -1,0 +1,96 @@
+html {
+    color: #fdfdfd;
+    background-color: #191919;
+}
+body {
+    max-width: 100%;
+    text-rendering: optimizeLegibility;
+    font-kerning: normal;
+}
+blockquote, div.sourceCode {
+    border-radius: 6px;
+    padding: 0.5em;
+    border: none;
+    background-color: #202020;
+}
+code {
+    padding: 0 .2em;
+    background-color: #202020;
+    border-radius: 3px;
+    white-space: pre-wrap;
+    font-family: 'Maple Mono NF CN';
+    margin: 0;
+    hyphens: manual;
+}
+code span {
+    font-style: normal !important;
+    font-weight: normal !important;
+}
+
+code > * {
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
+    font-family: inherit;
+}
+
+/* Attribute */
+code span.at {
+    color: #e7db85;
+}
+/* BaseN */
+code span.bn {
+    color: #40a070;
+}
+/* BuiltIn */
+code span.bu {
+    color: #8080ff;
+    font-weight: bold !important;
+}
+/* ControlFlow */
+code span.cf {
+    color: #ff80f9;
+}
+/* Comment */
+code span.co {
+    color: #808080;
+}
+/* Float */
+code span.fl {
+    color: #158aff;
+}
+code span.dv {
+    color: #158aff;
+}
+/* Function */
+code span.fu {
+    color: #6278df;
+}
+/* Keyword */
+code span.kw {
+    color: #ff80f9;
+}
+/* Operator */
+code span.op {
+    color: #631b37;
+}
+/* Other */
+code span.ot {
+    color: #878ed1;
+}
+/* SpecialString */
+code span.ss {
+    color: #008040;
+}
+/* String */
+code span.st {
+    color: #46d751;
+}
+/* Char */
+code span.ch {
+    color: #61bc66;
+}
+/* Variable */
+code span.va {
+    color: #80ffff;
+}

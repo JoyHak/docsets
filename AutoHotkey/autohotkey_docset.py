@@ -1,9 +1,6 @@
 import sqlite3
-# from os import makedirs, walk, environ
 from os import makedirs, environ
-# from os.path import exists, relpath, dirname
 from os.path import exists
-# from shutil import rmtree, copy
 from shutil import rmtree, copytree, ignore_patterns
 from re import search as regexMatch
 from bs4 import BeautifulSoup
@@ -43,17 +40,6 @@ def generate_docset():
 
     generate_meta(docset_path + r'\docset.json', docset_name, docset_alias, docset_version)
     print(f'Version: {docset_version}')
-
-    # Copy all relevant files recursively
-    # for root, dirs, files in walk(source_dir):
-    #     for file in files:
-    #         if file.endswith(('.htm', '.html', '.css', '.js', '.png', '.ahk', '.eot', '.svg', '.ttf', '.woff')):
-    #             src_path    = fr'{root}\{file}'
-    #             rel_path    = relpath(src_path, source_dir)
-    #             target_path = fr'{dest_path}\{rel_path}'
-    #
-    #             makedirs(dirname(target_path), exist_ok=True)
-    #             copy(src_path, target_path)
 
     copytree(
         source_dir, dest_path,
@@ -110,7 +96,7 @@ def generate_docset():
     # Compress for publication
     # import tarfile
     # import json
-    # with tarfile.open('AutoHotkey.tgz', 'w:gz') as tar:
+    # with tarfile.open(docset_name + '.tgz', 'w:gz') as tar:
     #    tar.add(docset_name, arcname=docset_name)
 
     print(f'Created docset: "{docset_path}"')

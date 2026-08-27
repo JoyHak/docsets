@@ -1,2 +1,3 @@
-.gi*
-.idea*
+.gi*/
+.idea/
+.idea/*

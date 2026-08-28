@@ -1,406 +1,436 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE language>
 <language name="AutoHotKey" section="Scripts"
-          version="7" kateversion="5.62"
+          version="1" kateversion="5.62"
           indenter="cstyle"
-          extensions="*.ahk;*.iahk"
+          extensions="*.ahk;*.ahk2"
           priority="9"
-          author="Sinel">
+          author="Rafaello">
 <highlighting>
 <list name="flowofcontrol">
-	<item>break</item>
-	<item>byref</item>
 	<item>catch</item>
 	<item>continue</item>
 	<item>else</item>
-	<item>exitapp</item>
-	<item>exit</item>
 	<item>finally</item>
 	<item>for</item>
 	<item>global</item>
-	<item>gosub</item>
 	<item>goto</item>
-	<item>ifequal</item>
-	<item>ifexist</item>
-	<item>ifgreater</item>
-	<item>ifgreaterorequal</item>
-	<item>ifinstring</item>
 	<item>if</item>
-	<item>ifless</item>
-	<item>iflessorequal</item>
-	<item>ifmsgbox</item>
-	<item>ifnotequal</item>
-	<item>ifnotexist</item>
-	<item>ifnotinstring</item>
-	<item>ifwinactive</item>
-	<item>ifwinexist</item>
-	<item>ifwinnotactive</item>
-	<item>ifwinnotexist</item>
 	<item>local</item>
 	<item>loop</item>
-	<item>onexit</item>
 	<item>pause</item>
 	<item>return</item>
-	<item>settimer</item>
-	<item>sleep</item>
 	<item>static</item>
-	<item>suspend</item>
 	<item>switch</item>
-	<item>throw</item>
+	<item>case</item>
+	<item>default</item>
 	<item>try</item>
 	<item>until</item>
 	<item>while</item>
 </list>
-<list name="commands">
-	<item>autotrim</item>
-	<item>blockinput</item>
-	<item>click</item>
-	<item>clipwait</item>
-	<item>controlclick</item>
-	<item>controlfocus</item>
-	<item>controlgetfocus</item>
-	<item>controlget</item>
-	<item>controlgetpos</item>
-	<item>controlgettext</item>
-	<item>control</item>
-	<item>controlmove</item>
-	<item>controlsend</item>
-	<item>controlsendraw</item>
-	<item>controlsettext</item>
-	<item>coordmode</item>
-	<item>critical</item>
-	<item>detecthiddentext</item>
-	<item>detecthiddenwindows</item>
-	<item>driveget</item>
-	<item>drive</item>
-	<item>drivespacefree</item>
-	<item>edit</item>
-	<item>envadd</item>
-	<item>envdiv</item>
-	<item>envget</item>
-	<item>envmult</item>
-	<item>envset</item>
-	<item>envsub</item>
-	<item>envupdate</item>
-	<item>fileappend</item>
-	<item>filecopydir</item>
-	<item>filecopy</item>
-	<item>filecreatedir</item>
-	<item>filecreateshortcut</item>
-	<item>filedelete</item>
-	<item>fileencoding</item>
-	<item>filegetattrib</item>
-	<item>filegetshortcut</item>
-	<item>filegetsize</item>
-	<item>filegettime</item>
-	<item>filegetversion</item>
-	<item>fileinstall</item>
-	<item>filemovedir</item>
-	<item>filemove</item>
-	<item>fileread</item>
-	<item>filereadline</item>
-	<item>filerecycleempty</item>
-	<item>filerecycle</item>
-	<item>fileremovedir</item>
-	<item>fileselectfile</item>
-	<item>fileselectfolder</item>
-	<item>filesetattrib</item>
-	<item>filesettime</item>
-	<item>formattime</item>
-	<item>getkeystate</item>
-	<item>groupactivate</item>
-	<item>groupadd</item>
-	<item>groupclose</item>
-	<item>groupdeactivate</item>
-	<item>guicontrolget</item>
-	<item>guicontrol</item>
-	<item>gui</item>
-	<item>hotkey</item>
-	<item>imagesearch</item>
-	<item>inidelete</item>
-	<item>iniread</item>
-	<item>iniwrite</item>
-	<item>inputbox</item>
-	<item>input</item>
-	<item>keyhistory</item>
-	<item>keywait</item>
-	<item>listhotkeys</item>
-	<item>listlines</item>
-	<item>listvars</item>
-	<item>menu</item>
-	<item>mouseclickdrag</item>
-	<item>mouseclick</item>
-	<item>mousegetpos</item>
-	<item>mousemove</item>
-	<item>msgbox</item>
-	<item>onexit</item>
-	<item>outputdebug</item>
-	<item>pause</item>
-	<item>pixelgetcolor</item>
-	<item>pixelsearch</item>
-	<item>postmessage</item>
-	<item>process</item>
-	<item>progress</item>
-	<item>random</item>
-	<item>regdelete</item>
-	<item>regread</item>
-	<item>regwrite</item>
-	<item>reload</item>
-	<item>runas</item>
-	<item>run</item>
-	<item>runwait</item>
-	<item>sendevent</item>
-	<item>sendinput</item>
-	<item>send</item>
-	<item>sendlevel</item>
-	<item>sendmessage</item>
-	<item>sendmode</item>
-	<item>sendplay</item>
-	<item>sendraw</item>
-	<item>setbatchlines</item>
-	<item>setcapslockstate</item>
-	<item>setcontroldelay</item>
-	<item>setdefaultmousespeed</item>
-	<item>setenv</item>
-	<item>setformat</item>
-	<item>setkeydelay</item>
-	<item>setmousedelay</item>
-	<item>setnumlockstate</item>
-	<item>setregview</item>
-	<item>setscrolllockstate</item>
-	<item>setstorecapslockmode</item>
-	<item>settitlematchmode</item>
-	<item>setwindelay</item>
-	<item>setworkingdir</item>
-	<item>shutdown</item>
-	<item>sort</item>
-	<item>soundbeep</item>
-	<item>soundget</item>
-	<item>soundgetwavevolume</item>
-	<item>soundplay</item>
-	<item>soundset</item>
-	<item>soundsetwavevolume</item>
-	<item>splashimage</item>
-	<item>splashtextoff</item>
-	<item>splashtexton</item>
-	<item>splitpath</item>
-	<item>statusbargettext</item>
-	<item>statusbarwait</item>
-	<item>stringcasesense</item>
-	<item>stringgetpos</item>
-	<item>stringleft</item>
-	<item>stringlen</item>
-	<item>stringlower</item>
-	<item>stringmid</item>
-	<item>stringreplace</item>
-	<item>stringright</item>
-	<item>stringsplit</item>
-	<item>stringtrimleft</item>
-	<item>stringtrimright</item>
-	<item>stringupper</item>
-	<item>sysget</item>
-	<item>thread</item>
-	<item>tooltip</item>
-	<item>transform</item>
-	<item>traytip</item>
-	<item>urldownloadtofile</item>
-	<item>winactivatebottom</item>
-	<item>winactivate</item>
-	<item>winclose</item>
-	<item>wingetactivestats</item>
-	<item>wingetactivetitle</item>
-	<item>wingetclass</item>
-	<item>winget</item>
-	<item>wingetpos</item>
-	<item>wingettext</item>
-	<item>wingettitle</item>
-	<item>winhide</item>
-	<item>winkill</item>
-	<item>winmaximize</item>
-	<item>winmenuselectitem</item>
-	<item>winminimizeall</item>
-	<item>winminimizeallundo</item>
-	<item>winminimize</item>
-	<item>winmove</item>
-	<item>winrestore</item>
-	<item>winset</item>
-	<item>winsettitle</item>
-	<item>winshow</item>
-	<item>winwaitactive</item>
-	<item>winwaitclose</item>
-	<item>winwait</item>
-	<item>winwaitnotactive</item>
+<list name="flowterminators">
+	<item>exitapp</item>
+	<item>exit</item>
+	<item>throw</item>
+	<item>break</item>
+</list>
+<list name="negatives">
+	<item>false</item>
+	<item>Error</item>
+	<item>MemoryError</item>
+	<item>OSError</item>
+	<item>TargetError</item>
+	<item>TimeoutError</item>
+	<item>TypeError</item>
+	<item>UnsetError</item>
+	<item>MemberError</item>
+	<item>MethodError</item>
+	<item>PropertyError</item>
+	<item>UnsetItemError</item>
+	<item>ValueError</item>
+	<item>IndexError</item>
+	<item>ZeroDivisionError</item>
 </list>
 <list name="functions">
-	<item>abs</item>
-	<item>acos</item>
-	<item>array</item>
-	<item>asc</item>
-	<item>asin</item>
-	<item>atan</item>
-	<item>ceil</item>
-	<item>chr</item>
-	<item>comobjactive</item>
-	<item>comobjarray</item>
-	<item>comobjconnect</item>
-	<item>comobjcreate</item>
-	<item>comobject</item>
-	<item>comobjenwrap</item>
-	<item>comobjerror</item>
-	<item>comobjflags</item>
-	<item>comobjget</item>
-	<item>comobjmissing</item>
-	<item>comobjparameter</item>
-	<item>comobjquery</item>
-	<item>comobjtype</item>
-	<item>comobjunwrap</item>
-	<item>comobjvalue</item>
-	<item>cos</item>
-	<item>dllcall</item>
-	<item>exception</item>
-	<item>exp</item>
-	<item>fileexist</item>
-	<item>fileopen</item>
-	<item>floor</item>
-	<item>format</item>
-	<item>func</item>
-	<item>getkeyname</item>
-	<item>getkeysc</item>
-	<item>getkeyvk</item>
-	<item>hotstring</item>
-	<item>il_add</item>
-	<item>il_create</item>
-	<item>il_destroy</item>
-	<item>inputhook</item>
-	<item>instr</item>
-	<item>isbyref</item>
-	<item>isfunc</item>
-	<item>islabel</item>
-	<item>isobject</item>
-	<item>ln</item>
-	<item>loadpicture</item>
-	<item>log</item>
-	<item>ltrim</item>
-	<item>lv_add</item>
-	<item>lv_deletecol</item>
-	<item>lv_delete</item>
-	<item>lv_getcount</item>
-	<item>lv_getnext</item>
-	<item>lv_gettext</item>
-	<item>lv_insertcol</item>
-	<item>lv_insert</item>
-	<item>lv_modifycol</item>
-	<item>lv_modify</item>
-	<item>lv_setimagelist</item>
-	<item>max</item>
-	<item>menugethandle</item>
-	<item>menugetname</item>
-	<item>min</item>
-	<item>mod</item>
-	<item>numget</item>
-	<item>numput</item>
-	<item>objaddref</item>
-	<item>objbindmethod</item>
-	<item>objclone</item>
-	<item>objcount</item>
-	<item>objdelete</item>
-	<item>object</item>
-	<item>objgetaddress</item>
-	<item>objgetbase</item>
-	<item>objgetcapacity</item>
-	<item>objhaskey</item>
-	<item>objinsertat</item>
-	<item>objinsert</item>
-	<item>objlength</item>
-	<item>objmaxindex</item>
-	<item>objminindex</item>
-	<item>objnewenum</item>
-	<item>objpop</item>
-	<item>objpush</item>
-	<item>objrawget</item>
-	<item>objrawset</item>
-	<item>objrelease</item>
-	<item>objremoveat</item>
-	<item>objremove</item>
-	<item>objsetbase</item>
-	<item>objsetcapacity</item>
-	<item>onclipboardchange</item>
-	<item>onerror</item>
-	<item>onmessage</item>
-	<item>ord</item>
-	<item>regexmatch</item>
-	<item>regexreplace</item>
-	<item>registercallback</item>
-	<item>round</item>
-	<item>rtrim</item>
-	<item>sb_seticon</item>
-	<item>sb_setparts</item>
-	<item>sb_settext</item>
-	<item>sin</item>
-	<item>sqrt</item>
-	<item>strget</item>
-	<item>strlen</item>
-	<item>strput</item>
-	<item>strreplace</item>
-	<item>strsplit</item>
-	<item>substr</item>
-	<item>tan</item>
-	<item>trim</item>
-	<item>tv_add</item>
-	<item>tv_delete</item>
-	<item>tv_getchild</item>
-	<item>tv_getcount</item>
-	<item>tv_get</item>
-	<item>tv_getnext</item>
-	<item>tv_getparent</item>
-	<item>tv_getprev</item>
-	<item>tv_getselection</item>
-	<item>tv_gettext</item>
-	<item>tv_modify</item>
-	<item>tv_setimagelist</item>
-	<item>varsetcapacity</item>
-	<item>winactive</item>
-	<item>winexist</item>
+	<item>Abs</item>
+	<item>ACos</item>
+	<item>ASin</item>
+	<item>ATan</item>
+	<item>BlockInput</item>
+	<item>CallbackCreate</item>
+	<item>CallbackFree</item>
+	<item>CaretGetPos</item>
+	<item>Ceil</item>
+	<item>Chr</item>
+	<item>Click</item>
+	<item>ClipWait</item>
+	<item>ComCall</item>
+	<item>ComObjActive</item>
+	<item>ComObjConnect</item>
+	<item>ComObjFlags</item>
+	<item>ComObjFromPtr</item>
+	<item>ComObjGet</item>
+	<item>ComObjQuery</item>
+	<item>ComObjType</item>
+	<item>ComObjValue</item>
+	<item>ControlAddItem</item>
+	<item>ControlChooseIndex</item>
+	<item>ControlChooseString</item>
+	<item>ControlClick</item>
+	<item>ControlDeleteItem</item>
+	<item>ControlFindItem</item>
+	<item>ControlFocus</item>
+	<item>ControlGetChecked</item>
+	<item>ControlGetChoice</item>
+	<item>ControlGetClassNN</item>
+	<item>ControlGetEnabled</item>
+	<item>ControlGetExStyle</item>
+	<item>ControlGetFocus</item>
+	<item>ControlGetHwnd</item>
+	<item>ControlGetIndex</item>
+	<item>ControlGetItems</item>
+	<item>ControlGetPos</item>
+	<item>ControlGetStyle</item>
+	<item>ControlGetText</item>
+	<item>ControlGetVisible</item>
+	<item>ControlHide</item>
+	<item>ControlHideDropDown</item>
+	<item>ControlMove</item>
+	<item>ControlSend</item>
+	<item>ControlSendText</item>
+	<item>ControlSetChecked</item>
+	<item>ControlSetEnabled</item>
+	<item>ControlSetExStyle</item>
+	<item>ControlSetStyle</item>
+	<item>ControlSetText</item>
+	<item>ControlShow</item>
+	<item>ControlShowDropDown</item>
+	<item>CoordMode</item>
+	<item>Cos</item>
+	<item>Critical</item>
+	<item>DateAdd</item>
+	<item>DateDiff</item>
+	<item>DetectHiddenText</item>
+	<item>DetectHiddenWindows</item>
+	<item>DirCopy</item>
+	<item>DirCreate</item>
+	<item>DirDelete</item>
+	<item>DirExist</item>
+	<item>DirMove</item>
+	<item>DirSelect</item>
+	<item>DllCall</item>
+	<item>Download</item>
+	<item>DriveEject</item>
+	<item>DriveGetCapacity</item>
+	<item>DriveGetFileSystem</item>
+	<item>DriveGetLabel</item>
+	<item>DriveGetList</item>
+	<item>DriveGetSerial</item>
+	<item>DriveGetSpaceFree</item>
+	<item>DriveGetStatus</item>
+	<item>DriveGetStatusCD</item>
+	<item>DriveGetType</item>
+	<item>DriveLock</item>
+	<item>DriveRetract</item>
+	<item>DriveSetLabel</item>
+	<item>DriveUnlock</item>
+	<item>EditGetCurrentCol</item>
+	<item>EditGetCurrentLine</item>
+	<item>EditGetLine</item>
+	<item>EditGetLineCount</item>
+	<item>EditGetSelectedText</item>
+	<item>EditPaste</item>
+	<item>EnvGet</item>
+	<item>EnvSet</item>
+	<item>Exp</item>
+	<item>FileAppend</item>
+	<item>FileCopy</item>
+	<item>FileCreateShortcut</item>
+	<item>FileDelete</item>
+	<item>FileEncoding</item>
+	<item>FileExist</item>
+	<item>FileGetAttrib</item>
+	<item>FileGetShortcut</item>
+	<item>FileGetSize</item>
+	<item>FileGetTime</item>
+	<item>FileGetVersion</item>
+	<item>FileInstall</item>
+	<item>FileMove</item>
+	<item>FileOpen</item>
+	<item>FileRead</item>
+	<item>FileRecycle</item>
+	<item>FileRecycleEmpty</item>
+	<item>FileSelect</item>
+	<item>FileSetAttrib</item>
+	<item>FileSetTime</item>
+	<item>Floor</item>
+	<item>Format</item>
+	<item>FormatTime</item>
+	<item>GetKeyName</item>
+	<item>GetKeySC</item>
+	<item>GetKeyState</item>
+	<item>GetKeyVK</item>
+	<item>GetMethod</item>
+	<item>GroupActivate</item>
+	<item>GroupAdd</item>
+	<item>GroupClose</item>
+	<item>GroupDeactivate</item>
+	<item>GuiCtrlFromHwnd</item>
+	<item>GuiFromHwnd</item>
+	<item>HasBase</item>
+	<item>HasMethod</item>
+	<item>HasProp</item>
+	<item>HotIf</item>
+	<item>HotIfWinActive</item>
+	<item>HotIfWinExist</item>
+	<item>HotIfWinNotActive</item>
+	<item>HotIfWinNotExist</item>
+	<item>Hotkey</item>
+	<item>Hotstring</item>
+	<item>IL_Add</item>
+	<item>IL_Create</item>
+	<item>IL_Destroy</item>
+	<item>ImageSearch</item>
+	<item>IniDelete</item>
+	<item>IniRead</item>
+	<item>IniWrite</item>
+	<item>InputBox</item>
+	<item>InstallKeybdHook</item>
+	<item>InstallMouseHook</item>
+	<item>InStr</item>
+	<item>IsLabel</item>
+	<item>IsObject</item>
+	<item>IsSet</item>
+	<item>IsSetRef</item>
+	<item>KeyHistory</item>
+	<item>KeyWait</item>
+	<item>ListHotkeys</item>
+	<item>ListLines</item>
+	<item>ListVars</item>
+	<item>ListViewGetContent</item>
+	<item>Ln</item>
+	<item>Log</item>
+	<item>LoadPicture</item>
+	<item>LTrim</item>
+	<item>Max</item>
+	<item>MenuFromHandle</item>
+	<item>MenuSelect</item>
+	<item>Min</item>
+	<item>Mod</item>
+	<item>MonitorGet</item>
+	<item>MonitorGetCount</item>
+	<item>MonitorGetName</item>
+	<item>MonitorGetPrimary</item>
+	<item>MonitorGetWorkArea</item>
+	<item>MouseClick</item>
+	<item>MouseClickDrag</item>
+	<item>MouseGetPos</item>
+	<item>MouseMove</item>
+	<item>MsgBox</item>
+	<item>NumGet</item>
+	<item>NumPut</item>
+	<item>ObjAddRef</item>
+	<item>ObjBindMethod</item>
+	<item>ObjGetBase</item>
+	<item>ObjGetCapacity</item>
+	<item>ObjHasOwnProp</item>
+	<item>ObjOwnPropCount</item>
+	<item>ObjOwnProps</item>
+	<item>ObjRelease</item>
+	<item>ObjSetBase</item>
+	<item>ObjSetCapacity</item>
+	<item>OnClipboardChange</item>
+	<item>OnExit</item>
+	<item>OnMessage</item>
+	<item>Ord</item>
+	<item>OutputDebug</item>
+	<item>Persistent</item>
+	<item>PixelGetColor</item>
+	<item>PixelSearch</item>
+	<item>PostMessage</item>
+	<item>ProcessClose</item>
+	<item>ProcessExist</item>
+	<item>ProcessGetName</item>
+	<item>ProcessGetParent</item>
+	<item>ProcessGetPath</item>
+	<item>ProcessSetPriority</item>
+	<item>ProcessWait</item>
+	<item>ProcessWaitClose</item>
+	<item>Random</item>
+	<item>RegCreateKey</item>
+	<item>RegDelete</item>
+	<item>RegDeleteKey</item>
+	<item>RegExMatch</item>
+	<item>RegExReplace</item>
+	<item>RegRead</item>
+	<item>RegWrite</item>
+	<item>Round</item>
+	<item>RTrim</item>
+	<item>Run</item>
+	<item>RunAs</item>
+	<item>RunWait</item>
+	<item>Send</item>
+	<item>SendEvent</item>
+	<item>SendInput</item>
+	<item>SendLevel</item>
+	<item>SendMessage</item>
+	<item>SendMode</item>
+	<item>SendPlay</item>
+	<item>SendText</item>
+	<item>SetCapsLockState</item>
+	<item>SetControlDelay</item>
+	<item>SetDefaultMouseSpeed</item>
+	<item>SetKeyDelay</item>
+	<item>SetMouseDelay</item>
+	<item>SetNumLockState</item>
+	<item>SetRegView</item>
+	<item>SetScrollLockState</item>
+	<item>SetStoreCapsLockMode</item>
+	<item>SetTimer</item>
+	<item>SetTitleMatchMode</item>
+	<item>SetWinDelay</item>
+	<item>SetWorkingDir</item>
+	<item>Shutdown</item>
+	<item>Sin</item>
+	<item>Sleep</item>
+	<item>Sort</item>
+	<item>SoundBeep</item>
+	<item>SoundGetInterface</item>
+	<item>SoundGetMute</item>
+	<item>SoundGetName</item>
+	<item>SoundGetVolume</item>
+	<item>SoundPlay</item>
+	<item>SoundSetMute</item>
+	<item>SoundSetVolume</item>
+	<item>SplitPath</item>
+	<item>Sqrt</item>
+	<item>StatusBarGetText</item>
+	<item>StatusBarWait</item>
+	<item>StrCompare</item>
+	<item>StrGet</item>
+	<item>StrLen</item>
+	<item>StrLower</item>
+	<item>StrPtr</item>
+	<item>StrPut</item>
+	<item>StrReplace</item>
+	<item>StrSplit</item>
+	<item>StrTitle</item>
+	<item>StrUpper</item>
+	<item>SubStr</item>
+	<item>Suspend</item>
+	<item>SysGet</item>
+	<item>SysGetIPAddresses</item>
+	<item>Tan</item>
+	<item>Thread</item>
+	<item>ToolTip</item>
+	<item>TraySetIcon</item>
+	<item>TrayTip</item>
+	<item>Trim</item>
+	<item>Type</item>
+	<item>VarSetStrCapacity</item>
+	<item>VerCompare</item>
+	<item>WinActivate</item>
+	<item>WinActivateBottom</item>
+	<item>WinActive</item>
+	<item>WinClose</item>
+	<item>WinExist</item>
+	<item>WinGetClass</item>
+	<item>WinGetClientPos</item>
+	<item>WinGetControls</item>
+	<item>WinGetControlsHwnd</item>
+	<item>WinGetCount</item>
+	<item>WinGetExStyle</item>
+	<item>WinGetID</item>
+	<item>WinGetIDLast</item>
+	<item>WinGetList</item>
+	<item>WinGetMinMax</item>
+	<item>WinGetPID</item>
+	<item>WinGetPos</item>
+	<item>WinGetProcessName</item>
+	<item>WinGetProcessPath</item>
+	<item>WinGetStyle</item>
+	<item>WinGetText</item>
+	<item>WinGetTitle</item>
+	<item>WinGetTransColor</item>
+	<item>WinGetTransparent</item>
+	<item>WinHide</item>
+	<item>WinKill</item>
+	<item>WinMaximize</item>
+	<item>WinMinimize</item>
+	<item>WinMinimizeAll</item>
+	<item>WinMinimizeAllUndo</item>
+	<item>WinMove</item>
+	<item>WinMoveBottom</item>
+	<item>WinMoveTop</item>
+	<item>WinRedraw</item>
+	<item>WinRestore</item>
+	<item>WinSetAlwaysOnTop</item>
+	<item>WinSetEnabled</item>
+	<item>WinSetExStyle</item>
+	<item>WinSetRegion</item>
+	<item>WinSetStyle</item>
+	<item>WinSetTitle</item>
+	<item>WinSetTransColor</item>
+	<item>WinSetTransparent</item>
+	<item>WinShow</item>
+	<item>WinWait</item>
+	<item>WinWaitActive</item>
+	<item>WinWaitClose</item>
+	<item>WinWaitNotActive</item>
+	<item>ComObject</item>
+	<item>ComObjArray</item>
+	<item>ClipboardAll</item>
+</list>
+<list name="meta">
+	<item>get</item>
+	<item>set</item>
+	<item>__new</item>
+	<item>__delete</item>
+	<item>__get</item>
+	<item>__set</item>
+	<item>__call</item>
+	<item>__item</item>
+</list>
+<list name="types">
+	<item>Any</item>
+	<item>Object</item>
+	<item>String</item>
+	<item>Number</item>
+	<item>Integer</item>
+	<item>Float</item>
+	<item>Buffer</item>
+	<item>File</item>
+	<item>Func</item>
+	<item>Gui</item>
+	<item>Array</item>
+	<item>Map</item>
+	<item>InputHook</item>
+	<item>Menu</item>
+	<item>match</item>
+	<item>RegExMatchInfo</item>
+</list>
+<list name="directives_actions">
+	<item>#hotstring</item>
+	<item>#HotIf</item>
 </list>
 <list name="directives_chars">
-	<item>#hotstring</item>
-	<item>#escapechar</item>
-	<item>#delimiter</item>
-	<item>#derefchar</item>
-	<item>#commentflag</item>
-</list>
-<list name="directives">
-	<item>#clipboardtimeout</item>
-	<item>#errorstdout</item>
-	<item>#hotkeyinterval</item>
-	<item>#hotkeymodifiertimeout</item>
-	<item>#if</item>
-	<item>#iftimeout</item>
-	<item>#ifwinactive</item>
-	<item>#ifwinexist</item>
-	<item>#ifwinnotactive</item>
-	<item>#ifwinnotexist</item>
-	<item>#includeagain</item>
-	<item>#include</item>
-	<item>#inputlevel</item>
-	<item>#installkeybdhook</item>
-	<item>#installmousehook</item>
-	<item>#keyhistory</item>
-	<item>#ltrim</item>
-	<item>#maxhotkeysperinterval</item>
-	<item>#maxmem</item>
-	<item>#maxthreadsbuffer</item>
-	<item>#maxthreads</item>
-	<item>#maxthreadsperhotkey</item>
-	<item>#menumaskkey</item>
-	<item>#noenv</item>
-	<item>#notrayicon</item>
-	<item>#persistent</item>
-	<item>#requires</item>
-	<item>#singleinstance</item>
-	<item>#usehook</item>
-	<item>#warn</item>
-	<item>#winactivateforce</item>
+	<item>#ClipboardTimeout</item>
+	<item>#DllLoad</item>
+	<item>#ErrorStdOut</item>
+	<item>#HotIfTimeout</item>
+	<item>#Include</item>
+	<item>#IncludeAgain</item>
+	<item>#InputLevel</item>
+	<item>#MaxThreads</item>
+	<item>#MaxThreadsBuffer</item>
+	<item>#MaxThreadsPerHotkey</item>
+	<item>#NoTrayIcon</item>
+	<item>#Requires</item>
+	<item>#SingleInstance</item>
+	<item>#SuspendExempt</item>
+	<item>#UseHook</item>
+	<item>#Warn</item>
+	<item>#WinActivateForce</item>
 </list>
 <list name="keysandbuttons">
 	<item>shift</item>
@@ -433,6 +463,8 @@
 	<item>mbutton</item>
 	<item>wheelup</item>
 	<item>wheeldown</item>
+	<item>wheelleft</item>
+	<item>wheelright</item>
 	<item>xbutton1</item>
 	<item>xbutton2</item>
 	<item>joy1</item>
@@ -577,172 +609,141 @@
 	<item>blind</item>
 	<item>click</item>
 	<item>raw</item>
-	<item>wheelleft</item>
-	<item>wheelright</item>
 </list>
 <list name="variables">
-	<item>a_ahkpath</item>
-	<item>a_ahkversion</item>
-	<item>a_appdata</item>
-	<item>a_appdatacommon</item>
-	<item>a_args</item>
-	<item>a_autotrim</item>
-	<item>a_batchlines</item>
-	<item>a_caretx</item>
-	<item>a_carety</item>
-	<item>a_computername</item>
-	<item>a_comspec</item>
-	<item>a_controldelay</item>
-	<item>a_coordmodecaret</item>
-	<item>a_coordmodemenu</item>
-	<item>a_coordmodemouse</item>
-	<item>a_coordmodepixel</item>
-	<item>a_coordmodetooltip</item>
-	<item>a_cursor</item>
-	<item>a_dd</item>
-	<item>a_ddd</item>
-	<item>a_dddd</item>
-	<item>a_defaultgui</item>
-	<item>a_defaultlistview</item>
-	<item>a_defaultmousespeed</item>
-	<item>a_defaulttreeview</item>
-	<item>a_desktop</item>
-	<item>a_desktopcommon</item>
-	<item>a_detecthiddentext</item>
-	<item>a_detecthiddenwindows</item>
-	<item>a_endchar</item>
-	<item>a_eventinfo</item>
-	<item>a_exitreason</item>
-	<item>a_fileencoding</item>
-	<item>a_formatfloat</item>
-	<item>a_formatinteger</item>
-	<item>a_gui</item>
-	<item>a_guicontrol</item>
-	<item>a_guicontrolevent</item>
-	<item>a_guievent</item>
-	<item>a_guiheight</item>
-	<item>a_guiwidth</item>
-	<item>a_guix</item>
-	<item>a_guiy</item>
-	<item>a_hour</item>
-	<item>a_iconfile</item>
-	<item>a_iconhidden</item>
-	<item>a_iconnumber</item>
-	<item>a_icontip</item>
-	<item>a_index</item>
-	<item>a_ipaddress1</item>
-	<item>a_ipaddress2</item>
-	<item>a_ipaddress3</item>
-	<item>a_ipaddress4</item>
-	<item>a_is64bitos</item>
-	<item>a_isadmin</item>
-	<item>a_iscompiled</item>
-	<item>a_iscritical</item>
-	<item>a_ispaused</item>
-	<item>a_issuspended</item>
-	<item>a_isunicode</item>
-	<item>a_keydelay</item>
-	<item>a_keydelayplay</item>
-	<item>a_keyduration</item>
-	<item>a_keydurationplay</item>
-	<item>a_language</item>
-	<item>a_lasterror</item>
-	<item>a_linefile</item>
-	<item>a_linenumber</item>
-	<item>a_listlines</item>
-	<item>a_loopfield</item>
-	<item>a_loopfileattrib</item>
-	<item>a_loopfiledir</item>
-	<item>a_loopfileext</item>
-	<item>a_loopfilefullpath</item>
-	<item>a_loopfilelongpath</item>
-	<item>a_loopfilename</item>
-	<item>a_loopfileshortname</item>
-	<item>a_loopfileshortpath</item>
-	<item>a_loopfilesize</item>
-	<item>a_loopfilesizekb</item>
-	<item>a_loopfilesizemb</item>
-	<item>a_loopfiletimeaccessed</item>
-	<item>a_loopfiletimecreated</item>
-	<item>a_loopfiletimemodified</item>
-	<item>a_loopreadline</item>
-	<item>a_loopregkey</item>
-	<item>a_loopregname</item>
-	<item>a_loopregsubkey</item>
-	<item>a_loopregtimemodified</item>
-	<item>a_loopregtype</item>
-	<item>a_mday</item>
-	<item>a_min</item>
-	<item>a_mm</item>
-	<item>a_mmm</item>
-	<item>a_mmmm</item>
-	<item>a_mon</item>
-	<item>a_mousedelay</item>
-	<item>a_mousedelayplay</item>
-	<item>a_msec</item>
-	<item>a_mydocuments</item>
-	<item>a_now</item>
-	<item>a_nowutc</item>
-	<item>a_numbatchlines</item>
-	<item>a_ostype</item>
-	<item>a_osversion</item>
-	<item>a_priorhotkey</item>
-	<item>a_priorkey</item>
-	<item>a_programfiles</item>
-	<item>a_programs</item>
-	<item>a_programscommon</item>
-	<item>a_ptrsize</item>
-	<item>a_regview</item>
-	<item>a_screendpi</item>
-	<item>a_screenheight</item>
-	<item>a_screenwidth</item>
-	<item>a_scriptdir</item>
-	<item>a_scriptfullpath</item>
-	<item>a_scripthwnd</item>
-	<item>a_scriptname</item>
-	<item>a_sec</item>
-	<item>a_sendlevel</item>
-	<item>a_sendmode</item>
-	<item>a_space</item>
-	<item>a_startmenu</item>
-	<item>a_startmenucommon</item>
-	<item>a_startup</item>
-	<item>a_startupcommon</item>
-	<item>a_storecapslockmode</item>
-	<item>a_stringcasesense</item>
-	<item>a_tab</item>
-	<item>a_temp</item>
-	<item>a_thisfunc</item>
-	<item>a_thishotkey</item>
-	<item>a_thislabel</item>
-	<item>a_thismenu</item>
-	<item>a_thismenuitem</item>
-	<item>a_thismenuitempos</item>
-	<item>a_tickcount</item>
-	<item>a_timeidle</item>
-	<item>a_timeidlekeyboard</item>
-	<item>a_timeidlemouse</item>
-	<item>a_timeidlephysical</item>
-	<item>a_timesincepriorhotkey</item>
-	<item>a_timesincethishotkey</item>
-	<item>a_titlematchmode</item>
-	<item>a_titlematchmodespeed</item>
-	<item>a_username</item>
-	<item>a_wday</item>
-	<item>a_windelay</item>
-	<item>a_windir</item>
-	<item>a_workingdir</item>
-	<item>a_yday</item>
-	<item>a_year</item>
-	<item>a_yweek</item>
-	<item>a_yyyy</item>
-	<item>clipboard</item>
-	<item>clipboardall</item>
-	<item>comspec</item>
-	<item>errorlevel</item>
-	<item>false</item>
-	<item>programfiles</item>
+	<item>super</item>
+	<item>this</item>
 	<item>true</item>
+	<item>A_AhkPath</item>
+	<item>A_AhkVersion</item>
+	<item>A_AllowMainWindow</item>
+	<item>A_AppData</item>
+	<item>A_AppDataCommon</item>
+	<item>A_Args</item>
+	<item>A_Clipboard</item>
+	<item>A_ComputerName</item>
+	<item>A_ComSpec</item>
+	<item>A_ControlDelay</item>
+	<item>A_CoordModeCaret</item>
+	<item>A_CoordModeMenu</item>
+	<item>A_CoordModeMouse</item>
+	<item>A_CoordModePixel</item>
+	<item>A_CoordModeToolTip</item>
+	<item>A_Cursor</item>
+	<item>A_DD</item>
+	<item>A_DDD</item>
+	<item>A_DDDD</item>
+	<item>A_DefaultMouseSpeed</item>
+	<item>A_Desktop</item>
+	<item>A_DesktopCommon</item>
+	<item>A_DetectHiddenText</item>
+	<item>A_DetectHiddenWindows</item>
+	<item>A_EndChar</item>
+	<item>A_EventInfo</item>
+	<item>A_FileEncoding</item>
+	<item>A_GuiControl</item>
+	<item>A_HotkeyInterval</item>
+	<item>A_HotkeyModifierTimeout</item>
+	<item>A_Hour</item>
+	<item>A_IconFile</item>
+	<item>A_IconHidden</item>
+	<item>A_IconNumber</item>
+	<item>A_IconTip</item>
+	<item>A_Index</item>
+	<item>A_InitialWorkingDir</item>
+	<item>A_Is64bitOS</item>
+	<item>A_IsAdmin</item>
+	<item>A_IsCompiled</item>
+	<item>A_IsCritical</item>
+	<item>A_IsPaused</item>
+	<item>A_IsSuspended</item>
+	<item>A_KeyDelay</item>
+	<item>A_KeyDelayPlay</item>
+	<item>A_KeyDuration</item>
+	<item>A_KeyDurationPlay</item>
+	<item>A_Language</item>
+	<item>A_LastError</item>
+	<item>A_LineFile</item>
+	<item>A_LineNumber</item>
+	<item>A_ListLines</item>
+	<item>A_LoopField</item>
+	<item>A_LoopFileAttrib</item>
+	<item>A_LoopFileDir</item>
+	<item>A_LoopFileExt</item>
+	<item>A_LoopFileFullPath</item>
+	<item>A_LoopFileName</item>
+	<item>A_LoopFilePath</item>
+	<item>A_LoopFileShortName</item>
+	<item>A_LoopFileShortPath</item>
+	<item>A_LoopFileSize</item>
+	<item>A_LoopFileSizeKB</item>
+	<item>A_LoopFileSizeMB</item>
+	<item>A_LoopFileTimeAccessed</item>
+	<item>A_LoopFileTimeCreated</item>
+	<item>A_LoopFileTimeModified</item>
+	<item>A_LoopReadLine</item>
+	<item>A_LoopRegKey</item>
+	<item>A_LoopRegName</item>
+	<item>A_LoopRegTimeModified</item>
+	<item>A_LoopRegType</item>
+	<item>A_MaxHotkeysPerInterval</item>
+	<item>A_MenuMaskKey</item>
+	<item>A_Min</item>
+	<item>A_MM</item>
+	<item>A_MMM</item>
+	<item>A_MMMM</item>
+	<item>A_MouseDelay</item>
+	<item>A_MouseDelayPlay</item>
+	<item>A_MSec</item>
+	<item>A_MyDocuments</item>
+	<item>A_Now</item>
+	<item>A_NowUTC</item>
+	<item>A_OSVersion</item>
+	<item>A_PriorHotkey</item>
+	<item>A_PriorKey</item>
+	<item>A_ProgramFiles</item>
+	<item>A_Programs</item>
+	<item>A_ProgramsCommon</item>
+	<item>A_PtrSize</item>
+	<item>A_RegView</item>
+	<item>A_ScreenDPI</item>
+	<item>A_ScreenHeight</item>
+	<item>A_ScreenWidth</item>
+	<item>A_ScriptDir</item>
+	<item>A_ScriptFullPath</item>
+	<item>A_ScriptHwnd</item>
+	<item>A_ScriptName</item>
+	<item>A_Sec</item>
+	<item>A_SendLevel</item>
+	<item>A_SendMode</item>
+	<item>A_Space</item>
+	<item>A_StartMenu</item>
+	<item>A_StartMenuCommon</item>
+	<item>A_Startup</item>
+	<item>A_StartupCommon</item>
+	<item>A_StoreCapsLockMode</item>
+	<item>A_Tab</item>
+	<item>A_Temp</item>
+	<item>A_ThisFunc</item>
+	<item>A_ThisHotkey</item>
+	<item>A_TickCount</item>
+	<item>A_TimeIdle</item>
+	<item>A_TimeIdleKeyboard</item>
+	<item>A_TimeIdleMouse</item>
+	<item>A_TimeIdlePhysical</item>
+	<item>A_TimeSincePriorHotkey</item>
+	<item>A_TimeSinceThisHotkey</item>
+	<item>A_TitleMatchMode</item>
+	<item>A_TitleMatchModeSpeed</item>
+	<item>A_TrayMenu</item>
+	<item>A_UserName</item>
+	<item>A_WDay</item>
+	<item>A_WinDelay</item>
+	<item>A_WinDir</item>
+	<item>A_WorkingDir</item>
+	<item>A_YDay</item>
+	<item>A_YWeek</item>
+	<item>A_YYYY</item>
 </list>
 <list name="keywords">
 	<item>ltrim</item>
@@ -752,359 +753,120 @@
 	<item>ahk_pid</item>
 	<item>ahk_class</item>
 	<item>ahk_group</item>
-	<item>processname</item>
-	<item>minmax</item>
-	<item>controllist</item>
-	<item>statuscd</item>
-	<item>filesystem</item>
-	<item>setlabel</item>
-	<item>alwaysontop</item>
-	<item>mainwindow</item>
-	<item>nomainwindow</item>
-	<item>useerrorlevel</item>
-	<item>altsubmit</item>
-	<item>hscroll</item>
-	<item>vscroll</item>
-	<item>imagelist</item>
-	<item>wantctrla</item>
-	<item>wantf2</item>
-	<item>vis</item>
-	<item>visfirst</item>
-	<item>wantreturn</item>
-	<item>backgroundtrans</item>
-	<item>minimizebox</item>
-	<item>maximizebox</item>
-	<item>sysmenu</item>
-	<item>toolwindow</item>
-	<item>exstyle</item>
-	<item>check3</item>
-	<item>checkedgray</item>
-	<item>readonly</item>
-	<item>notab</item>
-	<item>lastfound</item>
-	<item>lastfoundexist</item>
-	<item>alttab</item>
-	<item>shiftalttab</item>
-	<item>alttabmenu</item>
-	<item>alttabandmenu</item>
-	<item>alttabmenudismiss</item>
-	<item>controllisthwnd</item>
-	<item>hwnd</item>
-	<item>deref</item>
-	<item>pow</item>
-	<item>bitnot</item>
-	<item>bitand</item>
-	<item>bitor</item>
-	<item>bitxor</item>
-	<item>bitshiftleft</item>
-	<item>bitshiftright</item>
-	<item>sendandmouse</item>
-	<item>mousemove</item>
-	<item>mousemoveoff</item>
-	<item>hkey_local_machine</item>
-	<item>hkey_users</item>
-	<item>hkey_current_user</item>
-	<item>hkey_classes_root</item>
-	<item>hkey_current_config</item>
-	<item>hklm</item>
-	<item>hku</item>
-	<item>hkcu</item>
-	<item>hkcr</item>
-	<item>hkcc</item>
-	<item>reg_sz</item>
-	<item>reg_expand_sz</item>
-	<item>reg_multi_sz</item>
-	<item>reg_dword</item>
-	<item>reg_qword</item>
-	<item>reg_binary</item>
-	<item>reg_link</item>
-	<item>reg_resource_list</item>
-	<item>reg_full_resource_descriptor</item>
-	<item>reg_resource_requirements_list</item>
-	<item>reg_dword_big_endian</item>
-	<item>regex</item>
-	<item>pixel</item>
-	<item>mouse</item>
-	<item>screen</item>
-	<item>relative</item>
-	<item>rgb</item>
-	<item>low</item>
-	<item>belownormal</item>
-	<item>normal</item>
-	<item>abovenormal</item>
-	<item>high</item>
-	<item>realtime</item>
 	<item>between</item>
 	<item>contains</item>
 	<item>in</item>
 	<item>is</item>
-	<item>integer</item>
-	<item>float</item>
-	<item>number</item>
-	<item>digit</item>
-	<item>xdigit</item>
-	<item>integerfast</item>
-	<item>floatfast</item>
-	<item>alpha</item>
-	<item>upper</item>
-	<item>lower</item>
-	<item>alnum</item>
-	<item>time</item>
-	<item>date</item>
 	<item>not</item>
 	<item>or</item>
 	<item>and</item>
-	<item>this</item>
-	<item>topmost</item>
-	<item>transparent</item>
-	<item>transcolor</item>
-	<item>redraw</item>
-	<item>region</item>
-	<item>id</item>
-	<item>idlast</item>
-	<item>count</item>
-	<item>list</item>
-	<item>capacity</item>
-	<item>eject</item>
-	<item>lock</item>
-	<item>unlock</item>
-	<item>label</item>
-	<item>serial</item>
-	<item>type</item>
-	<item>status</item>
-	<item>seconds</item>
-	<item>minutes</item>
-	<item>hours</item>
-	<item>days</item>
-	<item>read</item>
-	<item>parse</item>
-	<item>logoff</item>
-	<item>close</item>
-	<item>error</item>
-	<item>single</item>
-	<item>shutdown</item>
-	<item>menu</item>
-	<item>exit</item>
-	<item>reload</item>
-	<item>tray</item>
-	<item>add</item>
-	<item>rename</item>
-	<item>check</item>
-	<item>uncheck</item>
-	<item>togglecheck</item>
-	<item>enable</item>
-	<item>disable</item>
-	<item>toggleenable</item>
-	<item>default</item>
-	<item>nodefault</item>
-	<item>standard</item>
-	<item>nostandard</item>
-	<item>color</item>
-	<item>delete</item>
-	<item>deleteall</item>
-	<item>icon</item>
-	<item>noicon</item>
-	<item>tip</item>
-	<item>click</item>
-	<item>show</item>
-	<item>edit</item>
-	<item>progress</item>
-	<item>hotkey</item>
-	<item>text</item>
-	<item>picture</item>
-	<item>pic</item>
-	<item>groupbox</item>
-	<item>button</item>
-	<item>checkbox</item>
-	<item>radio</item>
-	<item>dropdownlist</item>
-	<item>ddl</item>
-	<item>combobox</item>
-	<item>statusbar</item>
-	<item>treeview</item>
-	<item>listbox</item>
-	<item>listview</item>
-	<item>datetime</item>
-	<item>monthcal</item>
-	<item>updown</item>
-	<item>slider</item>
-	<item>tab</item>
-	<item>tab2</item>
-	<item>iconsmall</item>
-	<item>tile</item>
-	<item>report</item>
-	<item>sortdesc</item>
-	<item>nosort</item>
-	<item>nosorthdr</item>
-	<item>grid</item>
-	<item>hdr</item>
-	<item>autosize</item>
-	<item>range</item>
-	<item>xm</item>
-	<item>ym</item>
-	<item>ys</item>
-	<item>xs</item>
-	<item>xp</item>
-	<item>yp</item>
-	<item>font</item>
-	<item>resize</item>
-	<item>owner</item>
-	<item>submit</item>
-	<item>nohide</item>
-	<item>minimize</item>
-	<item>maximize</item>
-	<item>restore</item>
-	<item>noactivate</item>
-	<item>na</item>
-	<item>destroy</item>
-	<item>margin</item>
-	<item>owndialogs</item>
-	<item>guiescape</item>
-	<item>guiclose</item>
-	<item>guisize</item>
-	<item>guicontextmenu</item>
-	<item>guidropfiles</item>
-	<item>tabstop</item>
-	<item>section</item>
-	<item>wrap</item>
-	<item>border</item>
-	<item>top</item>
-	<item>bottom</item>
-	<item>buttons</item>
-	<item>expand</item>
-	<item>first</item>
-	<item>lines</item>
-	<item>uppercase</item>
-	<item>lowercase</item>
-	<item>limit</item>
-	<item>multi</item>
-	<item>group</item>
-	<item>background</item>
-	<item>bold</item>
-	<item>italic</item>
-	<item>strike</item>
-	<item>underline</item>
-	<item>norm</item>
-	<item>theme</item>
-	<item>caption</item>
-	<item>delimiter</item>
-	<item>flash</item>
-	<item>style</item>
-	<item>checked</item>
-	<item>password</item>
-	<item>hidden</item>
-	<item>left</item>
-	<item>right</item>
-	<item>center</item>
-	<item>move</item>
-	<item>focus</item>
-	<item>hide</item>
-	<item>choose</item>
-	<item>choosestring</item>
-	<item>pos</item>
-	<item>enabled</item>
-	<item>disabled</item>
-	<item>visible</item>
-	<item>notimers</item>
-	<item>interrupt</item>
-	<item>priority</item>
-	<item>waitclose</item>
-	<item>unicode</item>
-	<item>tocodepage</item>
-	<item>fromcodepage\</item>
-	<item>yes</item>
-	<item>no</item>
-	<item>ok</item>
-	<item>cancel</item>
-	<item>abort</item>
-	<item>retry</item>
-	<item>ignore</item>
-	<item>force</item>
-	<item>on</item>
-	<item>off</item>
-	<item>all</item>
-	<item>send</item>
-	<item>wanttab</item>
-	<item>monitorcount</item>
-	<item>monitorprimary</item>
-	<item>monitorname</item>
-	<item>monitorworkarea</item>
-	<item>pid</item>
-	<item>base</item>
 	<item>class</item>
-	<item>property</item>
-	<item>get</item>
-	<item>set</item>
 	<item>new</item>
-	<item>__new</item>
-	<item>__delete</item>
-	<item>__get</item>
-	<item>__set</item>
-	<item>__call</item>
-	<item>useunsetlocal</item>
-	<item>useunsetglobal</item>
-	<item>useenv</item>
-	<item>localsameasglobal</item>
+</list>
+<list name="operators">
+	<item>==</item>
+	<item>!==</item>
+	<item>!=</item>
+	<item>??</item>
+	<item>!!</item>
+	<item>:=</item>
+	<item>+=</item>
+	<item>-=</item>
+	<item>*=</item>
+	<item>/=</item>
+	<item>%=</item>
+	<item>^=</item>
+	<item>&amp;=</item>
+	<item>|=</item>
+	<item>&gt;=</item>
+	<item>&lt;=</item>
+	<item>~=</item>
+	<item>&lt;&lt;</item>
+	<item>&gt;&gt;</item>
+	<item>++</item>
+	<item>--</item>
+	<item>=></item>
+	<item>||</item>
+	<item>?:</item>
+	<item>+</item>
+	<item>-</item>
+	<item>*</item>
+	<item>/</item>
+	<item>%</item>
+	<item>^</item>
+	<item>&amp;</item>
+	<item>|</item>
+	<item>~</item>
+	<item>!</item>
+	<item>=</item>
+	<item>&gt;</item>
+	<item>&lt;</item>
+	<item>&amp;&amp;</item>
 </list>
 <contexts>
 	<context name="Normal" attribute="Normal Text" lineEndContext="#stay" fallthroughContext="Action">
-		<keyword attribute="Directives" context="Action" String="directives" column="0"/>
-		<keyword attribute="Directives" context="Directive" String="directives_chars" column="0"/>
-		<AnyChar attribute="Keys and buttons" context="KeysAndButtons" String="#!^+&lt;>*~$" column="0"/>
-		<DetectChar attribute="Symbol" context="Hotstring" char=":" column="0"/>
-		<keyword attribute="Keys and buttons" context="KeysAndButtons" String="keysandbuttons" column="0"/>
+		<DetectChar attribute="Comment" context="CommentLine" char=";"/>
+		<Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
+		<keyword attribute="Directives" String="directives_actions" context="Action"  column="0"/>
+		<keyword attribute="Directives" String="directives_chars" context="Directive" column="0"/>
+		<RegExpr context="Hotkey" lookAhead="true" String="^[ \t]*([^ \t]+)::" column="0"/>
+		<RegExpr context="Function" lookAhead="true" String="\b([a-zA-Z_][\w_]+)(?=\()"/>
+		<keyword attribute="Variables" String="variables" />
+		<keyword attribute="Symbol" context="Action" String="operators"/>
 	</context>
 
 	<context name="Hotstring" attribute="Normal Text" lineEndContext="#pop">
 		<AnyChar attribute="Symbol" context="#stay" String=":?*"/>
-		<DetectChar attribute="Comment" context="Commentar 1" char=";"/>
-		<Detect2Chars attribute="Comment" context="Commentar 2" char="/" char1="*" beginRegion="Comment"/>
-		<DetectIdentifier/>
+		<DetectSpaces/>
+		<DetectChar attribute="Comment" context="CommentLine" char=";"/>
+		<Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
 	</context>
 
 	<context name="Action" attribute="Normal Text" lineEndContext="#pop">
 		<DetectSpaces/>
 		<AnyChar attribute="Symbol" context="ParamsCtx" String="?:" firstNonSpace="1"/>
 		<DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace1" firstNonSpace="1"/>
-		<DetectChar attribute="Comment" context="Commentar 1" char=";"/>
-		<DetectChar attribute="Variables" context="VariableOrFunction" char="%" lookAhead="true"/>
-		<Detect2Chars attribute="Comment" context="Commentar 2" char="/" char1="*" beginRegion="Comment"/>
-		<keyword attribute="Keys and buttons" context="#pop!ActionParam" String="keysandbuttons"/>
+		<DetectChar attribute="Comment" context="CommentLine" char=";"/>
+		<DetectChar attribute="Deref" context="Deref" char="%"/>
+		<Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
+		<keyword attribute="Hotkeys" context="#pop!ActionParam" String="keysandbuttons"/>
 		<keyword attribute="Flow of control" context="#pop!ParamsCtx" String="flowofcontrol"/>
-		<keyword attribute="Commands" context="#pop!ActionParam" String="commands"/>
+		<keyword attribute="Flow Terminators" context="#pop!ParamsCtx" String="flowterminators"/>
 		<keyword attribute="Functions" context="#pop!ParamsCtx" String="functions"/>
-		<keyword attribute="Keywords" context="#pop!VariableOrFunction" String="keywords"/>
-		<keyword attribute="Variables" context="#pop!VariableOrFunction" String="variables"/>
-		<DetectIdentifier context="#pop!VariableOrFunction"/>
+		<keyword attribute="Meta" context="#pop!ParamsCtx" String="meta"/>
+		<keyword attribute="Types" context="#pop!ParamsCtx" String="types"/>
+		<keyword attribute="Keywords" context="#pop!Function" String="keywords"/>
+		<DetectIdentifier context="#pop!Function"/>
 	</context>
 
 	<context name="Statement" attribute="Normal Text" lineEndContext="#stay">
 		<DetectSpaces/>
 		<AnyChar attribute="Symbol" context="ParamsCtx" String="?:" firstNonSpace="1"/>
-		<DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace1" />
-		<DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1"/>
-		<DetectChar attribute="Comment" context="Commentar 1" char=";"/>
-		<DetectChar attribute="Variables" context="VariableOrFunction" char="%" lookAhead="true"/>
-		<Detect2Chars attribute="Comment" context="Commentar 2" char="/" char1="*" beginRegion="Comment"/>
+		<DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace1"/>
+		<DetectChar attribute="Comment" context="CommentLine" char=";"/>
+		<DetectChar attribute="Deref" context="Deref" char="%"/>
+		<Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
 		<keyword attribute="Flow of control" context="ParamsCtx" String="flowofcontrol"/>
-		<keyword attribute="Commands" context="ActionParam" String="commands"/>
+		<keyword attribute="Flow Terminators" context="ParamsCtx" String="flowterminators"/>
+		<keyword attribute="Negatives" context="ParamsCtx" String="negatives"/>
 		<keyword attribute="Functions" context="ParamsCtx" String="functions"/>
-		<keyword attribute="Keywords" context="VariableOrFunction" String="keywords"/>
-		<keyword attribute="Variables" context="VariableOrFunction" String="variables"/>
-		<DetectIdentifier context="VariableOrFunction"/>
+		<keyword attribute="Meta" context="ParamsCtx" String="meta"/>
+		<keyword attribute="Types" context="ParamsCtx" String="types"/>
+		<keyword attribute="Keywords" context="Function" String="keywords"/>
+		<DetectChar attribute="Symbol" context="#pop" char="}"  endRegion="Brace1"/>
+		<DetectIdentifier context="Function"/>
 	</context>
 
-	<context name="VariableOrFunction" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="ActionParam">
+	<context name="Function" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="ActionParam">
+		<StringDetect context="#stay" attribute="Function" String="%1" dynamic="true"/>
 		<DetectSpaces/>
 		<DetectChar attribute="Symbol" context="Array" char="["/>
-		<DetectChar attribute="Symbol" context="MemRef" char="."/>
-		<Detect2Chars attribute="Symbol" context="#pop!ParamsCtx" char="%" char1=" "/>
-		<DetectChar attribute="Variables" context="Variable" char="%"/>
+		<DetectChar attribute="Symbol" context="Member" char="."/>
+		<DetectChar attribute="Deref"  context="Deref" char="%"/>
 		<DetectChar attribute="Symbol" context="#pop!ParamsCtx" char="?"/>
 		<DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace1" />
 		<DetectChar attribute="Symbol" context="ParamsCtx" char="("/>
-		<RegExpr attribute="Symbol" context="Assignment" String="(?://|&lt;&lt;|>>|[-+.:/%|&amp;^*])="/>
-		<DetectChar attribute="Symbol" context="Command" char="="/>
+		<RegExpr    attribute="Symbol" context="Assignment" String="(?://|&lt;&lt;|>>|[-+.:/|&amp;^*])="/>
 	</context>
 
 	<context name="Assignment" attribute="Normal Text" lineEndContext="#pop">
@@ -1115,53 +877,34 @@
 		<IncludeRules context="ParamsCtx"/>
 	</context>
 
-	<context name="ActionParam" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="Command">
+	<context name="ActionParam" attribute="Normal Text" lineEndContext="#pop">
 		<DetectSpaces/>
 		<DetectChar attribute="Symbol" context="#pop!ParamsCtx" char="("/>
-		<DetectChar attribute="Symbol" context="CommandParam" char=","/>
-		<Detect2Chars attribute="Symbol" context="#pop!ParamsCtx" char="%" char1=" "/>
-		<Detect2Chars attribute="Comment" context="Commentar 2" char="/" char1="*" beginRegion="Comment"/>
-		<DetectChar attribute="Comment" context="Commentar 1" char=";"/>
+		<DetectChar attribute="Symbol" context="FuncParam" char=","/>
+		<Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
+		<DetectChar attribute="Comment" context="CommentLine" char=";"/>
 	</context>
 
-	<context name="CommandParam" attribute="Normal Text" lineEndContext="CommandMultiLineParam"
-fallthroughContext="#pop!Command">
+	<context name="FuncParam" attribute="Normal Text" lineEndContext="FuncMultiLineParam">
 		<DetectSpaces/>
-		<DetectChar attribute="Symbol" context="#pop!MultiLineCommand" char="(" beginRegion="cmdparam"/>
+		<DetectChar attribute="Symbol" context="#pop!MultiLineFunc" char="(" beginRegion="funcparam"/>
 	</context>
 
-	<context name="CommandMultiLineParam" attribute="Normal Text" lineEndContext="#stay"
-fallthroughContext="#pop#pop#pop">
+	<context name="FuncMultiLineParam" attribute="Normal Text" lineEndContext="#stay" fallthroughContext="#pop#pop#pop">
 		<DetectSpaces/>
-		<DetectChar attribute="Symbol" context="#pop#pop!MultiLineCommand" char="(" beginRegion="cmdparam"/>
+		<DetectChar attribute="Symbol" context="#pop#pop!MultiLineFunc" char="(" beginRegion="funcparam"/>
 	</context>
 
-	<context name="MultiLineCommand" attribute="Normal Text" lineEndContext="#stay">
-		<DetectChar attribute="Symbol" context="#pop" char=")" endRegion="cmdparam"/>
-		<IncludeRules context="Command"/>
+	<context name="MultiLineFunc" attribute="Normal Text" lineEndContext="#stay">
+		<DetectChar attribute="Symbol" context="#pop" char=")" endRegion="funcparam"/>
 	</context>
 
-	<context name="Command" attribute="Normal Text" lineEndContext="#pop">
-		<DetectSpaces/>
-		<DetectIdentifier/>
-		<DetectChar attribute="Symbol" context="#stay" char=","/>
-		<DetectChar attribute="Variables" context="Variable" char="%"/>
-		<Detect2Chars attribute="Comment" context="Commentar 2" char="/" char1="*" beginRegion="Comment"/>
-		<DetectChar attribute="Normal Text" context="#stay" char=";" firstNonSpace="1"/>
-		<DetectChar attribute="Comment" context="Commentar 1" char=";"/>
-		<DetectChar attribute="String Char" context="EscapeString" char="`" />
-		<DetectChar attribute="Symbol" context="CommandKey" char="{"/>
-		<DetectChar attribute="Symbol" context="Regex" char=")"/>
-		<AnyChar attribute="Keys and buttons" context="CommandHotkey" String="#!^+&lt;>*~$"/>
+	<context name="FuncHotkey" attribute="Hotkeys" lineEndContext="#pop" fallthroughContext="#pop">
+		<AnyChar attribute="Hotkeys" context="#stay" String="#!^+&lt;>*~$"/>
+		<DetectIdentifier attribute="Hotkeys" context="#pop" />
 	</context>
 
-	<context name="CommandHotkey" attribute="Keys and buttons" lineEndContext="#pop"
-fallthroughContext="#pop">
-		<AnyChar attribute="Keys and buttons" context="#stay" String="#!^+&lt;>*~$"/>
-		<DetectIdentifier attribute="Keys and buttons" context="#pop" />
-	</context>
-
-	<context name="CommandKey" attribute="Keys and buttons" lineEndContext="#pop" fallthroughContext="InCommandKey">
+	<context name="FuncKey" attribute="Hotkeys" lineEndContext="#pop" fallthroughContext="InFuncKey">
 		<Detect2Chars attribute="Normal Text" context="BraceClose" char="}" char1="}" lookAhead="true"/>
 		<DetectChar attribute="Symbol" context="#pop" char="}"/>
 		<AnyChar attribute="Normal Text" context="BraceClose2" String="#+^{!"/>
@@ -1175,7 +918,7 @@ fallthroughContext="#pop">
 		<DetectChar attribute="Symbol" context="#pop#pop" char="}"/>
 	</context>
 
-	<context name="InCommandKey" attribute="Keys and buttons" lineEndContext="#pop#pop">
+	<context name="InFuncKey" attribute="Hotkeys" lineEndContext="#pop#pop">
 		<DetectSpaces/>
 		<DetectIdentifier/>
 		<DetectChar attribute="Symbol" context="#pop#pop" char="}"/>
@@ -1195,32 +938,38 @@ fallthroughContext="#pop">
 
 	<context name="ParamsCtx" attribute="Normal Text" lineEndContext="#pop">
 		<DetectChar attribute="String" context="String" char="&quot;"/>
-		<DetectChar attribute="Comment" context="Commentar 1" char=";"/>
-		<keyword attribute="Keys and buttons" context="#stay" String="keysandbuttons"/>
-		<keyword attribute="Flow of control" context="#stay" String="flowofcontrol"/>
-		<keyword attribute="Commands" context="#stay" String="commands"/>
+		<DetectChar attribute="String Char" context="String Char" char="'"/>
+		<DetectChar attribute="Comment" context="CommentLine" char=";"/>
+		<keyword attribute="Hotkeys" context="#stay" String="keysandbuttons"/>
+		<keyword attribute="Negatives" context="#stay" String="negatives"/>
 		<keyword attribute="Functions" context="#stay" String="functions"/>
-		<keyword attribute="Keywords" context="#stay" String="keywords"/>
-		<DetectIdentifier attribute="Variables"/>
+		<keyword attribute="Meta" context="#stay" String="meta"/>
+		<keyword attribute="Types" context="#stay" String="types"/>
+		<keyword attribute="Symbol" context="#stay" String="operators"/>
+		<keyword attribute="Variables" context="#stay" String="variables" />
 		<Float attribute="Float" context="#stay"/>
 		<HlCHex attribute="Hex" context="#stay"/>
 		<Int attribute="Decimal" context="#stay"/>
+		<RegExpr context="Function" lookAhead="true" String="\b([a-zA-Z_][\w-]+)(?=\()"/>
 		<DetectChar attribute="Symbol" context="Params" char="("/>
 		<DetectChar attribute="Symbol" context="#pop" char=")"/>
-		<DetectChar attribute="Symbol" context="Object" char="{" beginRegion="Brace1"/>
-		<Detect2Chars attribute="Comment" context="Commentar 2" char="/" char1="*" beginRegion="Comment"/>
-		<DetectChar attribute="Variables" context="Variable" char="%"/>
+		<DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace1"/>
+		<Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
+		<DetectChar attribute="Deref" context="Deref" char="%"/>
 		<AnyChar attribute="Symbol" context="#stay" String=":!&amp;+,-/.*&lt;=&gt;?[]|~^"/>
 	</context>
 
-	<context name="MemRef" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="#pop">
+	<context name="Member" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="#pop">
 		<DetectSpaces/>
+		<keyword attribute="Types" context="#pop" String="types"/>
+		<keyword attribute="Meta" context="#pop" String="meta"/>
+		<RegExpr context="Function" lookAhead="true" String="\b([a-zA-Z_][\w-]+)(?=\()"/>
 		<DetectIdentifier attribute="Normal Text" context="#pop"/>
 	</context>
 
-	<context name="Directive" attribute="Normal Text" lineEndContext="#pop">
-		<Detect2Chars attribute="Comment" context="Commentar 2" char="/" char1="*" beginRegion="Comment"/>
-		<DetectChar attribute="Comment" context="Commentar 1" char=";"/>
+	<context name="Directive" attribute="Meta" lineEndContext="#pop">
+		<Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
+		<DetectChar attribute="Comment" context="CommentLine" char=";"/>
 	</context>
 
 	<context name="Regex" attribute="Regex" lineEndContext="#pop">
@@ -1278,9 +1027,9 @@ fallthroughContext="#pop">
 		<RegExpr attribute="String Char" context="#pop" String="." />
 	</context>
 
-	<context name="Variable" attribute="Variables" lineEndContext="#pop" fallthroughContext="#pop">
+	<context name="Deref" attribute="Deref" lineEndContext="#pop" fallthroughContext="#pop">
 		<DetectIdentifier/>
-		<DetectChar attribute="Variables" context="#pop" char="%"/>
+		<DetectChar attribute="Deref" context="#pop" char="%"/>
 	</context>
 
 	<context name="Params" attribute="Normal Text" lineEndContext="#stay">
@@ -1288,14 +1037,14 @@ fallthroughContext="#pop">
 		<IncludeRules context="ParamsCtx"/>
 	</context>
 
-	<context name="KeysAndButtons" attribute="Keys and buttons" lineEndContext="#pop">
-		<DetectSpaces />
-		<Detect2Chars attribute="Symbol" context="#pop!Action" char=":" char1=":" />
-		<AnyChar attribute="Keys and buttons" context="#stay" String="#!^+&lt;>!*~$(){}&amp;" />
-		<DetectChar attribute="Comment" context="Commentar 1" char=";"/>
-		<Detect2Chars attribute="Comment" context="Commentar 2" char="/" char1="*" beginRegion="Comment"/>
-		<keyword attribute="Commands" context="#stay" String="commands"/>
-		<DetectIdentifier/>
+	<context name="Hotkey" attribute="Normal Text" lineEndContext="#pop">
+		<StringDetect attribute="Hotkeys" context="#stay"  String="%1" dynamic="true"/>
+		<Detect2Chars attribute="Symbol" context="#stay" char=":" char1=":" />
+		<IncludeRules context="Function" />
+		<RegExpr attribute="Hotkeys" context="#pop" String="[^ \t]+"/>
+		<DetectSpaces/>
+		<DetectChar attribute="Comment" context="CommentLine" char=";"/>
+		<Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
 	</context>
 
 	<context name="String" attribute="String" lineEndContext="#pop">
@@ -1305,18 +1054,25 @@ fallthroughContext="#pop">
 		<DetectChar attribute="String" context="#pop" char="&quot;"/>
 	</context>
 
-	<context name="EscapeString" attribute="String Char" lineEndContext="#pop" fallthroughContext="#pop">
-		<Detect2Chars attribute="String Char" context="#stay" char=":" char1=":" />
-		<AnyChar attribute="String Char" context="#pop" String="`,%;nrbtvaf"/>
+	<context name="String Char" attribute="String Char" lineEndContext="#pop">
+		<LineContinue attribute="String Char" context="#stay"/>
+		<DetectChar attribute="String" context="EscapeString" char="`" />
+		<Detect2Chars attribute="String Char" context="#stay" char="'" char1="'" />
+		<DetectChar attribute="String Char" context="#pop" char="'"/>
 	</context>
 
-	<context attribute="Comment" lineEndContext="#pop" name="Commentar 1">
+	<context name="EscapeString" attribute="String Char" lineEndContext="#pop" fallthroughContext="#pop">
+		<Detect2Chars attribute="String Char" context="#stay" char=":" char1=":" />
+		<AnyChar attribute="String Char" context="#pop" String="`,%;nrbtvaf&apos;&quot;"/>
+	</context>
+
+	<context name="CommentLine" attribute="Comment" lineEndContext="#pop">
 		<DetectSpaces />
 		<IncludeRules context="##Comments" />
 		<DetectIdentifier />
 	</context>
 
-	<context attribute="Comment" lineEndContext="#stay" name="Commentar 2">
+	<context name="CommentBlock" attribute="Comment" lineEndContext="#stay">
 		<DetectSpaces />
 		<Detect2Chars attribute="Comment" context="#pop" char="*" char1="/" endRegion="Comment"/>
 		<IncludeRules context="##Comments" />
@@ -1326,11 +1082,17 @@ fallthroughContext="#pop">
 </contexts>
 <itemDatas>
 	<itemData name="Flow of control"  defStyleNum="dsControlFlow" spellChecking="false"/>
-	<itemData name="Commands"         defStyleNum="dsBuiltIn" spellChecking="false"/>
-	<itemData name="Functions"        defStyleNum="dsFunction" spellChecking="false"/>
-	<itemData name="Directives"       defStyleNum="dsConstant" spellChecking="false"/>
-	<itemData name="Keys and buttons" defStyleNum="dsBuiltIn" spellChecking="false"/>
+	<itemData name="Flow Terminators" defStyleNum="dsConstant" spellChecking="false"/>
+	<itemData name="Negatives" 		  defStyleNum="dsConstant" spellChecking="false"/>
+	<itemData name="Functions"        defStyleNum="dsBuiltIn" spellChecking="false"/>
+	<itemData name="Function"         defStyleNum="dsFunction" spellChecking="false"/>
+	<itemData name="Meta" 			  defStyleNum="dsAttribute" spellChecking="false"/>
+	<itemData name="Types" 		  	  defStyleNum="dsDataType" spellChecking="false"/>
+	<itemData name="Hotkeys" 		  defStyleNum="dsVerbatimString" spellChecking="false"/>
+	<itemData name="Directives"       defStyleNum="dsPreprocessor" spellChecking="false"/>
+	<itemData name="Directives Chars" defStyleNum="dsAttribute" spellChecking="false"/>
 	<itemData name="Variables"        defStyleNum="dsVariable" spellChecking="false"/>
+	<itemData name="Deref"        	  defStyleNum="dsImport" spellChecking="false"/>
 	<itemData name="Keywords"         defStyleNum="dsKeyword" spellChecking="false"/>
 	<itemData name="Normal Text"      defStyleNum="dsNormal" spellChecking="false"/>
 	<itemData name="Decimal"          defStyleNum="dsDecVal" spellChecking="false"/>
@@ -1351,4 +1113,3 @@ fallthroughContext="#pop">
 	<keywords casesensitive="0" weakDeliminator="#" />
 </general>
 </language>
-<!-- kate: replace-tabs off; -->

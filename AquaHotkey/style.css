@@ -36,20 +36,20 @@ code > * {
 
 /* Attribute */
 code span.at {
-    color: #e7db85;
+    color: #3e7277;
 }
 /* BaseN */
 code span.bn {
     color: #40a070;
 }
-/* BuiltIn */
+/* Built-in function */
 code span.bu {
     color: #8080ff;
     font-weight: bold !important;
 }
 /* ControlFlow */
 code span.cf {
-    color: #ff80f9;
+    color: #f892ef;
 }
 /* Comment */
 code span.co {
@@ -57,10 +57,10 @@ code span.co {
 }
 /* Float */
 code span.fl {
-    color: #158aff;
+    color: #98aff9;
 }
 code span.dv {
-    color: #158aff;
+    color: #73b9ff;
 }
 /* Function */
 code span.fu {
@@ -72,7 +72,7 @@ code span.kw {
 }
 /* Operator */
 code span.op {
-    color: #631b37;
+    color: #e72265d9;
 }
 /* Other */
 code span.ot {
@@ -84,13 +84,33 @@ code span.ss {
 }
 /* String */
 code span.st {
-    color: #46d751;
+    color: #48e048;
 }
-/* Char */
-code span.ch {
+/* String char */
+code span.sc {
     color: #61bc66;
 }
 /* Variable */
 code span.va {
-    color: #80ffff;
+    color: #92f8a2;
+}
+/* Deref */
+code span.im {
+    color: #fea54b;
+}
+/* Type (object) */
+code span.dt {
+    color: #5f36d8;
+}
+/* Directive */
+code span.pp {
+    color: #01765f;
+}
+/* Constant */
+code span.cn {
+    color: #fe747e;
+}
+/* Hotkey */
+code span.vs {
+    color: #fef324;
 }

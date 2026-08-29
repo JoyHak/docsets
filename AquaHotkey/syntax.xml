@@ -753,10 +753,6 @@
     <item>ltrim</item>
     <item>rtrim</item>
     <item>join</item>
-    <item>ahk_id</item>
-    <item>ahk_pid</item>
-    <item>ahk_class</item>
-    <item>ahk_group</item>
     <item>between</item>
     <item>contains</item>
     <item>in</item>
@@ -774,6 +770,7 @@
         <keyword attribute="Directive" String="directives_actions" context="Action"  column="0"/>
         <keyword attribute="Directive" String="directives_chars" context="Directive" column="0"/>
         <RegExpr context="Hotkey" lookAhead="true" String="^[ \t]*([^ \t]+)::" column="0"/>
+
     </context>
 
     <context name="Action" attribute="Normal Text" lineEndContext="#pop">
@@ -790,6 +787,7 @@
         <keyword attribute="BuiltIn" context="#pop!ParamsCtx" String="functions"/>
         <keyword attribute="Meta" context="#pop!ParamsCtx" String="meta"/>
         <keyword attribute="Type" context="#pop!ParamsCtx" String="types"/>
+        <StringDetect attribute="Keyword" context="#pop!Class" String="class"/>
         <keyword attribute="Keyword" context="#pop!Function" String="keywords"/>
         <RegExpr context="Function" lookAhead="true" String="&func;"/>
         <DetectIdentifier context="#pop!Function"/>
@@ -810,6 +808,7 @@
         <keyword attribute="Type" context="ParamsCtx" String="types"/>
         <keyword attribute="Keyword" context="Function" String="keywords"/>
         <DetectChar attribute="Symbol" context="#pop" char="}"  endRegion="Brace1"/>
+        <RegExpr context="Function" lookAhead="true" String="&func;"/>
         <DetectIdentifier context="Function"/>
     </context>
 
@@ -893,6 +892,14 @@
         <DetectSpaces/>
         <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1"/>
         <IncludeRules context="ParamsCtx"/>
+    </context>
+
+    <context name="Class" attribute="Normal Text" lineEndContext="#pop">
+        <DetectSpaces/>
+        <StringDetect attribute="Keyword" String="extends"/>
+        <DetectIdentifier attribute="Type"/>
+        <DetectChar attribute="Type" char="."/>
+        <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace1"/>
     </context>
 
     <context name="ParamsCtx" attribute="Normal Text" lineEndContext="#pop">

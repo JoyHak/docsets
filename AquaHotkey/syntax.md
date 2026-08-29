@@ -19,11 +19,9 @@ String(A_AhkPath)
 throw MemoryError()
 throw Error()
 
-class Version {
+class Version extends Any {
 __New() {
-    this.Major := Major
-    this.Minor := Minor
-    this.Patch := Patch
+}
 }
 
 FatArrow() => false
@@ -49,13 +47,13 @@ def(arg, args?) {
 
 fn := () => false
 fn := (*) => (false, "True", SubStr())
-}
 
-AutoTrim "Off"
-AutoTrim "On"
-On Off False True 
-f.v22
-power.stop
+processQuery := 
+(Join`s
+   "select processId, commandLine 
+    from Win32_Process 
+    where CommandLine like '%" name "%'"
+)
 #SingleInstance off 
 #Requires Autohotkey v2.0
 #Include <reload>   

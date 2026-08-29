@@ -390,6 +390,7 @@
 <list name="meta">
 	<item>get</item>
 	<item>set</item>
+	<item>unset</item>
 	<item>__new</item>
 	<item>__delete</item>
 	<item>__get</item>
@@ -825,6 +826,7 @@
 		<DetectChar attribute="Deref"  context="Deref" char="%"/>
 		<DetectChar attribute="Symbol" context="#pop!ParamsCtx" char="?"/>
 		<DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace1" />
+		<Detect2Chars attribute="Symbol" context="#pop!ParamsCtx" char="=" char1=">" />
 		<DetectChar attribute="Symbol" context="ParamsCtx" char="("/>
 		<RegExpr    attribute="Symbol" context="Assignment" String="(?://|&lt;&lt;|&gt;&gt;|[-+.:/|&amp;^*%])="/>
 	</context>
@@ -962,29 +964,29 @@
 
 	<context name="SubRegex" attribute="Regex Group" lineEndContext="#pop" fallthroughContext="InSubRegex">
 		<DetectChar context="#pop!SubRegexCmd" char="?"/>
-		<DetectChar context="#pop!RegCallLabel" char="*"/>
+		<DetectChar context="#pop!RegKeyword" char="*"/>
 	</context>
 
 	<context name="SubRegexCmd" attribute="Regex Group" lineEndContext="#pop">
 		<DetectChar attribute="Decimal" context="#stay" char="+"/>
-		<Int attribute="Decimal" context="#pop!RegCallLabel"/>
-		<DetectChar attribute="Regex Keyword" context="#pop!RegCallLabel" char="R"/>
+		<Int attribute="Decimal" context="#pop!RegKeyword"/>
+		<DetectChar attribute="Regex Keyword" context="#pop!RegKeyword" char="R"/>
 		<Detect2Chars attribute="Regex Positive" context="InSubRegex" char="&lt;" char1="="/>
 		<Detect2Chars attribute="Regex Negative" context="InSubRegex" char="&lt;" char1="!"/>
 		<DetectChar attribute="Regex Label" context="#pop!RegLabel" char="&lt;"/>
-		<DetectChar context="#pop!RegCallLabel" char="&amp;"/>
+		<DetectChar context="#pop!RegKeyword" char="&amp;"/>
 		<DetectChar context="#pop!RegComment" char="#"/>
 		<DetectChar attribute="Regex Negative" context="InSubRegex" char="!"/>
 		<DetectChar attribute="Regex Positive" context="InSubRegex" char="="/>
 		<DetectChar context="InSubRegex" char=":"/>
 	</context>
 
-	<context name="RegLabel" attribute="Regex Label" lineEndContext="#pop">
+	<context name="RegLabel" attribute="Regex Label" lineEndContext="#pop" fallthroughContext="InSubRegex">
 		<DetectIdentifier/>
-		<DetectChar context="#pop" char="&gt;"/>
+		<DetectChar context="InSubRegex" char="&gt;"/>
 	</context>
 
-	<context name="RegCallLabel" attribute="Regex Label" lineEndContext="#pop">
+	<context name="RegKeyword" attribute="Regex Label" lineEndContext="#pop">
 		<DetectIdentifier/>
 		<DetectChar attribute="Regex Group" context="#pop" char=")"/>
 	</context>

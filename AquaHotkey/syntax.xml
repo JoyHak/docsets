@@ -899,13 +899,13 @@
 	<context name="ParamsCtx" attribute="Normal Text" lineEndContext="#pop">
 		<DetectChar attribute="Comment" context="CommentLine" char=";"/>
 		<keyword attribute="Function" context="RegexMatch" String="regex"/>
+		<Detect2Chars attribute="Symbol" context="Regex" char="~" char1="="/>
 		<DetectChar attribute="String" context="String" char="&quot;"/>
 		<DetectChar attribute="String Char" context="String Char" char="'"/>
 		<keyword attribute="Negatives" context="#stay" String="negatives"/>
 		<keyword attribute="Functions" context="#stay" String="functions"/>
 		<keyword attribute="Meta" context="#stay" String="meta"/>
 		<keyword attribute="Types" context="#stay" String="types"/>
-		<Detect2Chars attribute="Symbol" context="Regex" char="~" char1="="/>
 		<RegExpr attribute="Symbol" String="&operator;"/>
 		<keyword attribute="Variables" context="#stay" String="variables" />
 		<DetectChar attribute="Symbol" context="Member" char="."/>
@@ -947,6 +947,9 @@
 	</context>
 
 	<context name="InSubRegex" attribute="Regex" lineEndContext="#pop#pop">
+		<RegExpr attribute="Regex Keyword" String="\\[nrt0aefVvWwDdXxpCckg#]" insensitive="false"/>
+		<RegExpr attribute="Symbol" String="\\[QEGKBbAZ]" insensitive="false"/>
+		<RegExpr attribute="Decimal" String="[\\$]\d"/>
 		<DetectChar attribute="Regex Escaped" context="RegexChar" char="\"/>
 		<DetectChar attribute="Regex Escaped" context="RegexChar" char="`"/>
 		<AnyChar attribute="Regex" context="#pop#pop" String="&quot;'"/>
@@ -958,9 +961,13 @@
 
 	<context name="SubRegex" attribute="Regex Group" lineEndContext="#pop" fallthroughContext="InSubRegex">
 		<DetectChar context="#pop!SubRegexCmd" char="?"/>
+		<DetectChar context="#pop!RegCallLabel" char="*"/>
 	</context>
 
 	<context name="SubRegexCmd" attribute="Regex Group" lineEndContext="#pop">
+		<DetectChar attribute="Decimal" context="#stay" char="+"/>
+		<Int attribute="Decimal" context="#pop!RegCallLabel"/>
+		<DetectChar attribute="Regex Keyword" context="#pop!RegCallLabel" char="R"/>
 		<Detect2Chars attribute="Regex Positive" context="InSubRegex" char="&lt;" char1="="/>
 		<Detect2Chars attribute="Regex Negative" context="InSubRegex" char="&lt;" char1="!"/>
 		<DetectChar attribute="Regex Label" context="#pop!RegLabel" char="&lt;"/>
@@ -971,18 +978,19 @@
 		<DetectChar context="InSubRegex" char=":"/>
 	</context>
 
-	<context name="RegLabel" attribute="Regex Label" lineEndContext="#pop" fallthroughContext="InSubRegex">
+	<context name="RegLabel" attribute="Regex Label" lineEndContext="#pop">
 		<DetectIdentifier/>
-		<DetectChar context="InSubRegex" char="&gt;"/>
+		<DetectChar context="#pop" char="&gt;"/>
 	</context>
 
-	<context name="RegCallLabel" attribute="Regex Label" lineEndContext="#pop" fallthroughContext="InSubRegex">
+	<context name="RegCallLabel" attribute="Regex Label" lineEndContext="#pop">
 		<DetectIdentifier/>
-		<DetectChar attribute="Regex Group" context="InSubRegex" char=")"/>
+		<DetectChar attribute="Regex Group" context="#pop" char=")"/>
 	</context>
 
-	<context name="RegComment" attribute="Comment" lineEndContext="#pop" fallthroughContext="InSubRegex">
-		<DetectChar context="InSubRegex" char=")"/>
+	<context name="RegComment" attribute="Comment" lineEndContext="#pop">
+		<DetectIdentifier/>
+		<DetectChar context="#pop" char=")"/>
 	</context>
 
 	<context name="RegexChars" attribute="Regex" lineEndContext="#pop" fallthroughContext="InRegexChars">
@@ -992,13 +1000,13 @@
 
 	<context name="InRegexChars" attribute="Regex Char" lineEndContext="#pop#pop">
 		<DetectChar attribute="Regex Group" context="#pop#pop" char="]"/>
-		<DetectChar attribute="Regex Group" context="RegexClass" char="["/>
+		<DetectChar attribute="Regex Char" context="RegexClass" char="["/>
 		<DetectChar attribute="Regex Escaped" context="RegexChar" char="\"/>
 		<DetectChar attribute="Regex Escaped" context="RegexChar" char="`"/>
 	</context>
 
 	<context name="RegexClass" attribute="Regex Char" lineEndContext="#pop">
-		<DetectChar attribute="Regex Escaped" context="#pop" char="]"/>
+		<DetectChar attribute="Regex Char" context="#pop" char="]"/>
 	</context>
 
 	<context name="RegexChar" attribute="Regex Escaped" lineEndContext="#pop">
@@ -1083,18 +1091,19 @@
 	<itemData name="Keywords"         defStyleNum="dsKeyword" spellChecking="false"/>
 	<itemData name="Normal Text"      defStyleNum="dsNormal" spellChecking="false"/>
 	<itemData name="Decimal"          defStyleNum="dsDecVal" spellChecking="false"/>
-	<itemData name="Hex"              defStyleNum="dsBaseN" spellChecking="false"/>
-	<itemData name="Float"            defStyleNum="dsFloat" spellChecking="false"/>
+	<itemData name="Hex"              defStyleNum="dsDecVal" spellChecking="false"/>
+	<itemData name="Float"            defStyleNum="dsDecVal" spellChecking="false"/>
 	<itemData name="String"           defStyleNum="dsString"/>
 	<itemData name="String Char"      defStyleNum="dsSpecialChar" spellChecking="false"/>
 	<itemData name="Regex"            defStyleNum="dsSpecialString" spellChecking="false"/>
-	<itemData name="Regex Char"       defStyleNum="dsChar" spellChecking="false"/>
+	<itemData name="Regex Char"       defStyleNum="dsBaseN" spellChecking="false"/>
 	<itemData name="Regex Escaped"    defStyleNum="dsSpecialChar" spellChecking="false"/>
 	<itemData name="Regex Option"     defStyleNum="dsPreprocessor" spellChecking="false"/>
 	<itemData name="Regex Group"      defStyleNum="dsComment" spellChecking="false"/>
 	<itemData name="Regex Label"      defStyleNum="dsKeyword" spellChecking="false"/>
+	<itemData name="Regex Keyword"    defStyleNum="dsKeyword" spellChecking="false"/>
 	<itemData name="Regex Negative"   defStyleNum="dsConstant" spellChecking="false"/>
-	<itemData name="Regex Positive"   defStyleNum="dsSpecialString" spellChecking="false"/>
+	<itemData name="Regex Positive"   defStyleNum="dsString" spellChecking="false"/>
 	<itemData name="Symbol"           defStyleNum="dsOperator" spellChecking="false"/>
 	<itemData name="Comment"          defStyleNum="dsComment"/>
 </itemDatas>

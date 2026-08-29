@@ -78,9 +78,13 @@ code span.op {
 code span.ot {
     color: #878ed1;
 }
-/* SpecialString */
+/* SpecialString, RegEx */
 code span.ss {
     color: #008040;
+}
+/* RegEx char */
+code span.bn {
+    color: #c1cb50;
 }
 /* String */
 code span.st {

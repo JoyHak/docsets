@@ -905,7 +905,7 @@
 		<keyword attribute="Functions" context="#stay" String="functions"/>
 		<keyword attribute="Meta" context="#stay" String="meta"/>
 		<keyword attribute="Types" context="#stay" String="types"/>
-		<Detect2Chars attribute="Symbol" context="RegexCtx" char="~" char1="="/>
+		<Detect2Chars attribute="Symbol" context="Regex" char="~" char1="="/>
 		<RegExpr attribute="Symbol" String="&operator;"/>
 		<keyword attribute="Variables" context="#stay" String="variables" />
 		<DetectChar attribute="Symbol" context="Member" char="."/>
@@ -939,26 +939,17 @@
 		<DetectChar context="Regex" char=","/>
 	</context>
 
-	<context name="RegexCtx" attribute="Normal Text" lineEndContext="#pop">
-		<DetectChar attribute="String" context="#pop!Regex" char="&quot;"/>
-		<DetectChar attribute="String Char" context="#pop!Regex" char="'"/>
-	</context>
-
-	<context name="Regex" attribute="Regex">
+	<context name="Regex" attribute="Regex" lineEndContext="#pop">
 		<DetectSpaces/>
-		<RegExpr attribute="Regex Option" context="Regex" String="[imsxADJUXSC]+\)" insensitive="false"/>
-		<DetectChar attribute="Regex Escaped" context="RegexChar" char="\"/>
-		<DetectChar attribute="Regex Escaped" context="RegexChar" char="`"/>
-		<AnyChar context="#pop" String="&quot;'"/>
-		<DetectChar attribute="Regex Group" context="SubRegex" char="("/>
-		<DetectChar attribute="Regex Group" context="RegexChars" char="["/>
-		<AnyChar attribute="Symbol" context="#stay" String="?+*{}.|^$"/>
+		<AnyChar context="#stay" String="&quot;'"/>
+		<RegExpr attribute="Regex Option" String="[imsxADJUXSC]+\)" insensitive="false"/>
+		<IncludeRules context="InSubRegex"/>
 	</context>
 
 	<context name="InSubRegex" attribute="Regex" lineEndContext="#pop#pop">
 		<DetectChar attribute="Regex Escaped" context="RegexChar" char="\"/>
 		<DetectChar attribute="Regex Escaped" context="RegexChar" char="`"/>
-		<AnyChar context="#pop#pop" String="&quot;'" lookAhead="true"/>
+		<AnyChar attribute="Regex" context="#pop#pop" String="&quot;'"/>
 		<DetectChar attribute="Regex Group" context="SubRegex" char="("/>
 		<DetectChar attribute="Regex Group" context="#pop#pop" char=")"/>
 		<DetectChar attribute="Regex Group" context="RegexChars" char="["/>
@@ -987,7 +978,7 @@
 
 	<context name="RegCallLabel" attribute="Regex Label" lineEndContext="#pop" fallthroughContext="InSubRegex">
 		<DetectIdentifier/>
-		<DetectChar attribute="Regex" context="InSubRegex" char=")"/>
+		<DetectChar attribute="Regex Group" context="InSubRegex" char=")"/>
 	</context>
 
 	<context name="RegComment" attribute="Comment" lineEndContext="#pop" fallthroughContext="InSubRegex">
@@ -1006,7 +997,7 @@
 		<DetectChar attribute="Regex Escaped" context="RegexChar" char="`"/>
 	</context>
 
-	<context name="RegexClass" attribute="Regex" lineEndContext="#pop">
+	<context name="RegexClass" attribute="Regex Char" lineEndContext="#pop">
 		<DetectChar attribute="Regex Escaped" context="#pop" char="]"/>
 	</context>
 
@@ -1098,7 +1089,7 @@
 	<itemData name="String Char"      defStyleNum="dsSpecialChar" spellChecking="false"/>
 	<itemData name="Regex"            defStyleNum="dsSpecialString" spellChecking="false"/>
 	<itemData name="Regex Char"       defStyleNum="dsChar" spellChecking="false"/>
-	<itemData name="Regex Escaped"    defStyleNum="dsDecVal" spellChecking="false"/>
+	<itemData name="Regex Escaped"    defStyleNum="dsSpecialChar" spellChecking="false"/>
 	<itemData name="Regex Option"     defStyleNum="dsPreprocessor" spellChecking="false"/>
 	<itemData name="Regex Group"      defStyleNum="dsComment" spellChecking="false"/>
 	<itemData name="Regex Label"      defStyleNum="dsKeyword" spellChecking="false"/>

@@ -25,19 +25,12 @@ FatArrow(Args*) => (SubStr(args[1]))
 FatArrow(Args*) => SubStr(args[1]) . SubStr(args[1])
 
 def() {
-    if (a ~= "[\/\\]  (?<path>[^\$=:\<>]*) | (?<=\G) \$ (?: (?<paren>\( (?: [^\(\)\r\n]+ | (?&paren)) \)) | (?<brace> { [^{}\r\n]+ }) | [\w\-\.:]+) \K(?&path)") {
+    if (a ~= "[\/^%]  (?<path>[^\$=:\>`"`']*white) | text (?<=\G) \$ (?: (?<paren>\( (?: [^\(\)\r\n]+ | (?&paren)) \)) | (?<brace> { [^{}\r\n]+ }) | [\w\-\.:]+) \K(?&path) \K") {
         return
     }
 
-    SubStr(arg,1,2) ~= '[\/-]+\w'
-    a ~= '\[!(\w+)\]'
-    a .= 'sx) \[ [^\]]* \] \( [^ \.\t]* (.+?) [ \t]* \)'
-    RegExReplace(rows, '^\|(.*?)\|?$', '[tr][td]$1[/td][/tr]')
-    RegExMatch(a, '!\[   [^\]]*   \] \( [ \\\/\.\t]* (.+?) [ \t]* \)')
-    RegExReplace('#### header', "^\s*####\s*(.+)")
-    
-    SubStr(args[1]) . SubStr(args[1])
-    'aaa"d"' . d . "fff'a'f`'`"\n`n" . a
+    s := SubStr(args[1]) . SubStr(args[1])
+    s := 'aaa"d"' . d . "fff'a'f`'`"\n`n" . a
 }
 
 Show22()

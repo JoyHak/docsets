@@ -28,7 +28,9 @@ def() {
     if (a ~= "[\/^%]  (?<path>[^\$=:\>`"`']*white) | text (?<=\G) \$ (?: (?<paren>\( (?: [^\(\)\r\n]+ | (?&paren)) \)) | (?<brace> { [^{}\r\n]+ }) | [\w\-\.:]+) \K(?&path) \K") {
     }
     r := 'm)\b\1\2$0[:=\\]\w+(?#comment)(*PRUNE)(*F)(?R)(?=:)(?<!&)(?![$%])'
-    s := SubStr(args[1]) . SubStr(args[1])
+    s := SubStr() . SubStr()
+    s := SubStr() 'str' a "str" . SubStr()
+    s := "str" SubStr()
     s := 'aaa"d"' . d . "fff'a'f`'`"\n`n" . a
 }
 

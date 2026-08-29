@@ -922,6 +922,7 @@
 	</context>
 
 	<context name="Member" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="#pop">
+		<DetectChar context="#pop" char=" "/>
 		<DetectSpaces/>
 		<keyword attribute="Types" context="#pop" String="types"/>
 		<keyword attribute="Meta" context="#pop" String="meta"/>

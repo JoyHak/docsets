@@ -775,18 +775,18 @@
 
     <context name="Action" attribute="Normal Text" lineEndContext="#pop">
         <DetectSpaces/>
-        <AnyChar attribute="Symbol" context="ParamsCtx" String="?:" firstNonSpace="1"/>
+        <AnyChar attribute="Symbol" context="Params" String="?:" firstNonSpace="1"/>
         <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace1" firstNonSpace="1"/>
         <DetectChar attribute="Deref" context="Deref" char="%"/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
-        <keyword attribute="Variable" context="#pop!ParamsCtx" String="variables" />
+        <keyword attribute="Variable" context="#pop!Params" String="variables" />
         <keyword attribute="Hotkey" context="#pop!ActionParam" String="hotkeys"/>
-        <keyword attribute="Control Flow" context="#pop!ParamsCtx" String="controlflow"/>
-        <keyword attribute="Break Flow" context="#pop!ParamsCtx" String="breakflow"/>
-        <keyword attribute="BuiltIn" context="#pop!ParamsCtx" String="functions"/>
-        <keyword attribute="Meta" context="#pop!ParamsCtx" String="meta"/>
-        <keyword attribute="Type" context="#pop!ParamsCtx" String="types"/>
+        <keyword attribute="Control Flow" context="#pop!Params" String="controlflow"/>
+        <keyword attribute="Break Flow" context="#pop!Params" String="breakflow"/>
+        <keyword attribute="BuiltIn" context="#pop!Params" String="functions"/>
+        <keyword attribute="Meta" context="#pop!Params" String="meta"/>
+        <keyword attribute="Type" context="#pop!Params" String="types"/>
         <StringDetect attribute="Keyword" context="#pop!Class" String="class"/>
         <keyword attribute="Keyword" context="#pop!Function" String="keywords"/>
         <RegExpr context="Function" lookAhead="true" String="&func;"/>
@@ -795,17 +795,17 @@
 
     <context name="Statement" attribute="Normal Text" lineEndContext="#stay">
         <DetectSpaces/>
-        <AnyChar attribute="Symbol" context="ParamsCtx" String="?:" firstNonSpace="1"/>
+        <AnyChar attribute="Symbol" context="Params" String="?:" firstNonSpace="1"/>
         <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace1"/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <DetectChar attribute="Deref" context="Deref" char="%"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
-        <keyword attribute="Control Flow" context="ParamsCtx" String="controlflow"/>
-        <keyword attribute="Break Flow" context="ParamsCtx" String="breakflow"/>
-        <keyword attribute="Negative" context="ParamsCtx" String="negatives"/>
-        <keyword attribute="BuiltIn" context="ParamsCtx" String="functions"/>
-        <keyword attribute="Meta" context="ParamsCtx" String="meta"/>
-        <keyword attribute="Type" context="ParamsCtx" String="types"/>
+        <keyword attribute="Control Flow" context="Params" String="controlflow"/>
+        <keyword attribute="Break Flow" context="Params" String="breakflow"/>
+        <keyword attribute="Negative" context="Params" String="negatives"/>
+        <keyword attribute="BuiltIn" context="Params" String="functions"/>
+        <keyword attribute="Meta" context="Params" String="meta"/>
+        <keyword attribute="Type" context="Params" String="types"/>
         <keyword attribute="Keyword" context="Function" String="keywords"/>
         <DetectChar attribute="Symbol" context="#pop" char="}"  endRegion="Brace1"/>
         <RegExpr context="Function" lookAhead="true" String="&func;"/>
@@ -820,10 +820,10 @@
         <keyword attribute="Variable" String="variables" />
         <DetectChar attribute="Symbol" context="Member" char="."/>
         <DetectChar attribute="Deref"  context="Deref" char="%"/>
-        <DetectChar attribute="Symbol" context="#pop!ParamsCtx" char="?"/>
+        <DetectChar attribute="Symbol" context="#pop!Params" char="?"/>
         <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace1" />
-        <Detect2Chars attribute="Symbol" context="#pop!ParamsCtx" char="=" char1=">" />
-        <DetectChar attribute="Symbol" context="ParamsCtx" char="("/>
+        <Detect2Chars attribute="Symbol" context="#pop!Params" char="=" char1=">" />
+        <DetectChar attribute="Symbol" context="Params" char="("/>
         <RegExpr    attribute="Symbol" context="Assignment" String="(?://|&lt;&lt;|&gt;&gt;|[-+.:/|&amp;^*%])="/>
     </context>
 
@@ -832,12 +832,12 @@
         <DetectChar attribute="Symbol" context="#pop#pop" char=","/>
         <DetectChar attribute="Symbol" context="Object" char="{" beginRegion="Brace1"/>
         <DetectChar attribute="Symbol" context="Array" char="["/>
-        <IncludeRules context="ParamsCtx"/>
+        <IncludeRules context="Params"/>
     </context>
 
     <context name="ActionParam" attribute="Normal Text" lineEndContext="#pop">
         <DetectSpaces/>
-        <DetectChar attribute="Symbol" context="#pop!ParamsCtx" char="("/>
+        <DetectChar attribute="Symbol" context="#pop!Params" char="("/>
         <DetectChar attribute="Symbol" context="FuncParam" char=","/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
@@ -885,13 +885,13 @@
     <context name="Array" attribute="Normal Text" lineEndContext="#pop">
         <DetectSpaces/>
         <DetectChar attribute="Symbol" context="#pop" char="]"/>
-        <IncludeRules context="ParamsCtx"/>
+        <IncludeRules context="Params"/>
     </context>
 
     <context name="Object" attribute="Normal Text" lineEndContext="#pop">
         <DetectSpaces/>
         <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1"/>
-        <IncludeRules context="ParamsCtx"/>
+        <IncludeRules context="Params"/>
     </context>
 
     <context name="Class" attribute="Normal Text" lineEndContext="#pop">
@@ -902,7 +902,7 @@
         <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace1"/>
     </context>
 
-    <context name="ParamsCtx" attribute="Normal Text" lineEndContext="#pop">
+    <context name="Params" attribute="Normal Text" lineEndContext="#pop">
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Symbol" context="Regex" char="~" char1="="/>
         <DetectChar attribute="String" context="String" char="&quot;"/>
@@ -1018,11 +1018,6 @@
     <context name="Deref" attribute="Deref" lineEndContext="#pop" fallthroughContext="#pop">
         <DetectIdentifier/>
         <DetectChar attribute="Deref" context="#pop" char="%"/>
-    </context>
-
-    <context name="Params" attribute="Normal Text" lineEndContext="#stay">
-        <DetectSpaces/>
-        <IncludeRules context="ParamsCtx"/>
     </context>
 
     <context name="Hotkey" attribute="Normal Text" lineEndContext="#pop">

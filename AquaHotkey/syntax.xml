@@ -817,7 +817,7 @@
         <StringDetect context="#stay" attribute="Function" String="%1" dynamic="true"/>
         <DetectSpaces/>
         <DetectChar attribute="Symbol" context="Array" char="["/>
-        <keyword attribute="Variable" String="variables" />
+        <keyword    attribute="Variable" String="variables" />
         <DetectChar attribute="Symbol" context="Member" char="."/>
         <DetectChar attribute="Deref"  context="Deref" char="%"/>
         <DetectChar attribute="Symbol" context="#pop!Params" char="?"/>

@@ -31,8 +31,9 @@ FatArrow(Args?) => SubStr(args[1]) . SubStr(args[1])
 def(arg, args?) {
     if (a ~= "[\/^%]  (?<path>[^\$=:\>`"`']*white) | text (?<=\G) \$ (?: (?<paren>\( (?: [^\(\)\r\n]+ | (?&paren)) \))") {
     }
-    r := 'm)\b\1\2$0[:=\\]\w+(?#comment)(*PRUNE)(*F)(?R)(?=:)(?<!&)(?![$%])'
-
+    r := 'm)\b\1\2$0[:=\\]\w+
+    (?#comment)(*PRUNE)(*F)(?R)(?=:)(?<!&)(?![$%])'
+    
     s := SubStr() . SubStr()
     s := SubStr() 'str' a "str" . SubStr()
     s := "str" SubStr()
@@ -48,11 +49,14 @@ def(arg, args?) {
 fn := () => false
 fn := (*) => (false, "True", SubStr())
 
-processQuery := 
-(Join`s
-   "select processId, commandLine 
-    from Win32_Process 
+
+(comment
+   "select processId, commandLine  ; comment
+    from Win32_Process`; 
     where CommandLine like '%" name "%'"
+)
+(`
+   "`n`;"
 )
 #SingleInstance off 
 #Requires Autohotkey v2.0

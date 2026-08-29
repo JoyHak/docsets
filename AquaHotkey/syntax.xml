@@ -2,6 +2,7 @@
 <!DOCTYPE language SYSTEM "syntax.xsd" [
     <!ENTITY func "\b([a-zA-Z_][\w_]+)(?=\()">
     <!ENTITY operator "!==|!=|==|&gt;=|&lt;=|&lt;&lt;|&gt;&gt;|!!|\+\+|\-\-|\?\?|\|\||&amp;&amp;|[\+\-\*\/^&amp;|~!?&gt;&lt;]">
+    <!ENTITY section_keywords "\b(?:(?:l|r)trim0?|comments?|com)\b">
 ]>
 <language name="AutoHotKey" section="Scripts"
           version="1" kateversion="5.62"
@@ -750,9 +751,6 @@
     <item>A_YYYY</item>
 </list>
 <list name="keywords">
-    <item>ltrim</item>
-    <item>rtrim</item>
-    <item>join</item>
     <item>between</item>
     <item>contains</item>
     <item>in</item>
@@ -770,7 +768,7 @@
         <keyword attribute="Directive" String="directives_actions" context="Action"  column="0"/>
         <keyword attribute="Directive" String="directives_chars" context="Directive" column="0"/>
         <RegExpr context="Hotkey" lookAhead="true" String="^[ \t]*([^ \t]+)::" column="0"/>
-
+        <DetectChar attribute="Symbol" context="ContinuationSection" char="("/>
     </context>
 
     <context name="Action" attribute="Normal Text" lineEndContext="#pop">
@@ -797,6 +795,7 @@
         <DetectSpaces/>
         <AnyChar attribute="Symbol" context="Params" String="?:" firstNonSpace="1"/>
         <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace1"/>
+        <DetectChar attribute="Symbol" context="ContinuationSection" char="("/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <DetectChar attribute="Deref" context="Deref" char="%"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
@@ -904,7 +903,7 @@
 
     <context name="Params" attribute="Normal Text" lineEndContext="#pop">
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
-        <Detect2Chars attribute="Symbol" context="Regex" char="~" char1="="/>
+        <Detect2Chars attribute="Symbol" context="RegexString" char="~" char1="="/>
         <DetectChar attribute="String" context="String" char="&quot;"/>
         <DetectChar attribute="String Char" context="String Char" char="'"/>
 		<keyword attribute="Control Flow" context="#stay" String="controlflow"/>
@@ -927,6 +926,21 @@
         <AnyChar attribute="Symbol" context="#stay" String=":!&amp;+,-/.*&lt;&gt;=?[]|~^"/>
     </context>
 
+    <context name="ContinuationSection" attribute="Normal Text" lineEndContext="#stay">
+        <DetectSpaces/>
+        <RegExpr attribute="Keyword" context="#stay" String="&section_keywords;" insensitive="true"/>
+        <StringDetect attribute="Keyword" context="JoinChar" String="join" insensitive="true"/>
+        <DetectChar attribute="String" context="#stay" char="`"/>
+        <DetectChar attribute="String" context="String" char="&quot;"/>
+        <DetectChar attribute="String Char" context="String Char" char="'"/>
+        <DetectChar attribute="Symbol" context="#pop" char=")"/>
+    </context>
+
+    <context name="JoinChar" attribute="String Char" lineEndContext="#pop">
+        <RegExpr context="#stay" String="`." />
+        <DetectChar context="#pop" char=" "/>
+    </context>
+
     <context name="Member" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="#pop">
         <DetectChar context="#pop" char=" "/>
         <DetectSpaces/>
@@ -941,14 +955,12 @@
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
     </context>
 
-    <context name="Regex" attribute="Regex" lineEndContext="#pop">
+    <context name="RegexString" attribute="Regex" lineEndContext="#pop">
         <DetectSpaces/>
-        <AnyChar context="#stay" String="&quot;'"/>
-        <RegExpr attribute="Regex Option" String="[imsxADJUXSC]+\)" insensitive="false"/>
-        <IncludeRules context="InSubRegex"/>
+        <AnyChar context="#pop!Regex" String="&quot;'"/>
     </context>
 
-    <context name="InSubRegex" attribute="Regex" lineEndContext="#pop#pop">
+    <context name="Regex" attribute="Regex" lineEndContext="#stay">
         <RegExpr attribute="Regex Keyword" String="\\[nrt0aefVvWwDdXxpCckg#]" insensitive="false"/>
         <RegExpr attribute="Symbol" String="\\[QEGKBbAZ]" insensitive="false"/>
         <RegExpr attribute="Decimal" String="[\\$]\d"/>
@@ -961,36 +973,36 @@
         <AnyChar attribute="Symbol" context="#stay" String="?+*{}.|^$"/>
     </context>
 
-    <context name="SubRegex" attribute="Regex Group" lineEndContext="#pop" fallthroughContext="InSubRegex">
+    <context name="SubRegex" attribute="Regex Group" lineEndContext="#stay" fallthroughContext="Regex">
         <DetectChar context="#pop!SubRegexCmd" char="?"/>
         <DetectChar context="#pop!RegKeyword" char="*"/>
     </context>
 
-    <context name="SubRegexCmd" attribute="Regex Group" lineEndContext="#pop">
+    <context name="SubRegexCmd" attribute="Regex Group" lineEndContext="#stay">
         <DetectChar attribute="Decimal" context="#stay" char="+"/>
         <Int attribute="Decimal" context="#pop!RegKeyword"/>
         <DetectChar attribute="Regex Keyword" context="#pop!RegKeyword" char="R"/>
-        <Detect2Chars attribute="Regex Positive" context="InSubRegex" char="&lt;" char1="="/>
-        <Detect2Chars attribute="Regex Negative" context="InSubRegex" char="&lt;" char1="!"/>
+        <Detect2Chars attribute="Regex Positive" context="Regex" char="&lt;" char1="="/>
+        <Detect2Chars attribute="Regex Negative" context="Regex" char="&lt;" char1="!"/>
         <DetectChar attribute="Regex Label" context="#pop!RegLabel" char="&lt;"/>
         <DetectChar context="#pop!RegKeyword" char="&amp;"/>
         <DetectChar context="#pop!RegComment" char="#"/>
-        <DetectChar attribute="Regex Negative" context="InSubRegex" char="!"/>
-        <DetectChar attribute="Regex Positive" context="InSubRegex" char="="/>
-        <DetectChar context="InSubRegex" char=":"/>
+        <DetectChar attribute="Regex Negative" context="Regex" char="!"/>
+        <DetectChar attribute="Regex Positive" context="Regex" char="="/>
+        <DetectChar context="Regex" char=":"/>
     </context>
 
-    <context name="RegLabel" attribute="Regex Label" lineEndContext="#pop" fallthroughContext="InSubRegex">
+    <context name="RegLabel" attribute="Regex Label" lineEndContext="#stay" fallthroughContext="Regex">
         <DetectIdentifier/>
-        <DetectChar context="InSubRegex" char="&gt;"/>
+        <DetectChar context="Regex" char="&gt;"/>
     </context>
 
-    <context name="RegKeyword" attribute="Regex Label" lineEndContext="#pop">
+    <context name="RegKeyword" attribute="Regex Label" lineEndContext="#stay">
         <DetectIdentifier/>
         <DetectChar attribute="Regex Group" context="#pop" char=")"/>
     </context>
 
-    <context name="RegComment" attribute="Comment" lineEndContext="#pop">
+    <context name="RegComment" attribute="Comment" lineEndContext="#stay">
         <DetectIdentifier/>
         <DetectChar context="#pop" char=")"/>
     </context>
@@ -1037,25 +1049,18 @@
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
     </context>
 
-    <context name="String" attribute="String" lineEndContext="#pop">
-        <RegExpr attribute="Regex Option" context="Regex" String="[imsxADJUXSC]+\)" insensitive="false"/>
-        <LineContinue attribute="String" context="#stay"/>
-        <DetectChar attribute="String Char" context="EscapeString" char="`" />
+    <context name="String" attribute="String">
+        <RegExpr attribute="Regex Option" context="#pop!Regex" String="[imsxADJUXSC]+\)" insensitive="false"/>
+        <RegExpr attribute="String Char" context="#stay" String="`." />
         <Detect2Chars attribute="String Char" context="#stay" char="&quot;" char1="&quot;" />
         <DetectChar attribute="String" context="#pop" char="&quot;"/>
     </context>
 
-    <context name="String Char" attribute="String Char" lineEndContext="#pop">
-        <RegExpr attribute="Regex Option" context="Regex" String="[imsxADJUXSC]+\)" insensitive="false"/>
-        <LineContinue attribute="String Char" context="#stay"/>
-        <DetectChar attribute="String" context="EscapeString" char="`" />
-        <Detect2Chars attribute="String Char" context="#stay" char="'" char1="'" />
+    <context name="String Char" attribute="String Char">
+        <RegExpr attribute="Regex Option" context="#pop!Regex" String="[imsxADJUXSC]+\)" insensitive="false"/>
+        <RegExpr attribute="String" context="#stay" String="`." />
+        <Detect2Chars attribute="String" context="#stay" char="'" char1="'" />
         <DetectChar attribute="String Char" context="#pop" char="'"/>
-    </context>
-
-    <context name="EscapeString" attribute="String Char" lineEndContext="#pop" fallthroughContext="#pop">
-        <Detect2Chars attribute="String Char" context="#stay" char=":" char1=":" />
-        <AnyChar attribute="String Char" context="#pop" String="`,%;nrbtvaf&apos;&quot;"/>
     </context>
 
     <context name="CommentLine" attribute="Comment" lineEndContext="#pop">

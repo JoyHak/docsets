@@ -19,6 +19,13 @@ String(A_AhkPath)
 throw MemoryError()
 throw Error()
 
+class Version {
+__New() {
+    this.Major := Major
+    this.Minor := Minor
+    this.Patch := Patch
+}
+
 FatArrow() => false
 FatArrow(Args*) => (SubStr(args[1]))
 FatArrow(Args?) => SubStr(args[1]) . SubStr(args[1])
@@ -27,6 +34,7 @@ def(arg, args?) {
     if (a ~= "[\/^%]  (?<path>[^\$=:\>`"`']*white) | text (?<=\G) \$ (?: (?<paren>\( (?: [^\(\)\r\n]+ | (?&paren)) \))") {
     }
     r := 'm)\b\1\2$0[:=\\]\w+(?#comment)(*PRUNE)(*F)(?R)(?=:)(?<!&)(?![$%])'
+
     s := SubStr() . SubStr()
     s := SubStr() 'str' a "str" . SubStr()
     s := "str" SubStr()
@@ -41,33 +49,14 @@ def(arg, args?) {
 
 fn := () => false
 fn := (*) => (false, "True", SubStr())
-    
+}
+
 AutoTrim "Off"
 AutoTrim "On"
 On Off False True 
 f.v22
 power.stop
 #SingleInstance off 
-#Include <data> 
-
-send "+{Delete}"	; full name in { }
-send "^+D"			; just 1 letter
-send "^+Del"		; only 1st would be interpreted as key
-send "CapsLock"		; not a key!
-send 'text Delete and some {CapsLock 2}' so Delete		; some text and keys in { }
-send "+s some {Delete} and some {CapsLock 12}"			; mod+key and some text					
-
-; special characters are interpreted literally
-send "{Raw}#f ^!d s{o}me {CapsLock}"					
-send "{Text} {Caps} {Delete} Winand some CapsLock" 
-
-; just strings
-send "& $ * ~ "
-Tooltip "+s some {Delete} and some {CapsLock 12}"
-MsgBox "+s some {Delete} and some {CapsLock 12}"
-
-; Перенезначение сочетаний клавиш в приложениях с помощью #Hotif.
-
 #Requires Autohotkey v2.0
 #Include <reload>   
 #Include <jetbrainsGroup>   
@@ -84,14 +73,7 @@ CoordMode('Mouse', 'Screen')
         name := WinGetProcessName("A")
         WinTitle   := "ahk_exe " name
         WaitTimout := 10 
-        
-        processQuery := 
-        (Join`s
-           "select processId, commandLine 
-            from Win32_Process 
-            where CommandLine like '%" name "%'"
-        )
-        
+
         for p in ComObjGet("winmgmts:").ExecQuery(processQuery) {
             if !InStr(p.commandLine, path)
                 continue

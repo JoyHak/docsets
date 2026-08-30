@@ -148,7 +148,6 @@ class Color {
             return
     }
 
-
     __Get(aName) {
         ; NOTE: Using this.Shift here would cause an infinite loop!
         shift := Color.Shift[aName]  ; Get the number of bits to shift.
@@ -192,6 +191,10 @@ class Color {
         get => this.__RGB.%value%()  ; valid V2 code (dereference)
     }
     
+    static __Item[value] {
+        get => 0
+    }
+    
     Nul(*) => 0x000000  ; c
     
 }
@@ -201,6 +204,8 @@ class Properties extends Func {
         ; If this Properties object contains a definition for this half-property, call it.
         return this[aName].Call(aTarget, aParams*)
     }
+    
+    static Call(*) => Func()
 }
 
 red  := Color(0xff0000), red.R -= 5
@@ -414,6 +419,10 @@ Dummy() {
     s := StrReplace(Hotstring, "`n", "``r")
     s := StrReplace(Hotstring, A_Tab, "``t")
     s := StrReplace(Hotstring, "`;", "```;")
+    
+    loop parse, "str`r`n", '`r`n' {
+    }
+    
     A_Clipboard := ClipboardOld  ; Restore previous contents of clipboard.
     ; This will move the InputBox's caret to a more friendly position:
     

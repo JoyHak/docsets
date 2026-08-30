@@ -390,7 +390,7 @@
 <list name="meta">
     <item>get</item>
     <item>set</item>
-    <item>unset</item>
+    <item>call</item>
     <item>__new</item>
     <item>__delete</item>
     <item>__get</item>
@@ -757,6 +757,7 @@
     <item>contains</item>
     <item>in</item>
     <item>is</item>
+    <item>unset</item>
     <item>not</item>
     <item>or</item>
     <item>and</item>
@@ -786,7 +787,6 @@
         <keyword attribute="Control Flow" context="#pop!Params" String="controlflow"/>
         <keyword attribute="Break Flow" context="#pop!Params" String="breakflow"/>
         <keyword attribute="BuiltIn" context="#pop!Params" String="functions"/>
-        <keyword attribute="Meta" context="#pop!Params" String="meta"/>
         <keyword attribute="Type" context="#pop!Params" String="types"/>
         <StringDetect attribute="Keyword" context="#pop!Class" String="class"/>
         <keyword attribute="Keyword" context="#pop!Function" String="keywords"/>
@@ -801,13 +801,12 @@
         <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace1"/>
         <DetectChar attribute="Symbol" context="ContinuationSection" char="("/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
-        <DetectChar attribute="Deref" context="Deref" char="%"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
+        <DetectChar attribute="Deref" context="Deref" char="%"/>
         <keyword attribute="Control Flow" context="Params" String="controlflow"/>
         <keyword attribute="Break Flow" context="Params" String="breakflow"/>
         <keyword attribute="Negative" context="Params" String="negatives"/>
         <keyword attribute="BuiltIn" context="Params" String="functions"/>
-        <keyword attribute="Meta" context="Params" String="meta"/>
         <keyword attribute="Type" context="Params" String="types"/>
         <StringDetect attribute="Keyword" context="Class" String="class"/>
         <keyword attribute="Keyword" context="Function" String="keywords"/>
@@ -858,6 +857,7 @@
 
     <context name="Storage" attribute="Normal Text" lineEndContext="#pop">
         <DetectSpaces/>
+        <keyword attribute="Meta" context="Function" String="meta"/>
         <RegExpr context="Function" String="&func;" lookAhead="true" />
         <DetectIdentifier context="Function"/>
     </context>
@@ -867,7 +867,12 @@
         <StringDetect attribute="Keyword" String="extends"/>
         <DetectIdentifier attribute="Type"/>
         <DetectChar attribute="Type" char="."/>
-        <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace1"/>
+        <DetectChar attribute="Symbol" context="ClassStatement" char="{" beginRegion="Brace1"/>
+    </context>
+
+    <context name="ClassStatement" attribute="Normal Text" lineEndContext="#stay">
+        <keyword attribute="Meta" context="Function" String="meta"/>
+        <IncludeRules context="Statement" includeAttrib="true"/>
     </context>
 
     <context name="Params" attribute="Normal Text" lineEndContext="#pop">
@@ -878,7 +883,6 @@
 		<keyword attribute="Control Flow" context="#stay" String="controlflow"/>
         <keyword attribute="Negative" context="#stay" String="negatives"/>
         <keyword attribute="BuiltIn" context="#stay" String="functions"/>
-        <keyword attribute="Meta" context="#stay" String="meta"/>
         <keyword attribute="Type" context="#stay" String="types"/>
         <RegExpr attribute="Symbol" String="&operator;"/>
         <keyword attribute="Variable" context="#stay" String="variables" />

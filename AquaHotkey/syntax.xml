@@ -1034,11 +1034,12 @@
         <DetectChar attribute="Deref" context="#pop" char="%"/>
     </context>
 
-    <context name="Hotkey" attribute="Normal Text" lineEndContext="#pop">
-        <StringDetect attribute="Hotkey" context="#stay"  String="%1" dynamic="true"/>
+    <context name="Hotkey" attribute="Hotkey" lineEndContext="#pop">
+        <StringDetect attribute="Hotkey" context="#stay" String="%1" dynamic="true"/>
         <Detect2Chars attribute="Symbol" context="#stay" char=":" char1=":" />
-        <IncludeRules context="Params" />
-        <RegExpr attribute="Hotkey" context="#pop" String="[^ \t]+"/>
+        <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace1"/>
+        <StringDetect attribute="Keyword" context="#pop" String="return"/>
+        <RegExpr context="#pop!Params" String="\w+[\[\(. \t]" lookAhead="true"/>
         <DetectSpaces/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
@@ -1046,8 +1047,8 @@
 
     <context name="Hotstring" attribute="Hotstring" lineEndContext="#pop">
         <AnyChar attribute="Symbol" context="#stay" String=":?*"/>
-        <keyword attribute="BuiltIn" context="Params" String="functions"/>
-        <RegExpr context="Function" String="&func;" lookAhead="true"/>
+        <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace1"/>
+        <RegExpr context="#pop!Params" String="\w+[\[\(.][^ \t\r\n]+" lookAhead="true"/>
         <DetectSpaces/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>

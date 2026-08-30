@@ -1,16 +1,8 @@
 ﻿```ahk
 #Warn Unreachable, Off
-::ftw::Free the whales ; hotstring label abbreviation
-::btw::{  ; hotstring label action
-    global
+::h::Hello
+::btw::{
     MsgBox("You typed btw.")
-    Run("notepad.exe")  ; Run Notepad when you press CTRL+N.
-    MsgBox("Wow!")
-    MsgBox("There are")
-    Run("notepad.exe")
-    WinActivate("Untitled - Notepad")
-    Send("7 lines{!}{Enter}")
-    SendInput("inside the CTRL{+}J hotkey.")
 }
 
 Numpad0 & Numpad1::return
@@ -25,14 +17,15 @@ Numpad0 & Numpad1::return
 ; Press Win+↑ to maximize the active window
 #Up::WinMaximize("A")
 
-:*:acheiv::achiev
-::achievment::achievement
+:*:acheiv::achiev.
+::achievment::achievement.
 ::acquaintence::acquaintance
 :*:adquir::acquir
 ::aquisition::acquisition
 :*:agravat::aggravat
 :*:allign::align
 ::ameria::America
+::GC::Gui.Color
 :*:ftw::Free the whales ; Hotstring modifiers
 
 *#up::MouseMove(0, -10, 0, "R")  ; Win+UpArrow hotkey => Move cursor upward
@@ -40,16 +33,22 @@ Numpad0 & Numpad1::return
 *#Left::MouseMove(-10, 0, 0, "R")  ; Win+LeftArrow => Move cursor to the left
 *#Right::MouseMove(10, 0, 0, "R")  ; Win+RightArrow => Move cursor to the right
 
+; Disable
 *<#RCtrl::return
 *<#AppsKey::return
+
+; Remaps
+^XButton1::^z
+#sc027::sc027
+a::b
 
 <^>!m::MsgBox("You pressed AltGr+m.")
 <^<!m::MsgBox("You pressed LeftControl+LeftAlt+m.")
 
 AppsKey::ToolTip("Press < or > to cycle through windows.")
-AppsKey Up::ToolTip
+AppsKey Up::ToolTip()
 ~AppsKey & <::Send("!+{Esc}")
-~AppsKey & >::Send("!{Esc}")
+~AppsKey & >::Gui.__New()
 
 ; Press AppsKey and Alt in any order, then slash (/).
 #HotIf GetKeyState("AppsKey", "P")
@@ -106,22 +105,15 @@ Hotstring("EndChars", "-()[]{}:;")
         return "a value"
     }
 
-Add(X, Y, Z := 0) {
-    return X + Y + Z
-}
+Add(X, Y, Z := 0)  => X + Y + Z
+LogToFile(TextToLog) => FileAppend(TextToLog "`n", "l.log")
 
-Join(sep, params*) {
-    for index,param in params
-        str .= param . sep
-        
-    return SubStr(str, 1, -StrLen(sep))
-}
+FatArrow() => false
+FatArrow(Args*) => (SubStr(args[1]))
+FatArrow(Args?) => SubStr(args[1]) . SubStr(args[1])
 
-MsgBox(Join("`n", "one", "two", "three"))
-
-LogToFile(TextToLog) {
-    FileAppend(TextToLog "`n", "l.log")
-}
+fn := () => false
+fn := (*) => (false, "True", SubStr())
 
 SetDefaults() {
     global

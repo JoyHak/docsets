@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE language SYSTEM "syntax.xsd" [
-    <!ENTITY func "\b([a-zA-Z_][\w_]+)(?=\()">
+    <!ENTITY func "\b([a-zA-Z_][\w_]*)(?=\()">
     <!ENTITY operator "!==|!=|==|&gt;=|&lt;=|&lt;&lt;|&gt;&gt;|!!|\+\+|\-\-|\?\?|\|\||&amp;&amp;|[\+\-\*\/^&amp;|~!?&gt;&lt;]">
 ]>
 <language name="AutoHotKey" section="Scripts"
@@ -779,6 +779,7 @@
         <AnyChar attribute="Symbol" context="Params" String="?:" firstNonSpace="1"/>
         <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace1" firstNonSpace="1"/>
         <DetectChar attribute="Deref" context="Deref" char="%"/>
+        <DetectChar attribute="Symbol" context="#pop!Params" char="("/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
         <keyword attribute="Variable" context="#pop!Params" String="variables" />
@@ -829,6 +830,8 @@
         <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace1" />
         <Detect2Chars attribute="Symbol" context="#pop!Params" char="=" char1=">" />
         <DetectChar attribute="Symbol" context="Params" char="("/>
+        <DetectChar attribute="Comment" context="CommentLine" char=";"/>
+        <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
         <RegExpr    attribute="Symbol" context="Assignment" String="(?://|&lt;&lt;|&gt;&gt;|[-+.:/|&amp;^*%])="/>
     </context>
 

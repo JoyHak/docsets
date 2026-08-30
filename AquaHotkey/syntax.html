@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc 3.10.2" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>LvColors</title>
+  <title>nested</title>
   <style>
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -326,7 +326,7 @@
 <span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span> <span class="op">{</span></span>
 <span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a>        <span class="bu">NumPut</span><span class="op">(</span><span class="sc">&#39;UInt&#39;</span><span class="op">,</span> LV<span class="op">.</span><span class="fl">Colors</span><span class="op">[</span>row<span class="op">][</span>col<span class="op">][</span><span class="st">&quot;Back&quot;</span><span class="op">],</span> lParam <span class="op">+</span> OFFSET_BACK_CLR<span class="op">)</span></span>
 <span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a>        <span class="bu">NumPut</span><span class="op">(</span><span class="sc">&#39;UInt&#39;</span><span class="op">,</span> LV<span class="op">.</span><span class="fl">Colors</span><span class="op">[</span>row<span class="op">][</span>col<span class="op">][</span><span class="st">&quot;Text&quot;</span><span class="op">],</span> lParam <span class="op">+</span> OFFSET_TEXT_CLR<span class="op">)</span></span>
-<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="dt">catch</span> <span class="dt">as</span> <span class="dt">ex</span> <span class="op">{</span></span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="cf">catch</span> <span class="cf">as</span> ex <span class="op">{</span></span>
 <span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a>        <span class="bu">MsgBox</span><span class="op">(</span><span class="bu">Format</span><span class="op">(</span><span class="sc">&#39;{}: {} {}</span><span class="st">`n</span><span class="sc">[{}, {}] {}&#39;</span><span class="op">,</span> ex<span class="op">.</span><span class="fl">what</span><span class="op">,</span> ex<span class="op">.</span><span class="fl">message</span><span class="op">,</span> ex<span class="op">.</span><span class="fl">extra</span><span class="op">,</span> row<span class="op">,</span> col<span class="op">,</span> LV<span class="op">.</span><span class="fl">Colors</span><span class="op">[</span>row<span class="op">].</span><span class="fu">ToString</span><span class="op">()),</span> <span class="va">A_ScriptName</span><span class="op">,</span> <span class="sc">&#39;Iconx&#39;</span><span class="op">)</span></span>
 <span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
@@ -337,7 +337,7 @@
 <span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a>    <span class="cf">default</span><span class="op">:</span></span>
 <span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
 <span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a><span class="fu">BGR</span><span class="op">(</span>color<span class="op">?)</span> <span class="op">{</span></span>
 <span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(!</span><span class="bu">IsSet</span><span class="op">(</span>color<span class="op">)</span>  <span class="op">||</span> color <span class="op">=</span> <span class="dv">0</span><span class="op">)</span></span>
@@ -346,9 +346,9 @@
 <span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">((</span>color <span class="op">&gt;&gt;</span> <span class="dv">16</span><span class="op">)</span> <span class="op">&amp;</span> <span class="dv">0xFF</span><span class="op">)</span> <span class="op">|</span> <span class="op">(</span>color <span class="op">&amp;</span> <span class="dv">0x00FF00</span><span class="op">)</span> <span class="op">|</span> <span class="op">((</span>color <span class="op">&amp;</span> <span class="dv">0xFF</span><span class="op">)</span> <span class="op">&lt;&lt;</span> <span class="dv">16</span><span class="op">)</span></span>
 <span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a><span class="pp">#Include</span><span class="at"> &lt;AquaHotkey/src/Base/ToString&gt;</span></span>
 <span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a></span>

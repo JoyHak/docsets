@@ -12,6 +12,11 @@
 <highlighting>
 <list name="controlflow">
     <item>catch</item>
+    <item>between</item>
+    <item>contains</item>
+    <item>in</item>
+    <item>is</item>
+    <item>as</item>
     <item>continue</item>
     <item>else</item>
     <item>finally</item>
@@ -26,6 +31,14 @@
     <item>try</item>
     <item>until</item>
     <item>while</item>
+</list>
+<list name="keywords">
+    <item>unset</item>
+    <item>not</item>
+    <item>or</item>
+    <item>and</item>
+    <item>class</item>
+    <item>new</item>
 </list>
 <list name="breakflow">
     <item>exitapp</item>
@@ -752,18 +765,6 @@
     <item>A_YWeek</item>
     <item>A_YYYY</item>
 </list>
-<list name="keywords">
-    <item>between</item>
-    <item>contains</item>
-    <item>in</item>
-    <item>is</item>
-    <item>unset</item>
-    <item>not</item>
-    <item>or</item>
-    <item>and</item>
-    <item>class</item>
-    <item>new</item>
-</list>
 <contexts>
     <context name="Normal" attribute="Normal Text" lineEndContext="#stay" fallthroughContext="Action">
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
@@ -779,6 +780,7 @@
         <DetectSpaces/>
         <AnyChar attribute="Symbol" context="Params" String="?:" firstNonSpace="1"/>
         <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace1" firstNonSpace="1"/>
+        <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1" firstNonSpace="1"/>
         <DetectChar attribute="Deref" context="Deref" char="%"/>
         <DetectChar attribute="Symbol" context="#pop!Params" char="("/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
@@ -811,7 +813,7 @@
         <StringDetect attribute="Keyword" context="Class" String="class"/>
         <keyword attribute="Keyword" context="Identifier" String="keywords"/>
         <keyword attribute="Keyword" context="Storage" String="storage_modifiers"/>
-        <DetectChar attribute="Symbol" context="#pop" char="}"  endRegion="Brace1"/>
+        <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1"/>
         <RegExpr context="Identifier" String="&func;" lookAhead="true"/>
         <DetectIdentifier context="Identifier"/>
     </context>
@@ -868,7 +870,7 @@
         <StringDetect attribute="Keyword" String="extends"/>
         <DetectIdentifier attribute="Type"/>
         <DetectChar attribute="Type" char="."/>
-        <DetectChar attribute="Symbol" context="ClassStatement" char="{" beginRegion="Brace1"/>
+        <DetectChar attribute="Symbol" context="#pop!ClassStatement" char="{" beginRegion="Brace1"/>
     </context>
 
     <context name="ClassStatement" attribute="Normal Text" lineEndContext="#stay">
@@ -896,7 +898,7 @@
         <DetectChar attribute="Symbol" context="MultilineParams" char="("/>
         <DetectChar attribute="Symbol" context="#pop" char=")"/>
         <DetectChar attribute="Symbol" context="Object" char="{"/>
-        <DetectChar attribute="Symbol" context="#pop" char="}"  endRegion="Brace1"/>
+        <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
         <DetectChar attribute="Deref" context="Deref" char="%"/>
         <AnyChar attribute="Symbol" context="#stay" String=":!&amp;+,-/.*&lt;&gt;=?[]|~^"/>

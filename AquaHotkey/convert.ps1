@@ -1,5 +1,5 @@
 Split-Path -Parent $PSCommandPath | Set-Location
-pandoc.exe "C:\Configs and settings\AutoHotKey\ListViewColors\LvColors.ahk" `
+pandoc.exe nested.ahk `
     --output syntax.html `
     --from gfm --to html5 `
     --standalone `

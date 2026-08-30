@@ -252,13 +252,41 @@ Send("{Up down}")  ; Press down the up-arrow key.
 Sleep(1000)      ; Keep it down for one second.
 Send("{Up up}")    ; Release the up-arrow key.
 
-Send(
-(LTrim
-"Line 1
-Line 2
-Apples are a fruit."
-))
+; EXAMPLE #1 - inside a quoted/literal string:
+FileAppend("
+(
+A line of text.
+By default, the hard carriage return (Enter) between the previous line and this one will be stored.
+	This line is indented with a tab; by default, that tab will also be stored.
+Additionally, "quote marks" are automatically escaped when appropriate.
+)", A_Desktop "\My File.txt")
 
+; EXAMPLE #2 - outside a quoted/literal string:
+FileAppend(
+(
+"Same as above, except that quote marks are not automatically escaped.
+Specify variables as follows: " Var "
+A line of text."
+), A_Desktop "\My File.txt")
+
+; EXAMPLE #3:
+FileAppend("
+(
+Line 1 of the text.
+Line 2 of the text. By default, a linefeed (`n) is present between lines.
+)", A_Desktop "\My File.txt"
+
+; EXAMPLE #4:
+FormatStr := "
+(
+Another way of using variables with a continuation section.
+Input value 1: {1}
+Input value 2: {2}
+)"
+
+Format("{1:x}{2}", 0x13, 0x14)
+
+; Assign multiline string
 section := 
 (Join`r`n LTrim0
    "select processId, commandLine  ; comment
@@ -269,7 +297,6 @@ section :=
 Send(A_Hour)
 SubStr(37 * 12, 1, 2)
 SubStr(A_Hour - 12, 2)
-SubStr(A_AhkPath, (InStr(A_AhkPath, "AutoHotkey"))<1 ? (InStr(A_AhkPath, "AutoHotkey"))-1 : (InStr(A_AhkPath, "AutoHotkey")))
 SubStr("I'm scripting, awesome!", 16)
 
 if (MyVar = 5) {

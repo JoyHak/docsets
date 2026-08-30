@@ -767,7 +767,7 @@
         <keyword attribute="Directive" String="directives_actions" context="Action" column="0"/>
         <keyword attribute="Directive" String="directives_chars" context="Directive" column="0"/>
         <DetectChar attribute="Symbol" context="Hotstring" char=":" column="0"/>
-        <RegExpr context="Hotkey" lookAhead="true" String="^[ \t]*([^:]+)::" column="0"/>
+        <RegExpr context="Hotkey" String="^[ \t]*([^:]+)::" lookAhead="true" column="0"/>
         <DetectChar attribute="Symbol" context="ContinuationSection" char="("/>
     </context>
 
@@ -787,7 +787,7 @@
         <keyword attribute="Type" context="#pop!Params" String="types"/>
         <StringDetect attribute="Keyword" context="#pop!Class" String="class"/>
         <keyword attribute="Keyword" context="#pop!Function" String="keywords"/>
-        <RegExpr context="Function" lookAhead="true" String="&func;"/>
+        <RegExpr context="Function" String="&func;" lookAhead="true"/>
         <DetectIdentifier context="#pop!Function"/>
     </context>
 
@@ -807,7 +807,7 @@
         <keyword attribute="Type" context="Params" String="types"/>
         <keyword attribute="Keyword" context="Function" String="keywords"/>
         <DetectChar attribute="Symbol" context="#pop" char="}"  endRegion="Brace1"/>
-        <RegExpr context="Function" lookAhead="true" String="&func;"/>
+        <RegExpr context="Function" String="&func;" lookAhead="true"/>
         <DetectIdentifier context="Function"/>
     </context>
 
@@ -918,7 +918,8 @@
         <Float attribute="Float" context="#stay"/>
         <HlCHex attribute="Hex" context="#stay"/>
         <Int attribute="Decimal" context="#stay"/>
-        <RegExpr context="Function" lookAhead="true" String="&func;"/>
+        <RegExpr context="Function" String="&func;" lookAhead="true" />
+        <RegExpr attribute="Symbol" context="ContinuationSection" String="^[ \t]*\(" column="0"/>
         <DetectChar attribute="Symbol" context="Params" char="("/>
         <DetectChar attribute="Symbol" context="#pop" char=")"/>
         <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace1"/>
@@ -927,7 +928,7 @@
         <AnyChar attribute="Symbol" context="#stay" String=":!&amp;+,-/.*&lt;&gt;=?[]|~^"/>
     </context>
 
-    <context name="ContinuationSection" attribute="Normal Text" lineEndContext="#stay">
+    <context name="ContinuationSection" attribute="Normal Text">
         <DetectSpaces/>
         <RegExpr attribute="Keyword" context="#stay" String="\b(?:(?:l|r)trim0?|comments?|com)\b" insensitive="true"/>
         <StringDetect attribute="Keyword" context="JoinChar" String="join" insensitive="true"/>
@@ -947,7 +948,7 @@
         <DetectSpaces/>
         <keyword attribute="Type" context="#pop" String="types"/>
         <keyword attribute="Meta" context="#pop" String="meta"/>
-        <RegExpr context="Function" lookAhead="true" String="&func;"/>
+        <RegExpr context="Function" String="&func;" lookAhead="true"/>
         <DetectIdentifier attribute="Normal Text" context="#pop"/>
     </context>
 
@@ -1046,7 +1047,7 @@
     <context name="Hotstring" attribute="Hotstring" lineEndContext="#pop">
         <AnyChar attribute="Symbol" context="#stay" String=":?*"/>
         <keyword attribute="BuiltIn" context="Params" String="functions"/>
-        <RegExpr context="Function" lookAhead="true" String="&func;"/>
+        <RegExpr context="Function" String="&func;" lookAhead="true"/>
         <DetectSpaces/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>

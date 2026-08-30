@@ -171,10 +171,10 @@
 <span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>colorsMap<span class="op">.</span><span class="fu">Has</span><span class="op">(</span>row<span class="op">))</span> <span class="op">{</span></span>
 <span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="op">(</span>colorsMap<span class="op">[</span>row<span class="op">].</span><span class="fu">Has</span><span class="op">(</span>col<span class="op">))</span> <span class="op">{</span></span>
 <span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>                colorsMap<span class="op">[</span>row<span class="op">].</span><span class="fu">Delete</span><span class="op">(</span>col<span class="op">)</span> </span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>            } <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
 <span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>                colorsMap<span class="op">.</span><span class="fu">Delete</span><span class="op">(</span>row<span class="op">)</span></span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>            }  </span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>        } </span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span>  </span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> </span>
 <span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>        </span>
 <span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(!</span>colorsMap<span class="op">.</span><span class="fu">Has</span><span class="op">(</span>row<span class="op">))</span> <span class="op">{</span></span>
 <span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>            colorsMap<span class="op">[</span>row<span class="op">]</span> <span class="op">:=</span> <span class="dt">Map</span><span class="op">()</span></span>
@@ -184,7 +184,7 @@
 <span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>            <span class="op">)</span></span>
 <span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>        </span>
 <span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>            colorsMap<span class="op">[</span>row<span class="op">].</span><span class="fl">capacity</span> <span class="op">:=</span> <span class="bu">Max</span><span class="op">(</span><span class="va">this</span><span class="op">.</span><span class="fl">ListView</span><span class="op">.</span><span class="fl">ColsCount</span><span class="op">,</span> col<span class="op">)</span></span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>        colorsMap<span class="op">[</span>row<span class="op">][</span>col<span class="op">]</span> <span class="op">:=</span> <span class="dt">Map</span><span class="op">(</span></span>
 <span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Back&quot;</span><span class="op">,</span> <span class="va">this</span><span class="op">.</span><span class="fl">ListView</span><span class="op">.</span><span class="fu">BGR</span><span class="op">(</span>back<span class="op">?)</span> <span class="op">??</span> <span class="va">this</span><span class="op">.</span><span class="fl">ListView</span><span class="op">.</span><span class="fl">BackColor</span><span class="op">,</span></span>
@@ -192,8 +192,8 @@
 <span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>        <span class="op">)</span></span>
 <span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>SelColors <span class="op">{</span></span>
 <span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>    get <span class="op">{</span></span>
@@ -207,11 +207,11 @@
 <span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>        Rows<span class="op">.</span><span class="fl">capacity</span> <span class="op">:=</span> <span class="va">this</span><span class="op">.</span><span class="fl">rowsCount</span></span>
 <span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>        Rows<span class="op">.</span><span class="fl">default</span> <span class="op">:=</span> defaultColor</span>
 <span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>        <span class="va">this</span><span class="op">.</span><span class="fu">DefineProp</span><span class="op">(</span><span class="st">&quot;SelColors&quot;</span><span class="op">,</span> <span class="op">{</span> Get<span class="op">:</span> <span class="op">(</span>_<span class="op">)</span> <span class="op">=&gt;</span> Rows <span class="op">})</span></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>        this<span class="op">.</span><span class="fu">DefineProp</span><span class="op">(</span><span class="st">&quot;SelColors&quot;</span><span class="op">,</span> <span class="op">{</span> Get<span class="op">:</span> <span class="op">(</span>_<span class="op">)</span> <span class="op">=&gt;</span> Rows <span class="op">})</span></span>
 <span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Rows</span>
-<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>Colors <span class="op">{</span></span>
 <span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>    get <span class="op">{</span></span>
@@ -225,11 +225,11 @@
 <span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>        Rows<span class="op">.</span><span class="fl">capacity</span> <span class="op">:=</span> <span class="va">this</span><span class="op">.</span><span class="fl">rowsCount</span></span>
 <span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>        Rows<span class="op">.</span><span class="fl">default</span> <span class="op">:=</span> defaultColor</span>
 <span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>        <span class="va">this</span><span class="op">.</span><span class="fu">DefineProp</span><span class="op">(</span><span class="st">&quot;Colors&quot;</span><span class="op">,</span> <span class="op">{</span> Get<span class="op">:</span> <span class="op">(</span>_<span class="op">)</span> <span class="op">=&gt;</span> Rows <span class="op">})</span></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>        this<span class="op">.</span><span class="fu">DefineProp</span><span class="op">(</span><span class="st">&quot;Colors&quot;</span><span class="op">,</span> <span class="op">{</span> Get<span class="op">:</span> <span class="op">(</span>_<span class="op">)</span> <span class="op">=&gt;</span> Rows <span class="op">})</span></span>
 <span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Rows        </span>
-<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a><span class="fu">Showcolors</span><span class="op">()</span> <span class="op">{</span></span>
 <span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="va">this</span><span class="op">.</span><span class="fu">HasOwnProp</span><span class="op">(</span><span class="st">&quot;onNotifyFunc&quot;</span><span class="op">)</span></span>
@@ -301,16 +301,16 @@
 <span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> CDDS_ITEMPREPAINT<span class="op">:</span></span>
 <span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a>        <span class="co">; Colorize entire row</span></span>
-<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a>        static LVM_GETITEMSTATE <span class="op">:=</span> <span class="dv">0x102C</span></span>
-<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a>        static LVIS_SELECTED    <span class="op">:=</span> <span class="dv">0x0002</span></span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a>        <span class="kw">static</span> LVM_GETITEMSTATE <span class="op">:=</span> <span class="dv">0x102C</span></span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a>        <span class="kw">static</span> LVIS_SELECTED    <span class="op">:=</span> <span class="dv">0x0002</span></span>
 <span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>LV<span class="op">.</span><span class="fl">SelColors</span><span class="op">.</span><span class="fu">Has</span><span class="op">(</span>row<span class="op">)</span> </span>
 <span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a>         <span class="op">&amp;&amp;</span> <span class="bu">SendMessage</span><span class="op">(</span>LVM_GETITEMSTATE<span class="op">,</span> item<span class="op">,</span> LVIS_SELECTED<span class="op">,</span> LV<span class="op">.</span><span class="fl">Hwnd</span><span class="op">))</span> <span class="op">{</span></span>
 <span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a>            <span class="co">; Set selected row color</span></span>
 <span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a>            </span>
 <span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a>            <span class="co">; Remove the CDIS_SELECTED and CDIS_FOCUS from uItemState</span></span>
-<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a>            static CDIS_SELECTED <span class="op">:=</span> <span class="dv">0x0001</span></span>
-<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a>            static CDIS_FOCUS    <span class="op">:=</span> <span class="dv">0x0010</span></span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a>            <span class="kw">static</span> CDIS_SELECTED <span class="op">:=</span> <span class="dv">0x0001</span></span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a>            <span class="kw">static</span> CDIS_FOCUS    <span class="op">:=</span> <span class="dv">0x0010</span></span>
 <span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a>            flag  <span class="op">:=</span> CDIS_SELECTED <span class="op">|</span> CDIS_FOCUS</span>
 <span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a>            </span>
 <span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a>            state <span class="op">:=</span> <span class="bu">NumGet</span><span class="op">(</span>lParam <span class="op">+</span> OFFSET_ITEM_STATE<span class="op">,</span> <span class="sc">&#39;UInt&#39;</span><span class="op">)</span></span>
@@ -321,14 +321,14 @@
 <span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a>            <span class="bu">NumPut</span><span class="op">(</span><span class="sc">&#39;UInt&#39;</span><span class="op">,</span> LV<span class="op">.</span><span class="fl">SelColors</span><span class="op">[</span>row<span class="op">][</span>col<span class="op">][</span><span class="st">&quot;Text&quot;</span><span class="op">],</span> lParam <span class="op">+</span> OFFSET_TEXT_CLR<span class="op">)</span></span>
 <span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a>            </span>
 <span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> CDRF_NEWFONT</span>
-<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a>        </span>
 <span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span> <span class="op">{</span></span>
 <span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a>        <span class="bu">NumPut</span><span class="op">(</span><span class="sc">&#39;UInt&#39;</span><span class="op">,</span> LV<span class="op">.</span><span class="fl">Colors</span><span class="op">[</span>row<span class="op">][</span>col<span class="op">][</span><span class="st">&quot;Back&quot;</span><span class="op">],</span> lParam <span class="op">+</span> OFFSET_BACK_CLR<span class="op">)</span></span>
 <span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a>        <span class="bu">NumPut</span><span class="op">(</span><span class="sc">&#39;UInt&#39;</span><span class="op">,</span> LV<span class="op">.</span><span class="fl">Colors</span><span class="op">[</span>row<span class="op">][</span>col<span class="op">][</span><span class="st">&quot;Text&quot;</span><span class="op">],</span> lParam <span class="op">+</span> OFFSET_TEXT_CLR<span class="op">)</span></span>
-<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a>        } <span class="cf">catch</span> as ex <span class="op">{</span></span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span> <span class="dt">catch</span> <span class="dt">as</span> <span class="dt">ex</span> <span class="op">{</span></span>
 <span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a>        <span class="bu">MsgBox</span><span class="op">(</span><span class="bu">Format</span><span class="op">(</span><span class="sc">&#39;{}: {} {}</span><span class="st">`n</span><span class="sc">[{}, {}] {}&#39;</span><span class="op">,</span> ex<span class="op">.</span><span class="fl">what</span><span class="op">,</span> ex<span class="op">.</span><span class="fl">message</span><span class="op">,</span> ex<span class="op">.</span><span class="fl">extra</span><span class="op">,</span> row<span class="op">,</span> col<span class="op">,</span> LV<span class="op">.</span><span class="fl">Colors</span><span class="op">[</span>row<span class="op">].</span><span class="fu">ToString</span><span class="op">()),</span> <span class="va">A_ScriptName</span><span class="op">,</span> <span class="sc">&#39;Iconx&#39;</span><span class="op">)</span></span>
-<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
 <span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> CDDS_PREPAINT<span class="op">:</span></span>
@@ -336,7 +336,7 @@
 <span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a>        </span>
 <span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a>    <span class="cf">default</span><span class="op">:</span></span>
 <span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
-<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a><span class="fu">BGR</span><span class="op">(</span>color<span class="op">?)</span> <span class="op">{</span></span>
@@ -350,7 +350,7 @@
 <span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a>#Include <span class="op">&lt;</span>AquaHotkey<span class="op">/</span>src<span class="op">/</span>Base<span class="op">/</span>ToString<span class="op">&gt;</span></span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a><span class="pp">#Include</span><span class="at"> &lt;AquaHotkey/src/Base/ToString&gt;</span></span>
 <span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a>G <span class="op">:=</span> <span class="dt">Gui</span><span class="op">()</span></span>
 <span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a>G<span class="op">.</span><span class="fu">SetFont</span><span class="op">(</span><span class="sc">&#39;q5 s11&#39;</span><span class="op">,</span> <span class="sc">&#39;Maple Mono NF CN&#39;</span><span class="op">)</span></span>

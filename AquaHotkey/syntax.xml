@@ -893,13 +893,19 @@
         <Int attribute="Decimal" context="#stay"/>
         <RegExpr context="Identifier" String="&func;" lookAhead="true" />
         <RegExpr attribute="Symbol" context="ContinuationSection" String="^[ \t]*\(" column="0"/>
-        <DetectChar attribute="Symbol" context="Params" char="("/>
+        <DetectChar attribute="Symbol" context="MultilineParams" char="("/>
         <DetectChar attribute="Symbol" context="#pop" char=")"/>
-        <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace1"/>
+        <DetectChar attribute="Symbol" context="Object" char="{"/>
+        <DetectChar attribute="Symbol" context="#pop" char="}"  endRegion="Brace1"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
         <DetectChar attribute="Deref" context="Deref" char="%"/>
         <AnyChar attribute="Symbol" context="#stay" String=":!&amp;+,-/.*&lt;&gt;=?[]|~^"/>
     </context>
+
+    <context name="MultilineParams" attribute="Normal Text" lineEndContext="#stay">
+		<DetectSpaces/>
+		<IncludeRules context="Params"/>
+	</context>
 
     <context name="ContinuationSection" attribute="Normal Text">
         <DetectSpaces/>

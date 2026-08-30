@@ -1,6 +1,13 @@
 ﻿```ahk
 #Warn Unreachable, Off
 ::h::Hello
+:*:acheiv::achiev.
+::achievment::achievement.
+:*:adquir::acquir
+:*:ftw::Free the whales
+::GN::Gui.__New()    ; create
+::GT::ToolTip("GC")  ; builtin
+::GT::Arr[0].Get()  ; statement
 ::btw::{
     MsgBox("You typed btw.")
 }
@@ -13,25 +20,11 @@ Numpad0 & Numpad1::return
 ; Any window
 #HotIf
 !q::SendEvent('^t')
-
-; Press Win+↑ to maximize the active window
-#Up::WinMaximize("A")
-
-:*:acheiv::achiev.
-::achievment::achievement.
-::acquaintence::acquaintance
-:*:adquir::acquir
-::aquisition::acquisition
-:*:agravat::aggravat
-:*:allign::align
-::ameria::America
-::GC::Gui.Color
-:*:ftw::Free the whales ; Hotstring modifiers
-
-*#up::MouseMove(0, -10, 0, "R")  ; Win+UpArrow hotkey => Move cursor upward
-*#Down::MouseMove(0, 10, 0, "R")  ; Win+DownArrow => Move cursor downward
-*#Left::MouseMove(-10, 0, 0, "R")  ; Win+LeftArrow => Move cursor to the left
-*#Right::MouseMove(10, 0, 0, "R")  ; Win+RightArrow => Move cursor to the right
+!g::Arr[0].Get()
+AppsKey::ToolTip("Press < or > to cycle through windows.")
+AppsKey Up::ToolTip()
+~AppsKey & <::Send("!+{Esc}")
+~AppsKey & >::Gui.__New()
 
 ; Disable
 *<#RCtrl::return
@@ -41,14 +34,6 @@ Numpad0 & Numpad1::return
 ^XButton1::^z
 #sc027::sc027
 a::b
-
-<^>!m::MsgBox("You pressed AltGr+m.")
-<^<!m::MsgBox("You pressed LeftControl+LeftAlt+m.")
-
-AppsKey::ToolTip("Press < or > to cycle through windows.")
-AppsKey Up::ToolTip()
-~AppsKey & <::Send("!+{Esc}")
-~AppsKey & >::Gui.__New()
 
 ; Press AppsKey and Alt in any order, then slash (/).
 #HotIf GetKeyState("AppsKey", "P")
@@ -69,7 +54,7 @@ AppsKey Up::ToolTip()
     editor_open_folder(*) {
         path := WinGetTitle("A")
         if RegExMatch(path, "x)\*?\K(.*)\\[^\\]+(?= [-*] )", &path)
-            if (FileExist((path&&path[0])) && A_ThisHotkey = "^+e")
+            if (FileExist(path[0]) && A_ThisHotkey = "^+e")
                 Run("explorer.exe /select,`"" (path&&path[0]) "`"")
             else
                 Run("explorer.exe `"" path[1] "`"")
@@ -82,11 +67,11 @@ AppsKey Up::ToolTip()
     case_conform_btw(*) {
         hs := A_ThisHotkey  ; For convenience and in case we're interrupted.
         if (hs == ":C:BTW")
-            Send("BY THE WAY")
+            try Send("BY THE WAY")
         else if (hs == ":C:Btw")
-            Send("By the way")
+            try Send("By the way")
         else
-            Send("by the way")
+            try Send("by the way")
     }
 
 #HotIf WinActive("ahk_class Notepad", )
@@ -115,22 +100,25 @@ FatArrow(Args?) => SubStr(args[1]) . SubStr(args[1])
 fn := () => false
 fn := (*) => (false, "True", SubStr())
 
+; storage modifiers
 SetDefaults() {
-    global
-    MyGlobal := 33
+    global MyGlobal := 33
     local x, y := 0, z
+    static count := 0
+    
+    static dummy := {Color: "Yellow", Taste: "Delicious", Price: 3}
 }
 
-GetFromStaticArray(WhichItemNumber) {
-    static FirstCallToUs := true
-    if FirstCallToUs {
-        FirstCallToUs := false
-        Loop 10 {
-            StaticArray%A_Index% := "Value #" . A_Index
-        }
+GetValue(num) {
+    switch num {
+    case 1:
+        SetDefaults()
+        return true
+    case 2:
+        return 'str' . num
+    default:
+        throw ValueError(1, 'num', num)
     }
-    
-    return StaticArray%WhichItemNumber%
 }
 
 class baseObject {
@@ -146,16 +134,20 @@ thing_test(this) {
 }
 
 class Color {
+    static Shift := {R:16, G:8, B:0}
+    static Dummy := {Color: "Yellow", Taste: "Delicious", Price: 3}
+    
     __New(aRGB) {
         this.RGB := aRGB
         this.stored_RGB := 0x000000
     }
 
     __Delete() {
-        MsgBox("Delete Color.")
+        try MsgBox("Delete Color.")
+        catch ValueError
+            return
     }
 
-    static Shift := {R:16, G:8, B:0}
 
     __Get(aName) {
         ; NOTE: Using this.Shift here would cause an infinite loop!

@@ -1,5 +1,5 @@
 Split-Path -Parent $PSCommandPath | Set-Location
-pandoc.exe syntax.ahk `
+pandoc.exe syntax.md `
     --output syntax.html `
     --from gfm --to html5 `
     --standalone `

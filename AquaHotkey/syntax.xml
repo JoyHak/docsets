@@ -16,14 +16,10 @@
     <item>else</item>
     <item>finally</item>
     <item>for</item>
-    <item>global</item>
     <item>goto</item>
     <item>if</item>
-    <item>local</item>
     <item>loop</item>
-    <item>pause</item>
     <item>return</item>
-    <item>static</item>
     <item>switch</item>
     <item>case</item>
     <item>default</item>
@@ -34,8 +30,15 @@
 <list name="breakflow">
     <item>exitapp</item>
     <item>exit</item>
+    <item>reload</item>
+    <item>pause</item>
     <item>throw</item>
     <item>break</item>
+</list>
+<list name="storage_modifiers">
+    <item>static</item>
+    <item>local</item>
+    <item>global</item>
 </list>
 <list name="negatives">
     <item>false</item>
@@ -779,7 +782,6 @@
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
         <keyword attribute="Variable" context="#pop!Params" String="variables" />
-        <keyword attribute="Hotkey" context="#pop!ActionParam" String="hotkeys"/>
         <keyword attribute="Control Flow" context="#pop!Params" String="controlflow"/>
         <keyword attribute="Break Flow" context="#pop!Params" String="breakflow"/>
         <keyword attribute="BuiltIn" context="#pop!Params" String="functions"/>
@@ -787,6 +789,7 @@
         <keyword attribute="Type" context="#pop!Params" String="types"/>
         <StringDetect attribute="Keyword" context="#pop!Class" String="class"/>
         <keyword attribute="Keyword" context="#pop!Function" String="keywords"/>
+        <keyword attribute="Keyword" context="#pop!Storage" String="storage_modifiers"/>
         <RegExpr context="Function" String="&func;" lookAhead="true"/>
         <DetectIdentifier context="#pop!Function"/>
     </context>
@@ -806,12 +809,13 @@
         <keyword attribute="Meta" context="Params" String="meta"/>
         <keyword attribute="Type" context="Params" String="types"/>
         <keyword attribute="Keyword" context="Function" String="keywords"/>
+        <keyword attribute="Keyword" context="Storage" String="storage_modifiers"/>
         <DetectChar attribute="Symbol" context="#pop" char="}"  endRegion="Brace1"/>
         <RegExpr context="Function" String="&func;" lookAhead="true"/>
         <DetectIdentifier context="Function"/>
     </context>
 
-    <context name="Function" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="ActionParam">
+    <context name="Function" attribute="Normal Text" lineEndContext="#pop">
         <keyword 	attribute="Type" context="#stay" String="types"/>
         <StringDetect context="#stay" attribute="Function" String="%1" dynamic="true"/>
         <DetectSpaces/>
@@ -835,53 +839,6 @@
         <IncludeRules context="Params"/>
     </context>
 
-    <context name="ActionParam" attribute="Normal Text" lineEndContext="#pop">
-        <DetectSpaces/>
-        <DetectChar attribute="Symbol" context="#pop!Params" char="("/>
-        <DetectChar attribute="Symbol" context="FuncParam" char=","/>
-        <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
-        <DetectChar attribute="Comment" context="CommentLine" char=";"/>
-    </context>
-
-    <context name="FuncParam" attribute="Normal Text" lineEndContext="FuncMultiLineParam">
-        <DetectSpaces/>
-        <DetectChar attribute="Symbol" context="#pop!MultiLineFunc" char="(" beginRegion="funcparam"/>
-    </context>
-
-    <context name="FuncMultiLineParam" attribute="Normal Text" lineEndContext="#stay" fallthroughContext="#pop#pop#pop">
-        <DetectSpaces/>
-        <DetectChar attribute="Symbol" context="#pop#pop!MultiLineFunc" char="(" beginRegion="funcparam"/>
-    </context>
-
-    <context name="MultiLineFunc" attribute="Normal Text" lineEndContext="#stay">
-        <DetectChar attribute="Symbol" context="#pop" char=")" endRegion="funcparam"/>
-    </context>
-
-    <context name="FuncHotkey" attribute="Hotkey" lineEndContext="#pop" fallthroughContext="#pop">
-        <AnyChar attribute="Hotkey" context="#stay" String="#!^+&lt;>*~$"/>
-        <DetectIdentifier attribute="Hotkey" context="#pop" />
-    </context>
-
-    <context name="FuncKey" attribute="Hotkey" lineEndContext="#pop" fallthroughContext="InFuncKey">
-        <Detect2Chars attribute="Normal Text" context="BraceClose" char="}" char1="}" lookAhead="true"/>
-        <DetectChar attribute="Symbol" context="#pop" char="}"/>
-        <AnyChar attribute="Normal Text" context="BraceClose2" String="#+^{!"/>
-        <DetectSpaces/>
-    </context>
-
-    <context name="BraceClose" attribute="Normal Text" lineEndContext="#pop">
-        <DetectChar attribute="Normal Text" context="#pop!BraceClose2" char="}"/>
-    </context>
-    <context name="BraceClose2" attribute="Normal Text" lineEndContext="#pop">
-        <DetectChar attribute="Symbol" context="#pop#pop" char="}"/>
-    </context>
-
-    <context name="InFuncKey" attribute="Hotkey" lineEndContext="#pop#pop">
-        <DetectSpaces/>
-        <DetectIdentifier/>
-        <DetectChar attribute="Symbol" context="#pop#pop" char="}"/>
-    </context>
-
     <context name="Array" attribute="Normal Text" lineEndContext="#pop">
         <DetectSpaces/>
         <DetectChar attribute="Symbol" context="#pop" char="]"/>
@@ -891,7 +848,14 @@
     <context name="Object" attribute="Normal Text" lineEndContext="#pop">
         <DetectSpaces/>
         <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1"/>
+        <DetectChar attribute="Symbol" context="#stay" char=":"/>
         <IncludeRules context="Params"/>
+    </context>
+
+    <context name="Storage" attribute="Normal Text" lineEndContext="#pop">
+        <DetectSpaces/>
+        <RegExpr context="Function" String="&func;" lookAhead="true" />
+        <DetectIdentifier context="Function"/>
     </context>
 
     <context name="Class" attribute="Normal Text" lineEndContext="#pop">
@@ -931,14 +895,14 @@
     <context name="ContinuationSection" attribute="Normal Text">
         <DetectSpaces/>
         <RegExpr attribute="Keyword" context="#stay" String="\b(?:(?:l|r)trim0?|comments?|com)\b" insensitive="true"/>
-        <StringDetect attribute="Keyword" context="JoinChar" String="join" insensitive="true"/>
+        <StringDetect attribute="Keyword" context="EscapedChars" String="join" insensitive="true"/>
         <DetectChar attribute="String" context="#stay" char="`"/>
         <DetectChar attribute="String" context="String" char="&quot;"/>
         <DetectChar attribute="String Char" context="String Char" char="'"/>
         <DetectChar attribute="Symbol" context="#pop" char=")"/>
     </context>
 
-    <context name="JoinChar" attribute="String Char" lineEndContext="#pop">
+    <context name="EscapedChars" attribute="String Char" lineEndContext="#pop">
         <RegExpr context="#stay" String="`." />
         <DetectChar context="#pop" char=" "/>
     </context>

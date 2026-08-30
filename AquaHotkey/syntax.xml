@@ -789,10 +789,10 @@
         <keyword attribute="BuiltIn" context="#pop!Params" String="functions"/>
         <keyword attribute="Type" context="#pop!Params" String="types"/>
         <StringDetect attribute="Keyword" context="#pop!Class" String="class"/>
-        <keyword attribute="Keyword" context="#pop!Function" String="keywords"/>
+        <keyword attribute="Keyword" context="#pop!Identifier" String="keywords"/>
         <keyword attribute="Keyword" context="#pop!Storage" String="storage_modifiers"/>
-        <RegExpr context="Function" String="&func;" lookAhead="true"/>
-        <DetectIdentifier context="#pop!Function"/>
+        <RegExpr context="Identifier" String="&func;" lookAhead="true"/>
+        <DetectIdentifier context="#pop!Identifier"/>
     </context>
 
     <context name="Statement" attribute="Normal Text" lineEndContext="#stay">
@@ -809,14 +809,14 @@
         <keyword attribute="BuiltIn" context="Params" String="functions"/>
         <keyword attribute="Type" context="Params" String="types"/>
         <StringDetect attribute="Keyword" context="Class" String="class"/>
-        <keyword attribute="Keyword" context="Function" String="keywords"/>
+        <keyword attribute="Keyword" context="Identifier" String="keywords"/>
         <keyword attribute="Keyword" context="Storage" String="storage_modifiers"/>
         <DetectChar attribute="Symbol" context="#pop" char="}"  endRegion="Brace1"/>
-        <RegExpr context="Function" String="&func;" lookAhead="true"/>
-        <DetectIdentifier context="Function"/>
+        <RegExpr context="Identifier" String="&func;" lookAhead="true"/>
+        <DetectIdentifier context="Identifier"/>
     </context>
 
-    <context name="Function" attribute="Normal Text" lineEndContext="#pop">
+    <context name="Identifier" attribute="Normal Text" lineEndContext="#pop">
         <keyword 	attribute="Type" context="#stay" String="types"/>
         <StringDetect context="#stay" attribute="Function" String="%1" dynamic="true"/>
         <DetectSpaces/>
@@ -829,6 +829,7 @@
         <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace1" />
         <Detect2Chars attribute="Symbol" context="#pop!Params" char="=" char1=">" />
         <DetectChar attribute="Symbol" context="Params" char="("/>
+        <DetectChar attribute="Symbol" context="#pop" char=")"/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
         <RegExpr    attribute="Symbol" context="Assignment" String="(?://|&lt;&lt;|&gt;&gt;|[-+.:/|&amp;^*%])="/>
@@ -857,9 +858,9 @@
 
     <context name="Storage" attribute="Normal Text" lineEndContext="#pop">
         <DetectSpaces/>
-        <keyword attribute="Meta" context="Function" String="meta"/>
-        <RegExpr context="Function" String="&func;" lookAhead="true" />
-        <DetectIdentifier context="Function"/>
+        <keyword attribute="Meta" context="Identifier" String="meta"/>
+        <RegExpr context="Identifier" String="&func;" lookAhead="true" />
+        <DetectIdentifier context="Identifier"/>
     </context>
 
     <context name="Class" attribute="Normal Text" lineEndContext="#pop">
@@ -871,7 +872,7 @@
     </context>
 
     <context name="ClassStatement" attribute="Normal Text" lineEndContext="#stay">
-        <keyword attribute="Meta" context="Function" String="meta"/>
+        <keyword attribute="Meta" context="Identifier" String="meta"/>
         <IncludeRules context="Statement" includeAttrib="true"/>
     </context>
 
@@ -890,7 +891,7 @@
         <Float attribute="Float" context="#stay"/>
         <HlCHex attribute="Hex" context="#stay"/>
         <Int attribute="Decimal" context="#stay"/>
-        <RegExpr context="Function" String="&func;" lookAhead="true" />
+        <RegExpr context="Identifier" String="&func;" lookAhead="true" />
         <RegExpr attribute="Symbol" context="ContinuationSection" String="^[ \t]*\(" column="0"/>
         <DetectChar attribute="Symbol" context="Params" char="("/>
         <DetectChar attribute="Symbol" context="#pop" char=")"/>
@@ -920,7 +921,7 @@
         <DetectSpaces/>
         <keyword attribute="Type" context="#pop" String="types"/>
         <keyword attribute="Meta" context="#pop" String="meta"/>
-        <RegExpr context="Function" String="&func;" lookAhead="true"/>
+        <RegExpr context="Identifier" String="&func;" lookAhead="true"/>
         <DetectIdentifier attribute="Member" context="#pop"/>
     </context>
 

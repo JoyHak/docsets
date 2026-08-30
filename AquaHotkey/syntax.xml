@@ -817,6 +817,7 @@
         <DetectSpaces/>
         <DetectChar attribute="Symbol" context="Array" char="["/>
         <keyword    attribute="Variable" String="variables" />
+        <Detect2Chars attribute="Symbol" context="Assignment" char="." char1="=" />
         <DetectChar attribute="Symbol" context="Member" char="."/>
         <DetectChar attribute="Deref"  context="Deref" char="%"/>
         <DetectChar attribute="Symbol" context="#pop!Params" char="?"/>

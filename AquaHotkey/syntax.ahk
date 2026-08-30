@@ -277,7 +277,8 @@ if (MyVar = 5) {
     ExitApp()
 }
 
-MyVar2 := (MyVar ~= 'm)\b\1\2$0[:=\\]\w+(?#comment)(*PRUNE)(*F)(?R)(?=:)(?<!&)(?![$%])') ? true : false
+if (MyVar ~= '\b\1\2$0[:=\\]\w+(?#comment)(*PRUNE)(*F)(?R)(?=:)(?<!&)(?![$%])')
+RegExMatch(MyVar, 'x)(?<paren>[^\(\)\r\n]+)\G(?&paren)')
 MyVar := "Text"
 MyVar := MyVar2
 MyVar := MyVar2 . " some text " . MyVar . "."
@@ -333,17 +334,8 @@ MyArray.Pop()
 Sleep(1)
 MsgBox(1 + 1)  ; Shows "2"
 MsgBox("1+1")  ; Shows "1+1"
-
-MsgBox("This is text.")
-MsgBox("This is text.")
-MsgBox( A_AhkVersion)
 MsgBox(A_AhkVersion)
-MsgBox(%A_AhkVersion%)
-MsgBox("Hello %A_UserName%.")  ; Shows "%A_UserName%"
-MsgBox("Hello " A_UserName ".")   ; Shows your username.
-MsgBox("Hello " . A_UserName . ".")  ; Shows your username.
-MyVar := "This is text."
-MyVar := "This is text."
+MsgBox("Hello " A_UserName ".")
 
 Var := [1, 2]
 Low := High := 1

@@ -118,3 +118,7 @@ code span.cn {
 code span.vs {
     color: #fef324;
 }
+/* TODOs, NOTEs, ... */
+code span.al {
+    color: #00ffff;
+}

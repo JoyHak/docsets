@@ -2,7 +2,6 @@
 <!DOCTYPE language SYSTEM "syntax.xsd" [
     <!ENTITY func "\b([a-zA-Z_][\w_]+)(?=\()">
     <!ENTITY operator "!==|!=|==|&gt;=|&lt;=|&lt;&lt;|&gt;&gt;|!!|\+\+|\-\-|\?\?|\|\||&amp;&amp;|[\+\-\*\/^&amp;|~!?&gt;&lt;]">
-    <!ENTITY section_keywords "\b(?:(?:l|r)trim0?|comments?|com)\b">
 ]>
 <language name="AutoHotKey" section="Scripts"
           version="1" kateversion="5.62"
@@ -415,7 +414,7 @@
     <item>RegExMatchInfo</item>
 </list>
 <list name="directives_actions">
-    <item>#hotstring</item>
+    <item>#SingleInstance</item>
     <item>#HotIf</item>
 </list>
 <list name="directives_chars">
@@ -431,11 +430,11 @@
     <item>#MaxThreadsPerHotkey</item>
     <item>#NoTrayIcon</item>
     <item>#Requires</item>
-    <item>#SingleInstance</item>
     <item>#SuspendExempt</item>
     <item>#UseHook</item>
     <item>#Warn</item>
     <item>#WinActivateForce</item>
+    <item>#Hotstring</item>
 </list>
 <list name="hotkeys">
     <item>shift</item>
@@ -765,9 +764,10 @@
     <context name="Normal" attribute="Normal Text" lineEndContext="#stay" fallthroughContext="Action">
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
-        <keyword attribute="Directive" String="directives_actions" context="Action"  column="0"/>
+        <keyword attribute="Directive" String="directives_actions" context="Action" column="0"/>
         <keyword attribute="Directive" String="directives_chars" context="Directive" column="0"/>
-        <RegExpr context="Hotkey" lookAhead="true" String="^[ \t]*([^ \t]+)::" column="0"/>
+        <DetectChar attribute="Symbol" context="Hotstring" char=":" column="0"/>
+        <RegExpr context="Hotkey" lookAhead="true" String="^[ \t]*([^:]+)::" column="0"/>
         <DetectChar attribute="Symbol" context="ContinuationSection" char="("/>
     </context>
 
@@ -928,7 +928,7 @@
 
     <context name="ContinuationSection" attribute="Normal Text" lineEndContext="#stay">
         <DetectSpaces/>
-        <RegExpr attribute="Keyword" context="#stay" String="&section_keywords;" insensitive="true"/>
+        <RegExpr attribute="Keyword" context="#stay" String="\b(?:(?:l|r)trim0?|comments?|com)\b" insensitive="true"/>
         <StringDetect attribute="Keyword" context="JoinChar" String="join" insensitive="true"/>
         <DetectChar attribute="String" context="#stay" char="`"/>
         <DetectChar attribute="String" context="String" char="&quot;"/>
@@ -950,9 +950,9 @@
         <DetectIdentifier attribute="Normal Text" context="#pop"/>
     </context>
 
-    <context name="Directive" attribute="Meta" lineEndContext="#pop">
+    <context name="Directive" attribute="Directive Chars" lineEndContext="#pop">
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
-        <DetectChar attribute="Comment" context="CommentLine" char=";"/>
+        <Detect2Chars attribute="Comment" context="CommentLine" char=" " char1=";"/>
     </context>
 
     <context name="RegexString" attribute="Regex" lineEndContext="#pop">
@@ -1035,15 +1035,17 @@
     <context name="Hotkey" attribute="Normal Text" lineEndContext="#pop">
         <StringDetect attribute="Hotkey" context="#stay"  String="%1" dynamic="true"/>
         <Detect2Chars attribute="Symbol" context="#stay" char=":" char1=":" />
-        <IncludeRules context="Function" />
+        <IncludeRules context="Params" />
         <RegExpr attribute="Hotkey" context="#pop" String="[^ \t]+"/>
         <DetectSpaces/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
     </context>
 
-    <context name="Hotstring" attribute="Normal Text" lineEndContext="#pop">
+    <context name="Hotstring" attribute="Hotstring" lineEndContext="#pop">
         <AnyChar attribute="Symbol" context="#stay" String=":?*"/>
+        <keyword attribute="BuiltIn" context="Params" String="functions"/>
+        <RegExpr context="Function" lookAhead="true" String="&func;"/>
         <DetectSpaces/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
@@ -1086,11 +1088,12 @@
     <itemData name="Meta" 			  defStyleNum="dsAttribute" spellChecking="false"/>
     <itemData name="Type" 		  	  defStyleNum="dsDataType" spellChecking="false"/>
     <itemData name="Hotkey" 		  defStyleNum="dsVerbatimString" spellChecking="false"/>
-    <itemData name="Directive"       defStyleNum="dsPreprocessor" spellChecking="false"/>
-    <itemData name="Directive Chars" defStyleNum="dsAttribute" spellChecking="false"/>
-    <itemData name="Variable"        defStyleNum="dsVariable" spellChecking="false"/>
+    <itemData name="Hotstring" 		  defStyleNum="dsBaseN" spellChecking="false"/>
+    <itemData name="Directive"        defStyleNum="dsPreprocessor" spellChecking="false"/>
+    <itemData name="Directive Chars"  defStyleNum="dsAttribute" spellChecking="false"/>
+    <itemData name="Variable"         defStyleNum="dsVariable" spellChecking="false"/>
     <itemData name="Deref"        	  defStyleNum="dsImport" spellChecking="false"/>
-    <itemData name="Keyword"         defStyleNum="dsKeyword" spellChecking="false"/>
+    <itemData name="Keyword"          defStyleNum="dsKeyword" spellChecking="false"/>
     <itemData name="Normal Text"      defStyleNum="dsNormal" spellChecking="false"/>
     <itemData name="Decimal"          defStyleNum="dsDecVal" spellChecking="false"/>
     <itemData name="Hex"              defStyleNum="dsDecVal" spellChecking="false"/>

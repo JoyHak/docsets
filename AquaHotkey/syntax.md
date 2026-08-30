@@ -49,7 +49,7 @@ def(arg, args?) {
 fn := () => false
 fn := (*) => (false, "True", SubStr())
 
-
+processQuery := 
 (comment
    "select processId, commandLine  ; comment
     from Win32_Process`; 

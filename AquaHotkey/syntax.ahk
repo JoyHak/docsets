@@ -191,6 +191,9 @@ class Color {
     __Item[value] {
         get => this.__RGB.%value%()  ; valid V2 code (dereference)
     }
+    
+    Nul(*) => 0x000000  ; c
+    
 }
 
 class Properties extends Func {
@@ -207,7 +210,7 @@ MsgBox("red: " red.R "," red.G "," red.B " = " red.RGB)
 MsgBox("cyan: " cyan.R "," cyan.G "," cyan.B " = " cyan.RGB)
 
 ; This example requires the FunctionObject class in order to work.
-blue := Color(0x0000ff)
+blue := Color(0x0000ff) ; c
 MsgBox(blue.R "," blue.G "," blue.B)
 
 if (Color = "Red" or Color = "Green"  or Color = "Blue"   ; Comment.

@@ -808,6 +808,7 @@
         <keyword attribute="BuiltIn" context="Params" String="functions"/>
         <keyword attribute="Meta" context="Params" String="meta"/>
         <keyword attribute="Type" context="Params" String="types"/>
+        <StringDetect attribute="Keyword" context="Class" String="class"/>
         <keyword attribute="Keyword" context="Function" String="keywords"/>
         <keyword attribute="Keyword" context="Storage" String="storage_modifiers"/>
         <DetectChar attribute="Symbol" context="#pop" char="}"  endRegion="Brace1"/>
@@ -913,7 +914,7 @@
         <keyword attribute="Type" context="#pop" String="types"/>
         <keyword attribute="Meta" context="#pop" String="meta"/>
         <RegExpr context="Function" String="&func;" lookAhead="true"/>
-        <DetectIdentifier attribute="Normal Text" context="#pop"/>
+        <DetectIdentifier attribute="Member" context="#pop"/>
     </context>
 
     <context name="Directive" attribute="Directive Chars" lineEndContext="#pop">
@@ -1052,6 +1053,7 @@
     <itemData name="Negative" 		  defStyleNum="dsConstant" spellChecking="false"/>
     <itemData name="BuiltIn"          defStyleNum="dsBuiltIn" spellChecking="false"/>
     <itemData name="Function"         defStyleNum="dsFunction" spellChecking="false"/>
+    <itemData name="Member"           defStyleNum="dsFloat" spellChecking="false"/>
     <itemData name="Meta" 			  defStyleNum="dsAttribute" spellChecking="false"/>
     <itemData name="Type" 		  	  defStyleNum="dsDataType" spellChecking="false"/>
     <itemData name="Hotkey" 		  defStyleNum="dsVerbatimString" spellChecking="false"/>

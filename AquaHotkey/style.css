@@ -66,6 +66,10 @@ code span.dv {
 code span.fu {
     color: #6278df;
 }
+/* Member */
+code span.fl {
+    color: #e9e189;
+}
 /* Keyword */
 code span.kw {
     color: #ff80f9;

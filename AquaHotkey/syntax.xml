@@ -772,7 +772,7 @@
         <keyword attribute="Directive" String="directives_actions" context="Action" column="0"/>
         <keyword attribute="Directive" String="directives_chars" context="Directive" column="0"/>
         <DetectChar attribute="Symbol" context="Hotstring" char=":" column="0"/>
-        <RegExpr context="Hotkey" String="^[ \t]*([^:]+)::" lookAhead="true" column="0"/>
+        <RegExpr attribute="Hotkey" context="Hotkey" String="^[ \t]*([^:]+)(?=::)" column="0"/>
         <DetectChar attribute="Symbol" context="ContinuationSection" char="("/>
     </context>
 
@@ -793,7 +793,7 @@
         <StringDetect attribute="Keyword" context="#pop!Class" String="class"/>
         <keyword attribute="Keyword" context="#pop!Identifier" String="keywords"/>
         <keyword attribute="Keyword" context="#pop!Storage" String="storage_modifiers"/>
-        <RegExpr context="Identifier" String="&func;" lookAhead="true"/>
+        <RegExpr attribute="Function" context="Identifier" String="&func;"/>
         <DetectIdentifier context="#pop!Identifier"/>
     </context>
 
@@ -814,13 +814,12 @@
         <keyword attribute="Keyword" context="Identifier" String="keywords"/>
         <keyword attribute="Keyword" context="Storage" String="storage_modifiers"/>
         <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1"/>
-        <RegExpr context="Identifier" String="&func;" lookAhead="true"/>
+        <RegExpr attribute="Function" context="Identifier" String="&func;"/>
         <DetectIdentifier context="Identifier"/>
     </context>
 
     <context name="Identifier" attribute="Normal Text" lineEndContext="#pop">
         <keyword 	attribute="Type" context="#stay" String="types"/>
-        <StringDetect context="#stay" attribute="Function" String="%1" dynamic="true"/>
         <DetectSpaces/>
         <DetectChar attribute="Symbol" context="Array" char="["/>
         <keyword    attribute="Variable" String="variables" />
@@ -861,7 +860,7 @@
     <context name="Storage" attribute="Normal Text" lineEndContext="#pop">
         <DetectSpaces/>
         <keyword attribute="Meta" context="Identifier" String="meta"/>
-        <RegExpr context="Identifier" String="&func;" lookAhead="true" />
+        <RegExpr attribute="Function" context="Identifier" String="&func;" />
         <DetectIdentifier context="Identifier"/>
     </context>
 
@@ -893,7 +892,7 @@
         <Float attribute="Float" context="#stay"/>
         <HlCHex attribute="Hex" context="#stay"/>
         <Int attribute="Decimal" context="#stay"/>
-        <RegExpr context="Identifier" String="&func;" lookAhead="true" />
+        <RegExpr attribute="Function" context="Identifier" String="&func;" />
         <RegExpr attribute="Symbol" context="ContinuationSection" String="^[ \t]*\(" column="0"/>
         <DetectChar attribute="Symbol" context="MultilineParams" char="("/>
         <DetectChar attribute="Symbol" context="#pop" char=")"/>
@@ -929,7 +928,7 @@
         <DetectSpaces/>
         <keyword attribute="Type" context="#pop" String="types"/>
         <keyword attribute="Meta" context="#pop" String="meta"/>
-        <RegExpr context="Identifier" String="&func;" lookAhead="true"/>
+        <RegExpr attribute="Function" context="Identifier" String="&func;"/>
         <DetectIdentifier attribute="Member" context="#pop"/>
     </context>
 
@@ -1016,7 +1015,6 @@
     </context>
 
     <context name="Hotkey" attribute="Hotkey" lineEndContext="#pop">
-        <StringDetect attribute="Hotkey" context="#stay" String="%1" dynamic="true"/>
         <Detect2Chars attribute="Symbol" context="#stay" char=":" char1=":" />
         <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace1"/>
         <StringDetect attribute="Keyword" context="#pop" String="return"/>

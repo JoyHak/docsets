@@ -141,11 +141,17 @@ class Color {
         this.RGB := aRGB
         this.stored_RGB := 0x000000
     }
+    
+    static __New() {
+    }
 
     __Delete() {
         try MsgBox("Delete Color.")
         catch ValueError
             return
+    }
+    
+    __Enum(num) {
     }
 
     __Get(aName) {
@@ -157,17 +163,13 @@ class Color {
     }
 
     __Set(aName, aValue) {
-        if ((shift := Color.Shift[aName]) != "") {
-            aValue &= 255  ; Truncate it to the proper range.
+        shift := Color.Shift[aName]
+        if !shift
+            return ""
 
-            ; Calculate and store the new RGB value.
-            this.RGB := (aValue << shift) | (this.RGB & ~(0xff << shift))
-
-            ; 'Return' must be used to indicate a new key-value pair should not be created.
-            ; This also defines what will be stored in the 'x' in 'x := clr[name] := val':
-            return aValue
-        }
-        ; NOTE: Using 'return' here would break this.stored_RGB and this.RGB.
+        aValue &= 255
+        this.RGB := (aValue << shift) | (this.RGB & ~(0xff << shift))
+        return aValue
     }
 
     ; Meta-functions can be mixed with properties:
@@ -181,22 +183,17 @@ class Color {
         }
     }
 
-    class __RGB {
-        R() => ((this.RGB >> 16) & 255)
-        G() => ((this.RGB >> 8) & 255)
-        B() => (this.RGB & 255)
-    }
-
     __Item[value] {
         get => this.__RGB.%value%()  ; valid V2 code (dereference)
     }
+    
+    __Item => 0
     
     static __Item[value] {
         get => 0
     }
     
-    Nul(*) => 0x000000  ; c
-    
+    Nul(*) => 0x000000
 }
 
 class Properties extends Func {

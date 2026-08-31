@@ -266,7 +266,7 @@ BGR(color?) {
         return color?
         
     return ((color >> 16) & 0xFF) 
-         |  (color & 0x00FF00) 
+         | (color & 0x00FF00) 
          | ((color & 0xFF) << 16)
 }
 

@@ -403,14 +403,13 @@
     <item>get</item>
     <item>set</item>
     <item>call</item>
-    <item>__init</item>s
+    <item>__init</item>
     <item>__new</item>
     <item>__delete</item>
     <item>__get</item>
     <item>__set</item>
     <item>__call</item>
     <item>__enum</item>
-    <item>__item</item>
 </list>
 <list name="types">
     <item>Any</item>
@@ -791,7 +790,7 @@
         <keyword attribute="Break Flow" context="#pop!Params" String="breakflow"/>
         <keyword attribute="BuiltIn" context="#pop!Params" String="functions"/>
         <keyword attribute="Type" context="#pop!Params" String="types"/>
-        <StringDetect attribute="Keyword" context="#pop!Class" String="class"/>
+        <StringDetect attribute="Keyword" context="#pop!Class" String="class" insensitive="true"/>
         <keyword attribute="Keyword" context="#pop!Identifier" String="keywords"/>
         <keyword attribute="Keyword" context="#pop!Storage" String="storage_modifiers"/>
         <RegExpr attribute="Function" context="Identifier" String="&func;"/>
@@ -812,7 +811,7 @@
         <keyword attribute="Negative" context="Params" String="negatives"/>
         <keyword attribute="BuiltIn" context="Params" String="functions"/>
         <keyword attribute="Type" context="Params" String="types"/>
-        <StringDetect attribute="Keyword" context="Class" String="class"/>
+        <StringDetect attribute="Keyword" context="Class" String="class" insensitive="true"/>
         <keyword attribute="Keyword" context="Identifier" String="keywords"/>
         <keyword attribute="Keyword" context="Storage" String="storage_modifiers"/>
         <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1"/>
@@ -868,7 +867,7 @@
 
     <context name="Class" attribute="Normal Text" lineEndContext="#pop">
         <DetectSpaces/>
-        <StringDetect attribute="Keyword" String="extends"/>
+        <StringDetect attribute="Keyword" String="extends" insensitive="true"/>
         <DetectIdentifier attribute="Type"/>
         <DetectChar attribute="Type" char="."/>
         <DetectChar attribute="Symbol" context="#pop!ClassStatement" char="{" beginRegion="Brace1"/>
@@ -878,25 +877,33 @@
         <DetectSpaces/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
-        <StringDetect attribute="Keyword" context="Class" String="class"/>
-        <keyword attribute="Keyword" context="Storage" String="storage_modifiers" firstNonSpace="true"/>
-        <DetectChar attribute="Deref" context="Deref" char="%"/>
+        <StringDetect attribute="Keyword" context="Class" String="class" insensitive="true"/>
+        <StringDetect attribute="Keyword" context="StaticClassStatement" String="static" insensitive="true" firstNonSpace="true"/>
         <keyword attribute="Meta" context="Identifier" String="meta" firstNonSpace="true"/>
-        <RegExpr attribute="Function" context="Identifier" String="^[ \t]*&func;" column="0"/>
+        <RegExpr attribute="Function" context="Identifier" String="&func;" firstNonSpace="true"/>
+        <StringDetect attribute="Meta" context="Property" String="__item" insensitive="true" firstNonSpace="true"/>
         <DetectIdentifier attribute="Property" context="Property" firstNonSpace="true"/>
         <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1"/>
+    </context>
+
+    <context name="StaticClassStatement" attribute="Normal Text" lineEndContext="#pop">
+        <keyword attribute="Meta" context="Identifier" String="meta"/>
+        <RegExpr attribute="Function" context="Identifier" String="&func;"/>
+        <StringDetect attribute="Meta" context="Property" String="__item" insensitive="true"/>
+        <DetectIdentifier attribute="Property" context="Property"/>
     </context>
 
     <context name="Property" attribute="Normal Text" lineEndContext="#pop">
         <DetectChar attribute="Symbol" context="Array" char="["/>
         <DetectChar attribute="Symbol" context="#pop!PropertyStatement" char="{" beginRegion="Brace1"/>
         <Detect2Chars attribute="Symbol" context="#pop!Params" char="=" char1=">" />
+        <RegExpr attribute="Symbol" context="#pop!Assignment" String="(?://|&lt;&lt;|&gt;&gt;|[-+.:/|&amp;^*%])="/>
     </context>
 
     <context name="PropertyStatement" attribute="Normal Text" lineEndContext="#stay">
-        <StringDetect attribute="Meta" String="get"/>
-        <StringDetect attribute="Meta" String="set"/>
-        <Detect2Chars attribute="Symbol" context="#pop!Params" char="=" char1=">" />
+        <StringDetect attribute="Meta" String="get" insensitive="true"/>
+        <StringDetect attribute="Meta" String="set" insensitive="true"/>
+        <Detect2Chars attribute="Symbol" context="Params" char="=" char1=">" />
         <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace1" />
         <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1"/>
     </context>
@@ -1041,7 +1048,7 @@
     <context name="Hotkey" attribute="Hotkey" lineEndContext="#pop">
         <Detect2Chars attribute="Symbol" context="#stay" char=":" char1=":" />
         <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace1"/>
-        <StringDetect attribute="Keyword" context="#pop" String="return"/>
+        <StringDetect attribute="Keyword" context="#pop" String="return" insensitive="true"/>
         <RegExpr context="#pop!Params" String="\w+[\[\(. \t]" lookAhead="true"/>
         <DetectSpaces/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>

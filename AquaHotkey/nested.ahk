@@ -263,25 +263,9 @@ NM_CUSTOMDRAW(LV, lParam) {
 }
 
 BGR(color?) {
- 
-    if Color = "Red" or Color = "Green"  or Color = "Blue"   ; Comment.
-        or Color = "Black" or Color = "Gray" or Color = "White"   ; Comment.
-        and ProductIsAvailableInColor(Product, Color)   ; Comment.
-    {
-            return false
-    }
-    
-    if Color = "Red" or Color = "Green"  or Color = "Blue" or   ; Comment.
-    Color = "Black" or Color = "Gray" or Color = "White" and   ; Comment.
-    ProductIsAvailableInColor(Product, Color)   ; Comment.
-    {
-        return false
-    }
-    
     return ((color >> 16) & 0xFF) 
          | (color & 0x00FF00) 
          | ((color & 0xFF) << 16)
-         
 }
 
 }

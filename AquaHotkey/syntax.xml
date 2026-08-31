@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE language SYSTEM "syntax.xsd" [
     <!ENTITY func "\b([a-zA-Z_][\w_]*)(?=\()">
-    <!ENTITY operator "!==|!=|==|&gt;=|&lt;=|&lt;&lt;|&gt;&gt;|!!|\*\*|\+\+|\-\-|\?\?|\|\||&amp;&amp;|[\+\-\*\/^&amp;|~!?&gt;&lt;]">
-    <!ENTITY continuation ":!&amp;+,-/.*&lt;&gt;=?[]|~^">
+    <!ENTITY operator ":!&amp;+,-/.*&lt;&gt;=?[]|~^">
 ]>
 <language name="AutoHotKey" section="Scripts"
           version="1" kateversion="5.62"
@@ -777,18 +776,18 @@
         <DetectChar attribute="Symbol" context="ContinuationSection" char="("/>
     </context>
 
-    <context name="Action" attribute="Normal Text" lineEndContext="#pop">
+    <context name="Action" attribute="__Action" lineEndContext="#pop">
         <DetectSpaces/>
         <AnyChar attribute="Symbol" context="Params" String="?:" firstNonSpace="1"/>
         <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace1" firstNonSpace="1"/>
         <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1" firstNonSpace="1"/>
         <DetectChar attribute="Deref" context="Deref" char="%"/>
-        <DetectChar attribute="Symbol" context="#pop!Params" char="("/>
+        <DetectChar attribute="__Action" context="#pop!Params" char="("/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
         <keyword attribute="Variable" context="#pop!Params" String="variables" />
-        <keyword attribute="Control Flow" context="#pop!Params" String="controlflow"/>
-        <keyword attribute="Control Flow" context="#pop!MultilineParamsKeyword" String="multiline"/>
+        <keyword attribute="__Action" context="#pop!Params" String="controlflow"/>
+        <keyword attribute="__Action" context="#pop!MultilineParamsKeyword" String="multiline"/>
         <keyword attribute="Break Flow" context="#pop!Params" String="breakflow"/>
         <keyword attribute="BuiltIn" context="#pop!Params" String="functions"/>
         <keyword attribute="Type" context="#pop!Params" String="types"/>
@@ -798,24 +797,24 @@
         <DetectIdentifier context="#pop!Identifier"/>
     </context>
 
-    <context name="Statement" attribute="Normal Text" lineEndContext="#stay">
+    <context name="Statement" attribute="__Statement" lineEndContext="#stay">
         <DetectSpaces/>
         <AnyChar attribute="Symbol" context="Params" String="?:" firstNonSpace="1"/>
-        <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace1"/>
+        <DetectChar attribute="__Statement" context="Statement" char="{" beginRegion="Brace1"/>
         <DetectChar attribute="Symbol" context="ContinuationSection" char="("/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
         <DetectChar attribute="Deref" context="Deref" char="%"/>
         <keyword attribute="Variable" context="Params" String="variables" />
-        <keyword attribute="Control Flow" context="Params" String="controlflow"/>
-        <keyword attribute="Control Flow" context="MultilineParamsKeyword" String="multiline"/>
+        <keyword attribute="__Statement" context="Params" String="controlflow"/>
+        <keyword attribute="__Statement" context="MultilineParamsKeyword" String="multiline"/>
         <keyword attribute="Break Flow" context="Params" String="breakflow"/>
         <keyword attribute="Negative" context="Params" String="negatives"/>
         <keyword attribute="BuiltIn" context="Params" String="functions"/>
         <keyword attribute="Type" context="Params" String="types"/>
         <StringDetect attribute="Keyword" context="Class" String="class" insensitive="true"/>
         <keyword attribute="Keyword" context="Storage" String="storage_modifiers"/>
-        <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1"/>
+        <DetectChar attribute="__Statement" context="#pop" char="}" endRegion="Brace1"/>
         <RegExpr attribute="Function" context="Identifier" String="&func;"/>
         <DetectIdentifier context="Identifier"/>
     </context>
@@ -909,31 +908,30 @@
         <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1"/>
     </context>
 
-    <context name="Params" attribute="Normal Text" lineEndContext="#pop">
+    <context name="Params" attribute="__Params" lineEndContext="#pop">
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Symbol" context="RegexString" char="~" char1="="/>
         <DetectChar attribute="String" context="String" char="&quot;"/>
         <DetectChar attribute="String Char" context="String Char" char="'"/>
-        <keyword attribute="Control Flow" context="#stay" String="controlflow"/>
-		<keyword attribute="Keyword" context="#stay" String="keywords"/>
-        <keyword attribute="Negative" context="#stay" String="negatives"/>
-        <keyword attribute="BuiltIn" context="#stay" String="functions"/>
-        <keyword attribute="Type" context="#stay" String="types"/>
-        <RegExpr attribute="Symbol" String="&operator;"/>
-        <keyword attribute="Variable" context="#stay" String="variables" />
+        <keyword attribute="Control Flow" String="controlflow"/>
+		<keyword attribute="Keyword" String="keywords"/>
+        <keyword attribute="Negative" String="negatives"/>
+        <keyword attribute="BuiltIn" String="functions"/>
+        <keyword attribute="Type" String="types"/>
+        <keyword attribute="Variable" String="variables" />
         <DetectChar attribute="Symbol" context="Member" char="."/>
         <Float attribute="Float" context="#stay"/>
         <HlCHex attribute="Hex" context="#stay"/>
         <Int attribute="Decimal" context="#stay"/>
         <RegExpr attribute="Function" context="Identifier" String="&func;" />
         <RegExpr attribute="Symbol" context="ContinuationSection" String="^[ \t]*\(" column="0"/>
-        <DetectChar attribute="Symbol" context="MultilineParams" char="("/>
-        <DetectChar attribute="Symbol" context="#pop" char=")"/>
+        <DetectChar attribute="__Params" context="MultilineParams" char="("/>
+        <DetectChar attribute="__Params" context="#pop" char=")"/>
         <DetectChar attribute="Symbol" context="Object" char="{"/>
         <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
         <DetectChar attribute="Deref" context="Deref" char="%"/>
-        <AnyChar attribute="Symbol" context="#stay" String="&continuation;"/>
+        <AnyChar attribute="__Params" context="#stay" String="&operator;"/>
     </context>
 
     <context name="MultilineParams" attribute="Normal Text" lineEndContext="#stay">
@@ -941,18 +939,47 @@
 		<IncludeRules context="Params"/>
 	</context>
 
-    <context name="MultilineParamsKeyword" attribute="Cont" lineEndContext="ContinuationParams" lineEmptyContext="#pop">
+    <context name="MultilineParamsKeyword" attribute="__Check" lineEndContext="InParamBeginning" lineEmptyContext="#pop">
         <DetectSpaces/>
-        <IncludeRules context="Params"/>
+<!--        <RegExpr attribute="Symbol" context="#pop!Assignment" String="(?://|&lt;&lt;|&gt;&gt;|[-+.:/|&amp;^*%])="/>-->
+        <AnyChar attribute="__Cont" context="InParamEnding" String="&operator;"/>
+        <keyword attribute="__Cont" context="InParamEnding" String="keywords"/>
+        <Detect2Chars attribute="Symbol" context="RegexString" char="~" char1="="/>
+        <DetectChar attribute="String" context="String" char="&quot;"/>
+        <DetectChar attribute="String Char" context="String Char" char="'"/>
+        <keyword attribute="Negative" String="negatives"/>
+        <keyword attribute="BuiltIn" String="functions"/>
+        <keyword attribute="Type" String="types"/>
+        <keyword attribute="Variable" String="variables" />
+        <DetectChar attribute="Symbol" context="Member" char="."/>
+        <Float attribute="Float"/>
+        <HlCHex attribute="Hex"/>
+        <Int attribute="Decimal"/>
+        <RegExpr String="&func;" />
+        <DetectChar attribute="__Params" context="MultilineParams" char="("/>
+        <DetectChar attribute="__Statement" context="#pop!Statement" char="{"/>
+        <DetectChar attribute="Deref" context="Deref" char="%"/>
+        <DetectChar attribute="Comment" context="CommentLine" char=";"/>
 	</context>
 
-    <context name="ContinuationParams" attribute="Cont" lineEndContext="#stay" fallthroughContext="#pop#pop" lineEmptyContext="#pop#pop">
+    <context name="InParamBeginning" attribute="__Params" fallthroughContext="#pop#pop" lineEmptyContext="#pop#pop">
         <DetectSpaces/>
-		<DetectChar attribute="Cont" context="#pop#pop!Statement" char="{"/>
-        <AnyChar context="#pop" String="&continuation;&quot;'%" lookAhead="true"/>
-        <keyword attribute="Cont" context="#pop" String="keywords"/>
+        <AnyChar context="#pop" String="&operator;&quot;'%" lookAhead="true"/>
+        <keyword attribute="__Params" context="#pop" String="keywords"/>
         <keyword attribute="Break Flow" context="#pop#pop!Params" String="breakflow"/>
         <keyword attribute="Control Flow" context="#pop#pop!Params" String="controlflow"/>
+	</context>
+
+    <context name="InParamEnding" attribute="__Params" fallthroughContext="#pop">
+        <RegExpr context="#pop!NextParamLine" String="$"/>
+        <DetectSpaces/>
+        <DetectChar context="#pop!NextParamLine" char=";" lookAhead="true"/>
+	</context>
+
+    <context name="NextParamLine" attribute="__Cont" lineEndContext="#stay" lineEmptyContext="#pop">
+        <DetectSpaces/>
+        <RegExpr context="#pop" String="^." column="0" lookAhead="true"/>
+        <IncludeRules context="MultilineParamsKeyword"/>
 	</context>
 
     <context name="ContinuationSection" attribute="Normal Text">
@@ -1097,14 +1124,12 @@
     <context name="CommentLine" attribute="Comment" lineEndContext="#pop">
         <DetectSpaces />
         <IncludeRules context="##Comments" />
-        <DetectIdentifier />
     </context>
 
     <context name="CommentBlock" attribute="Comment" lineEndContext="#stay">
         <DetectSpaces />
         <Detect2Chars attribute="Comment" context="#pop" char="*" char1="/" endRegion="Comment"/>
         <IncludeRules context="##Comments" />
-        <DetectIdentifier />
     </context>
 
 </contexts>
@@ -1114,7 +1139,7 @@
     <itemData name="Negative" 		  defStyleNum="dsConstant" spellChecking="false"/>
     <itemData name="BuiltIn"          defStyleNum="dsBuiltIn" spellChecking="false"/>
     <itemData name="Function"         defStyleNum="dsFunction" spellChecking="false"/>
-    <itemData name="Property"           defStyleNum="dsFloat" spellChecking="false"/>
+    <itemData name="Property"         defStyleNum="dsFloat" spellChecking="false"/>
     <itemData name="Meta" 			  defStyleNum="dsAttribute" spellChecking="false"/>
     <itemData name="Type" 		  	  defStyleNum="dsDataType" spellChecking="false"/>
     <itemData name="Hotkey" 		  defStyleNum="dsVerbatimString" spellChecking="false"/>
@@ -1123,7 +1148,11 @@
     <itemData name="Directive Chars"  defStyleNum="dsAttribute" spellChecking="false"/>
     <itemData name="Variable"         defStyleNum="dsVariable" spellChecking="false"/>
     <itemData name="Deref"        	  defStyleNum="dsImport" spellChecking="false"/>
-    <itemData name="Cont"        	  defStyleNum="dsImport" spellChecking="false"/>
+    <itemData name="__Cont"        	  defStyleNum="dsImport" spellChecking="false"/>
+    <itemData name="__Check"          defStyleNum="dsConstant" spellChecking="false"/>
+    <itemData name="__Params"         defStyleNum="dsOperator" spellChecking="false"/>
+    <itemData name="__Statement"      defStyleNum="dsComment" spellChecking="false"/>
+    <itemData name="__Action"         defStyleNum="dsPreprocessor" spellChecking="false"/>
     <itemData name="Keyword"          defStyleNum="dsKeyword" spellChecking="false"/>
     <itemData name="Normal Text"      defStyleNum="dsNormal" spellChecking="false"/>
     <itemData name="Decimal"          defStyleNum="dsDecVal" spellChecking="false"/>

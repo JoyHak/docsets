@@ -215,11 +215,39 @@ MsgBox("cyan: " cyan.R "," cyan.G "," cyan.B " = " cyan.RGB)
 blue := Color(0x0000ff) ; c
 MsgBox(blue.R "," blue.G "," blue.B)
 
-if (Color = "Red" or Color = "Green"  or Color = "Blue"   ; Comment.
-    or Color = "Black" or Color = "Gray" or Color = "White")   ; Comment.
+; Paremeters after keyword (without parentheses)
+if Color = "Red" or Color = "Green"  or Color = "Blue"    ; no trailing operator = check next line
+   Color = "Black" or Color = "Gray" or Color = "White"   ; no leading operator = stop parsing params
+   and ProductIsAvailableInColor(Product, Color) {
+    color := 0
+    return false
+}
 
+if Color = "White" or  ; trailing operator
+   Color = "Black" or   ; trailing operator
+    ProductIsAvailableInColor(Product, Color) {  ; Comment.
+    color := 0
+    return false
+}
+
+if Color ~= "\b(red|green)\b"  ; no trailing operator = check next line
+or Color = "gray"              ; leading operator
+    return false
+    
+while Color ~= "\b(red|green)\b"  ; comment
+    color := "blue"
+    
+if ((color >> 16) & 0xFF) 
+ | (color & 0x00FF00)         ; leading operator
+ | ((color & 0xFF) << 16)     ; leading operator
+    Fn(Color, true)
+
+return Color == "Red"
+    || Color == "Blue"
+    
 if (codepage != "")
     codepage := " /CP" . codepage
+    
 cmd:="`"" . A_AhkPath . "`"" . codepage . " `"`%1`" `%*"
 key:="AutoHotkeyScript\Shell\Open\Command"
 if A_IsAdmin    ; Set for all users.

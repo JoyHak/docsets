@@ -37,7 +37,6 @@
     <item>not</item>
     <item>or</item>
     <item>and</item>
-    <item>class</item>
     <item>new</item>
 </list>
 <list name="breakflow">
@@ -404,11 +403,13 @@
     <item>get</item>
     <item>set</item>
     <item>call</item>
+    <item>__init</item>s
     <item>__new</item>
     <item>__delete</item>
     <item>__get</item>
     <item>__set</item>
     <item>__call</item>
+    <item>__enum</item>
     <item>__item</item>
 </list>
 <list name="types">
@@ -805,6 +806,7 @@
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
         <DetectChar attribute="Deref" context="Deref" char="%"/>
+        <keyword attribute="Variable" context="Params" String="variables" />
         <keyword attribute="Control Flow" context="Params" String="controlflow"/>
         <keyword attribute="Break Flow" context="Params" String="breakflow"/>
         <keyword attribute="Negative" context="Params" String="negatives"/>
@@ -829,7 +831,7 @@
         <DetectChar attribute="Symbol" context="#pop!Params" char="?"/>
         <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace1" />
         <Detect2Chars attribute="Symbol" context="#pop!Params" char="=" char1=">" />
-        <DetectChar attribute="Symbol" context="Params" char="("/>
+        <DetectChar attribute="Symbol" context="MultilineParams" char="("/>
         <DetectChar attribute="Symbol" context="#pop" char=")"/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
@@ -873,8 +875,30 @@
     </context>
 
     <context name="ClassStatement" attribute="Normal Text" lineEndContext="#stay">
-        <keyword attribute="Meta" context="Identifier" String="meta"/>
-        <IncludeRules context="Statement" includeAttrib="true"/>
+        <DetectSpaces/>
+        <DetectChar attribute="Comment" context="CommentLine" char=";"/>
+        <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
+        <StringDetect attribute="Keyword" context="Class" String="class"/>
+        <keyword attribute="Keyword" context="Storage" String="storage_modifiers" firstNonSpace="true"/>
+        <DetectChar attribute="Deref" context="Deref" char="%"/>
+        <keyword attribute="Meta" context="Identifier" String="meta" firstNonSpace="true"/>
+        <RegExpr attribute="Function" context="Identifier" String="^[ \t]*&func;" column="0"/>
+        <DetectIdentifier attribute="Property" context="Property" firstNonSpace="true"/>
+        <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1"/>
+    </context>
+
+    <context name="Property" attribute="Normal Text" lineEndContext="#pop">
+        <DetectChar attribute="Symbol" context="Array" char="["/>
+        <DetectChar attribute="Symbol" context="#pop!PropertyStatement" char="{" beginRegion="Brace1"/>
+        <Detect2Chars attribute="Symbol" context="#pop!Params" char="=" char1=">" />
+    </context>
+
+    <context name="PropertyStatement" attribute="Normal Text" lineEndContext="#stay">
+        <StringDetect attribute="Meta" String="get"/>
+        <StringDetect attribute="Meta" String="set"/>
+        <Detect2Chars attribute="Symbol" context="#pop!Params" char="=" char1=">" />
+        <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace1" />
+        <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1"/>
     </context>
 
     <context name="Params" attribute="Normal Text" lineEndContext="#pop">
@@ -929,7 +953,7 @@
         <keyword attribute="Type" context="#pop" String="types"/>
         <keyword attribute="Meta" context="#pop" String="meta"/>
         <RegExpr attribute="Function" context="Identifier" String="&func;"/>
-        <DetectIdentifier attribute="Member" context="#pop"/>
+        <DetectIdentifier attribute="Property" context="#pop"/>
     </context>
 
     <context name="Directive" attribute="Directive Chars" lineEndContext="#pop">
@@ -1067,7 +1091,7 @@
     <itemData name="Negative" 		  defStyleNum="dsConstant" spellChecking="false"/>
     <itemData name="BuiltIn"          defStyleNum="dsBuiltIn" spellChecking="false"/>
     <itemData name="Function"         defStyleNum="dsFunction" spellChecking="false"/>
-    <itemData name="Member"           defStyleNum="dsFloat" spellChecking="false"/>
+    <itemData name="Property"           defStyleNum="dsFloat" spellChecking="false"/>
     <itemData name="Meta" 			  defStyleNum="dsAttribute" spellChecking="false"/>
     <itemData name="Type" 		  	  defStyleNum="dsDataType" spellChecking="false"/>
     <itemData name="Hotkey" 		  defStyleNum="dsVerbatimString" spellChecking="false"/>

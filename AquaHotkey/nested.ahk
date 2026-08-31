@@ -28,9 +28,48 @@ __New() {
 }
 
 Field[Row, Column := 1] => Gui.ListView.Field(this, Row, Column)
+SelColors {
+    get {
+        defaultColor := Map(
+            "Back", this.BackColor,
+            "Text", this.TextColor
+        )
+        defaultColor.default := defaultColor
+    
+        Rows := Map()
+        Rows.capacity := this.rowsCount
+        Rows.default := defaultColor
+        
+        this.DefineProp("SelColors", { Get: (_) => Rows })
+
+        return Rows
+    }
+}
+
+Colors {
+    get {
+        defaultColor := Map(
+            "Back", this.BackColor,
+            "Text", this.TextColor
+        )
+        defaultColor.default := defaultColor
+        
+        Rows := Map()
+        Rows.capacity := this.rowsCount
+        Rows.default := defaultColor
+        
+        this.DefineProp("Colors", { Get: (_) => Rows })
+
+        return Rows        
+    }
+}
 
 class Field {
-    __New(ListView, Row, Column := 1) {        
+    __New(
+        ListView, 
+        Row, 
+        Column := 1
+    ) {        
         if !ListView.HasOwnProp('__initialized') {
             ; GUI controls constructor is not called explicitly
             ListView.__New()
@@ -45,6 +84,12 @@ class Field {
         this.DefineProp("ListView", { Get: (_) => ListView })
         this.DefineProp("Row",      { Get: (_) => Row      })
         this.DefineProp("Column",   { Get: (_) => Column   })
+    }
+    
+    _Field[Row, Column := 1] {
+        get {
+            Gui.ListView.Field(this, Row, Column)
+        }
     }
 
     BackColor {
@@ -81,7 +126,7 @@ class Field {
         
         if (!colorsMap.Has(row)) {
             colorsMap[row] := Map()
-            colorsMap[row].default := Map(
+            colorsMap[row].default := Fn(
                 "Back", this.ListView.BackColor,
                 "Text", this.ListView.TextColor
             )
@@ -93,44 +138,10 @@ class Field {
             "Back", this.ListView.BGR(back?) ?? this.ListView.BackColor,
             "Text", this.ListView.BGR(text?) ?? this.ListView.TextColor
         )
+        
+        A_DetectHiddenWindows := {h:1, hh:2}
 
         return 0
-    }
-}
-
-SelColors {
-    get {
-        defaultColor := Map(
-            "Back", this.BackColor,
-            "Text", this.TextColor
-        )
-        defaultColor.default := defaultColor
-    
-        Rows := Map()
-        Rows.capacity := this.rowsCount
-        Rows.default := defaultColor
-        
-        this.DefineProp("SelColors", { Get: (_) => Rows })
-
-        return Rows
-    }
-}
-
-Colors {
-    get {
-        defaultColor := Map(
-            "Back", this.BackColor,
-            "Text", this.TextColor
-        )
-        defaultColor.default := defaultColor
-        
-        Rows := Map()
-        Rows.capacity := this.rowsCount
-        Rows.default := defaultColor
-        
-        this.DefineProp("Colors", { Get: (_) => Rows })
-
-        return Rows        
     }
 }
 
@@ -227,10 +238,18 @@ NM_CUSTOMDRAW(LV, lParam) {
         }
         
         try {
-        NumPut('UInt', LV.Colors[row][col]["Back"], lParam + OFFSET_BACK_CLR)
-        NumPut('UInt', LV.Colors[row][col]["Text"], lParam + OFFSET_TEXT_CLR)
+            NumPut('UInt', LV.Colors[row][col]["Back"], lParam + OFFSET_BACK_CLR)
+            NumPut('UInt', LV.Colors[row][col]["Text"], lParam + OFFSET_TEXT_CLR)
         } catch as ex {
-        MsgBox(Format('{}: {} {}`n[{}, {}] {}', ex.what, ex.message, ex.extra, row, col, LV.Colors[row].ToString()), A_ScriptName, 'Iconx')
+            MsgBox(
+                Format(
+                    '{}: {} {}`n[{}, {}] {}', 
+                    ex.what, ex.message, ex.extra, 
+                    row, col, 
+                    LV.Colors[row].ToString()
+                ), 
+                A_ScriptName, 'Iconx'
+            )
         }
         return 0
     
@@ -246,7 +265,9 @@ BGR(color?) {
     if (!IsSet(color)  || color = 0)
         return color?
         
-    return ((color >> 16) & 0xFF) | (color & 0x00FF00) | ((color & 0xFF) << 16)
+    return ((color >> 16) & 0xFF) 
+         |  (color & 0x00FF00) 
+         | ((color & 0xFF) << 16)
 }
 
 }

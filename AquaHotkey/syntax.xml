@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE language SYSTEM "syntax.xsd" [
     <!ENTITY func "\b([a-zA-Z_][\w_]*)(?=\()">
-    <!ENTITY operator "!==|!=|==|&gt;=|&lt;=|&lt;&lt;|&gt;&gt;|!!|\+\+|\-\-|\?\?|\|\||&amp;&amp;|[\+\-\*\/^&amp;|~!?&gt;&lt;]">
+    <!ENTITY operator "!==|!=|==|&gt;=|&lt;=|&lt;&lt;|&gt;&gt;|!!|\*\*|\+\+|\-\-|\?\?|\|\||&amp;&amp;|[\+\-\*\/^&amp;|~!?&gt;&lt;]">
+    <!ENTITY continuation ":!&amp;+,-/.*&lt;&gt;=?[]|~^">
 ]>
 <language name="AutoHotKey" section="Scripts"
           version="1" kateversion="5.62"
@@ -12,25 +13,20 @@
 <highlighting>
 <list name="controlflow">
     <item>catch</item>
-    <item>between</item>
-    <item>contains</item>
-    <item>in</item>
-    <item>is</item>
-    <item>as</item>
     <item>continue</item>
     <item>else</item>
     <item>finally</item>
-    <item>for</item>
     <item>goto</item>
-    <item>if</item>
-    <item>loop</item>
-    <item>return</item>
-    <item>switch</item>
-    <item>case</item>
     <item>default</item>
     <item>try</item>
-    <item>until</item>
+    <item>switch</item>
+    <item>case</item>
+</list>
+<list name="multiline">
+    <item>if</item>
     <item>while</item>
+    <item>return</item>
+    <item>until</item>
 </list>
 <list name="keywords">
     <item>unset</item>
@@ -38,6 +34,11 @@
     <item>or</item>
     <item>and</item>
     <item>new</item>
+    <item>between</item>
+    <item>contains</item>
+    <item>in</item>
+    <item>is</item>
+    <item>as</item>
 </list>
 <list name="breakflow">
     <item>exitapp</item>
@@ -787,11 +788,11 @@
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
         <keyword attribute="Variable" context="#pop!Params" String="variables" />
         <keyword attribute="Control Flow" context="#pop!Params" String="controlflow"/>
+        <keyword attribute="Control Flow" context="#pop!MultilineParamsKeyword" String="multiline"/>
         <keyword attribute="Break Flow" context="#pop!Params" String="breakflow"/>
         <keyword attribute="BuiltIn" context="#pop!Params" String="functions"/>
         <keyword attribute="Type" context="#pop!Params" String="types"/>
         <StringDetect attribute="Keyword" context="#pop!Class" String="class" insensitive="true"/>
-        <keyword attribute="Keyword" context="#pop!Identifier" String="keywords"/>
         <keyword attribute="Keyword" context="#pop!Storage" String="storage_modifiers"/>
         <RegExpr attribute="Function" context="Identifier" String="&func;"/>
         <DetectIdentifier context="#pop!Identifier"/>
@@ -807,12 +808,12 @@
         <DetectChar attribute="Deref" context="Deref" char="%"/>
         <keyword attribute="Variable" context="Params" String="variables" />
         <keyword attribute="Control Flow" context="Params" String="controlflow"/>
+        <keyword attribute="Control Flow" context="MultilineParamsKeyword" String="multiline"/>
         <keyword attribute="Break Flow" context="Params" String="breakflow"/>
         <keyword attribute="Negative" context="Params" String="negatives"/>
         <keyword attribute="BuiltIn" context="Params" String="functions"/>
         <keyword attribute="Type" context="Params" String="types"/>
         <StringDetect attribute="Keyword" context="Class" String="class" insensitive="true"/>
-        <keyword attribute="Keyword" context="Identifier" String="keywords"/>
         <keyword attribute="Keyword" context="Storage" String="storage_modifiers"/>
         <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1"/>
         <RegExpr attribute="Function" context="Identifier" String="&func;"/>
@@ -913,7 +914,8 @@
         <Detect2Chars attribute="Symbol" context="RegexString" char="~" char1="="/>
         <DetectChar attribute="String" context="String" char="&quot;"/>
         <DetectChar attribute="String Char" context="String Char" char="'"/>
-		<keyword attribute="Control Flow" context="#stay" String="controlflow"/>
+        <keyword attribute="Control Flow" context="#stay" String="controlflow"/>
+		<keyword attribute="Keyword" context="#stay" String="keywords"/>
         <keyword attribute="Negative" context="#stay" String="negatives"/>
         <keyword attribute="BuiltIn" context="#stay" String="functions"/>
         <keyword attribute="Type" context="#stay" String="types"/>
@@ -931,12 +933,26 @@
         <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
         <DetectChar attribute="Deref" context="Deref" char="%"/>
-        <AnyChar attribute="Symbol" context="#stay" String=":!&amp;+,-/.*&lt;&gt;=?[]|~^"/>
+        <AnyChar attribute="Symbol" context="#stay" String="&continuation;"/>
     </context>
 
     <context name="MultilineParams" attribute="Normal Text" lineEndContext="#stay">
 		<DetectSpaces/>
 		<IncludeRules context="Params"/>
+	</context>
+
+    <context name="MultilineParamsKeyword" attribute="Cont" lineEndContext="ContinuationParams" lineEmptyContext="#pop">
+        <DetectSpaces/>
+        <IncludeRules context="Params"/>
+	</context>
+
+    <context name="ContinuationParams" attribute="Cont" lineEndContext="#stay" fallthroughContext="#pop#pop" lineEmptyContext="#pop#pop">
+        <DetectSpaces/>
+		<DetectChar attribute="Cont" context="#pop#pop!Statement" char="{"/>
+        <AnyChar context="#pop" String="&continuation;&quot;'%" lookAhead="true"/>
+        <keyword attribute="Cont" context="#pop" String="keywords"/>
+        <keyword attribute="Break Flow" context="#pop#pop!Params" String="breakflow"/>
+        <keyword attribute="Control Flow" context="#pop#pop!Params" String="controlflow"/>
 	</context>
 
     <context name="ContinuationSection" attribute="Normal Text">
@@ -1107,6 +1123,7 @@
     <itemData name="Directive Chars"  defStyleNum="dsAttribute" spellChecking="false"/>
     <itemData name="Variable"         defStyleNum="dsVariable" spellChecking="false"/>
     <itemData name="Deref"        	  defStyleNum="dsImport" spellChecking="false"/>
+    <itemData name="Cont"        	  defStyleNum="dsImport" spellChecking="false"/>
     <itemData name="Keyword"          defStyleNum="dsKeyword" spellChecking="false"/>
     <itemData name="Normal Text"      defStyleNum="dsNormal" spellChecking="false"/>
     <itemData name="Decimal"          defStyleNum="dsDecVal" spellChecking="false"/>

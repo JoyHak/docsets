@@ -188,7 +188,8 @@ NM_CUSTOMDRAW(LV, lParam) {
     static CDRF_NOTIFYSUBITEMDRAW := 0x020
     static CDRF_NEWFONT           := 0x02
 
-    if (!LV.Hwnd || (NumGet(lParam, 'UPtr') != LV.Hwnd)) {
+    if !LV.Hwnd 
+    or (NumGet(lParam, 'UPtr') != LV.Hwnd) {
         return
     }
 
@@ -262,12 +263,25 @@ NM_CUSTOMDRAW(LV, lParam) {
 }
 
 BGR(color?) {
-    if (!IsSet(color)  || color = 0)
-        return color?
-        
+ 
+    if Color = "Red" or Color = "Green"  or Color = "Blue"   ; Comment.
+        or Color = "Black" or Color = "Gray" or Color = "White"   ; Comment.
+        and ProductIsAvailableInColor(Product, Color)   ; Comment.
+    {
+            return false
+    }
+    
+    if Color = "Red" or Color = "Green"  or Color = "Blue" or   ; Comment.
+    Color = "Black" or Color = "Gray" or Color = "White" and   ; Comment.
+    ProductIsAvailableInColor(Product, Color)   ; Comment.
+    {
+        return false
+    }
+    
     return ((color >> 16) & 0xFF) 
          | (color & 0x00FF00) 
          | ((color & 0xFF) << 16)
+         
 }
 
 }

@@ -49,16 +49,16 @@ a::b
 ; Ctrl+Shift+O to open containing folder in Explorer.
 ; Ctrl+Shift+E to open folder with current file selected.
 ; Supports SciTE and Notepad++.
-^+o::
-^+e::
-    editor_open_folder(*) {
-        path := WinGetTitle("A")
-        if RegExMatch(path, "x)\*?\K(.*)\\[^\\]+(?= [-*] )", &path)
-            if (FileExist(path[0]) && A_ThisHotkey = "^+e")
-                Run("explorer.exe /select,`"" (path&&path[0]) "`"")
-            else
-                Run("explorer.exe `"" path[1] "`"")
-    }
+; ^+o::
+; ^+e::
+    ; editor_open_folder(*) {
+        ; path := WinGetTitle("A")
+        ; if RegExMatch(path, "x)\*?\K(.*)\\[^\\]+(?= [-*] )", &path)
+            ; if (FileExist(path[0]) && A_ThisHotkey = "^+e")
+                ; Run("explorer.exe /select,`"" (path&&path[0]) "`"")
+            ; else
+                ; Run("explorer.exe `"" path[1] "`"")
+    ; }
 
 ; This example also demonstrates one way to implement case conformity in a script.
 :C:BTW::  ; Typed in all-caps.
@@ -293,8 +293,8 @@ if (MyVar = 5) {
     ExitApp()
 }
 
-if (MyVar ~= '\b\1\2$0[:=\\]\w+(?#comment)(*PRUNE)(*F)(?R)(?=:)(?<!&)(?![$%])')
-RegExMatch(MyVar, 'x)(?<paren>[^\(\)\r\n]+)\G(?&paren)')
+; if (MyVar ~= '\b\1\2$0[:=\\]\w+(?#comment)(*PRUNE)(*F)(?R)(?=:)(?<!&)(?![$%])')
+; RegExMatch(MyVar, 'x)(?<paren>[^\(\)\r\n]+)\G(?&paren)')
 MyVar := "Text"
 MyVar := MyVar2
 MyVar := MyVar2 . " some text " . MyVar . "."

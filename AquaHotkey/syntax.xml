@@ -948,7 +948,17 @@
         <Detect2Chars attribute="Symbol" context="#pop!Params" char="=" char1=">"/>
         <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace1"/>
     </context>
+    <!-- is Class -->
+    <context name="IsKeyword" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="#pop">
+        <DetectSpaces context="#stay"/>
+        <RegExpr attribute="Type" context="#pop" String="([a-zA-Z_][\w_.]*)"/>
+    </context>
     <!--======= LOOP =======-->
+    <!-- loop [keyword] <expr> or loop <count> -->
+    <context name="LoopKeyword" attribute="Normal Text" fallthroughContext="#pop!MultilineKeywordParams">
+        <DetectSpaces/>
+        <keyword attribute="Keyword" context="#pop!MultilineKeywordParams" String="loop"/>
+    </context>
     <!-- for var in expression -->
     <context name="ForLoop" attribute="Normal Text" lineEndContext="#pop">
         <!-- Only literal variables, followed by expression -->
@@ -956,16 +966,12 @@
         <WordDetect attribute="Keyword" context="#pop!MultilineKeywordParams" String="in" insensitive="true"/>
         <DetectChar attribute="Symbol" char=","/>
     </context>
-    <!-- loop [keyword] <expr> or loop <count> -->
-    <context name="LoopKeyword" attribute="Normal Text" fallthroughContext="#pop!MultilineKeywordParams">
-        <DetectSpaces/>
-        <keyword attribute="Keyword" context="#pop!MultilineKeywordParams" String="loop"/>
-    </context>
     <!--======= MULTI-EXPRESSIONS =======-->
     <context name="Params" attribute="Normal Text" lineEndContext="#pop">
         <Detect2Chars attribute="Symbol" context="RegexString" char="~" char1="="/>
         <DetectChar attribute="String" context="String" char="&quot;"/>
         <DetectChar attribute="String Char" context="String Char" char="'"/>
+        <WordDetect attribute="Keyword" context="IsKeyword" String="is" insensitive="true"/>
         <keyword attribute="Control Flow" String="controlflow"/>
 		<keyword attribute="Keyword" String="keywords"/>
         <keyword attribute="Negative" String="negatives"/>
@@ -1005,6 +1011,7 @@
         <DetectChar attribute="String" context="String" char="&quot;"/>
         <DetectChar attribute="String Char" context="String Char" char="'"/>
         <Detect2Chars attribute="Symbol" context="Params" char="=" char1=">"/>
+        <WordDetect attribute="Keyword" context="IsKeyword" String="is" insensitive="true"/>
         <AnyChar attribute="Symbol" context="InParamEnding" String="&operator;"/>
         <keyword attribute="Keyword" context="InParamEnding" String="keywords"/>
         <keyword attribute="Keyword" context="#pop!Storage" String="storage_modifiers"/>

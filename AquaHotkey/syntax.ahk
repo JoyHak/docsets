@@ -372,7 +372,7 @@ Var8 := Var " Text"  ; Assigns a variable to another with some extra text (expre
 MsgBox(Var)  ; Variable inside a command.
 Var := StrSplit(Var,"x")  ; Variable inside a command that uses InputVar and OutputVar.
 if (n = 6) 
-if (Var is Number)
+if (Var is MyClass or Var is SubClass.Control)
 if (Var is Class)   ; technically valid
 if (Number(6) = 6) 
 if (Var[1] < Var[2])

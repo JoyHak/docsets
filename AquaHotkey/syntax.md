@@ -4,6 +4,7 @@ variable
 Fn(A_AhkPath, %deref%())
 Function(MsgBox(%deref%()), [1, 2, 3])
 a.Method(a.%deref%, MsgBox(), [1, 2, 3])
+%a[1].a%
 a.__PrivateMethod()
 a.__Item[0x1].a
 a.__item.a

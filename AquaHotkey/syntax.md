@@ -30,7 +30,7 @@ FatArrow(Args*) => (SubStr(args[1]))
 FatArrow(Args?) => SubStr(args[1]) . SubStr(args[1])
 
 def(arg, args?) {
-    if (a ~= "[\/^%]  (?<path>[^\$=:\>`"`']*white) | text (?<=\G) \$ (?: (?<paren>\( (?: [^\(\)\r\n]+ | (?&paren)) \)))") {
+    if (a ~= "[\/^%]  (?<path>[^=:\$\>`"`']*white) | text (?<=\G) \$ (?: (?<paren>\( (?: [^{}%\(\)]+ | (?&paren)) \)))") {
     }
     r := 'm)\b\1\2$0[:=\\]\w+
     (?#comment)(*PRUNE)(*F)(?R)(?=:)(?!%^&[^*])(?=[$%])
@@ -97,7 +97,7 @@ CoordMode('Mouse', 'Screen')
             loop 4 {
                 try {
                     ControlClick('Edit3', 'A')  
-                } catch {
+                } catch TargetError as Ex {
                     Sleep(500)
                 }
             }

@@ -1103,8 +1103,7 @@
         <RegExpr attribute="Regex Keyword" String="\\[nrt0aefVvWwDdXxpCckg#]" insensitive="false"/> <!-- Main esc. char -->
         <RegExpr attribute="Symbol"  String="\\[QEGKBbAZ]" insensitive="false"/> <!-- Assertion -->
         <RegExpr attribute="Decimal" String="[\\$]\d"/> <!-- Index -->
-        <DetectChar attribute="Regex Escaped" context="RegexChar" char="\"/>
-        <DetectChar attribute="Regex Escaped" context="RegexChar" char="`"/>
+        <RegExpr attribute="Regex Escaped" context="#stay" String="[`\\]."/>
         <AnyChar    attribute="Regex" context="#pop" String="&quot;'"/> <!-- End of the string -->
         <DetectChar attribute="Regex Group" context="SubRegex" char="("/>
         <DetectChar attribute="Regex Group" context="#pop#pop" char=")"/>
@@ -1112,8 +1111,7 @@
         <AnyChar attribute="Symbol" context="#stay" String="?+*{}.|^$"/> <!-- Quantifier or operator -->
     </context>
     <context name="RegexNegative" attribute="Regex Negative">
-        <DetectChar attribute="Regex Negative" context="RegexChar" char="\"/>
-        <DetectChar attribute="Regex Negative" context="RegexChar" char="`"/>
+        <RegExpr attribute="Regex Negative" context="#stay" String="[`\\]."/>
         <DetectChar attribute="Regex Group" context="RegexCharsNegative" char="["/>
         <IncludeRules context="Regex"/>
     </context>
@@ -1165,24 +1163,16 @@
     <context name="InRegexChars" attribute="Regex Char" lineEndContext="#pop#pop">
         <DetectChar attribute="Regex Group" context="#pop#pop" char="]"/>
         <DetectChar attribute="Regex Char" context="RegexClass" char="["/>
-        <DetectChar attribute="Regex Escaped" context="RegexChar" char="\"/>
-        <DetectChar attribute="Regex Escaped" context="RegexChar" char="`"/>
+        <RegExpr attribute="Regex Escaped" context="#stay" String="[`\\]."/>
     </context>
     <context name="InRegexCharsNegative" attribute="Regex Negative" lineEndContext="#pop#pop">
         <DetectChar attribute="Regex Group" context="#pop#pop" char="]"/>
         <DetectChar attribute="Regex Char" context="RegexClass" char="["/>
-        <DetectChar attribute="Regex Negative" context="RegexCharNegative" char="\"/>
-        <DetectChar attribute="Regex Negative" context="RegexCharNegative" char="`"/>
+        <RegExpr attribute="Symbol" context="#stay" String="[`\\]."/>
     </context>
     <!-- Class [[:alpha:]] -->
     <context name="RegexClass" attribute="Regex Char" lineEndContext="#pop">
         <DetectChar attribute="Regex Char" context="#pop" char="]"/>
-    </context>
-    <context name="RegexChar" attribute="Regex Escaped" lineEndContext="#pop">
-        <RegExpr context="#pop" String="."/>
-    </context>
-    <context name="RegexCharNegative" attribute="Regex Negative" lineEndContext="#pop">
-        <RegExpr context="#pop" String="."/>
     </context>
     <!--======= UNCONDITIONAL GLOBAL =======-->
     <!-- Any characters with :: postifx -->

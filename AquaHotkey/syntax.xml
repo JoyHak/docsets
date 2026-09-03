@@ -431,7 +431,6 @@
     <item>RegExMatchInfo</item>
 </list>
 <list name="directives_actions">
-    <item>#SingleInstance</item>
     <item>#HotIf</item>
 </list>
 <list name="directives_chars">
@@ -448,6 +447,7 @@
     <item>#NoTrayIcon</item>
     <item>#Requires</item>
     <item>#SuspendExempt</item>
+    <item>#SingleInstance</item>
     <item>#UseHook</item>
     <item>#Warn</item>
     <item>#WinActivateForce</item>

@@ -797,6 +797,7 @@
         <WordDetect attribute="Keyword" context="#pop!ForLoop" String="for" insensitive="true"/>
         <WordDetect attribute="Keyword" context="#pop!LoopKeyword" String="loop" insensitive="true"/>
         <keyword attribute="Variable" context="#pop!Params" String="variables" />
+        <WordDetect attribute="Control Flow" context="#pop!ElseIfKeyword" String="else" insensitive="true"/>
         <keyword attribute="Control Flow" context="#pop!Params" String="controlflow"/>
         <keyword attribute="Control Flow" context="#pop!MultilineKeywordParams" String="multiline"/>
         <keyword attribute="Break Flow" context="#pop!Params" String="breakflow"/>
@@ -818,6 +819,7 @@
         <WordDetect attribute="Keyword" context="Class" String="class" insensitive="true"/>
         <WordDetect attribute="Keyword" context="#pop!ForLoop" String="for" insensitive="true"/>
         <WordDetect attribute="Keyword" context="#pop!LoopKeyword" String="loop" insensitive="true"/>
+        <WordDetect attribute="Control Flow" context="#pop!ElseIfKeyword" String="else" insensitive="true"/>
         <keyword attribute="Variable" context="Params" String="variables" />
         <keyword attribute="Control Flow" context="Params" String="controlflow"/>
         <keyword attribute="Control Flow" context="MultilineKeywordParams" String="multiline"/>
@@ -948,12 +950,17 @@
         <Detect2Chars attribute="Symbol" context="#pop!Params" char="=" char1=">"/>
         <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace1"/>
     </context>
+    <!--======= KEYWORDS =======-->
     <!-- is Class -->
     <context name="IsKeyword" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="#pop">
         <DetectSpaces context="#stay"/>
         <RegExpr attribute="Type" context="#pop" String="([a-zA-Z_][\w_.]*)"/>
     </context>
-    <!--======= LOOP =======-->
+    <context name="ElseIfKeyword" attribute="Normal Text" fallthroughContext="#pop!Params">
+    <!-- Precise detection what comes next: multi-line or single-line statement -->
+        <DetectSpaces/>
+        <WordDetect attribute="Control Flow" context="#pop!MultilineKeywordParams" String="if" insensitive="true"/>
+    </context>
     <!-- loop [keyword] <expr> or loop <count> -->
     <context name="LoopKeyword" attribute="Normal Text" fallthroughContext="#pop!MultilineKeywordParams">
         <DetectSpaces/>
@@ -961,7 +968,7 @@
     </context>
     <!-- for var in expression -->
     <context name="ForLoop" attribute="Normal Text" lineEndContext="#pop">
-        <!-- Only literal variables, followed by expression -->
+    <!-- Only literal variables, followed by expression -->
         <DetectSpaces/>
         <WordDetect attribute="Keyword" context="#pop!MultilineKeywordParams" String="in" insensitive="true"/>
         <DetectChar attribute="Symbol" char=","/>
@@ -972,6 +979,7 @@
         <DetectChar attribute="String" context="String" char="&quot;"/>
         <DetectChar attribute="String Char" context="String Char" char="'"/>
         <WordDetect attribute="Keyword" context="IsKeyword" String="is" insensitive="true"/>
+        <WordDetect attribute="Control Flow" context="ElseIfKeyword" String="else" insensitive="true"/>
         <keyword attribute="Control Flow" String="controlflow"/>
 		<keyword attribute="Keyword" String="keywords"/>
         <keyword attribute="Negative" String="negatives"/>
@@ -1015,6 +1023,7 @@
         <AnyChar attribute="Symbol" context="InParamEnding" String="&operator;"/>
         <keyword attribute="Keyword" context="InParamEnding" String="keywords"/>
         <keyword attribute="Keyword" context="#pop!Storage" String="storage_modifiers"/>
+        <WordDetect attribute="Control Flow" context="#pop!ElseIfKeyword" String="else" insensitive="true"/>
         <keyword attribute="Control Flow" context="#pop!MultilineKeywordParams" String="multiline"/>
         <keyword attribute="Control Flow" context="#pop!Params" String="controlflow"/>
         <keyword attribute="Negative" String="negatives"/>

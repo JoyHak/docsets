@@ -796,8 +796,10 @@
         <WordDetect attribute="Keyword" context="#pop!Class" String="class" insensitive="true"/>
         <WordDetect attribute="Keyword" context="#pop!ForLoop" String="for" insensitive="true"/>
         <WordDetect attribute="Keyword" context="#pop!LoopKeyword" String="loop" insensitive="true"/>
-        <keyword attribute="Variable" context="#pop!Params" String="variables" />
+        <keyword attribute="Variable" context="#pop!Params" String="variables"/>
         <WordDetect attribute="Control Flow" context="#pop!ElseIfKeyword" String="else" insensitive="true"/>
+        <WordDetect attribute="Control Flow" context="#pop!CatchKeyword" String="catch" insensitive="true"/>
+        <WordDetect attribute="Negative" context="#pop!Error" String="throw" insensitive="true"/>
         <keyword attribute="Control Flow" context="#pop!Params" String="controlflow"/>
         <keyword attribute="Control Flow" context="#pop!MultilineKeywordParams" String="multiline"/>
         <keyword attribute="Break Flow" context="#pop!Params" String="breakflow"/>
@@ -817,9 +819,11 @@
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
         <DetectChar attribute="Deref" context="Deref" char="%"/>
         <WordDetect attribute="Keyword" context="Class" String="class" insensitive="true"/>
-        <WordDetect attribute="Keyword" context="#pop!ForLoop" String="for" insensitive="true"/>
-        <WordDetect attribute="Keyword" context="#pop!LoopKeyword" String="loop" insensitive="true"/>
-        <WordDetect attribute="Control Flow" context="#pop!ElseIfKeyword" String="else" insensitive="true"/>
+        <WordDetect attribute="Keyword" context="ForLoop" String="for" insensitive="true"/>
+        <WordDetect attribute="Keyword" context="LoopKeyword" String="loop" insensitive="true"/>
+        <WordDetect attribute="Control Flow" context="ElseIfKeyword" String="else" insensitive="true"/>
+        <WordDetect attribute="Control Flow" context="CatchKeyword" String="catch" insensitive="true"/>
+        <WordDetect attribute="Negative" context="Error" String="throw" insensitive="true"/>
         <keyword attribute="Variable" context="Params" String="variables" />
         <keyword attribute="Control Flow" context="Params" String="controlflow"/>
         <keyword attribute="Control Flow" context="MultilineKeywordParams" String="multiline"/>
@@ -905,11 +909,10 @@
     </context>
     <!--======= CLASS =======-->
     <!-- `class` keyword, additional keywords after -->
-    <context name="Class" attribute="Normal Text" lineEndContext="#pop">
+    <context name="Class" attribute="Normal Text">
         <DetectSpaces/>
-        <WordDetect attribute="Keyword" String="extends" insensitive="true"/>
+        <WordDetect attribute="Keyword" String="extends" context="Type" insensitive="true"/>
         <DetectIdentifier attribute="Type"/>
-        <DetectChar attribute="Type" char="."/>
         <DetectChar attribute="Symbol" context="#pop!ClassStatement" char="{" beginRegion="Brace1"/>
     </context>
     <!-- class {..} scope-->
@@ -950,16 +953,26 @@
         <Detect2Chars attribute="Symbol" context="#pop!Params" char="=" char1=">"/>
         <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace1"/>
     </context>
-    <!--======= KEYWORDS =======-->
-    <!-- is Class -->
-    <context name="IsKeyword" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="#pop">
+    <context name="Type" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="#pop">
         <DetectSpaces context="#stay"/>
         <RegExpr attribute="Type" context="#pop" String="([a-zA-Z_][\w_.]*)"/>
     </context>
+    <context name="Error" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="#pop">
+        <DetectSpaces/>
+        <RegExpr attribute="Negative" String="([a-zA-Z_][\w_]*)"/>
+        <DetectChar attribute="Symbol" context="#pop!MultilineParams" char="("/>
+    </context>
+    <!--======= KEYWORDS =======-->
     <context name="ElseIfKeyword" attribute="Normal Text" fallthroughContext="#pop!Params">
     <!-- Precise detection what comes next: multi-line or single-line statement -->
         <DetectSpaces/>
         <WordDetect attribute="Control Flow" context="#pop!MultilineKeywordParams" String="if" insensitive="true"/>
+    </context>
+    <context name="CatchKeyword" attribute="Normal Text" lineEndContext="#pop!Params" fallthroughContext="#pop!Params">
+        <DetectSpaces/>
+        <WordDetect attribute="Keyword" context="#pop" String="as" insensitive="true"/>
+        <DetectIdentifier attribute="Negative"/>
+        <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace1"/>
     </context>
     <!-- loop [keyword] <expr> or loop <count> -->
     <context name="LoopKeyword" attribute="Normal Text" fallthroughContext="#pop!MultilineKeywordParams">
@@ -978,8 +991,9 @@
         <Detect2Chars attribute="Symbol" context="RegexString" char="~" char1="="/>
         <DetectChar attribute="String" context="String" char="&quot;"/>
         <DetectChar attribute="String Char" context="String Char" char="'"/>
-        <WordDetect attribute="Keyword" context="IsKeyword" String="is" insensitive="true"/>
+        <WordDetect attribute="Keyword" context="Type" String="is" insensitive="true"/>
         <WordDetect attribute="Control Flow" context="ElseIfKeyword" String="else" insensitive="true"/>
+        <WordDetect attribute="Control Flow" context="CatchKeyword" String="catch" insensitive="true"/>
         <keyword attribute="Control Flow" String="controlflow"/>
 		<keyword attribute="Keyword" String="keywords"/>
         <keyword attribute="Negative" String="negatives"/>
@@ -1019,7 +1033,7 @@
         <DetectChar attribute="String" context="String" char="&quot;"/>
         <DetectChar attribute="String Char" context="String Char" char="'"/>
         <Detect2Chars attribute="Symbol" context="Params" char="=" char1=">"/>
-        <WordDetect attribute="Keyword" context="IsKeyword" String="is" insensitive="true"/>
+        <WordDetect attribute="Keyword" context="Type" String="is" insensitive="true"/>
         <AnyChar attribute="Symbol" context="InParamEnding" String="&operator;"/>
         <keyword attribute="Keyword" context="InParamEnding" String="keywords"/>
         <keyword attribute="Keyword" context="#pop!Storage" String="storage_modifiers"/>

@@ -122,6 +122,8 @@ GetValue(num) {
     default:
         throw ValueError(1, 'num', num)
     }
+    
+    throw CustomClass(1, 'num', num)
 }
 
 class Color {
@@ -140,6 +142,20 @@ class Color {
         try MsgBox("Delete Color.")
         catch ValueError
             return
+        
+        ; if false
+        ; else
+            ; return
+            
+        try {
+            this.RGB.__Delete
+        } catch ValueError as Ex {
+            e := 0
+        } catch CustomClass as Cs {
+            e := 1
+        } catch {
+            e := -1
+        }
     }
     
     __Enum(num) {

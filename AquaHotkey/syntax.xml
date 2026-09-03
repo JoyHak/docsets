@@ -861,8 +861,9 @@
     <context name="Object" attribute="Normal Text">
         <DetectSpaces/>
         <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1"/>
-        <DetectChar attribute="Symbol" context="#stay" char=":"/>
-        <IncludeRules context="MultilineParams"/>
+        <RegExpr attribute="Property" String="\b([a-zA-Z_][\w_]*)(?=:)"/>
+        <DetectChar attribute="Symbol" char=":"/>
+        <IncludeRules context="Params"/>
     </context>
 
     <context name="Storage" attribute="Normal Text" lineEndContext="#pop">
@@ -878,7 +879,7 @@
         <DetectChar attribute="Symbol" context="#pop!ClassStatement" char="{" beginRegion="Brace1"/>
     </context>
 
-    <context name="ClassStatement" attribute="__Statement" lineEndContext="#stay">
+    <context name="ClassStatement" attribute="Normal Text" lineEndContext="#stay">
         <DetectSpaces/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
@@ -892,28 +893,31 @@
     </context>
 
     <context name="StaticClassStatement" attribute="Normal Text" lineEndContext="#pop">
-        <keyword attribute="Meta" context="Identifier" String="meta"/>
-        <RegExpr attribute="Function" context="Identifier" String="&func;"/>
-        <StringDetect attribute="Meta" context="Property" String="__item" insensitive="true"/>
-        <DetectIdentifier attribute="Property" context="Property"/>
+        <keyword attribute="Meta" context="#pop!Identifier" String="meta"/>
+        <RegExpr attribute="Function" context="#pop!Identifier" String="&func;"/>
+        <StringDetect attribute="Meta" context="#pop!Property" String="__item" insensitive="true"/>
+        <DetectIdentifier attribute="Property" context="#pop!Property"/>
     </context>
 
     <context name="Property" attribute="Normal Text" lineEndContext="#pop">
         <DetectChar attribute="Symbol" context="Array" char="["/>
         <DetectChar attribute="Symbol" context="#pop!PropertyStatement" char="{" beginRegion="Brace1"/>
-        <Detect2Chars attribute="Symbol" context="#pop!Params" char="=" char1=">" />
+        <Detect2Chars attribute="Symbol" context="#pop!Params" char="=" char1=">"/>
         <RegExpr attribute="Symbol" context="#pop!Assignment" String="&assign;"/>
     </context>
 
     <context name="PropertyStatement" attribute="Normal Text" lineEndContext="#stay">
-        <StringDetect attribute="Meta" String="get" insensitive="true"/>
-        <StringDetect attribute="Meta" String="set" insensitive="true"/>
-        <Detect2Chars attribute="Symbol" context="Params" char="=" char1=">" />
-        <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace1" />
+        <StringDetect attribute="Meta" context="PropertyMetaStatement" String="get" insensitive="true"/>
+        <StringDetect attribute="Meta" context="PropertyMetaStatement" String="set" insensitive="true"/>
         <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1"/>
     </context>
 
-    <context name="Params" attribute="__Params" lineEndContext="#pop">
+    <context name="PropertyMetaStatement" attribute="Normal Text" lineEndContext="#stay">
+        <Detect2Chars attribute="Symbol" context="#pop!Params" char="=" char1=">"/>
+        <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace1"/>
+    </context>
+
+    <context name="Params" attribute="Normal Text" lineEndContext="#pop">
         <Detect2Chars attribute="Symbol" context="RegexString" char="~" char1="="/>
         <DetectChar attribute="String" context="String" char="&quot;"/>
         <DetectChar attribute="String Char" context="String Char" char="'"/>
@@ -1017,6 +1021,7 @@
         <DetectSpaces/>
         <keyword attribute="Type" context="#pop" String="types"/>
         <keyword attribute="Meta" context="#pop" String="meta"/>
+        <StringDetect attribute="Meta" context="#pop" String="__item" insensitive="true"/>
         <RegExpr attribute="Function" context="Identifier" String="&func;"/>
         <DetectIdentifier attribute="Property" context="#pop"/>
     </context>

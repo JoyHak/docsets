@@ -792,6 +792,7 @@ They are excluded from all lists.
         <keyword attribute="Control Flow" context="#pop!Params" String="controlflow"/>
         <keyword attribute="Control Flow" context="#pop!MultilineKeywordParams" String="multiline"/>
         <keyword attribute="Break Flow" context="#pop!Params" String="breakflow"/>
+        <StringDetect attribute="__Action" context="#pop!Params" String="RegExMatch" insensitive="true"/>
         <keyword attribute="BuiltIn" context="#pop!Params" String="functions"/>
         <keyword attribute="Type" context="#pop!Params" String="types"/>
         <StringDetect attribute="Keyword" context="#pop!Class" String="class" insensitive="true"/>
@@ -813,6 +814,7 @@ They are excluded from all lists.
         <keyword attribute="Control Flow" context="MultilineKeywordParams" String="multiline"/>
         <keyword attribute="Break Flow" context="Params" String="breakflow"/>
         <keyword attribute="Negative" context="Params" String="negatives"/>
+        <StringDetect attribute="__Statement" context="Params" String="RegExMatch" insensitive="true"/>
         <keyword attribute="BuiltIn" context="Params" String="functions"/>
         <keyword attribute="Type" context="Params" String="types"/>
         <StringDetect attribute="Keyword" context="Class" String="class" insensitive="true"/>
@@ -947,6 +949,7 @@ They are excluded from all lists.
         <keyword attribute="Control Flow" String="controlflow"/>
 		<keyword attribute="Keyword" String="keywords"/>
         <keyword attribute="Negative" String="negatives"/>
+        <StringDetect attribute="__Params" context="Params" String="RegExMatch" insensitive="true"/>
         <keyword attribute="BuiltIn" String="functions"/>
         <keyword attribute="Type" String="types"/>
         <keyword attribute="Variable" String="variables"/>
@@ -989,6 +992,7 @@ They are excluded from all lists.
         <keyword attribute="Control Flow" context="#pop!MultilineKeywordParams" String="multiline"/>
         <keyword attribute="Control Flow" context="#pop!Params" String="controlflow"/>
         <keyword attribute="Negative" String="negatives"/>
+        <StringDetect attribute="__Cont" context="Params" String="RegExMatch" insensitive="true"/>
         <keyword attribute="BuiltIn" String="functions"/>
         <keyword attribute="Type" String="types"/>
         <keyword attribute="Variable" String="variables"/>
@@ -1082,6 +1086,12 @@ They are excluded from all lists.
         <DetectChar attribute="Regex Group" context="RegexChars" char="["/>
         <AnyChar attribute="Symbol" context="#stay" String="?+*{}.|^$"/> <!-- Quantifier or operator -->
     </context>
+    <context name="RegexNegative" attribute="Regex Negative" lineEndContext="#stay">
+        <DetectChar attribute="Regex Negative" context="RegexChar" char="\"/>
+        <DetectChar attribute="Regex Negative" context="RegexChar" char="`"/>
+        <DetectChar attribute="Regex Group" context="RegexCharsNegative" char="["/>
+        <IncludeRules context="Regex"/>
+    </context>
     <!-- (sub-group) -->
     <context name="SubRegex" attribute="Regex Group" lineEndContext="#stay" fallthroughContext="Regex">
         <DetectChar context="#pop!SubRegexCmd" char="?"/>
@@ -1094,12 +1104,12 @@ They are excluded from all lists.
         <Int attribute="Decimal" context="#pop!RegKeyword"/>       <!-- Group index -->
         <DetectChar attribute="Regex Keyword" context="#pop!RegKeyword" char="R"/>       <!-- Recursion -->
         <Detect2Chars attribute="Regex Positive" context="Regex" char="&lt;" char1="="/> <!-- Positive look behind -->
-        <Detect2Chars attribute="Regex Negative" context="Regex" char="&lt;" char1="!"/> <!-- Negative look behind -->
+        <Detect2Chars attribute="Regex Negative" context="RegexNegative" char="&lt;" char1="!"/> <!-- Negative look behind -->
         <DetectChar attribute="Regex Label" context="#pop!RegLabel" char="&lt;"/>        <!-- Define named group (?<name>) -->
         <DetectChar context="#pop!RegKeyword" char="&amp;"/> <!-- Call named group (?&name) -->
         <DetectChar context="#pop!RegComment" char="#"/>     <!-- Ignored (?#comment) -->
-        <DetectChar attribute="Regex Negative" context="Regex" char="!"/> <!-- Positive look ahead -->
-        <DetectChar attribute="Regex Positive" context="Regex" char="="/> <!-- Negative look behind -->
+        <DetectChar attribute="Regex Negative" context="RegexNegative" char="!"/> <!-- Negative look ahead -->
+        <DetectChar attribute="Regex Positive" context="Regex" char="="/>         <!-- Positive look behind -->
         <DetectChar context="Regex" char=":"/>
     </context>
     <!-- Define named group (?<name>) -->
@@ -1119,8 +1129,12 @@ They are excluded from all lists.
     </context>
     <!-- Set of chars [..] -->
     <context name="RegexChars" attribute="Regex" lineEndContext="#pop" fallthroughContext="InRegexChars">
-        <DetectChar attribute="Regex Negative" context="#pop!InRegexChars" char="^"/>
+        <DetectChar attribute="Regex Group" context="InRegexCharsNegative" char="^"/>
         <DetectChar attribute="Regex Group" context="InRegexChars" char="]"/>
+    </context>
+    <context name="RegexCharsNegative" attribute="Regex" lineEndContext="#pop" fallthroughContext="InRegexCharsNegative">
+        <DetectChar attribute="Regex Positive" context="InRegexChars" char="^"/> <!-- not not = positive -->
+        <DetectChar attribute="Regex Group" context="InRegexCharsNegative" char="]"/>
     </context>
     <!-- Characters or named character classes [[:alpha:]] -->
     <context name="InRegexChars" attribute="Regex Char" lineEndContext="#pop#pop">
@@ -1129,11 +1143,20 @@ They are excluded from all lists.
         <DetectChar attribute="Regex Escaped" context="RegexChar" char="\"/>
         <DetectChar attribute="Regex Escaped" context="RegexChar" char="`"/>
     </context>
+    <context name="InRegexCharsNegative" attribute="Regex Negative" lineEndContext="#pop#pop">
+        <DetectChar attribute="Regex Group" context="#pop#pop" char="]"/>
+        <DetectChar attribute="Regex Char" context="RegexClass" char="["/>
+        <DetectChar attribute="Regex Negative" context="RegexCharNegative" char="\"/>
+        <DetectChar attribute="Regex Negative" context="RegexCharNegative" char="`"/>
+    </context>
     <!-- Class [[:alpha:]] -->
     <context name="RegexClass" attribute="Regex Char" lineEndContext="#pop">
         <DetectChar attribute="Regex Char" context="#pop" char="]"/>
     </context>
     <context name="RegexChar" attribute="Regex Escaped" lineEndContext="#pop">
+        <RegExpr context="#pop" String="."/>
+    </context>
+    <context name="RegexCharNegative" attribute="Regex Negative" lineEndContext="#pop">
         <RegExpr context="#pop" String="."/>
     </context>
     <!--======= UNCONDITIONAL GLOBAL =======-->

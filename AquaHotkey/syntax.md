@@ -30,11 +30,12 @@ FatArrow(Args*) => (SubStr(args[1]))
 FatArrow(Args?) => SubStr(args[1]) . SubStr(args[1])
 
 def(arg, args?) {
-    if (a ~= "[\/^%]  (?<path>[^\$=:\>`"`']*white) | text (?<=\G) \$ (?: (?<paren>\( (?: [^\(\)\r\n]+ | (?&paren)) \))") {
+    if (a ~= "[\/^%]  (?<path>[^\$=:\>`"`']*white) | text (?<=\G) \$ (?: (?<paren>\( (?: [^\(\)\r\n]+ | (?&paren)) \)))") {
     }
     r := 'm)\b\1\2$0[:=\\]\w+
-    (?#comment)(*PRUNE)(*F)(?R)(?=:)(?<!&)(?![$%])'
-    
+    (?#comment)(*PRUNE)(*F)(?R)(?=:)(?!%^&[^*])(?=[$%])
+    (?<!%^&[^*])'
+
     s := SubStr() . SubStr()
     s := SubStr() 'str' a "str" . SubStr()
     s := "str" SubStr()

@@ -49,7 +49,9 @@ a::b
 ^+e::
     editor_open_folder(*) {
         path := WinGetTitle("A")
-        if RegExMatch(path, "x)\*?\K(.*)\\[^\\]+(?= [-*] )", &path)
+        if RegExMatch(path, "file://.+", &path)
+            return
+        if RegExMatch(path, "m)^\*?\K(.*)\\[^\\]+(?= [-*] )$", &path)
             if (FileExist(path[0]) && A_ThisHotkey = "^+e")
                 Run("explorer.exe /select,`"" . path[0] . "`"")
             else

@@ -46,19 +46,15 @@ a::b
 #HotIf GetKeyState("[") && GetKeyState("]")
     \::MsgBox()
 
-; Ctrl+Shift+O to open containing folder in Explorer.
-; Ctrl+Shift+E to open folder with current file selected.
-; Supports SciTE and Notepad++.
-; ^+o::
-; ^+e::
-    ; editor_open_folder(*) {
-        ; path := WinGetTitle("A")
-        ; if RegExMatch(path, "x)\*?\K(.*)\\[^\\]+(?= [-*] )", &path)
-            ; if (FileExist(path[0]) && A_ThisHotkey = "^+e")
-                ; Run("explorer.exe /select,`"" (path&&path[0]) "`"")
-            ; else
-                ; Run("explorer.exe `"" path[1] "`"")
-    ; }
+^+e::
+    editor_open_folder(*) {
+        path := WinGetTitle("A")
+        if RegExMatch(path, "x)\*?\K(.*)\\[^\\]+(?= [-*] )", &path)
+            if (FileExist(path[0]) && A_ThisHotkey = "^+e")
+                Run("explorer.exe /select,`"" (path&&path[0]) "`"")
+            else
+                Run("explorer.exe `"" path[1] "`"")
+    }
 
 ; This example also demonstrates one way to implement case conformity in a script.
 :C:BTW::  ; Typed in all-caps.
@@ -119,18 +115,6 @@ GetValue(num) {
     default:
         throw ValueError(1, 'num', num)
     }
-}
-
-class baseObject {
-    static foo := "bar"
-}
-thing := {}
-thing.foo := "bar"
-thing.test := thing_test
-thing.test()
-
-thing_test(this) {
-    MsgBox(this.foo)
 }
 
 class Color {
@@ -230,7 +214,7 @@ if Color = "White" or  ; trailing operator
     return false
 }
 
-if Color ~= "\b(red|green)\b"  ; no trailing operator = check next line
+if (Color ~= "\b(red|green)\b")  ; no trailing operator = check next line
 or Color = "gray"              ; leading operator
     return false
     
@@ -244,10 +228,46 @@ if ((color >> 16) & 0xFF)
 
 return Color == "Red"
     || Color == "Blue"
-    
+
+; Params in parentheses
 if (codepage != "")
     codepage := " /CP" . codepage
-    
+if (MyVar ~= '\b\1\2$0[:=\\]\w+(?#comment)(*PRUNE)(*F)(?R)(?=:)(?<!&)(?![$%])')
+
+if MyVar ~= '\b\1\2'
+
+; Assignment inside params without parent. checks for non-emptiness|non-zero of the new variable
+if (MyVar := "Text")
+ && MyVar {
+    MyVar := MyVar2
+ }
+ 
+if (MyVar := "Text")
+ and MyVar
+    MyVar := MyVar2
+
+if (MyVar := "a" . "b")
+&& MyVar {
+    MyVar := MyVar2
+ }
+ 
+MyVar := 
+{
+    p1: 0,
+    p2: 0
+}
+
+MyVar := 
+"Text"
+. "Text"  
+   
+isRgb := 
+    Color == "Green" || Color == "Blue"
+
+isRgb := Color == "Red"
+      || Color == "Green"
+      || Color == "Blue"
+
 cmd:="`"" . A_AhkPath . "`"" . codepage . " `"`%1`" `%*"
 key:="AutoHotkeyScript\Shell\Open\Command"
 if A_IsAdmin    ; Set for all users.
@@ -275,7 +295,6 @@ FileAppend("
 A line of text.
 By default, the hard carriage return (Enter) between the previous line and this one will be stored.
 	This line is indented with a tab; by default, that tab will also be stored.
-Additionally, "quote marks" are automatically escaped when appropriate.
 )", A_Desktop "\My File.txt")
 
 ; EXAMPLE #2 - outside a quoted/literal string:
@@ -291,7 +310,7 @@ FileAppend("
 (
 Line 1 of the text.
 Line 2 of the text. By default, a linefeed (`n) is present between lines.
-)", A_Desktop "\My File.txt"
+)", A_Desktop "\My File.txt")
 
 ; EXAMPLE #4:
 FormatStr := "
@@ -321,9 +340,6 @@ if (MyVar = 5) {
     ExitApp()
 }
 
-; if (MyVar ~= '\b\1\2$0[:=\\]\w+(?#comment)(*PRUNE)(*F)(?R)(?=:)(?<!&)(?![$%])')
-; RegExMatch(MyVar, 'x)(?<paren>[^\(\)\r\n]+)\G(?&paren)')
-MyVar := "Text"
 MyVar := MyVar2
 MyVar := MyVar2 . " some text " . MyVar . "."
 MyVar := SubStr("I'm scripting, awesome!", 16)

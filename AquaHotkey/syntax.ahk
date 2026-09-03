@@ -51,7 +51,7 @@ a::b
         path := WinGetTitle("A")
         if RegExMatch(path, "x)\*?\K(.*)\\[^\\]+(?= [-*] )", &path)
             if (FileExist(path[0]) && A_ThisHotkey = "^+e")
-                Run("explorer.exe /select,`"" (path&&path[0]) "`"")
+                Run("explorer.exe /select,`"" . path[0] . "`"")
             else
                 Run("explorer.exe `"" path[1] "`"")
     }
@@ -364,10 +364,11 @@ Var7 := Var . " Text"  ; Assigns a variable to another with some extra text (leg
 Var8 := Var " Text"  ; Assigns a variable to another with some extra text (expression).
 MsgBox(Var)  ; Variable inside a command.
 Var := StrSplit(Var,"x")  ; Variable inside a command that uses InputVar and OutputVar.
-if (Number = 6)  ; Whenever an IF has parentheses, it'll be an expression. So no percent signs.
-if (Var != Number)  ; Whenever an IF has parentheses, it'll be an expression. So no percent signs.
-if (Number = 6)  ; Without parentheses, the IF is legacy. However, only variables on the 'right side' need percent signs.
-if (Var[1] < Var[2])  ; Without parentheses, the IF is legacy. However, only variables on the 'right side' need percent signs.
+if (n = 6) 
+if (Var is Number)
+if (Var is Class)   ; technically valid
+if (Number(6) = 6) 
+if (Var[1] < Var[2])
 
 MyArray := ["one", "two", "three", 17]
 MyObject := {Color: "Yellow", Taste: "Delicious", Price: 3}
@@ -440,21 +441,12 @@ WatchPOV() {
 
 Dummy() {
     global
-    ; Get the text currently selected. The clipboard is used instead of
-    ; "ControlGet Selected" because it works in a greater variety of editors
-    ; (namely word processors).  Save the current clipboard contents to be
-    ; restored later. Although this handles only plain text, it seems better
-    ; than nothing:
-    ; V1toV2: Removed AutoTrim Off  ; Retain any leading and trailing whitespace on the clipboard.
     ClipboardOld := ClipboardAll()
     A_Clipboard := ""  ; Must start off blank for detection to work.
     Send("^c")
     if !ClipWait(1)  ; timed out.
         return
         
-    ; Replace CRLF and/or LF with `n for use in a "send-raw" hotstring:
-    ; The same is done for any other characters that might otherwise
-    ; be a problem in raw mode:
     s := StrReplace(A_Clipboard, "`, ```, All",,,, 1)  ; Do this replacement first to avoid interfering with the others below.
     s := StrReplace(Hotstring, "`r`n", "``r")  ; Using `r works better than `n in MS Word, etc.
     s := StrReplace(Hotstring, "`n", "``r")

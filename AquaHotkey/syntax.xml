@@ -800,7 +800,7 @@
 
     <context name="Statement" attribute="Normal Text" lineEndContext="#stay">
         <DetectSpaces/>
-        <AnyChar attribute="Symbol" context="Params" String="?:" firstNonSpace="1"/>
+        <AnyChar    attribute="Symbol" context="Params" String="?:" firstNonSpace="1"/>
         <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace1"/>
         <DetectChar attribute="Symbol" context="ContinuationSection" char="("/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
@@ -838,12 +838,12 @@
         <RegExpr    attribute="Symbol" context="#pop!Assignment" String="&assign;"/>
     </context>
 
-    <context name="Assignment" attribute="__Assign" fallthroughContext="#pop!SubAssignment">
+    <context name="Assignment" attribute="Normal Text" fallthroughContext="#pop!SubAssignment">
         <DetectSpaces/>
         <RegExpr context="#pop!SubAssignment" String="$"/>
     </context>
 
-    <context name="SubAssignment" attribute="__Assign" lineEndContext="InAssignBeginning" lineEmptyContext="#pop">
+    <context name="SubAssignment" attribute="Normal Text" lineEndContext="InAssignBeginning" lineEmptyContext="#pop">
         <DetectSpaces/>
         <DetectChar attribute="Symbol" context="#pop" char=","/>
         <RegExpr attribute="Symbol" context="ContinuationSection" String="^[ \t]*\(" column="0"/>
@@ -965,7 +965,6 @@
         <keyword attribute="BuiltIn" String="functions"/>
         <keyword attribute="Type" String="types"/>
         <keyword attribute="Variable" String="variables"/>
-        <keyword attribute="Variable" String="variables" />
         <DetectChar attribute="Symbol" context="Member" char="."/>
         <Float   attribute="Float"/>
         <HlCHex  attribute="Hex"/>
@@ -978,7 +977,7 @@
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
 	</context>
 
-    <context name="InParamBeginning" attribute="__Params" fallthroughContext="#pop#pop" lineEmptyContext="#pop#pop">
+    <context name="InParamBeginning" attribute="Normal Text" fallthroughContext="#pop#pop" lineEmptyContext="#pop#pop">
         <DetectSpaces/>
         <AnyChar context="#pop" String="&operator;&quot;'%" lookAhead="true"/>
         <keyword attribute="Keyword" context="#pop" String="keywords"/>
@@ -991,13 +990,13 @@
         <IncludeRules context="InParamBeginning"/>
 	</context>
 
-    <context name="InParamEnding" attribute="__Params" fallthroughContext="#pop">
+    <context name="InParamEnding" attribute="Normal Text" fallthroughContext="#pop">
         <RegExpr context="#pop!NextParamLine" String="$"/>
         <DetectSpaces/>
         <DetectChar context="#pop!NextParamLine" char=";" lookAhead="true"/>
 	</context>
 
-    <context name="NextParamLine" attribute="__Cont" lineEndContext="#stay" lineEmptyContext="#pop">
+    <context name="NextParamLine" attribute="Normal Text" lineEndContext="#stay" lineEmptyContext="#pop">
         <DetectSpaces/>
         <RegExpr context="#pop" String="^." column="0" lookAhead="true"/>
         <IncludeRules context="MultilineParamsKeyword"/>
@@ -1014,7 +1013,7 @@
     </context>
 
     <context name="EscapedChars" attribute="String Char" lineEndContext="#pop">
-        <RegExpr context="#stay" String="`." />
+        <RegExpr context="#stay" String="`."/>
         <DetectChar context="#pop" char=" "/>
     </context>
 
@@ -1102,7 +1101,7 @@
     </context>
 
     <context name="RegexChar" attribute="Regex Escaped" lineEndContext="#pop">
-        <RegExpr context="#pop" String="." />
+        <RegExpr context="#pop" String="."/>
     </context>
 
     <context name="Deref" attribute="Deref" lineEndContext="#pop" fallthroughContext="#pop">
@@ -1111,7 +1110,7 @@
     </context>
 
     <context name="Hotkey" attribute="Hotkey" lineEndContext="#pop">
-        <Detect2Chars attribute="Symbol" context="#stay" char=":" char1=":" />
+        <Detect2Chars attribute="Symbol" context="#stay" char=":" char1=":"/>
         <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace1"/>
         <StringDetect attribute="Keyword" context="#pop" String="return" insensitive="true"/>
         <RegExpr context="#pop!Params" String="\w+[\[\(. \t]" lookAhead="true"/>
@@ -1131,27 +1130,27 @@
 
     <context name="String" attribute="String">
         <RegExpr attribute="Regex Option" context="#pop!Regex" String="[imsxADJUXSC]+\)" insensitive="false"/>
-        <RegExpr attribute="String Char" context="#stay" String="`." />
-        <Detect2Chars attribute="String Char" context="#stay" char="&quot;" char1="&quot;" />
+        <RegExpr attribute="String Char" context="#stay" String="`."/>
+        <Detect2Chars attribute="String Char" context="#stay" char="&quot;" char1="&quot;"/>
         <DetectChar attribute="String" context="#pop" char="&quot;"/>
     </context>
 
     <context name="String Char" attribute="String Char">
         <RegExpr attribute="Regex Option" context="#pop!Regex" String="[imsxADJUXSC]+\)" insensitive="false"/>
-        <RegExpr attribute="String" context="#stay" String="`." />
-        <Detect2Chars attribute="String" context="#stay" char="'" char1="'" />
+        <RegExpr attribute="String" context="#stay" String="`."/>
+        <Detect2Chars attribute="String" context="#stay" char="'" char1="'"/>
         <DetectChar attribute="String Char" context="#pop" char="'"/>
     </context>
 
     <context name="CommentLine" attribute="Comment" lineEndContext="#pop">
-        <DetectSpaces />
-        <IncludeRules context="##Comments" />
+        <DetectSpaces/>
+        <IncludeRules context="##Comments"/>
     </context>
 
     <context name="CommentBlock" attribute="Comment" lineEndContext="#stay">
-        <DetectSpaces />
+        <DetectSpaces/>
         <Detect2Chars attribute="Comment" context="#pop" char="*" char1="/" endRegion="Comment"/>
-        <IncludeRules context="##Comments" />
+        <IncludeRules context="##Comments"/>
     </context>
 
 </contexts>
@@ -1198,9 +1197,9 @@
 </highlighting>
 <general>
     <comments>
-        <comment name="singleLine" start=";" />
+        <comment name="singleLine" start=";"/>
         <comment name="multiLine" start="/*" end="*/" region="Comment"/>
     </comments>
-    <keywords casesensitive="0" weakDeliminator="#" />
+    <keywords casesensitive="0" weakDeliminator="#"/>
 </general>
 </language>

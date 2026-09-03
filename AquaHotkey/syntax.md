@@ -5,8 +5,8 @@ Fn(A_AhkPath, %deref%())
 Function(MsgBox(%deref%()), [1, 2, 3])
 a.Method(a.%deref%, MsgBox(), [1, 2, 3])
 a.__PrivateMethod()
-a.__Item[0x1]
-a.__item
+a.__Item[0x1].a
+a.__item.a
 a.__get(m)
 MsgBox()
 this.Method('data')
@@ -39,10 +39,6 @@ def(arg, args?) {
     s := "str" SubStr()
     s := 'aaa"d"' . d . "fff'a'f`'`"\n`n" . a
     
-    fn := (*) => false
-    fn := FatArrow(*) => false
-    a := unset
-    
     return unset
 }
 
@@ -55,9 +51,7 @@ processQuery :=
     from Win32_Process`; 
     where CommandLine like '%" name "%'"
 )
-(`
-   "`n`;"
-)
+
 #SingleInstance off 
 #Requires Autohotkey v2.0
 #Include <reload>   

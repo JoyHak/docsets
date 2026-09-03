@@ -65,11 +65,7 @@ Colors {
 }
 
 class Field {
-    __New(
-        ListView, 
-        Row, 
-        Column := 1
-    ) {        
+    __New(ListView, Row, Column := 1) {        
         if !ListView.HasOwnProp('__initialized') {
             ; GUI controls constructor is not called explicitly
             ListView.__New()
@@ -110,38 +106,6 @@ class Field {
     SelTextColor {
         set => this.SetColor( , value, this.ListView.SelColors)
         get => this.ListView.SelColors[this.Row][this.Column]["Text"]
-    }
-    
-    SetColor(back?, text?, colorsMap := this.ListView.Colors) {
-        row := this.Row
-        col := this.Column
-        
-        if (colorsMap.Has(row)) {
-            if (colorsMap[row].Has(col)) {
-                colorsMap[row].Delete(col) 
-            } else {
-                colorsMap.Delete(row)
-            }  
-        } 
-        
-        if (!colorsMap.Has(row)) {
-            colorsMap[row] := Map()
-            colorsMap[row].default := Fn(
-                "Back", this.ListView.BackColor,
-                "Text", this.ListView.TextColor
-            )
-        
-            colorsMap[row].capacity := Max(this.ListView.ColsCount, col)
-        }
-  
-        colorsMap[row][col] := Map(
-            "Back", this.ListView.BGR(back?) ?? this.ListView.BackColor,
-            "Text", this.ListView.BGR(text?) ?? this.ListView.TextColor
-        )
-        
-        A_DetectHiddenWindows := {h:1, hh:2}
-
-        return 0
     }
 }
 

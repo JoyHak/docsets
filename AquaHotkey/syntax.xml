@@ -11,10 +11,6 @@
           priority="9"
           author="Rafaello">
 <highlighting>
-<!--
-Some keywords can found only in a certain context (see below).
-They are excluded from all lists.
--->
 <list name="controlflow">
     <item>catch</item>
     <item>continue</item>
@@ -25,6 +21,15 @@ They are excluded from all lists.
     <item>try</item>
     <item>switch</item>
     <item>case</item>
+    <item>class</item>
+    <item>for</item>
+    <item>loop</item>
+</list>
+<list name="loop">
+    <item>parse</item>
+    <item>read</item>
+    <item>files</item>
+    <item>reg</item>
 </list>
 <list name="multiline">
     <item>if</item>
@@ -788,14 +793,15 @@ They are excluded from all lists.
         <DetectChar attribute="Symbol" context="#pop!Params" char="("/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
+        <WordDetect attribute="Keyword" context="#pop!Class" String="class" insensitive="true"/>
+        <WordDetect attribute="Keyword" context="#pop!ForLoop" String="for" insensitive="true"/>
+        <WordDetect attribute="Keyword" context="#pop!LoopKeyword" String="loop" insensitive="true"/>
         <keyword attribute="Variable" context="#pop!Params" String="variables" />
         <keyword attribute="Control Flow" context="#pop!Params" String="controlflow"/>
         <keyword attribute="Control Flow" context="#pop!MultilineKeywordParams" String="multiline"/>
         <keyword attribute="Break Flow" context="#pop!Params" String="breakflow"/>
-        <StringDetect attribute="__Action" context="#pop!Params" String="RegExMatch" insensitive="true"/>
         <keyword attribute="BuiltIn" context="#pop!Params" String="functions"/>
         <keyword attribute="Type" context="#pop!Params" String="types"/>
-        <StringDetect attribute="Keyword" context="#pop!Class" String="class" insensitive="true"/>
         <keyword attribute="Keyword" context="#pop!Storage" String="storage_modifiers"/>
         <RegExpr attribute="Function" context="Identifier" String="&func;"/>
         <DetectIdentifier context="#pop!Identifier"/>
@@ -809,15 +815,16 @@ They are excluded from all lists.
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
         <DetectChar attribute="Deref" context="Deref" char="%"/>
+        <WordDetect attribute="Keyword" context="Class" String="class" insensitive="true"/>
+        <WordDetect attribute="Keyword" context="#pop!ForLoop" String="for" insensitive="true"/>
+        <WordDetect attribute="Keyword" context="#pop!LoopKeyword" String="loop" insensitive="true"/>
         <keyword attribute="Variable" context="Params" String="variables" />
         <keyword attribute="Control Flow" context="Params" String="controlflow"/>
         <keyword attribute="Control Flow" context="MultilineKeywordParams" String="multiline"/>
         <keyword attribute="Break Flow" context="Params" String="breakflow"/>
         <keyword attribute="Negative" context="Params" String="negatives"/>
-        <StringDetect attribute="__Statement" context="Params" String="RegExMatch" insensitive="true"/>
         <keyword attribute="BuiltIn" context="Params" String="functions"/>
         <keyword attribute="Type" context="Params" String="types"/>
-        <StringDetect attribute="Keyword" context="Class" String="class" insensitive="true"/>
         <keyword attribute="Keyword" context="Storage" String="storage_modifiers"/>
         <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1"/>
         <RegExpr attribute="Function" context="Identifier" String="&func;"/>
@@ -898,7 +905,7 @@ They are excluded from all lists.
     <!-- `class` keyword, additional keywords after -->
     <context name="Class" attribute="Normal Text" lineEndContext="#pop">
         <DetectSpaces/>
-        <StringDetect attribute="Keyword" String="extends" insensitive="true"/>
+        <WordDetect attribute="Keyword" String="extends" insensitive="true"/>
         <DetectIdentifier attribute="Type"/>
         <DetectChar attribute="Type" char="."/>
         <DetectChar attribute="Symbol" context="#pop!ClassStatement" char="{" beginRegion="Brace1"/>
@@ -908,8 +915,8 @@ They are excluded from all lists.
         <DetectSpaces/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
-        <StringDetect attribute="Keyword" context="Class" String="class" insensitive="true"/>
-        <StringDetect attribute="Keyword" context="StaticStatement" String="static" insensitive="true" firstNonSpace="true"/>
+        <WordDetect attribute="Keyword" context="Class" String="class" insensitive="true"/>
+        <WordDetect attribute="Keyword" context="StaticStatement" String="static" insensitive="true" firstNonSpace="true"/>
         <keyword attribute="Meta" context="Identifier" String="meta" firstNonSpace="true"/>
         <RegExpr attribute="Function" context="Identifier" String="&func;" firstNonSpace="true"/>
         <StringDetect attribute="Meta" context="Property" String="__item" insensitive="true" firstNonSpace="true"/>
@@ -931,15 +938,28 @@ They are excluded from all lists.
         <RegExpr attribute="Symbol" context="#pop!Assignment" String="&assign;"/>
     </context>
     <!-- Inside property -->
-    <context name="PropertyStatement" attribute="Normal Text" lineEndContext="#stay">
-        <StringDetect attribute="Meta" context="PropertyMetaStatement" String="get" insensitive="true"/>
-        <StringDetect attribute="Meta" context="PropertyMetaStatement" String="set" insensitive="true"/>
+    <context name="PropertyStatement" attribute="Normal Text">
+        <WordDetect attribute="Meta" context="PropertyMetaStatement" String="get" insensitive="true"/>
+        <WordDetect attribute="Meta" context="PropertyMetaStatement" String="set" insensitive="true"/>
         <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1"/>
     </context>
     <!-- get/set meta keywords -->
-    <context name="PropertyMetaStatement" attribute="Normal Text" lineEndContext="#stay">
+    <context name="PropertyMetaStatement" attribute="Normal Text">
         <Detect2Chars attribute="Symbol" context="#pop!Params" char="=" char1=">"/>
         <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace1"/>
+    </context>
+    <!--======= LOOP =======-->
+    <!-- for var in expression -->
+    <context name="ForLoop" attribute="Normal Text" lineEndContext="#pop">
+        <!-- Only literal variables, followed by expression -->
+        <DetectSpaces/>
+        <WordDetect attribute="Keyword" context="#pop!MultilineKeywordParams" String="in" insensitive="true"/>
+        <DetectChar attribute="Symbol" char=","/>
+    </context>
+    <!-- loop [keyword] <expr> or loop <count> -->
+    <context name="LoopKeyword" attribute="Normal Text" fallthroughContext="#pop!MultilineKeywordParams">
+        <DetectSpaces/>
+        <keyword attribute="Keyword" context="#pop!MultilineKeywordParams" String="loop"/>
     </context>
     <!--======= MULTI-EXPRESSIONS =======-->
     <context name="Params" attribute="Normal Text" lineEndContext="#pop">
@@ -949,7 +969,6 @@ They are excluded from all lists.
         <keyword attribute="Control Flow" String="controlflow"/>
 		<keyword attribute="Keyword" String="keywords"/>
         <keyword attribute="Negative" String="negatives"/>
-        <StringDetect attribute="__Params" context="Params" String="RegExMatch" insensitive="true"/>
         <keyword attribute="BuiltIn" String="functions"/>
         <keyword attribute="Type" String="types"/>
         <keyword attribute="Variable" String="variables"/>
@@ -968,7 +987,7 @@ They are excluded from all lists.
         <DetectChar attribute="Deref" context="Deref" char="%"/>
         <AnyChar attribute="Symbol" context="#stay" String="&operator;"/>
     </context>
-    <context name="MultilineParams" attribute="Normal Text" lineEndContext="#stay">
+    <context name="MultilineParams" attribute="Normal Text">
 		<DetectSpaces/>
         <DetectChar attribute="Symbol" context="Object" char="{" beginRegion="Brace1"/>
 		<IncludeRules context="Params"/>
@@ -992,7 +1011,6 @@ They are excluded from all lists.
         <keyword attribute="Control Flow" context="#pop!MultilineKeywordParams" String="multiline"/>
         <keyword attribute="Control Flow" context="#pop!Params" String="controlflow"/>
         <keyword attribute="Negative" String="negatives"/>
-        <StringDetect attribute="__Cont" context="Params" String="RegExMatch" insensitive="true"/>
         <keyword attribute="BuiltIn" String="functions"/>
         <keyword attribute="Type" String="types"/>
         <keyword attribute="Variable" String="variables"/>
@@ -1070,11 +1088,11 @@ They are excluded from all lists.
         <DetectChar attribute="String Char" context="#pop" char="'"/>
     </context>
     <!-- Regular Expression -->
-    <context name="RegexString" attribute="Regex" lineEndContext="#pop">
+    <context name="RegexString" attribute="Regex" lineEndContext="#pop" fallthroughContext="#pop">
         <DetectSpaces/>
         <AnyChar context="#pop!Regex" String="&quot;'"/>
     </context>
-    <context name="Regex" attribute="Regex" lineEndContext="#stay">
+    <context name="Regex" attribute="Regex">
         <RegExpr attribute="Regex Keyword" String="\\[nrt0aefVvWwDdXxpCckg#]" insensitive="false"/> <!-- Main esc. char -->
         <RegExpr attribute="Symbol"  String="\\[QEGKBbAZ]" insensitive="false"/> <!-- Assertion -->
         <RegExpr attribute="Decimal" String="[\\$]\d"/> <!-- Index -->
@@ -1086,20 +1104,20 @@ They are excluded from all lists.
         <DetectChar attribute="Regex Group" context="RegexChars" char="["/>
         <AnyChar attribute="Symbol" context="#stay" String="?+*{}.|^$"/> <!-- Quantifier or operator -->
     </context>
-    <context name="RegexNegative" attribute="Regex Negative" lineEndContext="#stay">
+    <context name="RegexNegative" attribute="Regex Negative">
         <DetectChar attribute="Regex Negative" context="RegexChar" char="\"/>
         <DetectChar attribute="Regex Negative" context="RegexChar" char="`"/>
         <DetectChar attribute="Regex Group" context="RegexCharsNegative" char="["/>
         <IncludeRules context="Regex"/>
     </context>
     <!-- (sub-group) -->
-    <context name="SubRegex" attribute="Regex Group" lineEndContext="#stay" fallthroughContext="Regex">
+    <context name="SubRegex" attribute="Regex Group" fallthroughContext="Regex">
         <DetectChar context="#pop!SubRegexCmd" char="?"/>
         <!-- PCRE verb (*FAIL) or (*COMMIT), etc. -->
         <DetectChar context="#pop!RegKeyword" char="*"/>
     </context>
     <!-- Special group (? ) -->
-    <context name="SubRegexCmd" attribute="Regex Group" lineEndContext="#stay">
+    <context name="SubRegexCmd" attribute="Regex Group">
         <DetectChar attribute="Decimal" context="#stay" char="+"/> <!-- Relative group index -->
         <Int attribute="Decimal" context="#pop!RegKeyword"/>       <!-- Group index -->
         <DetectChar attribute="Regex Keyword" context="#pop!RegKeyword" char="R"/>       <!-- Recursion -->
@@ -1113,17 +1131,17 @@ They are excluded from all lists.
         <DetectChar context="Regex" char=":"/>
     </context>
     <!-- Define named group (?<name>) -->
-    <context name="RegLabel" attribute="Regex Label" lineEndContext="#stay" fallthroughContext="Regex">
+    <context name="RegLabel" attribute="Regex Label" fallthroughContext="Regex">
         <DetectIdentifier/>
         <DetectChar context="Regex" char="&gt;"/>
     </context>
     <!-- Identifier inside special group (? ) -->
-    <context name="RegKeyword" attribute="Regex Label" lineEndContext="#stay">
+    <context name="RegKeyword" attribute="Regex Label">
         <DetectIdentifier/>
         <DetectChar attribute="Regex Group" context="#pop" char=")"/>
     </context>
     <!-- Ignored (?#comment) -->
-    <context name="RegComment" attribute="Comment" lineEndContext="#stay">
+    <context name="RegComment" attribute="Comment">
         <DetectIdentifier/>
         <DetectChar context="#pop" char=")"/>
     </context>
@@ -1164,7 +1182,7 @@ They are excluded from all lists.
     <context name="Hotkey" attribute="Hotkey" lineEndContext="#pop">
         <Detect2Chars attribute="Symbol" context="#stay" char=":" char1=":"/>
         <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace1"/>
-        <StringDetect attribute="Keyword" context="#pop" String="return" insensitive="true"/>
+        <WordDetect attribute="Keyword" context="#pop" String="return" insensitive="true"/>
         <RegExpr context="#pop!Params" String="\w+[\[\(. \t]" lookAhead="true"/>
         <DetectSpaces/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
@@ -1189,7 +1207,7 @@ They are excluded from all lists.
         <DetectSpaces/>
         <IncludeRules context="##Comments"/>
     </context>
-    <context name="CommentBlock" attribute="Comment" lineEndContext="#stay">
+    <context name="CommentBlock" attribute="Comment">
         <DetectSpaces/>
         <Detect2Chars attribute="Comment" context="#pop" char="*" char1="/" endRegion="Comment"/>
         <IncludeRules context="##Comments"/>

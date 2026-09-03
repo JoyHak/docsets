@@ -1,5 +1,10 @@
 ﻿```ahk
+;@Ahk2Exe-SetVersion 2.0.21
+;@Ahk2Exe-SetDescription %A_PriorLine~.*"(.*)"~$1%
+;@Ahk2Exe-SetMainIcon .ico
+;@Ahk2Exe-SetCopyright Rafaello
 #Warn Unreachable, Off
+
 ::h::Hello
 :*:acheiv::achiev.
 ::achievment::achievement.
@@ -408,6 +413,44 @@ if (Var[1] >= Low and Var[1] <= High)
 if (Var[1] >= Low && Var[1] <= High)
 
 Format("{:L}{:U}{:T}", Var[1], Var[2], Low)
+
+; for-loop only supports variables followed by expression
+for a, b, c in [1, 2]
+for a, b in Arr.Slice(1, 2).Transform(a => a > 2)
+for a, b in StrSplit(
+    "1 , 2", 
+    ',', 
+    A_Space, 2
+) {
+    MyVar := a
+}
+
+; Keyword after `loop` must be literal, comma is optional
+Loop Reg "HKEY_LOCAL_MACHINE", "KVR"
+loop reg, "HKEY_LOCAL_MACHINE", "KVR" {
+    if A_LoopRegType = "key"
+        value := ""
+}
+
+loop read, "Export.txt" {
+    loop parse A_LoopReadLine, A_Tab {
+        MsgBox "Field number " A_Index " is " A_LoopField "."
+    }
+}
+
+loop files, SourcePattern {
+    copy_it := false
+    if !FileExist(Dest "\" A_LoopFileName)  ; Always copy if target file doesn't yet exist.
+        copy_it := true
+}
+
+loop parse, A_Clipboard, "`n", "`r" {
+}
+
+; count can be an expression
+loop 12
+loop MyArray.length
+loop Min(MyArray.Length, 2)
 
 WatchPOV() {
     global

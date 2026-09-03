@@ -926,30 +926,30 @@
         <keyword attribute="Negative" String="negatives"/>
         <keyword attribute="BuiltIn" String="functions"/>
         <keyword attribute="Type" String="types"/>
-        <keyword attribute="Variable" String="variables" />
+        <keyword attribute="Variable" String="variables"/>
         <DetectChar attribute="Symbol" context="Member" char="."/>
         <Float attribute="Float" context="#stay"/>
         <HlCHex attribute="Hex" context="#stay"/>
         <Int attribute="Decimal" context="#stay"/>
-        <RegExpr attribute="Function" context="Identifier" String="&func;" />
+        <RegExpr attribute="Function" context="Identifier" String="&func;"/>
         <RegExpr attribute="Symbol" context="ContinuationSection" String="^[ \t]*\(" column="0"/>
         <DetectChar attribute="Symbol" context="MultilineParams" char="("/>
         <DetectChar attribute="Symbol" context="#pop" char=")"/>
-        <DetectChar attribute="Symbol" context="Object" char="{"/>
+        <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace1"/>
         <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1"/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
         <DetectChar attribute="Deref" context="Deref" char="%"/>
-        <Detect2Chars attribute="Symbol" context="Params" char="=" char1=">"/>
         <AnyChar attribute="Symbol" context="#stay" String="&operator;"/>
     </context>
 
     <context name="MultilineParams" attribute="Normal Text" lineEndContext="#stay">
 		<DetectSpaces/>
+        <DetectChar attribute="Symbol" context="Object" char="{" beginRegion="Brace1"/>
 		<IncludeRules context="Params"/>
 	</context>
 
-    <context name="MultilineParamsKeyword" attribute="__Check" lineEndContext="InParamBeginning" lineEmptyContext="#pop">
+    <context name="MultilineParamsKeyword" attribute="Normal Text" lineEndContext="InParamBeginning" lineEmptyContext="#pop">
         <DetectSpaces/>
         <RegExpr attribute="Symbol" context="Assignment" String="&assign;"/>
         <Detect2Chars attribute="Symbol" context="RegexString" char="~" char1="="/>
@@ -964,15 +964,17 @@
         <keyword attribute="Negative" String="negatives"/>
         <keyword attribute="BuiltIn" String="functions"/>
         <keyword attribute="Type" String="types"/>
+        <keyword attribute="Variable" String="variables"/>
         <keyword attribute="Variable" String="variables" />
         <DetectChar attribute="Symbol" context="Member" char="."/>
         <Float   attribute="Float"/>
         <HlCHex  attribute="Hex"/>
         <Int     attribute="Decimal"/>
         <RegExpr    attribute="Function" String="&func;"/>
-        <DetectChar attribute="Symbol" context="MultilineParams" char="("/>
-        <DetectChar attribute="Symbol" context="#pop!Statement" char="{"/>
-        <DetectChar attribute="Deref" context="Deref" char="%"/>
+        <DetectChar attribute="Symbol"  context="MultilineParams" char="("/>
+        <DetectChar attribute="Symbol"  context="#pop!Statement" char="{"/>
+        <DetectChar attribute="Symbol"  context="#pop#pop" char="}"/>
+        <DetectChar attribute="Deref"   context="Deref" char="%"/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
 	</context>
 

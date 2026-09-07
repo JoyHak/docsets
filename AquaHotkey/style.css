@@ -92,7 +92,7 @@ code span.bn {
 }
 /* String */
 code span.st {
-    color: #48e048;
+    color: #5cd147;
 }
 /* String char */
 code span.sc {
@@ -125,4 +125,26 @@ code span.vs {
 /* TODOs, NOTEs, ... */
 code span.al {
     color: #00ffff;
+}
+/* Documentation (JsDoc) */
+code span.do { 
+    color: #aeaeae;
+}
+/* keyword: @param, @example, ... */
+code span.an { 
+    color: #60a0b0;
+}
+/* @param name (variable) */
+code span.cv { 
+    color: #00ffff;
+}
+/* Warning */
+code span.wa { 
+    color: #ff8c00;
+    font-style: italic;    
+}
+/* Error */
+code span.er { 
+    color: #ff1515;
+    font-style: italic;
 }

@@ -2,8 +2,9 @@
 <!DOCTYPE language SYSTEM "syntax.xsd" [
     <!ENTITY func "\b([a-zA-Z_][\w_]*)(?=\()">
     <!ENTITY operator ":!&amp;+,-/.*&lt;&gt;=?[]|~^">
-    <!ENTITY assign "(?://|&lt;&lt;|&gt;&gt;|[-+.:/|&amp;^*%])=">
+    <!ENTITY assign "(?://|&lt;&lt;|&gt;&gt;|[-+.:/|&amp;^*])=">
 ]>
+<!-- docs: https://docs.kde.org/stable_kf6/en/kate/katepart/highlight.html -->
 <language name="AutoHotKey" section="Scripts"
           version="1" kateversion="5.62"
           indenter="cstyle"
@@ -833,6 +834,8 @@
         <keyword attribute="Type" context="Params" String="types"/>
         <keyword attribute="Keyword" context="Storage" String="storage_modifiers"/>
         <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1"/>
+        <Detect2Chars attribute="Comment" context="#pop" char="*" char1="/" endRegion="Comment"/>
+        <DetectChar attribute="Docs" char="*" firstNonSpace="true"/>
         <RegExpr attribute="Function" context="Identifier" String="&func;"/>
         <DetectIdentifier context="Identifier"/>
     </context>
@@ -853,6 +856,7 @@
         <Detect2Chars attribute="Symbol" context="#pop!Params" char="=" char1=">"/>
         <DetectChar attribute="Comment" context="#pop!CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="#pop!CommentBlock" char="/" char1="*" beginRegion="Comment"/>
+        <DetectChar attribute="DocInline" context="#pop!DocumentationBlock" char="`"/>
         <RegExpr    attribute="Symbol" context="#pop!Assignment" String="&assign;"/>
     </context>
     <!-- .Name + symbol (optional) -->
@@ -1058,12 +1062,14 @@
     <!-- Check for leading operator/keyword -->
     <context name="InParamBeginning" attribute="Normal Text" fallthroughContext="#pop#pop" lineEmptyContext="#pop#pop">
         <DetectSpaces/>
+        <DetectChar attribute="Docs" char="*" firstNonSpace="true"/>
         <AnyChar context="#pop" String="&operator;&quot;'%" lookAhead="true"/>
         <keyword attribute="Keyword" context="#pop" String="keywords"/>
 	</context>
     <!-- More permissive check for leading operator/keyword -->
     <context name="InAssignBeginning" attribute="Normal Text" fallthroughContext="#pop#pop" lineEmptyContext="#pop#pop">
         <DetectSpaces/>
+        <DetectChar attribute="Docs" char="*" firstNonSpace="true"/>
         <DetectChar attribute="Symbol" context="#pop#pop" char=","/>
         <AnyChar context="#pop" String="&operator;&quot;'%{(" lookAhead="true"/>
         <IncludeRules context="InParamBeginning"/>
@@ -1225,12 +1231,79 @@
     <!--======= COMMENTS =======-->
     <context name="CommentLine" attribute="Comment" lineEndContext="#pop">
         <DetectSpaces/>
+        <RegExpr attribute="Directive" context="#pop!Directive" String="@Ahk2Exe-\w+"/>
         <IncludeRules context="##Comments"/>
     </context>
     <context name="CommentBlock" attribute="Comment">
+        <DetectChar context="#pop!DocumentationBlock" char="*" beginRegion="Comment"/>
         <DetectSpaces/>
-        <Detect2Chars attribute="Comment" context="#pop" char="*" char1="/" endRegion="Comment"/>
+        <Detect2Chars context="#pop" char="*" char1="/" endRegion="Comment"/>
         <IncludeRules context="##Comments"/>
+    </context>
+    <context name="DocumentationBlock" attribute="Docs">
+        <DetectSpaces/>
+        <DetectChar attribute="DocInline"     context="DocInlineCode" char="`"/>
+        <DetectChar attribute="String"        context="String"        char="&quot;"/>
+        <DetectChar attribute="DocParamType"  context="DocParamType"  char="{"/>
+        <WordDetect attribute="DocTagSpecial" String="@returns" insensitive="true"/>
+        <WordDetect attribute="DocTagSpecial" String="@return"  insensitive="true"/>
+        <WordDetect attribute="DocTagThrows"  String="@throws"  insensitive="true"/>
+        <WordDetect attribute="DocTagThrows"  String="@throw"   insensitive="true"/>
+        <WordDetect attribute="DocTag"  context="DocParam" String="@param"       insensitive="true"/>
+        <WordDetect attribute="DocTag"  context="DocParam" String="@p"           insensitive="true"/>
+        <WordDetect attribute="DocTag"  context="DocCode"  String="@example"     insensitive="true"/>
+        <WordDetect attribute="DocTag"  context="DocCode"  String="@code"        insensitive="true"/>
+        <WordDetect attribute="Info"    context="Info"     String="@information" insensitive="true"/>
+        <WordDetect attribute="Info"    context="Info"     String="@info"        insensitive="true"/>
+        <WordDetect attribute="Info"    context="Info"     String="@note"        insensitive="true"/>
+        <WordDetect attribute="Warning" context="Warning"  String="@warning"     insensitive="true"/>
+        <WordDetect attribute="Warning" context="Warning"  String="@warn"        insensitive="true"/>
+
+        <RegExpr attribute="DocTag" String="@\w+"/>
+        <Detect2Chars attribute="Comment" context="#pop" char="*" char1="/" endRegion="Comment"/>
+    </context>
+    <context name="DocInlineCode" attribute="DocInline">
+        <DetectSpaces/>
+        <DetectChar attribute="DocInline" context="#pop" char="`"/>
+        <DetectChar context="#pop" char="@" lookAhead="true"/>
+        <DetectChar attribute="DocParamType" context="DocParamType" char="{"/>
+        <IncludeRules context="Params"/>
+    </context>
+    <!-- TODO: postifx maybe? -->
+    <!-- TODO: @region @endregion -->
+    <!-- TODO: (_) -->
+    <context name="DocCode" attribute="Docs">
+        <DetectSpaces/>
+        <DetectChar context="#pop" char="@" lookAhead="true"/>
+        <Detect2Chars attribute="Comment" context="#pop#pop" char="*" char1="/" endRegion="Comment"/>
+        <DetectChar attribute="Comment" context="CommentLine" char=";"/>
+        <DetectChar char="*" firstNonSpace="true"/>
+        <StringDetect attribute="Directive" context="Action" String="#HotIf" insensitive="true"/>
+        <keyword attribute="Directive" context="Directive" String="directives"/>
+        <DetectChar attribute="Symbol" context="Hotstring" char=":"/>
+        <RegExpr attribute="Hotkey" context="Hotkey" String="^[ \t]*([^:]+)(?=::)"/>
+        <DetectChar attribute="Symbol" context="DocCode" char="{" beginRegion="Brace1"/>
+        <IncludeRules context="Statement"/>
+    </context>
+    <context name="DocParam" attribute="Docs" lineEmptyContext="#pop" fallthroughContext="#pop">
+        <DetectSpaces/>
+        <DetectChar attribute="DocParamType" context="DocParamType" char="{"/>
+        <DetectIdentifier context="#pop" attribute="DocParam"/>
+    </context>
+    <context name="DocParamType" attribute="DocParamType" lineEmptyContext="#pop">
+        <DetectSpaces/>
+        <DetectChar context="#pop" char="}"/>
+    </context>
+    <context name="Info" attribute="Info">
+        <DetectSpaces/>
+        <DetectChar context="#pop" char="@" lookAhead="true"/>
+        <Detect2Chars attribute="Comment" context="#pop#pop" char="*" char1="/" endRegion="Comment"/>
+        <DetectChar attribute="DocInline" context="DocInlineCode" char="`"/>
+        <DetectChar attribute="DocParamType" context="DocParamType" char="{"/>
+        <DetectChar attribute="String" context="String" char="&quot;"/>
+    </context>
+    <context name="Warning" attribute="Warning">
+        <IncludeRules context="Info"/>
     </context>
 </contexts>
 <itemDatas>
@@ -1248,19 +1321,13 @@
     <itemData name="Directive Chars"  defStyleNum="dsAttribute" spellChecking="false"/>
     <itemData name="Variable"         defStyleNum="dsVariable" spellChecking="false"/>
     <itemData name="Deref"        	  defStyleNum="dsImport" spellChecking="false"/>
-    <itemData name="__Cont"        	  defStyleNum="dsImport" spellChecking="false"/>
-    <itemData name="__Check"          defStyleNum="dsConstant" spellChecking="false"/>
-    <itemData name="__Params"         defStyleNum="dsOperator" spellChecking="false"/>
-    <itemData name="__Statement"      defStyleNum="dsComment" spellChecking="false"/>
-    <itemData name="__Action"         defStyleNum="dsPreprocessor" spellChecking="false"/>
-    <itemData name="__Assign"         defStyleNum="dsString" spellChecking="false"/>
     <itemData name="Keyword"          defStyleNum="dsKeyword" spellChecking="false"/>
     <itemData name="Normal Text"      defStyleNum="dsNormal" spellChecking="false"/>
     <itemData name="Decimal"          defStyleNum="dsDecVal" spellChecking="false"/>
     <itemData name="Hex"              defStyleNum="dsDecVal" spellChecking="false"/>
     <itemData name="Float"            defStyleNum="dsDecVal" spellChecking="false"/>
     <itemData name="String"           defStyleNum="dsString"/>
-    <itemData name="String Char"      defStyleNum="dsSpecialChar" spellChecking="false"/>
+    <itemData name="String Char"      defStyleNum="dsSpecialChar"/>
     <itemData name="Regex"            defStyleNum="dsSpecialString" spellChecking="false"/>
     <itemData name="Regex Char"       defStyleNum="dsBaseN" spellChecking="false"/>
     <itemData name="Regex Escaped"    defStyleNum="dsSpecialChar" spellChecking="false"/>
@@ -1272,6 +1339,16 @@
     <itemData name="Regex Positive"   defStyleNum="dsString" spellChecking="false"/>
     <itemData name="Symbol"           defStyleNum="dsOperator" spellChecking="false"/>
     <itemData name="Comment"          defStyleNum="dsComment"/>
+    <itemData name="Docs"             defStyleNum="dsDocumentation"/>
+    <itemData name="DocTag"           defStyleNum="dsPreprocessor"/>
+    <itemData name="DocTagSpecial"    defStyleNum="dsAnnotation"/>
+    <itemData name="DocTagThrows"     defStyleNum="dsConstant"/>
+    <itemData name="DocParam"         defStyleNum="dsCommentVar"/>
+    <itemData name="DocParamType"     defStyleNum="dsKeyword"/>
+    <itemData name="DocInline"        defStyleNum="dsSpecialChar"/>
+    <itemData name="Region"           defStyleNum="dsRegionMarker"/>
+    <itemData name="Info"             defStyleNum="dsInformation"/>
+    <itemData name="Warning"          defStyleNum="dsWarning"/>
 </itemDatas>
 </highlighting>
 <general>

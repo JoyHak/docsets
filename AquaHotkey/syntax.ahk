@@ -493,6 +493,7 @@ if (Var is Class)   ; technically valid
 if (Number(6) = 6) 
 if (Var[1] < Var[2])
 
+states := ["true", "on", "false", "off"]
 MyArray := ["one", "two", "three", 17]
 MyObject := {Color: "Yellow", Taste: "Delicious", Price: 3}
 Banana := Map("Color", "Yellow", "Taste", "Delicious", "Price", 3)

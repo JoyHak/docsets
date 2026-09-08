@@ -611,6 +611,22 @@
       <item>com</item>
       <item>c</item>
 </list>
+<list name="string_positives">
+    <item>"true"</item>
+    <item>"AlwaysOn"</item>
+    <item>"on"</item>
+    <item>'true'</item>
+    <item>'AlwaysOn'</item>
+    <item>'on'</item>
+</list>
+<list name="string_negatives">
+    <item>"false"</item>
+    <item>"AlwaysOff"</item>
+    <item>"off"</item>
+    <item>'false'</item>
+    <item>'AlwaysOff'</item>
+    <item>'off'</item>    
+</list>    
 <contexts>
     <context name="Normal" attribute="Normal Text" lineEndContext="#stay" fallthroughContext="Action">
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
@@ -659,6 +675,8 @@
         <AnyChar    attribute="Symbol" context="Params" String="?:" firstNonSpace="1"/>
         <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace1"/>
         <DetectChar attribute="Symbol" context="ContinuationSection" char="(" firstNonSpace="true"/>
+        <keyword attribute="Variable" String="string_positives"/>
+        <keyword attribute="Negative" String="string_negatives"/>
         <DetectChar attribute="String" context="String" char="&quot;"/>
         <DetectChar attribute="Char" context="Char" char="'"/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
@@ -859,6 +877,8 @@
     <context name="Params" attribute="Normal Text" lineEndContext="#pop">
         <RegExpr attribute="Unset" String="&maybe;"/>
         <Detect2Chars attribute="Symbol" context="RegexString" char="~" char1="="/>
+        <keyword attribute="Variable" String="string_positives"/>
+        <keyword attribute="Negative" String="string_negatives"/>
         <DetectChar attribute="String" context="String" char="&quot;"/>
         <DetectChar attribute="Char" context="Char" char="'"/>
         <WordDetect attribute="Keyword" context="Type" String="is" insensitive="true"/>
@@ -916,6 +936,8 @@
         <RegExpr attribute="Symbol" context="Assignment" String="&assign;"/>
         <Detect2Chars attribute="Symbol" context="RegexString" char="~" char1="="/>
         <AnyChar attribute="Symbol" context="InParamEnding" String="&operator;"/>
+        <keyword attribute="Variable" String="string_positives"/>
+        <keyword attribute="Negative" String="string_negatives"/>
         <DetectChar attribute="String" context="String" char="&quot;"/>
         <DetectChar attribute="Char" context="Char" char="'"/>
         <WordDetect attribute="Symbol" String="_"/>
@@ -1311,6 +1333,8 @@
         <DetectSpaces/>
         <StringDetect attribute="DocInline"   context="DocCodeLang" String="```"/>
         <DetectChar attribute="DocInline"     context="DocInlineCode" char="`"/>
+        <keyword attribute="Variable"         String="string_positives"/>
+        <keyword attribute="Negative"         String="string_negatives"/>
         <DetectChar attribute="String"        context="String"        char="&quot;"/>
         <DetectChar attribute="DocParamType"  context="DocParamType"  char="{"/>
         <WordDetect attribute="DocTagSpecial" String="@returns" insensitive="true"/>

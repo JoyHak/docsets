@@ -803,6 +803,8 @@
         <WordDetect attribute="Control Flow" context="#pop!CatchKeyword" String="catch" insensitive="true"/>
         <WordDetect attribute="Negative" context="#pop!Error" String="throw" insensitive="true"/>
         <WordDetect attribute="BuiltIn" context="#pop!DllCall" String="DllCall" insensitive="true"/>
+        <WordDetect attribute="BuiltIn" context="#pop!NumPut" String="NumPut" insensitive="true"/>
+        <WordDetect attribute="BuiltIn" context="#pop!NumPut" String="NumGet" insensitive="true"/>
         <keyword attribute="Control Flow" context="#pop!Params" String="controlflow"/>
         <keyword attribute="Control Flow" context="#pop!MultilineKeywordParams" String="multiline"/>
         <keyword attribute="Break Flow" context="#pop!Params" String="breakflow"/>
@@ -832,6 +834,8 @@
         <WordDetect attribute="Control Flow" context="CatchKeyword" String="catch" insensitive="true"/>
         <WordDetect attribute="Negative" context="Error" String="throw" insensitive="true"/>
         <WordDetect attribute="BuiltIn" context="DllCall" String="DllCall" insensitive="true"/>
+        <WordDetect attribute="BuiltIn" context="NumPut" String="NumPut" insensitive="true"/>
+        <WordDetect attribute="BuiltIn" context="NumPut" String="NumGet" insensitive="true"/>
         <keyword attribute="Variable" context="Params" String="variables" />
         <keyword attribute="Control Flow" context="Params" String="controlflow"/>
         <keyword attribute="Control Flow" context="MultilineKeywordParams" String="multiline"/>
@@ -1014,6 +1018,8 @@
         <WordDetect attribute="Control Flow" context="CatchKeyword"  String="catch" insensitive="true"/>
         <WordDetect attribute="Unset" context="#stay" String="unset" insensitive="true"/>
         <WordDetect attribute="BuiltIn" context="DllCall" String="DllCall" insensitive="true"/>
+        <WordDetect attribute="BuiltIn" context="NumPut" String="NumPut" insensitive="true"/>
+        <WordDetect attribute="BuiltIn" context="NumPut" String="NumGet" insensitive="true"/>
         <keyword attribute="Control Flow" String="controlflow"/>
 		<keyword attribute="Keyword" String="keywords"/>
         <keyword attribute="Negative" String="negatives"/>
@@ -1069,6 +1075,8 @@
         <keyword attribute="Keyword" context="#pop!Storage" String="storage_modifiers"/>
         <WordDetect attribute="Control Flow" context="#pop!ElseIfKeyword" String="else" insensitive="true"/>
         <WordDetect attribute="BuiltIn" context="DllCall" String="DllCall" insensitive="true"/>
+        <WordDetect attribute="BuiltIn" context="NumPut" String="NumPut" insensitive="true"/>
+        <WordDetect attribute="BuiltIn" context="NumPut" String="NumGet" insensitive="true"/>
         <keyword attribute="Control Flow" context="#pop!MultilineKeywordParams" String="multiline"/>
         <keyword attribute="Control Flow" context="#pop!Params" String="controlflow"/>
         <keyword attribute="Negative" String="negatives"/>
@@ -1158,6 +1166,15 @@
         <DetectSpaces/>
         <DetectChar attribute="Symbol" context="#pop#pop" char=")"/>
         <DetectChar attribute="Symbol" context="#pop" char=","/>
+        <IncludeRules context="MultilineParams"/>
+    </context>
+    <!-- NumPut(type, number, ..., target [, offset]) -->
+    <!-- NumGet(Source, Offset, Type) -->
+    <context name="NumPut" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="#pop">
+        <DetectChar attribute="Symbol" context="#pop!NumPutParams" char="("/>
+    </context>
+    <context name="NumPutParams" attribute="Normal Text">
+        <IncludeRules context="DllCallParams"/>
         <IncludeRules context="MultilineParams"/>
     </context>
     <!--======= STRING =======-->

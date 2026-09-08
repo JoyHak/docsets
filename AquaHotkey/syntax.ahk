@@ -300,6 +300,19 @@ if ((color >> 16) & 0xFF)
 return Color == "Red"
     || Color == "Blue"
 
+return {
+    Key: Key,
+    Value: Value
+}
+
+return [
+    1, 
+    2
+]
+
+Return Color(0).__Item[0x0].ToString().MsgBox()
+ && Fn(Color, "true")
+
 ; Params in parentheses
 if (codepage != "")
     codepage := " /CP" . codepage

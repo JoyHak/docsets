@@ -27,6 +27,7 @@
     <item>class</item>
     <item>for</item>
     <item>loop</item>
+    <item>return</item>
 </list>
 <list name="loop">
     <item>parse</item>
@@ -37,7 +38,6 @@
 <list name="multiline">
     <item>if</item>
     <item>while</item>
-    <item>return</item>
     <item>until</item>
 </list>
 <list name="keywords">
@@ -654,6 +654,7 @@
         <keyword attribute="Variable" context="#pop!Params" String="variables"/>
         <WordDetect attribute="Control Flow" context="#pop!ElseIfKeyword" String="else" insensitive="true"/>
         <WordDetect attribute="Control Flow" context="#pop!CatchKeyword" String="catch" insensitive="true"/>
+        <WordDetect attribute="Control Flow" context="#pop!ReturnKeyword" String="return" insensitive="true"/>
         <WordDetect attribute="Negative" context="#pop!Error" String="throw" insensitive="true"/>
         <WordDetect attribute="BuiltIn" context="#pop!DllCall" String="DllCall" insensitive="true"/>
         <WordDetect attribute="BuiltIn" context="#pop!NumPut" String="NumPut" insensitive="true"/>
@@ -688,6 +689,7 @@
         <WordDetect attribute="Keyword" context="LoopKeyword" String="loop" insensitive="true"/>
         <WordDetect attribute="Control Flow" context="ElseIfKeyword" String="else" insensitive="true"/>
         <WordDetect attribute="Control Flow" context="CatchKeyword" String="catch" insensitive="true"/>
+        <WordDetect attribute="Control Flow" context="ReturnKeyword" String="return" insensitive="true"/>
         <WordDetect attribute="Negative" context="Error" String="throw" insensitive="true"/>
         <WordDetect attribute="BuiltIn" context="DllCall" String="DllCall" insensitive="true"/>
         <WordDetect attribute="BuiltIn" context="NumPut" String="NumPut" insensitive="true"/>
@@ -772,7 +774,7 @@
         <DetectChar attribute="Symbol" char=":"/>
         <IncludeRules context="Params"/>
     </context>
-    <context name="Array" attribute="Normal Text" lineEndContext="#pop">
+    <context name="Array" attribute="Normal Text">
         <DetectSpaces/>
         <DetectChar attribute="Symbol" context="#pop" char="]"/>
         <IncludeRules context="Params"/>
@@ -854,6 +856,13 @@
         -->
         <DetectSpaces/>
         <WordDetect attribute="Control Flow" context="#pop!MultilineKeywordParams" String="if" insensitive="true"/>
+    </context>
+    <context name="ReturnKeyword" attribute="Normal Text" lineEndContext="InParamBeginning" lineEmptyContext="#pop">
+        <!--
+         Allows object, array and cont. section, but follows multiline statements rools:
+         trailing/leading keyword or operator is required to treat next line as statement
+        -->
+        <IncludeRules context="SubAssignment"/>
     </context>
     <context name="CatchKeyword" attribute="Normal Text" lineEndContext="#pop!Params" fallthroughContext="#pop!Params">
         <DetectSpaces/>
@@ -947,6 +956,7 @@
         <keyword attribute="Keyword" context="InParamEnding" String="keywords"/>
         <keyword attribute="Keyword" context="#pop!Storage" String="storage_modifiers"/>
         <WordDetect attribute="Control Flow" context="#pop!ElseIfKeyword" String="else" insensitive="true"/>
+        <WordDetect attribute="Control Flow" context="#pop!ReturnKeyword" String="return" insensitive="true"/>
         <WordDetect attribute="BuiltIn" context="DllCall" String="DllCall" insensitive="true"/>
         <WordDetect attribute="BuiltIn" context="NumPut" String="NumPut" insensitive="true"/>
         <WordDetect attribute="BuiltIn" context="NumPut" String="NumGet" insensitive="true"/>

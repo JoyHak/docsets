@@ -1037,6 +1037,7 @@
         <DetectChar attribute="Docs" char="*" firstNonSpace="true"/>
         <DetectChar attribute="Symbol" context="Reference" char="&amp;"/>
         <AnyChar attribute="Symbol" context="#stay" String="&operator;"/>
+        <WordDetect attribute="Symbol" String="_"/>
     </context>
     <context name="MultilineParams" attribute="Normal Text">
 		<DetectSpaces/>
@@ -1057,6 +1058,7 @@
         <Detect2Chars attribute="Symbol" context="RegexString" char="~" char1="="/>
         <AnyChar attribute="Symbol" context="InParamEnding" String="&operator;"/>
         <DetectChar attribute="String" context="String" char="&quot;"/>
+        <WordDetect attribute="Symbol" String="_"/>
         <DetectChar attribute="String Char" context="String Char" char="'"/>
         <Detect2Chars attribute="Symbol" context="Params" char="=" char1=">"/>
         <WordDetect attribute="Keyword" context="Type" String="is" insensitive="true"/>

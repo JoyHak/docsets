@@ -346,19 +346,53 @@ if A_IsAdmin    ; Set for all users.
 else            ; Set for current user only.
     RegWrite(cmd, "REG_SZ", "HKCU\Software\Classes\" key)
 
+; The characters ^+!# represent the modifier keys Ctrl, Shift, Alt and Win. 
+; They affect only the very next key. 
+; To send the corresponding modifier key on its own, enclose the key name in braces.
 Send("This text has been typed{!}")
-Send("{a}")       ; WRONG
-Send("{a}{b}{c}") ; WRONG
-Send("{abc}")     ; WRONG
-Send("abc")       ; CORRECT
+Send("{a 2}") 
+Send("{a}{b}{c}")
 Send("^s")                     ; Both of these send CTRL+S
 Send("{Ctrl down}s{Ctrl up}")  ; Both of these send CTRL+S
-Send("{Ctrl down}c{Ctrl up}")
-Send("{b down}{b up}")
-Send("{Tab down}{Tab up}")
-Send("{Up down}")  ; Press down the up-arrow key.
-Sleep(1000)      ; Keep it down for one second.
-Send("{Up up}")    ; Release the up-arrow key.
+Send("+{Delete}text")	       ; key name must be in { }, everything else is text
+SendEvent("^+D")			   ; just 1 letter
+SendEvent("^+Del")		       ; only 1st would be interpreted as key
+SendInput("CapsLock")		   ; not a key!
+SendInput('Delete {Delete 2}')			
+
+; special characters would be interpreted literally
+Send("{Raw}#f ^!d s{o}me {CapsLock}`n")
+Send("{Text}{Caps}{Delete}CapsLock`%")
+Send("{Blind#^}{Caps}{Delete} CapsLock`%")
+
+Send("$ * ~")    ; hooks are treated literally here
+SendText("^{Delete 2}")
+SendPlay("^{Delete 2}")
+
+Send(
+    (LTrim0 Com
+    "{!}A line of text.  ; comment
+    By default, the hard carriage (`r`n) return {Enter 2}
+        This line is indented with a {tab}; by default, that {tab} will also be stored."
+    )
+)
+
+; EXAMPLE #1 - inside a quoted/literal string:
+Var := "
+(
+A line of text.
+By default, the hard carriage return (Enter) between the previous line and this one will be stored.
+	This line is indented with a tab; by default, that tab will also be stored.
+Additionally, "quote marks" are automatically escaped when appropriate.
+)"
+
+; EXAMPLE #2 - outside a quoted/literal string:
+Var :=
+(
+"Same as above, except that quote marks are not automatically escaped.
+Specify variables as follows: " Var "
+A line of text."
+)
 
 ; EXAMPLE #1 - inside a quoted/literal string:
 FileAppend("
@@ -375,13 +409,6 @@ FileAppend(
 Specify variables as follows: " Var "
 A line of text."
 ), A_Desktop "\My File.txt")
-
-; EXAMPLE #3:
-FileAppend("
-(
-Line 1 of the text.
-Line 2 of the text. By default, a linefeed (`n) is present between lines.
-)", A_Desktop "\My File.txt")
 
 ; EXAMPLE #4:
 FormatStr := "

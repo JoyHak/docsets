@@ -15,6 +15,7 @@ blockquote, div.sourceCode {
 }
 code {
     padding: 0 .2em;
+    color: #6fced9;
     background-color: #202020;
     border-radius: 3px;
     white-space: pre-wrap;

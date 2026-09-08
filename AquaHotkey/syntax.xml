@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE language SYSTEM "syntax.xsd" [
     <!ENTITY func "\b([a-zA-Z_][\w_]*)(?=\()">
-    <!ENTITY operator "#:!&amp;+,-/*&lt;&gt;=?[]|~^">
+    <!ENTITY operator ":!&amp;+,-/*&lt;&gt;=?[]|~^">
     <!ENTITY assign "(?://|&lt;&lt;|&gt;&gt;|[-+.:/|&amp;^*])=">
     <!ENTITY maybe "\b[a-zA-Z_][\w_]*\?">
 ]>
@@ -299,14 +299,10 @@
     <item>Run</item>
     <item>RunAs</item>
     <item>RunWait</item>
-    <item>Send</item>
-    <item>SendEvent</item>
-    <item>SendInput</item>
     <item>SendLevel</item>
-    <item>SendMessage</item>
-    <item>SendMode</item>
-    <item>SendPlay</item>
     <item>SendText</item>
+    <item>SendMode</item>
+    <item>SendMessage</item>
     <item>SetCapsLockState</item>
     <item>SetControlDelay</item>
     <item>SetDefaultMouseSpeed</item>
@@ -411,6 +407,13 @@
     <item>ComObjArray</item>
     <item>ClipboardAll</item>
 </list>
+<list name="send">
+    <item>Send</item>
+    <item>SendEvent</item>
+    <item>SendInput</item>
+    <item>SendPlay</item>
+    <item>ControlSend</item>
+</list>
 <list name="meta">
     <item>get</item>
     <item>set</item>
@@ -460,184 +463,6 @@
     <item>#Warn</item>
     <item>#WinActivateForce</item>
     <item>#Hotstring</item>
-</list>
-<list name="hotkeys">
-    <item>shift</item>
-    <item>lshift</item>
-    <item>rshift</item>
-    <item>alt</item>
-    <item>lalt</item>
-    <item>ralt</item>
-    <item>control</item>
-    <item>lcontrol</item>
-    <item>rcontrol</item>
-    <item>ctrl</item>
-    <item>lctrl</item>
-    <item>rctrl</item>
-    <item>lwin</item>
-    <item>rwin</item>
-    <item>appskey</item>
-    <item>altdown</item>
-    <item>altup</item>
-    <item>shiftdown</item>
-    <item>shiftup</item>
-    <item>ctrldown</item>
-    <item>ctrlup</item>
-    <item>lwindown</item>
-    <item>lwinup</item>
-    <item>rwindown</item>
-    <item>rwinup</item>
-    <item>lbutton</item>
-    <item>rbutton</item>
-    <item>mbutton</item>
-    <item>wheelup</item>
-    <item>wheeldown</item>
-    <item>wheelleft</item>
-    <item>wheelright</item>
-    <item>xbutton1</item>
-    <item>xbutton2</item>
-    <item>joy1</item>
-    <item>joy2</item>
-    <item>joy3</item>
-    <item>joy4</item>
-    <item>joy5</item>
-    <item>joy6</item>
-    <item>joy7</item>
-    <item>joy8</item>
-    <item>joy9</item>
-    <item>joy10</item>
-    <item>joy11</item>
-    <item>joy12</item>
-    <item>joy13</item>
-    <item>joy14</item>
-    <item>joy15</item>
-    <item>joy16</item>
-    <item>joy17</item>
-    <item>joy18</item>
-    <item>joy19</item>
-    <item>joy20</item>
-    <item>joy21</item>
-    <item>joy22</item>
-    <item>joy23</item>
-    <item>joy24</item>
-    <item>joy25</item>
-    <item>joy26</item>
-    <item>joy27</item>
-    <item>joy28</item>
-    <item>joy29</item>
-    <item>joy30</item>
-    <item>joy31</item>
-    <item>joy32</item>
-    <item>joyx</item>
-    <item>joyy</item>
-    <item>joyz</item>
-    <item>joyr</item>
-    <item>joyu</item>
-    <item>joyv</item>
-    <item>joypov</item>
-    <item>joyname</item>
-    <item>joybuttons</item>
-    <item>joyaxes</item>
-    <item>joyinfo</item>
-    <item>space</item>
-    <item>tab</item>
-    <item>enter</item>
-    <item>escape</item>
-    <item>esc</item>
-    <item>backspace</item>
-    <item>bs</item>
-    <item>delete</item>
-    <item>del</item>
-    <item>insert</item>
-    <item>ins</item>
-    <item>pgup</item>
-    <item>pgdn</item>
-    <item>home</item>
-    <item>end</item>
-    <item>up</item>
-    <item>down</item>
-    <item>left</item>
-    <item>right</item>
-    <item>printscreen</item>
-    <item>ctrlbreak</item>
-    <item>pause</item>
-    <item>break</item>
-    <item>help</item>
-    <item>scrolllock</item>
-    <item>capslock</item>
-    <item>numlock</item>
-    <item>numpad0</item>
-    <item>numpad1</item>
-    <item>numpad2</item>
-    <item>numpad3</item>
-    <item>numpad4</item>
-    <item>numpad5</item>
-    <item>numpad6</item>
-    <item>numpad7</item>
-    <item>numpad8</item>
-    <item>numpad9</item>
-    <item>numpadmult</item>
-    <item>numpadadd</item>
-    <item>numpadsub</item>
-    <item>numpaddiv</item>
-    <item>numpaddot</item>
-    <item>numpaddel</item>
-    <item>numpadins</item>
-    <item>numpadclear</item>
-    <item>numpadup</item>
-    <item>numpaddown</item>
-    <item>numpadleft</item>
-    <item>numpadright</item>
-    <item>numpadhome</item>
-    <item>numpadend</item>
-    <item>numpadpgup</item>
-    <item>numpadpgdn</item>
-    <item>numpadenter</item>
-    <item>f1</item>
-    <item>f2</item>
-    <item>f3</item>
-    <item>f4</item>
-    <item>f5</item>
-    <item>f6</item>
-    <item>f7</item>
-    <item>f8</item>
-    <item>f9</item>
-    <item>f10</item>
-    <item>f11</item>
-    <item>f12</item>
-    <item>f13</item>
-    <item>f14</item>
-    <item>f15</item>
-    <item>f16</item>
-    <item>f17</item>
-    <item>f18</item>
-    <item>f19</item>
-    <item>f20</item>
-    <item>f21</item>
-    <item>f22</item>
-    <item>f23</item>
-    <item>f24</item>
-    <item>browser_back</item>
-    <item>browser_forward</item>
-    <item>browser_refresh</item>
-    <item>browser_stop</item>
-    <item>browser_search</item>
-    <item>browser_favorites</item>
-    <item>browser_home</item>
-    <item>volume_mute</item>
-    <item>volume_down</item>
-    <item>volume_up</item>
-    <item>media_next</item>
-    <item>media_prev</item>
-    <item>media_stop</item>
-    <item>media_play_pause</item>
-    <item>launch_mail</item>
-    <item>launch_media</item>
-    <item>launch_app1</item>
-    <item>launch_app2</item>
-    <item>blind</item>
-    <item>click</item>
-    <item>raw</item>
 </list>
 <list name="variables">
     <item>super</item>
@@ -809,6 +634,7 @@
         <keyword attribute="Control Flow" context="#pop!MultilineKeywordParams" String="multiline"/>
         <keyword attribute="Break Flow" context="#pop!Params" String="breakflow"/>
         <keyword attribute="BuiltIn" context="#pop!Params" String="functions"/>
+        <keyword attribute="BuiltIn" context="#pop!Send" String="send"/>
         <keyword attribute="Type" context="#pop!Params" String="types"/>
         <keyword attribute="Keyword" context="#pop!Storage" String="storage_modifiers"/>
         <RegExpr attribute="Function" context="Identifier" String="&func;"/>
@@ -822,7 +648,7 @@
         <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace1"/>
         <DetectChar attribute="Symbol" context="ContinuationSection" char="("/>
         <DetectChar attribute="String" context="String" char="&quot;"/>
-        <DetectChar attribute="String Char" context="String Char" char="'"/>
+        <DetectChar attribute="Char" context="Char" char="'"/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
         <DetectChar attribute="Symbol" context="Reference" char="&amp;"/>
@@ -842,6 +668,7 @@
         <keyword attribute="Break Flow" context="Params" String="breakflow"/>
         <keyword attribute="Negative" context="Params" String="negatives"/>
         <keyword attribute="BuiltIn" context="Params" String="functions"/>
+        <keyword attribute="BuiltIn" context="Send" String="send"/>
         <keyword attribute="Type" context="Params" String="types"/>
         <keyword attribute="Keyword" context="Storage" String="storage_modifiers"/>
         <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1"/>
@@ -1012,7 +839,7 @@
         <RegExpr attribute="Unset" String="&maybe;"/>
         <Detect2Chars attribute="Symbol" context="RegexString" char="~" char1="="/>
         <DetectChar attribute="String" context="String" char="&quot;"/>
-        <DetectChar attribute="String Char" context="String Char" char="'"/>
+        <DetectChar attribute="Char" context="Char" char="'"/>
         <WordDetect attribute="Keyword" context="Type" String="is" insensitive="true"/>
         <WordDetect attribute="Control Flow" context="ElseIfKeyword" String="else" insensitive="true"/>
         <WordDetect attribute="Control Flow" context="CatchKeyword"  String="catch" insensitive="true"/>
@@ -1024,6 +851,7 @@
 		<keyword attribute="Keyword" String="keywords"/>
         <keyword attribute="Negative" String="negatives"/>
         <keyword attribute="BuiltIn" String="functions"/>
+        <keyword attribute="BuiltIn" context="Send" String="send"/>
         <keyword attribute="Type" String="types"/>
         <keyword attribute="Variable" String="variables"/>
         <DetectChar attribute="Symbol" context="Member" char="."/>
@@ -1066,8 +894,8 @@
         <Detect2Chars attribute="Symbol" context="RegexString" char="~" char1="="/>
         <AnyChar attribute="Symbol" context="InParamEnding" String="&operator;"/>
         <DetectChar attribute="String" context="String" char="&quot;"/>
+        <DetectChar attribute="Char" context="Char" char="'"/>
         <WordDetect attribute="Symbol" String="_"/>
-        <DetectChar attribute="String Char" context="String Char" char="'"/>
         <Detect2Chars attribute="Symbol" context="Params" char="=" char1=">"/>
         <WordDetect attribute="Keyword" context="Type" String="is" insensitive="true"/>
         <WordDetect attribute="Unset" context="InParamEnding" String="unset" insensitive="true"/>
@@ -1081,6 +909,7 @@
         <keyword attribute="Control Flow" context="#pop!Params" String="controlflow"/>
         <keyword attribute="Negative" String="negatives"/>
         <keyword attribute="BuiltIn" String="functions"/>
+        <keyword attribute="BuiltIn" context="Send" String="send"/>
         <keyword attribute="Type" String="types"/>
         <keyword attribute="Variable" String="variables"/>
         <DetectChar attribute="Symbol" context="Member" char="."/>
@@ -1185,11 +1014,11 @@
         <StringDetect attribute="Keyword" context="EscapedChars" String="join" insensitive="true"/>
         <DetectChar attribute="String" context="#stay" char="`"/>
         <DetectChar attribute="String" context="String" char="&quot;"/>
-        <DetectChar attribute="String Char" context="String Char" char="'"/>
+        <DetectChar attribute="Char" context="Char" char="'"/>
         <DetectChar attribute="Symbol" context="#pop" char=")"/>
     </context>
     <!-- Apos. ` is prefix for escaped (literal) chars -->
-    <context name="EscapedChars" attribute="String Char" lineEndContext="#pop">
+    <context name="EscapedChars" attribute="Char" lineEndContext="#pop">
         <RegExpr context="#stay" String="`."/>
         <DetectChar context="#pop" char=" "/>
     </context>
@@ -1197,17 +1026,68 @@
     <context name="String" attribute="String">
         <!-- String may start with Re option like m) or x) -->
         <RegExpr attribute="Regex Option" context="#pop!Regex" String="[imsxADJUXSC]+\)" insensitive="false"/>
-        <RegExpr attribute="String Char" context="#stay" String="`."/>
-        <Detect2Chars attribute="String Char" context="#stay" char="&quot;" char1="&quot;"/>
+        <RegExpr attribute="Char" context="#stay" String="`."/>
+        <Detect2Chars attribute="Char" context="#stay" char="&quot;" char1="&quot;"/>
         <DetectChar attribute="String" context="#pop" char="&quot;"/>
     </context>
     <!-- Single '..' -->
-    <context name="String Char" attribute="String Char">
+    <context name="Char" attribute="Char">
         <!-- String may start with Re option like m) or x) -->
         <RegExpr attribute="Regex Option" context="#pop!Regex" String="[imsxADJUXSC]+\)" insensitive="false"/>
         <RegExpr attribute="String" context="#stay" String="`."/>
         <Detect2Chars attribute="String" context="#stay" char="'" char1="'"/>
-        <DetectChar attribute="String Char" context="#pop" char="'"/>
+        <DetectChar attribute="Char" context="#pop" char="'"/>
+    </context>
+    <!-- Send("Keys") -->
+    <context name="Send" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="#pop">
+        <DetectChar attribute="Symbol" context="#pop!SendParams" char="("/>
+    </context>
+    <context name="SendParams" attribute="Normal Text">
+        <RegExpr attribute="Symbol"    context="SendSection" String="^[ \t]*\(" column="0"/>
+        <DetectChar attribute="String" context="SendString" char="&quot;"/>
+        <DetectChar attribute="Char"   context="SendChar" char="'"/>
+        <DetectChar attribute="Symbol" context="SendConcatString" char="."/> <!-- Explicit concatenation -->
+        <DetectSpaces context="SendConcatString"/> <!-- Implicit concatenation -->
+        <DetectChar attribute="Symbol" context="#pop!MultilineParams" char=","/>
+        <DetectChar attribute="Symbol" context="#pop" char=")"/>
+    </context>
+    <context name="SendConcatString" attribute="Normal Text" lineEndContext="InParamBeginning" lineEmptyContext="#pop">
+        <AnyChar context="#pop" String="&quot;'" lookAhead="true"/>
+        <IncludeRules context="MultilineKeywordParams"/>
+    </context>
+    <!-- "^{Del}", "+{a}", ... mods + keys -->
+    <context name="SendString" attribute="String">
+        <DetectSpaces/>
+        <StringDetect attribute="Keyword" context="#pop!String" String="{raw}" insensitive="true"/>
+        <StringDetect attribute="Keyword" context="#pop!String" String="{text}" insensitive="true"/>
+        <DetectChar attribute="Symbol" context="BraceHotkeyString" char="{"/>
+        <RegExpr attribute="Hotkey" String="[!\+#^]+[^{]?"/>
+        <RegExpr attribute="Char" context="#stay" String="`."/>
+        <DetectChar attribute="String" context="#pop" char="&quot;"/>
+    </context>
+    <!-- '^{Del}', '+{a}', ... mods + keys -->
+    <context name="SendChar" attribute="Char">
+        <DetectSpaces/>
+        <StringDetect attribute="Keyword" context="#pop!Char" String="{raw}" insensitive="true"/>
+        <StringDetect attribute="Keyword" context="#pop!Char" String="{text}" insensitive="true"/>
+        <DetectChar attribute="Symbol" context="BraceHotkeyString" char="{"/>
+        <RegExpr attribute="Hotkey" String="[!\+#^]+[^{]?"/>
+        <RegExpr attribute="String" String="`."/>
+        <DetectChar attribute="Char" context="#pop" char="'"/>
+    </context>
+    <!-- {Del}, {a}, ... key name -->
+    <context name="BraceHotkeyString" attribute="Hotkey" lineEndContext="#pop">
+        <DetectSpaces/>
+        <WordDetect attribute="Keyword" String="blind" insensitive="true"/>
+        <Int attribute="Decimal"/>
+        <DetectChar attribute="Symbol" context="#pop" char="}"/>
+        <AnyChar context="#pop" String="&quot;'" lookAhead="true"/>
+    </context>
+    <context name="SendSection" attribute="Normal Text">
+        <DetectSpaces/>
+        <DetectChar attribute="String" context="SendString" char="&quot;"/>
+        <DetectChar attribute="Char"   context="SendChar" char="'"/>
+        <IncludeRules context="ContinuationSection"/>
     </context>
     <!-- Regular Expression -->
     <context name="RegexString" attribute="Regex" lineEndContext="#pop" fallthroughContext="#pop">
@@ -1357,13 +1237,9 @@
         <DetectChar attribute="DocInline" context="#pop" char="`"/>
         <DetectChar context="#pop" char="@" lookAhead="true"/>
         <DetectChar attribute="DocParamType" context="DocParamType" char="{"/>
+        <AnyChar attribute="Symbol" String="&operator;#!."/>
         <IncludeRules context="Params"/>
     </context>
-    <!-- TODO: DllCall|NumPut|NumGet -->
-    <!-- TODO: Send|Hotkey -->
-    <!-- TODO: {Blind|Text|Raw} -->
-    <!-- TODO: coords x10, y7, ... -->
-    <!-- TODO: fn.call|bind -->
     <context name="DocCode" attribute="Docs">
         <DetectSpaces/>
         <DetectChar context="#pop" char="@" lookAhead="true"/>
@@ -1389,7 +1265,7 @@
         <RegExpr attribute="Reference" String="\b\w+Ref" insensitive="true"/>
         <RegExpr attribute="Unset" String="&maybe;"/>
         <DetectChar attribute="Symbol" context="Reference" char="&amp;"/>
-        <AnyChar attribute="Symbol" String="&operator;"/>
+        <AnyChar attribute="Symbol" String="&operator;#!."/>
         <DetectChar attribute="DocInline" context="DocInlineCode" char="`"/>
         <DetectSpaces/>
         <DetectChar context="#pop" char="}"/>
@@ -1429,7 +1305,7 @@
     <itemData name="Hex"              defStyleNum="dsDecVal" spellChecking="false"/>
     <itemData name="Float"            defStyleNum="dsDecVal" spellChecking="false"/>
     <itemData name="String"           defStyleNum="dsString"/>
-    <itemData name="String Char"      defStyleNum="dsSpecialChar"/>
+    <itemData name="Char"             defStyleNum="dsSpecialChar"/>
     <itemData name="DllCall Type"     defStyleNum="dsKeyword" spellChecking="false"/>
     <itemData name="DllCall Return"   defStyleNum="dsRegionMarker" spellChecking="false"/>
     <itemData name="Regex"            defStyleNum="dsSpecialString" spellChecking="false"/>

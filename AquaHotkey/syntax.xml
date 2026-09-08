@@ -600,6 +600,17 @@
     <item>A_YWeek</item>
     <item>A_YYYY</item>
 </list>
+<list name="section_options">
+      <item>ltrim0</item>
+      <item>rtrim0</item>
+      <item>ltrim</item>
+</list>
+<list name="section_comments">
+      <item>comments</item>
+      <item>comment</item>
+      <item>com</item>
+      <item>c</item>
+</list>
 <contexts>
     <context name="Normal" attribute="Normal Text" lineEndContext="#stay" fallthroughContext="Action">
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
@@ -844,7 +855,7 @@
         <WordDetect attribute="Keyword" context="#pop!MultilineKeywordParams" String="in" insensitive="true"/>
         <DetectChar attribute="Symbol" char=","/>
     </context>
-    <!--======= MULTI-EXPRESSIONS =======-->
+    <!--======= MULTILINE EXPRESSIONS =======-->
     <context name="Params" attribute="Normal Text" lineEndContext="#pop">
         <RegExpr attribute="Unset" String="&maybe;"/>
         <Detect2Chars attribute="Symbol" context="RegexString" char="~" char1="="/>
@@ -978,6 +989,7 @@
         <RegExpr context="#pop" String="^." column="0" lookAhead="true"/>
         <IncludeRules context="MultilineKeywordParams"/>
 	</context>
+    <!--======= LOW LEVEL =======-->
     <!-- DllCall("[DllFile]\Function" [, type, value, ...] [, ReturnType]) -->
     <context name="DllCall" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="#pop">
         <DetectChar attribute="Symbol" context="#pop!DllCallFunc" char="("/>
@@ -1023,31 +1035,6 @@
         <IncludeRules context="MultilineParams"/>
     </context>
     <!--======= STRING =======-->
-    <!-- Multiline string -->
-    <context name="ContinuationSection" attribute="Normal Text">
-        <DetectSpaces/>
-        <!-- (options... -->
-        <RegExpr attribute="Keyword" context="#stay" String="\b(?:(?:l|r)trim0?|comments?|com)\b" insensitive="true"/>
-        <!-- Join[chars] - join lines with the following chars (optional) -->
-        <StringDetect attribute="Keyword" context="EscapedChars" String="join" insensitive="true"/>
-        <!-- Treat ` as literal, not escaped sequence -->
-        <DetectChar attribute="String" context="#stay" char="`"/>
-        <DetectChar attribute="String" context="String" char="&quot;"/>
-        <DetectChar attribute="Char" context="Char" char="'"/>
-        <DetectChar attribute="Symbol" context="#pop" char=")" firstNonSpace="true"/>
-    </context>
-    <!-- Multiline literals (no quotes) -->
-    <context name="LiteralSection" attribute="Char">
-        <AnyChar attribute="String" context="#stay" String="&quot;'"/>
-        <RegExpr attribute="String" String="`."/>
-        <DetectChar attribute="Symbol" context="#pop" char=")" firstNonSpace="true"/>
-        <IncludeRules context="ContinuationSection"/>
-    </context>
-    <!-- Apos. ` is prefix for escaped (literal) chars -->
-    <context name="EscapedChars" attribute="Char" lineEndContext="#pop">
-        <RegExpr context="#stay" String="`."/>
-        <DetectSpaces context="#pop"/>
-    </context>
     <!-- Double ".." -->
     <context name="String" attribute="String">
         <!-- String may start with Re option like m) or x) -->
@@ -1066,7 +1053,67 @@
         <Detect2Chars attribute="String" context="#stay" char="'" char1="'"/>
         <DetectChar attribute="Char" context="#pop" char="'"/>
     </context>
-    <!-- Send("Keys") -->
+    <!-- Same as above with allowed  ; comments -->
+    <context name="StringComments" attribute="String">
+        <DetectChar attribute="Comment" context="CommentLine" char=";"/>
+        <IncludeRules context="String"/>
+    </context>
+    <context name="CharComments" attribute="Char">
+        <DetectChar attribute="Comment" context="CommentLine" char=";"/>
+        <IncludeRules context="String"/>
+    </context>
+    <!--======= MULTILINE STRING =======-->
+    <context name="SectionOptions" attribute="Normal Text">
+        <DetectSpaces/>
+        <!-- (options... -->
+        <keyword attribute="Keyword" String="section_options"/>
+        <!-- Join[chars] - join lines with the following chars (optional) -->
+        <StringDetect attribute="Keyword" context="JoinChars" String="join" insensitive="true"/>
+        <!-- Treat ` as option -->
+        <DetectChar attribute="String" char="`"/>
+    </context>
+    <!-- Multiline string -->
+    <context name="ContinuationSection" attribute="Normal Text" lineEndContext="#pop!InContSection" fallthroughContext="#pop!InContSection">
+        <IncludeRules context="SectionOptions"/>
+        <!-- Allow  ; comments -->
+        <keyword attribute="Keyword" String="section_comments" context="#pop!ContSectionComments"/>
+    </context>
+    <!-- Multiline literals (no quotes) -->
+    <context name="LiteralSection" attribute="Char" lineEndContext="#pop!InLitSection" fallthroughContext="#pop!InLitSection">
+        <IncludeRules context="SectionOptions"/>
+        <!-- Allow  ; comments -->
+        <keyword attribute="Keyword" String="section_comments" context="#pop!LitSectionComments"/>
+    </context>
+    <context name="InContSection" attribute="Normal Text">
+        <DetectChar attribute="String" context="String" char="&quot;"/>
+        <DetectChar attribute="Char" context="Char" char="'"/>
+        <DetectChar attribute="Symbol" context="#pop" char=")" firstNonSpace="true"/>
+    </context>
+    <context name="InLitSection" attribute="Char">
+        <RegExpr attribute="String" String="`."/>
+        <DetectChar attribute="Symbol" context="#pop" char=")" firstNonSpace="true"/>
+    </context>
+    <context name="JoinChars" attribute="Char" lineEndContext="#pop">
+        <DetectSpaces context="#pop"/>
+    </context>
+    <!-- Same as above with allowed  ; comments -->
+    <context name="ContSectionComments" attribute="Normal Text" lineEndContext="#pop!InContSectionComments" fallthroughContext="#pop!InContSectionComments">
+        <IncludeRules context="ContinuationSection"/>
+    </context>
+    <context name="LitSectionComments" attribute="Char" lineEndContext="#pop!InLitSectionComments" fallthroughContext="#pop!InLitSectionComments">
+        <IncludeRules context="LiteralSection"/>
+    </context>
+    <context name="InContSectionComments" attribute="Normal Text">
+        <DetectChar attribute="String" context="StringComments" char="&quot;"/>
+        <DetectChar attribute="Char" context="CharComments" char="'"/>
+        <DetectChar attribute="Symbol" context="#pop" char=")" firstNonSpace="true"/>
+        <DetectChar attribute="Comment" context="CommentLine" char=";"/>
+    </context>
+    <context name="InLitSectionComments" attribute="Char">
+        <IncludeRules context="InLitSection"/>
+        <DetectChar attribute="Comment" context="CommentLine" char=";"/>
+    </context>
+    <!--======= SEND("Keys") =======-->
     <context name="Send" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="#pop">
         <DetectChar attribute="Symbol" context="#pop!SendParams" char="("/>
     </context>
@@ -1109,20 +1156,25 @@
         <DetectChar attribute="Symbol" context="SendLiteralSection" char="(" firstNonSpace="true"/>
     </context>
     <!-- Multiline string with keys -->
-    <context name="SendSection" attribute="Normal Text">
-        <DetectSpaces/>
+    <context name="SendSection" attribute="Normal Text" lineEndContext="#pop!InSendSection" fallthroughContext="#pop!InSendSection">
+        <IncludeRules context="SectionOptions"/>
+    </context>
+    <context name="SendLiteralSection" attribute="Normal Text" lineEndContext="#pop!InSendLiteralSection" fallthroughContext="#pop!InSendLiteralSection">
+        <IncludeRules context="SectionOptions"/>
+    </context>
+    <context name="InSendSection" attribute="Normal Text">
         <DetectChar attribute="String" context="SendString" char="&quot;"/>
         <DetectChar attribute="Char"   context="SendChar" char="'"/>
-        <IncludeRules context="ContinuationSection"/>
+        <DetectChar attribute="Symbol" context="#pop" char=")" firstNonSpace="true"/>
     </context>
-    <context name="SendLiteralSection" attribute="Normal Text">
+    <context name="InSendLiteralSection" attribute="Char">
         <DetectSpaces/>
         <StringDetect attribute="Keyword" context="#pop!LiteralSection" String="{raw}" insensitive="true"/>
         <StringDetect attribute="Keyword" context="#pop!LiteralSection" String="{text}" insensitive="true"/>
         <DetectChar attribute="Symbol" context="BraceHotkeyString" char="{"/>
         <DetectChar attribute="Symbol" char="}"/>
         <RegExpr attribute="Hotkey" String="&key;"/>
-        <IncludeRules context="LiteralSection"/>
+        <DetectChar attribute="Symbol" context="#pop" char=")" firstNonSpace="true"/>
     </context>
     <!-- {Del}, {a}, ... key name -->
     <context name="BraceHotkeyString" attribute="Hotkey" lineEndContext="#pop">
@@ -1132,7 +1184,7 @@
         <DetectChar attribute="Symbol" context="#pop" char="}"/>
         <AnyChar context="#pop" String="&quot;'" lookAhead="true"/>
     </context>
-    <!-- Regular Expression -->
+    <!--======= Regular Expression =======-->
     <context name="RegexString" attribute="Regex" lineEndContext="#pop" fallthroughContext="#pop">
         <DetectSpaces/>
         <AnyChar context="#pop!Regex" String="&quot;'"/>
@@ -1254,7 +1306,7 @@
         <Detect2Chars context="#pop" char="*" char1="/" endRegion="Comment"/>
         <IncludeRules context="##Comments"/>
     </context>
-    <!-- Documentation -->
+    <!--======= Documentation =======-->
     <context name="DocsBlock" attribute="Docs">
         <DetectSpaces/>
         <StringDetect attribute="DocInline"   context="DocCodeLang" String="```"/>

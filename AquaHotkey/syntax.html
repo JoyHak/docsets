@@ -480,10 +480,10 @@
 <span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a><span class="co">; multiline text</span></span>
 <span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a><span class="bu">Send</span><span class="op">(</span></span>
-<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a>    <span class="op">(</span><span class="kw">LTrim0</span> <span class="kw">Com</span></span>
-<span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;</span><span class="op">{</span><span class="vs">!</span><span class="op">}</span><span class="st">A line of text.  ; comment</span></span>
+<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a>    <span class="op">(</span><span class="kw">LTrim0</span></span>
+<span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;</span><span class="op">{</span><span class="vs">!</span><span class="op">}</span><span class="st">A line of text.</span></span>
 <span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a><span class="st">    By default, the hard carriage (</span><span class="sc">`r`n</span><span class="st">) return </span><span class="op">{</span><span class="vs">Enter </span><span class="dv">2</span><span class="op">}</span></span>
-<span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a><span class="st">        This line is indented with a </span><span class="op">{</span><span class="vs">tab</span><span class="op">}</span><span class="st">; by default, that </span><span class="op">{</span><span class="vs">tab</span><span class="op">}</span><span class="st"> will also be stored.&quot;</span></span>
+<span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a><span class="st">        This line is indented with a </span><span class="op">{</span><span class="vs">tab</span><span class="op">}</span><span class="st">, by default, that </span><span class="op">{</span><span class="vs">tab</span><span class="op">}</span><span class="st"> will also be stored.&quot;</span></span>
 <span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a>    <span class="op">)</span></span>
 <span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a><span class="op">)</span></span>
 <span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a></span>
@@ -497,16 +497,16 @@
 <span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a><span class="co">; EXAMPLE #1 - inside a quoted/literal string:</span></span>
 <span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a>Var <span class="op">:=</span> <span class="st">&quot;</span></span>
 <span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a><span class="op">(</span></span>
-<span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a><span class="sc">A</span> <span class="sc">line</span> <span class="sc">of</span> <span class="sc">text.</span></span>
-<span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a><span class="sc">By</span> <span class="sc">default,</span> <span class="sc">the</span> <span class="sc">hard</span> <span class="sc">carriage</span> <span class="sc">return</span> <span class="sc">(Enter)</span> <span class="sc">between</span> <span class="sc">the</span> <span class="sc">previous</span> <span class="sc">line</span> <span class="sc">and</span> <span class="sc">this</span> <span class="sc">one</span> <span class="sc">will</span> <span class="sc">be</span> <span class="sc">stored.</span></span>
-<span id="cb1-404"><a href="#cb1-404" aria-hidden="true" tabindex="-1"></a>    <span class="sc">This</span> <span class="sc">line</span> <span class="sc">is</span> <span class="sc">indented</span> <span class="sc">with</span> <span class="sc">a</span> <span class="sc">tab;</span> <span class="sc">by</span> <span class="sc">default,</span> <span class="sc">that</span> <span class="sc">tab</span> <span class="sc">will</span> <span class="sc">also</span> <span class="sc">be</span> <span class="sc">stored.</span>  <span class="sc">;</span> <span class="sc">literal</span> <span class="sc">string</span></span>
-<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a><span class="sc">Additionally,</span> <span class="st">&quot;</span><span class="sc">quote</span> <span class="sc">marks</span><span class="st">&quot;</span> <span class="sc">are</span> <span class="sc">automatically</span> <span class="sc">escaped</span> <span class="sc">when</span> <span class="sc">appropriate.</span></span>
+<span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a><span class="sc">A line of text.</span></span>
+<span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a><span class="sc">By default, the hard carriage return (Enter) between the previous line and this one will be stored.</span></span>
+<span id="cb1-404"><a href="#cb1-404" aria-hidden="true" tabindex="-1"></a><span class="sc">    This line is indented with a tab; by default, that tab will also be stored.  ; literal string</span></span>
+<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a><span class="sc">Additionally, &quot;quote marks&quot; are automatically escaped when appropriate.</span></span>
 <span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a><span class="op">)</span><span class="st">&quot;</span></span>
 <span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-408"><a href="#cb1-408" aria-hidden="true" tabindex="-1"></a><span class="co">; EXAMPLE #2 - outside a quoted/literal string:</span></span>
 <span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a>Var <span class="op">:=</span></span>
 <span id="cb1-410"><a href="#cb1-410" aria-hidden="true" tabindex="-1"></a><span class="op">(</span><span class="kw">comment</span></span>
-<span id="cb1-411"><a href="#cb1-411" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Same as above, except that quote marks are not automatically escaped.  ; comment</span></span>
+<span id="cb1-411"><a href="#cb1-411" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Same as above, except that quote marks are not automatically escaped.  </span><span class="co">; comment</span></span>
 <span id="cb1-412"><a href="#cb1-412" aria-hidden="true" tabindex="-1"></a><span class="st">Specify variables as follows: &quot;</span> Var <span class="st">&quot;</span></span>
 <span id="cb1-413"><a href="#cb1-413" aria-hidden="true" tabindex="-1"></a><span class="st">A line of text.&quot;</span></span>
 <span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a><span class="op">)</span></span>
@@ -514,14 +514,14 @@
 <span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a><span class="co">; EXAMPLE #1 - inside a quoted/literal string:</span></span>
 <span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a><span class="bu">FileAppend</span><span class="op">(</span><span class="st">&quot;</span></span>
 <span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a><span class="op">(</span></span>
-<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a><span class="sc">A</span> <span class="sc">line</span> <span class="sc">of</span> <span class="sc">text.</span></span>
-<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a><span class="sc">By</span> <span class="sc">default,</span> <span class="sc">the</span> <span class="sc">hard</span> <span class="sc">carriage</span> <span class="sc">return</span> <span class="sc">(Enter)</span> <span class="sc">between</span> <span class="sc">the</span> <span class="sc">previous</span> <span class="sc">line</span> <span class="sc">and</span> <span class="sc">this</span> <span class="sc">one</span> <span class="sc">will</span> <span class="sc">be</span> <span class="sc">stored.</span></span>
-<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a>    <span class="sc">This</span> <span class="sc">line</span> <span class="sc">is</span> <span class="sc">indented</span> <span class="sc">with</span> <span class="sc">a</span> <span class="sc">tab;</span> <span class="sc">by</span> <span class="sc">default,</span> <span class="sc">that</span> <span class="sc">tab</span> <span class="sc">will</span> <span class="sc">also</span> <span class="sc">be</span> <span class="sc">stored.</span></span>
+<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a><span class="sc">A line of text.</span></span>
+<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a><span class="sc">By default, the hard carriage return (Enter) between the previous line and this one will be stored.</span></span>
+<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a><span class="sc">    This line is indented with a tab; by default, that tab will also be stored.</span></span>
 <span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a><span class="op">)</span><span class="st">&quot;</span><span class="op">,</span> <span class="va">A_Desktop</span> <span class="st">&quot;\My File.txt&quot;</span><span class="op">)</span></span>
 <span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a><span class="bu">MsgBox</span> <span class="st">&quot;</span></span>
 <span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a><span class="op">(</span><span class="kw">com</span></span>
-<span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a><span class="sc">A</span> <span class="sc">line</span> <span class="sc">of</span> <span class="sc">text.</span><span class="st">`r`n</span><span class="sc">By</span> <span class="sc">default,</span> <span class="sc">the</span> <span class="st">&quot;</span><span class="sc">quote</span> <span class="sc">marks</span><span class="st">&quot;</span> <span class="sc">are</span> <span class="sc">automatically</span> <span class="sc">escaped</span>  <span class="sc">;</span> <span class="kw">comment</span></span>
+<span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a><span class="sc">A line of text.</span><span class="st">`r`n</span><span class="sc">By default, the &quot;quote marks&quot; are automatically escaped  </span><span class="co">; comment</span></span>
 <span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a><span class="op">)</span><span class="st">&quot;</span></span>
 <span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a><span class="co">; EXAMPLE #2 - outside a quoted/literal string:</span></span>
@@ -535,9 +535,9 @@
 <span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a><span class="co">; EXAMPLE #4:</span></span>
 <span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a>FormatStr <span class="op">:=</span> <span class="st">&quot;</span></span>
 <span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a><span class="op">(</span></span>
-<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a><span class="sc">Another</span> <span class="sc">way</span> <span class="sc">of</span> <span class="sc">using</span> <span class="sc">variables</span> <span class="sc">with</span> <span class="sc">a</span> <span class="sc">continuation</span> <span class="sc">section.</span></span>
-<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a><span class="sc">Input</span> <span class="sc">value</span> <span class="sc">1:</span> <span class="sc">{1}</span></span>
-<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a><span class="sc">Input</span> <span class="sc">value</span> <span class="sc">2:</span> <span class="sc">{2}</span></span>
+<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a><span class="sc">Another way of using variables with a continuation section.</span></span>
+<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a><span class="sc">Input value 1: {1}</span></span>
+<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a><span class="sc">Input value 2: {2}</span></span>
 <span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a><span class="op">)</span><span class="st">&quot;</span></span>
 <span id="cb1-444"><a href="#cb1-444" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-445"><a href="#cb1-445" aria-hidden="true" tabindex="-1"></a><span class="bu">Format</span><span class="op">(</span><span class="st">&quot;{1:x}{2}&quot;</span><span class="op">,</span> <span class="dv">0x13</span><span class="op">,</span> <span class="dv">0x14</span><span class="op">)</span></span>

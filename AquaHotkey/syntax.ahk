@@ -383,19 +383,19 @@ Send(
 
 ; multiline text
 Send(
-    (LTrim0 Com
-    "{!}A line of text.  ; comment
-    By default, the hard carriage (`r`n) return {Enter 2}
-        This line is indented with a {tab}; by default, that {tab} will also be stored."
+    (LTrim0
+    "{!}A line of text.
+    {Enter 2}e
+    a{tab}"
     )
 )
 
-    Send("
-    (
-    {!}A line of text.
-        {Enter 2}e
-        a{tab}
-    )")
+Send("
+(
+{!}A line of text.
+    {Enter 2}e
+    a{tab}
+)")
 
 ; EXAMPLE #1 - inside a quoted/literal string:
 Var := "

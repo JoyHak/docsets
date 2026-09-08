@@ -140,11 +140,10 @@ code span.cv {
 }
 /* Warning */
 code span.wa { 
-    color: #ff8c00;
-    font-style: italic;    
+    color: #ff8c00;  
 }
 /* Error */
 code span.er { 
     color: #ff1515;
-    font-style: italic;
+    font-style: italic !important;
 }

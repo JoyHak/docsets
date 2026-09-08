@@ -816,6 +816,8 @@
         <AnyChar    attribute="Symbol" context="Params" String="?:" firstNonSpace="1"/>
         <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace1"/>
         <DetectChar attribute="Symbol" context="ContinuationSection" char="("/>
+        <DetectChar attribute="String" context="String" char="&quot;"/>
+        <DetectChar attribute="String Char" context="String Char" char="'"/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
         <DetectChar attribute="Deref" context="Deref" char="%"/>
@@ -834,6 +836,8 @@
         <keyword attribute="Type" context="Params" String="types"/>
         <keyword attribute="Keyword" context="Storage" String="storage_modifiers"/>
         <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1"/>
+        <StringDetect attribute="DocInline" context="#pop!DocsBlock" String="```"/>
+        <DetectChar attribute="DocInline" context="#pop!DocsBlock" char="`"/>
         <Detect2Chars attribute="Comment" context="#pop" char="*" char1="/" endRegion="Comment"/>
         <DetectChar attribute="Docs" char="*" firstNonSpace="true"/>
         <RegExpr attribute="Function" context="Identifier" String="&func;"/>
@@ -856,8 +860,9 @@
         <Detect2Chars attribute="Symbol" context="#pop!Params" char="=" char1=">"/>
         <DetectChar attribute="Comment" context="#pop!CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="#pop!CommentBlock" char="/" char1="*" beginRegion="Comment"/>
-        <DetectChar attribute="DocInline" context="#pop!DocumentationBlock" char="`"/>
+        <DetectChar attribute="DocInline" context="#pop!DocsBlock" char="`"/>
         <RegExpr    attribute="Symbol" context="#pop!Assignment" String="&assign;"/>
+        <AnyChar    attribute="Symbol" context="#pop!Params" String="&operator;"/>
     </context>
     <!-- .Name + symbol (optional) -->
     <context name="Member" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="#pop">
@@ -913,7 +918,7 @@
     </context>
     <!--======= CLASS =======-->
     <!-- `class` keyword, additional keywords after -->
-    <context name="Class" attribute="Normal Text">
+    <context name="Class" attribute="Normal Text" lineEndContext="#pop">
         <DetectSpaces/>
         <WordDetect attribute="Keyword" String="extends" context="Type" insensitive="true"/>
         <DetectIdentifier attribute="Type"/>
@@ -1016,7 +1021,11 @@
         <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1"/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
+        <StringDetect attribute="DocInline" context="#pop!DocsBlock" String="```"/>
+        <DetectChar attribute="DocInline" context="#pop!DocsBlock" char="`"/>
+        <Detect2Chars attribute="Comment" context="#pop#pop" char="*" char1="/" endRegion="Comment"/>
         <DetectChar attribute="Deref" context="Deref" char="%"/>
+        <DetectChar attribute="Docs" char="*" firstNonSpace="true"/>
         <AnyChar attribute="Symbol" context="#stay" String="&operator;"/>
     </context>
     <context name="MultilineParams" attribute="Normal Text">
@@ -1058,10 +1067,15 @@
         <DetectChar attribute="Symbol"  context="#pop#pop" char="}"/>
         <DetectChar attribute="Deref"   context="Deref" char="%"/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
+        <StringDetect attribute="DocInline" context="#pop!DocsBlock" String="```"/>
+        <DetectChar attribute="DocInline" context="#pop!DocsBlock" char="`"/>
+        <Detect2Chars attribute="Comment" context="#pop#pop" char="*" char1="/" endRegion="Comment"/>
+        <DetectChar attribute="Docs" char="*" firstNonSpace="true"/>
 	</context>
     <!-- Check for leading operator/keyword -->
     <context name="InParamBeginning" attribute="Normal Text" fallthroughContext="#pop#pop" lineEmptyContext="#pop#pop">
         <DetectSpaces/>
+        <Detect2Chars attribute="Comment" context="#pop#pop" char="*" char1="/" endRegion="Comment"/>
         <DetectChar attribute="Docs" char="*" firstNonSpace="true"/>
         <AnyChar context="#pop" String="&operator;&quot;'%" lookAhead="true"/>
         <keyword attribute="Keyword" context="#pop" String="keywords"/>
@@ -1069,6 +1083,7 @@
     <!-- More permissive check for leading operator/keyword -->
     <context name="InAssignBeginning" attribute="Normal Text" fallthroughContext="#pop#pop" lineEmptyContext="#pop#pop">
         <DetectSpaces/>
+        <Detect2Chars attribute="Comment" context="#pop#pop" char="*" char1="/" endRegion="Comment"/>
         <DetectChar attribute="Docs" char="*" firstNonSpace="true"/>
         <DetectChar attribute="Symbol" context="#pop#pop" char=","/>
         <AnyChar context="#pop" String="&operator;&quot;'%{(" lookAhead="true"/>
@@ -1235,13 +1250,15 @@
         <IncludeRules context="##Comments"/>
     </context>
     <context name="CommentBlock" attribute="Comment">
-        <DetectChar context="#pop!DocumentationBlock" char="*" beginRegion="Comment"/>
+        <DetectChar context="#pop!DocsBlock" char="*" beginRegion="Comment"/>
         <DetectSpaces/>
         <Detect2Chars context="#pop" char="*" char1="/" endRegion="Comment"/>
         <IncludeRules context="##Comments"/>
     </context>
-    <context name="DocumentationBlock" attribute="Docs">
+    <!-- Documentation -->
+    <context name="DocsBlock" attribute="Docs">
         <DetectSpaces/>
+        <StringDetect attribute="DocInline"   context="DocCodeLang" String="```"/>
         <DetectChar attribute="DocInline"     context="DocInlineCode" char="`"/>
         <DetectChar attribute="String"        context="String"        char="&quot;"/>
         <DetectChar attribute="DocParamType"  context="DocParamType"  char="{"/>
@@ -1270,11 +1287,13 @@
         <IncludeRules context="Params"/>
     </context>
     <!-- TODO: postifx maybe? -->
+    <!-- TODO: prefix &ref -->
     <!-- TODO: @region @endregion -->
     <!-- TODO: (_) -->
     <context name="DocCode" attribute="Docs">
         <DetectSpaces/>
         <DetectChar context="#pop" char="@" lookAhead="true"/>
+        <StringDetect attribute="DocInline" context="#pop" String="```"/>
         <Detect2Chars attribute="Comment" context="#pop#pop" char="*" char1="/" endRegion="Comment"/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <DetectChar char="*" firstNonSpace="true"/>
@@ -1282,8 +1301,10 @@
         <keyword attribute="Directive" context="Directive" String="directives"/>
         <DetectChar attribute="Symbol" context="Hotstring" char=":"/>
         <RegExpr attribute="Hotkey" context="Hotkey" String="^[ \t]*([^:]+)(?=::)"/>
-        <DetectChar attribute="Symbol" context="DocCode" char="{" beginRegion="Brace1"/>
         <IncludeRules context="Statement"/>
+    </context>
+    <context name="DocCodeLang" attribute="Docs" fallthroughContext="#pop!DocCode">
+        <DetectIdentifier attribute="DocInline"/>
     </context>
     <context name="DocParam" attribute="Docs" lineEmptyContext="#pop" fallthroughContext="#pop">
         <DetectSpaces/>
@@ -1291,6 +1312,9 @@
         <DetectIdentifier context="#pop" attribute="DocParam"/>
     </context>
     <context name="DocParamType" attribute="DocParamType" lineEmptyContext="#pop">
+        <RegExpr attribute="Symbol" String="\b\w+Ref" insensitive="true"/>
+        <AnyChar attribute="Symbol" String="&operator;"/>
+        <DetectChar attribute="DocInline" context="DocInlineCode" char="`"/>
         <DetectSpaces/>
         <DetectChar context="#pop" char="}"/>
     </context>
@@ -1356,6 +1380,6 @@
         <comment name="singleLine" start=";"/>
         <comment name="multiLine" start="/*" end="*/" region="Comment"/>
     </comments>
-    <keywords casesensitive="0" weakDeliminator="#"/>
+    <keywords casesensitive="0" weakDeliminator="#" additionalDeliminator="`"/>
 </general>
 </language>

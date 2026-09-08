@@ -45,26 +45,8 @@
  *     Integer[](4, 5, 6)
  * )
  * 
- * ; --> class LinkedList
- * L := LinkedList.OfType(Numeric)
+ * LinkedList.OfType(Numeric)  ; --> class LinkedList
  */
-/**
- * A wrapper for the `SysIpAddress32` control used for selecting IPv4 addresses,
- * directly integrated as `GUI.IPv4` class. This class is automatically added
- * as static nested class to the `Gui` type.
- * 
- * ```
- * class Gui
- * |- AddIPv4(Opt := "", Addr?)
- * `- class IPv4 extends Gui.Custom
- *    |- Address[Octet?] { get; set; }
- *    |- Clear()
- *    |- IsBlank
- *    |- Focus(Index)
- *    |- SetRange(Index, Lo := 0, Hi := 255)
- *    `- OnEvent(EventName, Callback, AddRemove?)
- * ```
- */ 
 /**
  * Introduces an interface for imposing the natural order between values of
  * the same type. This is useful for sorting arrays and other collections.
@@ -109,32 +91,6 @@
  * 
  * ---
  * 
- * **Example**:
- * 
- * ```ahk
- * class Version {
- *     __New(Major, Minor, Patch) {
- *         this.Major := Major
- *         this.Minor := Minor
- *         this.Patch := Patch
- *     }
- * 
- *     Compare(Other) {
- *         if (!(Other is Version)) {
- *             throw TypeError("Expected a Version",, Type(Other))
- *         }
- *         ; NOTE: logical OR (`||`) works, because the method should
- *         ;       return `0` whenever both values are equal, and therefore
- *         ;       the expression is evaluated to `false`.
- *         return (this.Major).Compare(Other.Major)
- *             || (this.Minor).Compare(Other.Minor)
- *             || (this.Patch).Compare(Other.Patch)
- *     }
- * }
- * ``` 
- * 
- * ---
- * 
  * To ensure both values are instances of a type `T`, you can use
  * `T.Compare(A, B)`. This asserts that both `A` and `B` are instances of the
  * calling class `T`.
@@ -152,23 +108,6 @@
  * inherit the proper `.Compare()` method, you must implement a custom
  * `static Compare()` for the duck type. These overrides should use
  * {@link AquaHotkey_DuckTypes.Any#Is `.Is()`} for type-checking.
- * 
- * ```ahk
- * ; duck type for numbers and numeric strings
- * class Numeric extends Primitive {
- *     ; ... (omitted for brevity --- see <Base/DuckTypes>)
- * 
- *     static IsInstance(Val?) => IsSet(Val) && IsNumber(Val)
- * 
- *     static Compare(A, B) {
- *         if (A.Is(this) && B.Is(this)) {
- *             return ( Number(A) ).Compare( Number(B) )
- *         }
- *         throw TypeError("Expected a(n) " . this.Name,,
- *                         Type(A) . " " . Type(B))
- *     }
- * }
- * ```
  * 
  * Lastly, `*ClassObject*.Compare` returns a {@link Comparator} which can be
  * conveniently used as configuration inside ordered collections, or as
@@ -225,7 +164,7 @@
  */ 
 /**
  * Determines whether the string starts with `Prefix`.
- * 
+ * `this` `MsgBox()` `ToolTip`
  * @example
  * "Fox".StartsWith("F")       ; true
  * "Fox".StartsWith("f", true) ; false
@@ -243,4 +182,7 @@
  */
  ConstantRef(&Value) => { Get: (_) => Value }
  StructField(T, Pack?) => { Type: T, Pack: (Pack?) }
+ T.Compare(0) == 0
+ "Fox".StartsWith("F")       ; true
+ "Fox".StartsWith("f", true) ; false
 ```

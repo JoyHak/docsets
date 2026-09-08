@@ -1,5 +1,5 @@
 Split-Path -Parent $PSCommandPath | Set-Location
-pandoc.exe jsdoc.ahk `
+pandoc.exe nested.ahk `
     --output syntax.html `
     --from gfm --to html5 `
     --standalone `

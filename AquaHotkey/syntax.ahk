@@ -112,6 +112,11 @@ SetDefaults() {
     static dummy := {Color: "Yellow", Taste: "Delicious", Price: 3}
 }
 
+/**
+ * @param {Integer} Num Unsigned value
+ * @returns {Integer}
+ * @throws {ValueError|CustomClass}
+ */
 GetValue(num) {
     switch num {
     case 1:
@@ -126,6 +131,18 @@ GetValue(num) {
     throw CustomClass(1, 'num', num)
 }
 
+/**
+ * `RGB` wrapper. Stores invidual Red, Green, Blue bits.
+ * 
+ * @param {Integer} aRGB Unsigned RGB value
+ * @example
+ * c := Color(0xff0000)
+ * c.R := 0xf | 0xd
+ *
+ * red  := Color(0xff0000), red.R -= 5
+ * cyan := Color(0), cyan.G := 255, cyan.B := 255
+ * @warn This class is designed for syntax test only!
+ */ 
 class Color {
     static Shift := {R:16, G:8, B:0}
     static Dummy := {Color: "Yellow", Taste: "Delicious", Price: 3}
@@ -138,15 +155,7 @@ class Color {
     static __New() {
     }
 
-    __Delete() {
-        try MsgBox("Delete Color.")
-        catch ValueError
-            return
-        
-        ; if false
-        ; else
-            ; return
-            
+    __Delete() {            
         try {
             this.RGB.__Delete
         } catch ValueError as Ex {

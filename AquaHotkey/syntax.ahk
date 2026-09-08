@@ -134,6 +134,42 @@ GetValue(num) {
     throw CustomClass(1, 'num', num)
 }
 
+popcount() => DllCall("BitSet\popcount", "Ptr", this.B.Ptr, "Ptr", this.B.Size, "cdecl")
+
+DllCall(
+    "WriteProcessMemory", 
+    "Ptr", hProcess, 
+    "Ptr", lpBaseAddress, 
+    "Ptr", lpBuffer, 
+    "UInt", nSize, 
+    "UInt*", &lpBytesWritten := 0
+)
+
+hProcess := DllCall(
+    "OpenProcess" 
+    , "UInt", PROCESS_VM_OPERATION | PROCESS_VM_WRITE | PROCESS_VM_READ 
+    , "Int", false 
+    , "UInt", WinGetPID("ahk_id " hwnd) 
+    , "Ptr"
+)
+
+NumPut("UInt", 0x0002, lvFindInfo, 0)               ; LVFI_STRING flag
+NumPut("Int",  column, lvFindInfo, A_PtrSize * 3)   ; lParam for column search
+
+DllCall("RtlZeroMemory",
+    "Ptr", this.B.Ptr + CurSize,
+    "Ptr", ReqSize - CurSize, 
+    "thiscall Ptr")
+}
+
+Byte := NumGet(this.B, Value >>> 3, "UChar")
+if (!(Byte & (1 << (Value & 0x07)))) {
+    NumPut("UChar",
+            Byte | (1 << (Value & 0x07)),
+            this.B,
+            Value >>> 3)
+}
+    
 /**
  * `RGB` wrapper. Stores invidual Red, Green, Blue bits.
  * 

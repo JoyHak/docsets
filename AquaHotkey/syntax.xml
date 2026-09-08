@@ -802,6 +802,7 @@
         <WordDetect attribute="Control Flow" context="#pop!ElseIfKeyword" String="else" insensitive="true"/>
         <WordDetect attribute="Control Flow" context="#pop!CatchKeyword" String="catch" insensitive="true"/>
         <WordDetect attribute="Negative" context="#pop!Error" String="throw" insensitive="true"/>
+        <WordDetect attribute="BuiltIn" context="#pop!DllCall" String="DllCall" insensitive="true"/>
         <keyword attribute="Control Flow" context="#pop!Params" String="controlflow"/>
         <keyword attribute="Control Flow" context="#pop!MultilineKeywordParams" String="multiline"/>
         <keyword attribute="Break Flow" context="#pop!Params" String="breakflow"/>
@@ -830,6 +831,7 @@
         <WordDetect attribute="Control Flow" context="ElseIfKeyword" String="else" insensitive="true"/>
         <WordDetect attribute="Control Flow" context="CatchKeyword" String="catch" insensitive="true"/>
         <WordDetect attribute="Negative" context="Error" String="throw" insensitive="true"/>
+        <WordDetect attribute="BuiltIn" context="DllCall" String="DllCall" insensitive="true"/>
         <keyword attribute="Variable" context="Params" String="variables" />
         <keyword attribute="Control Flow" context="Params" String="controlflow"/>
         <keyword attribute="Control Flow" context="MultilineKeywordParams" String="multiline"/>
@@ -1012,6 +1014,7 @@
         <WordDetect attribute="Control Flow" context="ElseIfKeyword" String="else" insensitive="true"/>
         <WordDetect attribute="Control Flow" context="CatchKeyword"  String="catch" insensitive="true"/>
         <WordDetect attribute="Unset" context="#stay" String="unset" insensitive="true"/>
+        <WordDetect attribute="BuiltIn" context="DllCall" String="DllCall" insensitive="true"/>
         <keyword attribute="Control Flow" String="controlflow"/>
 		<keyword attribute="Keyword" String="keywords"/>
         <keyword attribute="Negative" String="negatives"/>
@@ -1066,6 +1069,7 @@
         <keyword attribute="Keyword" context="InParamEnding" String="keywords"/>
         <keyword attribute="Keyword" context="#pop!Storage" String="storage_modifiers"/>
         <WordDetect attribute="Control Flow" context="#pop!ElseIfKeyword" String="else" insensitive="true"/>
+        <WordDetect attribute="BuiltIn" context="DllCall" String="DllCall" insensitive="true"/>
         <keyword attribute="Control Flow" context="#pop!MultilineKeywordParams" String="multiline"/>
         <keyword attribute="Control Flow" context="#pop!Params" String="controlflow"/>
         <keyword attribute="Negative" String="negatives"/>
@@ -1122,6 +1126,41 @@
         <RegExpr context="#pop" String="^." column="0" lookAhead="true"/>
         <IncludeRules context="MultilineKeywordParams"/>
 	</context>
+    <!-- DllCall("[DllFile]\Function" [, type, value, ...] [, ReturnType]) -->
+    <context name="DllCall" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="#pop">
+        <DetectChar attribute="Symbol" context="#pop!DllCallFunc" char="("/>
+    </context>
+    <context name="DllCallFunc" attribute="Function">
+    <!-- Can be literal "funcName" or a variable -->
+        <DetectSpaces/>
+        <DetectChar attribute="Symbol" context="#pop!DllCallParams" char=","/>
+        <DetectChar attribute="Symbol" context="#pop" char=")"/>
+	</context>
+    <context name="DllCallParams" attribute="Normal Text">
+    <!-- type, value, ... pairs -->
+        <DetectSpaces/>
+        <AnyChar attribute="DllCall Type" context="DllCallType" String="&quot;'"/>
+        <DetectChar attribute="Symbol" context="#pop" char=")"/>
+    </context>
+    <context name="DllCallType" attribute="DllCall Type" lineEndContext="#pop">
+    <!-- "str", 'int', ... literals -->
+        <DetectSpaces/>
+        <WordDetect attribute="DllCall Return" String="cdecl"    insensitive="true"/>
+        <WordDetect attribute="DllCall Return" String="thiscall" insensitive="true"/>
+        <WordDetect attribute="DllCall Return" String="hresult"  insensitive="true"/>
+        <AnyChar context="#pop!InDllCallEnding" String="&quot;'"/>
+    </context>
+    <context name="InDllCallEnding" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="#pop">
+        <DetectSpaces/>
+        <DetectChar attribute="Symbol" context="#pop#pop" char=")"/>
+        <DetectChar attribute="Symbol" context="#pop!DllCallValue" char=","/>
+    </context>
+    <context name="DllCallValue" attribute="Normal Text">
+        <DetectSpaces/>
+        <DetectChar attribute="Symbol" context="#pop#pop" char=")"/>
+        <DetectChar attribute="Symbol" context="#pop" char=","/>
+        <IncludeRules context="MultilineParams"/>
+    </context>
     <!--======= STRING =======-->
     <!-- Multiline string -->
     <context name="ContinuationSection" attribute="Normal Text">
@@ -1304,10 +1343,11 @@
         <DetectChar attribute="DocParamType" context="DocParamType" char="{"/>
         <IncludeRules context="Params"/>
     </context>
-    <!-- TODO: postifx maybe? -->
-    <!-- TODO: prefix &ref -->
-    <!-- TODO: @region @endregion -->
-    <!-- TODO: (_) -->
+    <!-- TODO: DllCall|NumPut|NumGet -->
+    <!-- TODO: Send|Hotkey -->
+    <!-- TODO: {Blind|Text|Raw} -->
+    <!-- TODO: coords x10, y7, ... -->
+    <!-- TODO: fn.call|bind -->
     <context name="DocCode" attribute="Docs">
         <DetectSpaces/>
         <DetectChar context="#pop" char="@" lookAhead="true"/>
@@ -1374,6 +1414,8 @@
     <itemData name="Float"            defStyleNum="dsDecVal" spellChecking="false"/>
     <itemData name="String"           defStyleNum="dsString"/>
     <itemData name="String Char"      defStyleNum="dsSpecialChar"/>
+    <itemData name="DllCall Type"     defStyleNum="dsKeyword" spellChecking="false"/>
+    <itemData name="DllCall Return"   defStyleNum="dsRegionMarker" spellChecking="false"/>
     <itemData name="Regex"            defStyleNum="dsSpecialString" spellChecking="false"/>
     <itemData name="Regex Char"       defStyleNum="dsBaseN" spellChecking="false"/>
     <itemData name="Regex Escaped"    defStyleNum="dsSpecialChar" spellChecking="false"/>
@@ -1386,13 +1428,13 @@
     <itemData name="Symbol"           defStyleNum="dsOperator" spellChecking="false"/>
     <itemData name="Comment"          defStyleNum="dsComment"/>
     <itemData name="Docs"             defStyleNum="dsDocumentation"/>
-    <itemData name="DocTag"           defStyleNum="dsPreprocessor"/>
-    <itemData name="DocTagSpecial"    defStyleNum="dsAnnotation"/>
-    <itemData name="DocTagThrows"     defStyleNum="dsConstant"/>
-    <itemData name="DocParam"         defStyleNum="dsCommentVar"/>
-    <itemData name="DocParamType"     defStyleNum="dsChar"/>
+    <itemData name="DocTag"           defStyleNum="dsPreprocessor" spellChecking="false"/>
+    <itemData name="DocTagSpecial"    defStyleNum="dsAnnotation" spellChecking="false"/>
+    <itemData name="DocTagThrows"     defStyleNum="dsConstant" spellChecking="false"/>
+    <itemData name="DocParam"         defStyleNum="dsCommentVar" spellChecking="false"/>
+    <itemData name="DocParamType"     defStyleNum="dsChar" spellChecking="false"/>
     <itemData name="DocInline"        defStyleNum="dsSpecialChar"/>
-    <itemData name="Region"           defStyleNum="dsRegionMarker"/>
+    <itemData name="Region"           defStyleNum="dsRegionMarker" spellChecking="false"/>
     <itemData name="Info"             defStyleNum="dsInformation"/>
     <itemData name="Warning"          defStyleNum="dsWarning"/>
 </itemDatas>

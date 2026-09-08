@@ -55,7 +55,7 @@ code span.cf {
 code span.co {
     color: #808080;
 }
-/* Float */
+/* Float, Int */
 code span.fl {
     color: #98aff9;
 }
@@ -102,7 +102,11 @@ code span.sc {
 code span.va {
     color: #92f8a2;
 }
-/* Deref */
+/* Region, &reference */
+code span.re { 
+    color: #fd91c1;
+}
+/* %Deref% */
 code span.im {
     color: #fea54b;
 }
@@ -114,7 +118,7 @@ code span.dt {
 code span.pp {
     color: #01765f;
 }
-/* Constant */
+/* Negative (negation, false) */
 code span.cn {
     color: #fe747e;
 }
@@ -138,6 +142,10 @@ code span.an {
 code span.cv { 
     color: #00ffff;
 }
+/* @param {type} */
+code span.ch {
+    color: #6091d9;
+}
 /* Warning */
 code span.wa { 
     color: #fd8933;  
@@ -146,8 +154,4 @@ code span.wa {
 code span.er { 
     color: #ff1515;
     font-style: italic !important;
-}
-/* Region, reference */
-code span.re { 
-    color: #fd88ce;
 }

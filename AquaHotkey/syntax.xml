@@ -625,10 +625,10 @@
     <item>"off"</item>
     <item>'false'</item>
     <item>'AlwaysOff'</item>
-    <item>'off'</item>    
-</list>    
+    <item>'off'</item>
+</list>
 <contexts>
-    <context name="Normal" attribute="Normal Text" lineEndContext="#stay" fallthroughContext="Action">
+    <context name="Normal" attribute="Normal Text" fallthroughContext="Action">
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
         <StringDetect attribute="Directive" context="Action" String="#HotIf" insensitive="true"/>
@@ -642,8 +642,8 @@
     <context name="Action" attribute="Normal Text" lineEndContext="#pop">
         <DetectSpaces/>
         <AnyChar attribute="Symbol" context="Params" String="?:" firstNonSpace="1"/>
-        <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace1" firstNonSpace="1"/>
-        <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1" firstNonSpace="1"/>
+        <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace" firstNonSpace="1"/>
+        <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace" firstNonSpace="1"/>
         <DetectChar attribute="DeReference" context="DeReference" char="%"/>
         <DetectChar attribute="Symbol" context="#pop!Params" char="("/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
@@ -670,11 +670,11 @@
         <DetectIdentifier context="#pop!Identifier"/>
     </context>
     <!-- Scope {..} or statement -->
-    <context name="Statement" attribute="Normal Text" lineEndContext="#stay">
+    <context name="Statement" attribute="Normal Text">
         <DetectSpaces/>
         <RegExpr attribute="Unset" String="&maybe;"/>
         <AnyChar    attribute="Symbol" context="Params" String="?:" firstNonSpace="1"/>
-        <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace1"/>
+        <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace"/>
         <DetectChar attribute="Symbol" context="ContinuationSection" char="(" firstNonSpace="true"/>
         <keyword attribute="Variable" String="string_positives"/>
         <keyword attribute="Negative" String="string_negatives"/>
@@ -703,7 +703,7 @@
         <keyword attribute="BuiltIn" context="Send" String="send"/>
         <keyword attribute="Type" context="Params" String="types"/>
         <keyword attribute="Keyword" context="Storage" String="storage_modifiers"/>
-        <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1"/>
+        <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace"/>
         <StringDetect attribute="DocInline" context="#pop!DocsBlock" String="```"/>
         <DetectChar attribute="DocInline" context="#pop!DocsBlock" char="`"/>
         <Detect2Chars attribute="Comment" context="#pop" char="*" char1="/" endRegion="Comment"/>
@@ -714,7 +714,7 @@
     <!--======= EXPRESSION =======-->
     <!-- Name + symbol (optional) -->
     <context name="Identifier" attribute="Normal Text" lineEndContext="#pop">
-        <keyword 	attribute="Type" context="#stay" String="types"/>
+        <keyword 	attribute="Type" String="types"/>
         <DetectSpaces/>
         <DetectChar attribute="Symbol" context="Array" char="["/>
         <keyword    attribute="Variable" String="variables"/>
@@ -724,7 +724,7 @@
         <DetectChar attribute="Symbol" context="MultilineParams" char="("/>
         <DetectChar attribute="Symbol" context="#pop" char=")"/>
         <DetectChar attribute="Symbol" context="#pop!Params" char="?"/>
-        <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace1"/>
+        <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace"/>
         <Detect2Chars attribute="Symbol" context="#pop!Params" char="=" char1=">"/>
         <DetectChar attribute="Comment" context="#pop!CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="#pop!CommentBlock" char="/" char1="*" beginRegion="Comment"/>
@@ -763,13 +763,13 @@
         <DetectSpaces/>
         <DetectChar attribute="Symbol" context="#pop" char=","/>
         <DetectChar attribute="Symbol" context="ContinuationSection" char="(" firstNonSpace="true"/>
-        <DetectChar attribute="Symbol" context="Object" char="{" beginRegion="Brace1"/>
+        <DetectChar attribute="Symbol" context="Object" char="{" beginRegion="Brace"/>
         <DetectChar attribute="Symbol" context="Array" char="["/>
         <IncludeRules context="MultilineKeywordParams"/>
     </context>
     <context name="Object" attribute="Normal Text">
         <DetectSpaces/>
-        <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1"/>
+        <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace"/>
         <RegExpr attribute="Property" String="\b([a-zA-Z_][\w_]*)(?=:)"/>
         <DetectChar attribute="Symbol" char=":"/>
         <IncludeRules context="Params"/>
@@ -785,7 +785,7 @@
         <DetectIdentifier context="#pop!MultilineKeywordParams"/>
     </context>
     <!-- &ref (reference to variable) -->
-    <context name="Reference" attribute="Reference" lineEndContext="#pop" fallthroughContext="#pop">
+    <context name="Reference" attribute="Reference" fallthroughContext="#pop">
         <DetectIdentifier context="#pop"/>
     </context>
     <!-- %name% (dereference string or &ref) -->
@@ -799,10 +799,10 @@
         <DetectSpaces/>
         <WordDetect attribute="Keyword" String="extends" context="Type" insensitive="true"/>
         <DetectIdentifier attribute="Type"/>
-        <DetectChar attribute="Symbol" context="#pop!ClassStatement" char="{" beginRegion="Brace1"/>
+        <DetectChar attribute="Symbol" context="#pop!ClassStatement" char="{" beginRegion="Brace"/>
     </context>
     <!-- class {..} scope-->
-    <context name="ClassStatement" attribute="Normal Text" lineEndContext="#stay">
+    <context name="ClassStatement" attribute="Normal Text">
         <DetectSpaces/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
@@ -812,7 +812,7 @@
         <RegExpr attribute="Function" context="Identifier" String="&func;" firstNonSpace="true"/>
         <StringDetect attribute="Meta" context="Property" String="__item" insensitive="true" firstNonSpace="true"/>
         <DetectIdentifier attribute="Property" context="Property" firstNonSpace="true"/>
-        <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1"/>
+        <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace"/>
     </context>
     <!-- static <identifier> in class scope -->
     <context name="StaticStatement" attribute="Normal Text" lineEndContext="#pop">
@@ -824,7 +824,7 @@
     <!-- Class property definition -->
     <context name="Property" attribute="Normal Text" lineEndContext="#pop">
         <DetectChar attribute="Symbol" context="Array" char="["/>
-        <DetectChar attribute="Symbol" context="#pop!PropertyStatement" char="{" beginRegion="Brace1"/>
+        <DetectChar attribute="Symbol" context="#pop!PropertyStatement" char="{" beginRegion="Brace"/>
         <Detect2Chars attribute="Symbol" context="#pop!Params" char="=" char1=">"/>
         <RegExpr attribute="Symbol" context="#pop!Assignment" String="&assign;"/>
     </context>
@@ -832,18 +832,18 @@
     <context name="PropertyStatement" attribute="Normal Text">
         <WordDetect attribute="Meta" context="PropertyMetaStatement" String="get" insensitive="true"/>
         <WordDetect attribute="Meta" context="PropertyMetaStatement" String="set" insensitive="true"/>
-        <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1"/>
+        <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace"/>
     </context>
     <!-- get/set meta keywords -->
     <context name="PropertyMetaStatement" attribute="Normal Text">
         <Detect2Chars attribute="Symbol" context="#pop!Params" char="=" char1=">"/>
-        <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace1"/>
+        <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace"/>
     </context>
-    <context name="Type" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="#pop">
-        <DetectSpaces context="#stay"/>
+    <context name="Type" attribute="Normal Text" fallthroughContext="#pop">
+        <DetectSpaces/>
         <RegExpr attribute="Type" context="#pop" String="([a-zA-Z_][\w_.]*)"/>
     </context>
-    <context name="Error" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="#pop">
+    <context name="Error" attribute="Normal Text" fallthroughContext="#pop">
         <DetectSpaces/>
         <RegExpr attribute="Negative" String="([a-zA-Z_][\w_]*)"/>
         <DetectChar attribute="Symbol" context="#pop!MultilineParams" char="("/>
@@ -864,11 +864,11 @@
         -->
         <IncludeRules context="SubAssignment"/>
     </context>
-    <context name="CatchKeyword" attribute="Normal Text" lineEndContext="#pop!Params" fallthroughContext="#pop!Params">
+    <context name="CatchKeyword" attribute="Normal Text" fallthroughContext="#pop!Params">
         <DetectSpaces/>
         <WordDetect attribute="Keyword" context="#pop" String="as" insensitive="true"/>
         <DetectIdentifier attribute="Negative"/>
-        <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace1"/>
+        <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace"/>
     </context>
     <!-- loop [keyword] <expr> or loop <count> -->
     <context name="LoopKeyword" attribute="Normal Text" fallthroughContext="#pop!MultilineKeywordParams">
@@ -893,7 +893,7 @@
         <WordDetect attribute="Keyword" context="Type" String="is" insensitive="true"/>
         <WordDetect attribute="Control Flow" context="ElseIfKeyword" String="else" insensitive="true"/>
         <WordDetect attribute="Control Flow" context="CatchKeyword"  String="catch" insensitive="true"/>
-        <WordDetect attribute="Unset" context="#stay" String="unset" insensitive="true"/>
+        <WordDetect attribute="Unset" String="unset" insensitive="true"/>
         <WordDetect attribute="BuiltIn" context="DllCall" String="DllCall" insensitive="true"/>
         <WordDetect attribute="BuiltIn" context="NumPut" String="NumPut" insensitive="true"/>
         <WordDetect attribute="BuiltIn" context="NumPut" String="NumGet" insensitive="true"/>
@@ -905,15 +905,15 @@
         <keyword attribute="Type" String="types"/>
         <keyword attribute="Variable" String="variables"/>
         <DetectChar attribute="Symbol" context="Member" char="."/>
-        <Float attribute="Float" context="#stay"/>
-        <HlCHex attribute="Hex" context="#stay"/>
-        <Int attribute="Decimal" context="#stay"/>
+        <Float attribute="Float"/>
+        <HlCHex attribute="Hex"/>
+        <Int attribute="Decimal"/>
         <RegExpr attribute="Function" context="Identifier" String="&func;"/>
         <DetectChar attribute="Symbol" context="ContinuationSection" char="(" firstNonSpace="true"/>
         <DetectChar attribute="Symbol" context="MultilineParams" char="("/>
         <DetectChar attribute="Symbol" context="#pop" char=")"/>
-        <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace1"/>
-        <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1"/>
+        <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace"/>
+        <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace"/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
         <StringDetect attribute="DocInline" context="#pop!DocsBlock" String="```"/>
@@ -922,12 +922,12 @@
         <DetectChar attribute="DeReference" context="DeReference" char="%"/>
         <DetectChar attribute="Docs" char="*" firstNonSpace="true"/>
         <DetectChar attribute="Symbol" context="Reference" char="&amp;"/>
-        <AnyChar attribute="Symbol" context="#stay" String="&operator;"/>
+        <AnyChar attribute="Symbol" String="&operator;"/>
         <WordDetect attribute="Symbol" String="_"/>
     </context>
     <context name="MultilineParams" attribute="Normal Text">
 		<DetectSpaces/>
-        <DetectChar attribute="Symbol" context="Object" char="{" beginRegion="Brace1"/>
+        <DetectChar attribute="Symbol" context="Object" char="{" beginRegion="Brace"/>
 		<IncludeRules context="Params"/>
 	</context>
     <!-- Join multi-line statement -->
@@ -1010,12 +1010,12 @@
         <DetectSpaces/>
         <DetectChar context="#pop!NextLineParam" char=";" lookAhead="true"/>
 	</context>
-    <context name="NextLineParam" attribute="Normal Text" lineEndContext="#stay" lineEmptyContext="#pop">
+    <context name="NextLineParam" attribute="Normal Text" lineEmptyContext="#pop">
         <!--
          Parse the line until the next trailing op. or until the beginning of the next line.
          In the latter case, a check for leading op. will occur when returning to the original context.
-         That is, we do not stay in `MultilineKeywordParams` context for all lines like `lineEndContext="#stay"` does,
-         but try to exit as early as possible if the condition is not met
+         We do not stay in `MultilineKeywordParams` context for all lines
+         and exit as early as possible if the condition is not met
         -->
         <DetectSpaces/>
         <RegExpr context="#pop" String="^." column="0" lookAhead="true"/>
@@ -1023,7 +1023,7 @@
 	</context>
     <!--======= LOW LEVEL =======-->
     <!-- DllCall("[DllFile]\Function" [, type, value, ...] [, ReturnType]) -->
-    <context name="DllCall" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="#pop">
+    <context name="DllCall" attribute="Normal Text" fallthroughContext="#pop">
         <DetectChar attribute="Symbol" context="#pop!DllCallFunc" char="("/>
     </context>
     <context name="DllCallFunc" attribute="Function">
@@ -1046,7 +1046,7 @@
         <WordDetect attribute="DllCall Return" String="hresult"  insensitive="true"/>
         <AnyChar context="#pop!InDllCallEnding" String="&quot;'"/>
     </context>
-    <context name="InDllCallEnding" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="#pop">
+    <context name="InDllCallEnding" attribute="Normal Text" fallthroughContext="#pop">
         <DetectSpaces/>
         <DetectChar attribute="Symbol" context="#pop#pop" char=")"/>
         <DetectChar attribute="Symbol" context="#pop!DllCallValue" char=","/>
@@ -1059,7 +1059,7 @@
     </context>
     <!-- NumPut(type, number, ..., target [, offset]) -->
     <!-- NumGet(Source, Offset, Type) -->
-    <context name="NumPut" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="#pop">
+    <context name="NumPut" attribute="Normal Text" fallthroughContext="#pop">
         <DetectChar attribute="Symbol" context="#pop!NumPutParams" char="("/>
     </context>
     <context name="NumPutParams" attribute="Normal Text">
@@ -1072,8 +1072,8 @@
         <!-- String may start with Re option like m) or x) -->
         <DetectChar attribute="Symbol" context="LiteralSection" char="(" firstNonSpace="true"/>
         <RegExpr attribute="Regex Option" context="#pop!Regex" String="[imsxADJUXSC]+\)" insensitive="false"/>
-        <RegExpr attribute="Char" context="#stay" String="`."/>
-        <Detect2Chars attribute="Char" context="#stay" char="&quot;" char1="&quot;"/>
+        <RegExpr attribute="Char" String="`."/>
+        <Detect2Chars attribute="Char" char="&quot;" char1="&quot;"/>
         <DetectChar attribute="String" context="#pop" char="&quot;"/>
     </context>
     <!-- Single '..' -->
@@ -1081,8 +1081,8 @@
         <!-- String may start with Re option like m) or x) -->
         <DetectChar attribute="Symbol" context="LiteralSection" char="(" firstNonSpace="true"/>
         <RegExpr attribute="Regex Option" context="#pop!Regex" String="[imsxADJUXSC]+\)" insensitive="false"/>
-        <RegExpr attribute="String" context="#stay" String="`."/>
-        <Detect2Chars attribute="String" context="#stay" char="'" char1="'"/>
+        <RegExpr attribute="String" String="`."/>
+        <Detect2Chars attribute="String" char="'" char1="'"/>
         <DetectChar attribute="Char" context="#pop" char="'"/>
     </context>
     <!-- Same as above with allowed  ; comments -->
@@ -1105,13 +1105,13 @@
         <DetectChar attribute="String" char="`"/>
     </context>
     <!-- Multiline string -->
-    <context name="ContinuationSection" attribute="Normal Text" lineEndContext="#pop!InContSection" fallthroughContext="#pop!InContSection">
+    <context name="ContinuationSection" attribute="Normal Text" fallthroughContext="#pop!InContSection">
         <IncludeRules context="SectionOptions"/>
         <!-- Allow  ; comments -->
         <keyword attribute="Keyword" String="section_comments" context="#pop!ContSectionComments"/>
     </context>
     <!-- Multiline literals (no quotes) -->
-    <context name="LiteralSection" attribute="Char" lineEndContext="#pop!InLitSection" fallthroughContext="#pop!InLitSection">
+    <context name="LiteralSection" attribute="Char" fallthroughContext="#pop!InLitSection">
         <IncludeRules context="SectionOptions"/>
         <!-- Allow  ; comments -->
         <keyword attribute="Keyword" String="section_comments" context="#pop!LitSectionComments"/>
@@ -1129,10 +1129,10 @@
         <DetectSpaces context="#pop"/>
     </context>
     <!-- Same as above with allowed  ; comments -->
-    <context name="ContSectionComments" attribute="Normal Text" lineEndContext="#pop!InContSectionComments" fallthroughContext="#pop!InContSectionComments">
+    <context name="ContSectionComments" attribute="Normal Text" fallthroughContext="#pop!InContSectionComments">
         <IncludeRules context="ContinuationSection"/>
     </context>
-    <context name="LitSectionComments" attribute="Char" lineEndContext="#pop!InLitSectionComments" fallthroughContext="#pop!InLitSectionComments">
+    <context name="LitSectionComments" attribute="Char" fallthroughContext="#pop!InLitSectionComments">
         <IncludeRules context="LiteralSection"/>
     </context>
     <context name="InContSectionComments" attribute="Normal Text">
@@ -1146,7 +1146,7 @@
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
     </context>
     <!--======= SEND("Keys") =======-->
-    <context name="Send" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="#pop">
+    <context name="Send" attribute="Normal Text" fallthroughContext="#pop">
         <DetectChar attribute="Symbol" context="#pop!SendParams" char="("/>
     </context>
     <context name="SendParams" attribute="Normal Text">
@@ -1171,7 +1171,7 @@
         <DetectChar attribute="Symbol" context="BraceHotkeyString" char="{"/>
         <DetectChar attribute="Symbol" char="}"/>
         <RegExpr attribute="Hotkey" String="&key;"/>
-        <RegExpr attribute="Char" context="#stay" String="`."/>
+        <RegExpr attribute="Char" String="`."/>
         <DetectChar attribute="String" context="#pop" char="&quot;"/>
         <DetectChar attribute="Symbol" context="SendLiteralSection" char="(" firstNonSpace="true"/>
     </context>
@@ -1188,10 +1188,10 @@
         <DetectChar attribute="Symbol" context="SendLiteralSection" char="(" firstNonSpace="true"/>
     </context>
     <!-- Multiline string with keys -->
-    <context name="SendSection" attribute="Normal Text" lineEndContext="#pop!InSendSection" fallthroughContext="#pop!InSendSection">
+    <context name="SendSection" attribute="Normal Text" fallthroughContext="#pop!InSendSection">
         <IncludeRules context="SectionOptions"/>
     </context>
-    <context name="SendLiteralSection" attribute="Normal Text" lineEndContext="#pop!InSendLiteralSection" fallthroughContext="#pop!InSendLiteralSection">
+    <context name="SendLiteralSection" attribute="Normal Text" fallthroughContext="#pop!InSendLiteralSection">
         <IncludeRules context="SectionOptions"/>
     </context>
     <context name="InSendSection" attribute="Normal Text">
@@ -1225,15 +1225,15 @@
         <RegExpr attribute="Regex Keyword" String="\\[nrt0aefVvWwDdXxpCckg#]" insensitive="false"/> <!-- Main esc. char -->
         <RegExpr attribute="Symbol"  String="\\[QEGKBbAZ]" insensitive="false"/> <!-- Assertion -->
         <RegExpr attribute="Decimal" String="[\\$]\d"/> <!-- Index -->
-        <RegExpr attribute="Regex Escaped" context="#stay" String="[`\\]."/>
+        <RegExpr attribute="Regex Escaped" String="[`\\]."/>
         <AnyChar    attribute="Regex" context="#pop" String="&quot;'"/> <!-- End of the string -->
         <DetectChar attribute="Regex Group" context="SubRegex" char="("/>
         <DetectChar attribute="Regex Group" context="#pop#pop" char=")"/>
         <DetectChar attribute="Regex Group" context="RegexChars" char="["/>
-        <AnyChar attribute="Symbol" context="#stay" String="?+*{}.|^$"/> <!-- Quantifier or operator -->
+        <AnyChar attribute="Symbol" String="?+*{}.|^$"/> <!-- Quantifier or operator -->
     </context>
     <context name="RegexNegative" attribute="Regex Negative">
-        <RegExpr attribute="Regex Negative" context="#stay" String="[`\\]."/>
+        <RegExpr attribute="Regex Negative" String="[`\\]."/>
         <DetectChar attribute="Regex Group" context="RegexCharsNegative" char="["/>
         <IncludeRules context="Regex"/>
     </context>
@@ -1245,7 +1245,7 @@
     </context>
     <!-- Special group (? ) -->
     <context name="SubRegexCmd" attribute="Regex Group">
-        <DetectChar attribute="Decimal" context="#stay" char="+"/> <!-- Relative group index -->
+        <DetectChar attribute="Decimal" char="+"/> <!-- Relative group index -->
         <Int attribute="Decimal" context="#pop!RegKeyword"/>       <!-- Group index -->
         <DetectChar attribute="Regex Keyword" context="#pop!RegKeyword" char="R"/>       <!-- Recursion -->
         <Detect2Chars attribute="Regex Positive" context="Regex" char="&lt;" char1="="/> <!-- Positive look behind -->
@@ -1285,12 +1285,12 @@
     <context name="InRegexChars" attribute="Regex Char" lineEndContext="#pop#pop">
         <DetectChar attribute="Regex Group" context="#pop#pop" char="]"/>
         <DetectChar attribute="Regex Char" context="RegexClass" char="["/>
-        <RegExpr attribute="Regex Escaped" context="#stay" String="[`\\]."/>
+        <RegExpr attribute="Regex Escaped" String="[`\\]."/>
     </context>
     <context name="InRegexCharsNegative" attribute="Regex Negative" lineEndContext="#pop#pop">
         <DetectChar attribute="Regex Group" context="#pop#pop" char="]"/>
         <DetectChar attribute="Regex Char" context="RegexClass" char="["/>
-        <RegExpr attribute="Symbol" context="#stay" String="[`\\]."/>
+        <RegExpr attribute="Symbol" String="[`\\]."/>
     </context>
     <!-- Class [[:alpha:]] -->
     <context name="RegexClass" attribute="Regex Char" lineEndContext="#pop">
@@ -1299,8 +1299,8 @@
     <!--======= UNCONDITIONAL GLOBAL =======-->
     <!-- Any characters with :: postifx -->
     <context name="Hotkey" attribute="Hotkey" lineEndContext="#pop">
-        <Detect2Chars attribute="Symbol" context="#stay" char=":" char1=":"/>
-        <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace1"/>
+        <Detect2Chars attribute="Symbol" char=":" char1=":"/>
+        <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace"/>
         <WordDetect attribute="Keyword" context="#pop" String="return" insensitive="true"/>
         <RegExpr context="#pop!Params" String="\w+[\[\(. \t]" lookAhead="true"/>
         <RegExpr attribute="String" String="`."/>
@@ -1310,8 +1310,8 @@
     </context>
     <!-- Any characters with : prefix -->
     <context name="Hotstring" attribute="Hotstring" lineEndContext="#pop">
-        <AnyChar attribute="Symbol" context="#stay" String=":?*"/>
-        <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace1"/>
+        <AnyChar attribute="Symbol" String=":?*"/>
+        <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace"/>
         <RegExpr context="#pop!Params" String="\w+[\[\(.][^ \t\r\n]+" lookAhead="true"/>
         <RegExpr attribute="Char" String="`."/>
         <DetectSpaces/>
@@ -1387,7 +1387,7 @@
     <context name="DocCodeLang" attribute="Docs" fallthroughContext="#pop!DocCode">
         <DetectIdentifier attribute="DocInline"/>
     </context>
-    <context name="DocParam" attribute="Docs" lineEmptyContext="#pop" fallthroughContext="#pop">
+    <context name="DocParam" attribute="Docs" fallthroughContext="#pop">
         <DetectSpaces/>
         <DetectChar attribute="DocParamType" context="DocParamType" char="{"/>
         <DetectIdentifier context="#pop" attribute="DocParam"/>

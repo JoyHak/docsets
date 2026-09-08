@@ -711,17 +711,23 @@
     </context>
     <context name="Assignment" attribute="Normal Text" fallthroughContext="#pop!SubAssignment">
         <DetectSpaces/>
-    <!-- If it's trailing assign. (e.g. `a :=\nStatement`),
-         jump to the next line without any checks -->
+        <!--
+         If it's trailing assign. (e.g. `a :=\nStatement`),
+         jump to the next line without any checks
+        -->
         <RegExpr context="#pop!SubAssignment" String="$"/>
-    <!-- Fallthrough expression parsing right after assign. -->
+        <!--
+         Fallthrough expression parsing right after assign.
+        -->
     </context>
     <context name="SubAssignment" attribute="Normal Text" lineEndContext="InAssignBeginning" lineEmptyContext="#pop">
-    <!-- Expression parsing continues as long as there is
+        <!--
+         Expression parsing continues as long as there is
          trailing or leading keyword or operator. Stops on comma. Comments are ignored.
          From the interpreter's perspective, comments are deleted first,
          and then a multi-line expression is joined into a single line by
-         trailing or leading keywords or operators -->
+         trailing or leading keywords or operators
+        -->
         <DetectSpaces/>
         <DetectChar attribute="Symbol" context="#pop" char=","/>
         <RegExpr attribute="Symbol" context="ContinuationSection" String="^[ \t]*\(" column="0"/>
@@ -812,7 +818,10 @@
     </context>
     <!--======= KEYWORDS =======-->
     <context name="ElseIfKeyword" attribute="Normal Text" fallthroughContext="#pop!Params">
-    <!-- Precise detection what comes next: multi-line or single-line statement -->
+        <!--
+         Precise detection what comes next:
+         multi-line or single-line statement
+        -->
         <DetectSpaces/>
         <WordDetect attribute="Control Flow" context="#pop!MultilineKeywordParams" String="if" insensitive="true"/>
     </context>
@@ -829,7 +838,7 @@
     </context>
     <!-- for var in expression -->
     <context name="ForLoop" attribute="Normal Text" lineEndContext="#pop">
-    <!-- Only literal variables, followed by expression -->
+        <!-- Only literal variables, followed by expression -->
         <DetectSpaces/>
         <WordDetect attribute="Keyword" context="#pop!MultilineKeywordParams" String="in" insensitive="true"/>
         <DetectChar attribute="Symbol" char=","/>
@@ -882,11 +891,13 @@
 	</context>
     <!-- Join multi-line statement -->
     <context name="MultilineKeywordParams" attribute="Normal Text" lineEndContext="InParamBeginning" lineEmptyContext="#pop">
-    <!-- Statement parsing continues as long as there is
+        <!--
+         Statement parsing continues as long as there is
          trailing or leading keyword or operator. Comments are ignored.
          From the interpreter's perspective, comments are deleted first,
          and then a multi-line statement is joined into a single line by
-         trailing or leading keywords or operators -->
+         trailing or leading keywords or operators
+        -->
         <DetectSpaces/>
         <RegExpr attribute="Unset" String="&maybe;"/>
         <RegExpr attribute="Reference" String="&amp;\w+"/> <!-- Avoid confusion with trailing op. -->
@@ -947,17 +958,21 @@
 	</context>
     <!-- Assert end of line -->
     <context name="InParamEnding" attribute="Normal Text" fallthroughContext="#pop">
-    <!-- Jump to the next line if trailing operator/keyword was found before
-         and assertion is successful -->
+        <!--
+         Jump to the next line if trailing operator/keyword was found before
+         and assertion is successful
+        -->
         <RegExpr context="#pop!NextLineParam" String="$"/>
         <DetectSpaces/>
         <DetectChar context="#pop!NextLineParam" char=";" lookAhead="true"/>
 	</context>
     <context name="NextLineParam" attribute="Normal Text" lineEndContext="#stay" lineEmptyContext="#pop">
-    <!-- Parse the line until the next trailing op. or until the beginning of the next line.
+        <!--
+         Parse the line until the next trailing op. or until the beginning of the next line.
          In the latter case, a check for leading op. will occur when returning to the original context.
          That is, we do not stay in `MultilineKeywordParams` context for all lines like `lineEndContext="#stay"` does,
-         but try to exit as early as possible if the condition is not met -->
+         but try to exit as early as possible if the condition is not met
+        -->
         <DetectSpaces/>
         <RegExpr context="#pop" String="^." column="0" lookAhead="true"/>
         <IncludeRules context="MultilineKeywordParams"/>
@@ -973,13 +988,13 @@
         <DetectChar attribute="Symbol" context="#pop" char=")"/>
 	</context>
     <context name="DllCallParams" attribute="Normal Text">
-    <!-- type, value, ... pairs -->
+        <!-- type, value, ... pairs -->
         <DetectSpaces/>
         <AnyChar attribute="DllCall Type" context="DllCallType" String="&quot;'"/>
         <DetectChar attribute="Symbol" context="#pop" char=")"/>
     </context>
     <context name="DllCallType" attribute="DllCall Type" lineEndContext="#pop">
-    <!-- "str", 'int', ... literals -->
+        <!-- "str", 'int', ... literals -->
         <DetectSpaces/>
         <WordDetect attribute="DllCall Return" String="cdecl"    insensitive="true"/>
         <WordDetect attribute="DllCall Return" String="thiscall" insensitive="true"/>
@@ -1020,7 +1035,7 @@
     <!-- Apos. ` is prefix for escaped (literal) chars -->
     <context name="EscapedChars" attribute="Char" lineEndContext="#pop">
         <RegExpr context="#stay" String="`."/>
-        <DetectChar context="#pop" char=" "/>
+        <DetectSpaces context="#pop"/>
     </context>
     <!-- Double ".." -->
     <context name="String" attribute="String">

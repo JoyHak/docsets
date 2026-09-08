@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE language SYSTEM "syntax.xsd" [
     <!ENTITY func "\b([a-zA-Z_][\w_]*)(?=\()">
-    <!ENTITY operator "#:!&amp;+,-/.*&lt;&gt;=?[]|~^">
+    <!ENTITY operator "#:!&amp;+,-/*&lt;&gt;=?[]|~^">
     <!ENTITY assign "(?://|&lt;&lt;|&gt;&gt;|[-+.:/|&amp;^*])=">
     <!ENTITY maybe "\b[a-zA-Z_][\w_]*\?">
 ]>
@@ -871,8 +871,7 @@
     </context>
     <!-- .Name + symbol (optional) -->
     <context name="Member" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="#pop">
-        <DetectChar context="#pop" char=" "/>
-        <DetectSpaces/>
+        <DetectSpaces context="#pop"/>
         <keyword attribute="Type" context="#pop" String="types"/>
         <keyword attribute="Meta" context="#pop" String="meta"/>
         <StringDetect attribute="Meta" context="#pop" String="__item" insensitive="true"/>
@@ -1096,7 +1095,7 @@
         <DetectSpaces/>
         <Detect2Chars attribute="Comment" context="#pop#pop" char="*" char1="/" endRegion="Comment"/>
         <DetectChar attribute="Docs" char="*" firstNonSpace="true"/>
-        <AnyChar context="#pop" String="&operator;&quot;'%" lookAhead="true"/>
+        <AnyChar context="#pop" String="&operator;&quot;'%." lookAhead="true"/>
         <WordDetect attribute="Unset" context="#pop" String="unset" insensitive="true"/>
         <keyword attribute="Keyword" context="#pop" String="keywords"/>
 	</context>
@@ -1106,7 +1105,7 @@
         <Detect2Chars attribute="Comment" context="#pop#pop" char="*" char1="/" endRegion="Comment"/>
         <DetectChar attribute="Docs" char="*" firstNonSpace="true"/>
         <DetectChar attribute="Symbol" context="#pop#pop" char=","/>
-        <AnyChar context="#pop" String="&operator;&quot;'%{(" lookAhead="true"/>
+        <AnyChar context="#pop" String="&operator;&quot;'%{(." lookAhead="true"/>
         <IncludeRules context="InParamBeginning"/>
 	</context>
     <!-- Assert end of line -->

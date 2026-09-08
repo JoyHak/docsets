@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE language SYSTEM "syntax.xsd" [
     <!ENTITY func "\b([a-zA-Z_][\w_]*)(?=\()">
-    <!ENTITY operator ":!&amp;+,-/.*&lt;&gt;=?[]|~^">
+    <!ENTITY operator "#:!&amp;+,-/.*&lt;&gt;=?[]|~^">
     <!ENTITY assign "(?://|&lt;&lt;|&gt;&gt;|[-+.:/|&amp;^*])=">
 ]>
 <!-- docs: https://docs.kde.org/stable_kf6/en/kate/katepart/highlight.html -->
@@ -790,7 +790,7 @@
         <AnyChar attribute="Symbol" context="Params" String="?:" firstNonSpace="1"/>
         <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace1" firstNonSpace="1"/>
         <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace1" firstNonSpace="1"/>
-        <DetectChar attribute="Deref" context="Deref" char="%"/>
+        <DetectChar attribute="DeReference" context="DeReference" char="%"/>
         <DetectChar attribute="Symbol" context="#pop!Params" char="("/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
@@ -820,7 +820,7 @@
         <DetectChar attribute="String Char" context="String Char" char="'"/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
-        <DetectChar attribute="Deref" context="Deref" char="%"/>
+        <DetectChar attribute="DeReference" context="DeReference" char="%"/>
         <WordDetect attribute="Keyword" context="Class" String="class" insensitive="true"/>
         <WordDetect attribute="Keyword" context="ForLoop" String="for" insensitive="true"/>
         <WordDetect attribute="Keyword" context="LoopKeyword" String="loop" insensitive="true"/>
@@ -852,7 +852,7 @@
         <keyword    attribute="Variable" String="variables"/>
         <Detect2Chars attribute="Symbol" context="#pop!Assignment" char="." char1="="/>
         <DetectChar attribute="Symbol" context="Member" char="."/>
-        <DetectChar attribute="Deref"  context="Deref" char="%"/>
+        <DetectChar attribute="DeReference"  context="DeReference" char="%"/>
         <DetectChar attribute="Symbol" context="MultilineParams" char="("/>
         <DetectChar attribute="Symbol" context="#pop" char=")"/>
         <DetectChar attribute="Symbol" context="#pop!Params" char="?"/>
@@ -861,6 +861,7 @@
         <DetectChar attribute="Comment" context="#pop!CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="#pop!CommentBlock" char="/" char1="*" beginRegion="Comment"/>
         <DetectChar attribute="DocInline" context="#pop!DocsBlock" char="`"/>
+        <DetectChar attribute="Symbol" context="#pop!Reference" char="&amp;"/>
         <RegExpr    attribute="Symbol" context="#pop!Assignment" String="&assign;"/>
         <AnyChar    attribute="Symbol" context="#pop!Params" String="&operator;"/>
     </context>
@@ -911,9 +912,13 @@
         <DetectSpaces/>
         <DetectIdentifier context="#pop!MultilineKeywordParams"/>
     </context>
+    <!-- &ref (reference to variable) -->
+    <context name="Reference" attribute="Reference" lineEndContext="#pop" fallthroughContext="#pop">
+        <DetectIdentifier context="#pop"/>
+    </context>
     <!-- %name% (dereference string or &ref) -->
-    <context name="Deref" attribute="Deref">
-        <DetectChar attribute="Deref" context="#pop" char="%"/>
+    <context name="DeReference" attribute="DeReference">
+        <DetectChar attribute="DeReference" context="#pop" char="%"/>
         <IncludeRules context="Params"/>
     </context>
     <!--======= CLASS =======-->
@@ -1024,8 +1029,9 @@
         <StringDetect attribute="DocInline" context="#pop!DocsBlock" String="```"/>
         <DetectChar attribute="DocInline" context="#pop!DocsBlock" char="`"/>
         <Detect2Chars attribute="Comment" context="#pop#pop" char="*" char1="/" endRegion="Comment"/>
-        <DetectChar attribute="Deref" context="Deref" char="%"/>
+        <DetectChar attribute="DeReference" context="DeReference" char="%"/>
         <DetectChar attribute="Docs" char="*" firstNonSpace="true"/>
+        <DetectChar attribute="Symbol" context="Reference" char="&amp;"/>
         <AnyChar attribute="Symbol" context="#stay" String="&operator;"/>
     </context>
     <context name="MultilineParams" attribute="Normal Text">
@@ -1041,13 +1047,14 @@
          and then a multi-line statement is joined into a single line by
          trailing or leading keywords or operators -->
         <DetectSpaces/>
+        <RegExpr attribute="Reference" String="&amp;\w+"/> <!-- Avoid confusion with trailing op. -->
         <RegExpr attribute="Symbol" context="Assignment" String="&assign;"/>
         <Detect2Chars attribute="Symbol" context="RegexString" char="~" char1="="/>
+        <AnyChar attribute="Symbol" context="InParamEnding" String="&operator;"/>
         <DetectChar attribute="String" context="String" char="&quot;"/>
         <DetectChar attribute="String Char" context="String Char" char="'"/>
         <Detect2Chars attribute="Symbol" context="Params" char="=" char1=">"/>
         <WordDetect attribute="Keyword" context="Type" String="is" insensitive="true"/>
-        <AnyChar attribute="Symbol" context="InParamEnding" String="&operator;"/>
         <keyword attribute="Keyword" context="InParamEnding" String="keywords"/>
         <keyword attribute="Keyword" context="#pop!Storage" String="storage_modifiers"/>
         <WordDetect attribute="Control Flow" context="#pop!ElseIfKeyword" String="else" insensitive="true"/>
@@ -1065,7 +1072,7 @@
         <DetectChar attribute="Symbol"  context="MultilineParams" char="("/>
         <DetectChar attribute="Symbol"  context="#pop!Statement" char="{"/>
         <DetectChar attribute="Symbol"  context="#pop#pop" char="}"/>
-        <DetectChar attribute="Deref"   context="Deref" char="%"/>
+        <DetectChar attribute="DeReference" context="DeReference" char="%"/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <StringDetect attribute="DocInline" context="#pop!DocsBlock" String="```"/>
         <DetectChar attribute="DocInline" context="#pop!DocsBlock" char="`"/>
@@ -1314,7 +1321,8 @@
         <DetectIdentifier context="#pop" attribute="DocParam"/>
     </context>
     <context name="DocParamType" attribute="DocParamType" lineEmptyContext="#pop">
-        <RegExpr attribute="Symbol" String="\b\w+Ref" insensitive="true"/>
+        <RegExpr attribute="Reference" String="\b\w+Ref" insensitive="true"/>
+        <DetectChar attribute="Symbol" context="Reference" char="&amp;"/>
         <AnyChar attribute="Symbol" String="&operator;"/>
         <DetectChar attribute="DocInline" context="DocInlineCode" char="`"/>
         <DetectSpaces/>
@@ -1336,6 +1344,8 @@
     <itemData name="Control Flow"  	  defStyleNum="dsControlFlow" spellChecking="false"/>
     <itemData name="Break Flow" 	  defStyleNum="dsConstant" spellChecking="false"/>
     <itemData name="Negative" 		  defStyleNum="dsConstant" spellChecking="false"/>
+    <itemData name="Reference"        defStyleNum="dsRegionMarker"/>
+    <itemData name="Unset"            defStyleNum="dsAnnotation"/>
     <itemData name="BuiltIn"          defStyleNum="dsBuiltIn" spellChecking="false"/>
     <itemData name="Function"         defStyleNum="dsFunction" spellChecking="false"/>
     <itemData name="Property"         defStyleNum="dsFloat" spellChecking="false"/>
@@ -1346,7 +1356,7 @@
     <itemData name="Directive"        defStyleNum="dsPreprocessor" spellChecking="false"/>
     <itemData name="Directive Chars"  defStyleNum="dsAttribute" spellChecking="false"/>
     <itemData name="Variable"         defStyleNum="dsVariable" spellChecking="false"/>
-    <itemData name="Deref"        	  defStyleNum="dsImport" spellChecking="false"/>
+    <itemData name="DeReference"      defStyleNum="dsImport" spellChecking="false"/>
     <itemData name="Keyword"          defStyleNum="dsKeyword" spellChecking="false"/>
     <itemData name="Normal Text"      defStyleNum="dsNormal" spellChecking="false"/>
     <itemData name="Decimal"          defStyleNum="dsDecVal" spellChecking="false"/>
@@ -1370,7 +1380,7 @@
     <itemData name="DocTagSpecial"    defStyleNum="dsAnnotation"/>
     <itemData name="DocTagThrows"     defStyleNum="dsConstant"/>
     <itemData name="DocParam"         defStyleNum="dsCommentVar"/>
-    <itemData name="DocParamType"     defStyleNum="dsKeyword"/>
+    <itemData name="DocParamType"     defStyleNum="dsChar"/>
     <itemData name="DocInline"        defStyleNum="dsSpecialChar"/>
     <itemData name="Region"           defStyleNum="dsRegionMarker"/>
     <itemData name="Info"             defStyleNum="dsInformation"/>

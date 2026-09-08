@@ -102,8 +102,9 @@ FatArrow() => false
 FatArrow(Args*) => (SubStr(args[1]))
 FatArrow(Args?) => SubStr(args[1]) . SubStr(args[1])
 
-fn := () => false
+fn := (_) => false
 fn := (*) => (false, "True", SubStr())
+u := unset
 
 ; storage modifiers
 SetDefaults() {

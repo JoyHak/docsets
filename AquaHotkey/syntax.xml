@@ -3,6 +3,7 @@
     <!ENTITY func "\b([a-zA-Z_][\w_]*)(?=\()">
     <!ENTITY operator "#:!&amp;+,-/.*&lt;&gt;=?[]|~^">
     <!ENTITY assign "(?://|&lt;&lt;|&gt;&gt;|[-+.:/|&amp;^*])=">
+    <!ENTITY maybe "\b[a-zA-Z_][\w_]*\?">
 ]>
 <!-- docs: https://docs.kde.org/stable_kf6/en/kate/katepart/highlight.html -->
 <language name="AutoHotKey" section="Scripts"
@@ -813,6 +814,7 @@
     <!-- Scope {..} or statement -->
     <context name="Statement" attribute="Normal Text" lineEndContext="#stay">
         <DetectSpaces/>
+        <RegExpr attribute="Unset" String="&maybe;"/>
         <AnyChar    attribute="Symbol" context="Params" String="?:" firstNonSpace="1"/>
         <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace1"/>
         <DetectChar attribute="Symbol" context="ContinuationSection" char="("/>
@@ -820,6 +822,7 @@
         <DetectChar attribute="String Char" context="String Char" char="'"/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
+        <DetectChar attribute="Symbol" context="Reference" char="&amp;"/>
         <DetectChar attribute="DeReference" context="DeReference" char="%"/>
         <WordDetect attribute="Keyword" context="Class" String="class" insensitive="true"/>
         <WordDetect attribute="Keyword" context="ForLoop" String="for" insensitive="true"/>
@@ -861,7 +864,6 @@
         <DetectChar attribute="Comment" context="#pop!CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="#pop!CommentBlock" char="/" char1="*" beginRegion="Comment"/>
         <DetectChar attribute="DocInline" context="#pop!DocsBlock" char="`"/>
-        <DetectChar attribute="Symbol" context="#pop!Reference" char="&amp;"/>
         <RegExpr    attribute="Symbol" context="#pop!Assignment" String="&assign;"/>
         <AnyChar    attribute="Symbol" context="#pop!Params" String="&operator;"/>
     </context>
@@ -1002,12 +1004,14 @@
     </context>
     <!--======= MULTI-EXPRESSIONS =======-->
     <context name="Params" attribute="Normal Text" lineEndContext="#pop">
+        <RegExpr attribute="Unset" String="&maybe;"/>
         <Detect2Chars attribute="Symbol" context="RegexString" char="~" char1="="/>
         <DetectChar attribute="String" context="String" char="&quot;"/>
         <DetectChar attribute="String Char" context="String Char" char="'"/>
         <WordDetect attribute="Keyword" context="Type" String="is" insensitive="true"/>
         <WordDetect attribute="Control Flow" context="ElseIfKeyword" String="else" insensitive="true"/>
-        <WordDetect attribute="Control Flow" context="CatchKeyword" String="catch" insensitive="true"/>
+        <WordDetect attribute="Control Flow" context="CatchKeyword"  String="catch" insensitive="true"/>
+        <WordDetect attribute="Unset" context="#stay" String="unset" insensitive="true"/>
         <keyword attribute="Control Flow" String="controlflow"/>
 		<keyword attribute="Keyword" String="keywords"/>
         <keyword attribute="Negative" String="negatives"/>
@@ -1047,6 +1051,7 @@
          and then a multi-line statement is joined into a single line by
          trailing or leading keywords or operators -->
         <DetectSpaces/>
+        <RegExpr attribute="Unset" String="&maybe;"/>
         <RegExpr attribute="Reference" String="&amp;\w+"/> <!-- Avoid confusion with trailing op. -->
         <RegExpr attribute="Symbol" context="Assignment" String="&assign;"/>
         <Detect2Chars attribute="Symbol" context="RegexString" char="~" char1="="/>
@@ -1055,6 +1060,7 @@
         <DetectChar attribute="String Char" context="String Char" char="'"/>
         <Detect2Chars attribute="Symbol" context="Params" char="=" char1=">"/>
         <WordDetect attribute="Keyword" context="Type" String="is" insensitive="true"/>
+        <WordDetect attribute="Unset" context="InParamEnding" String="unset" insensitive="true"/>
         <keyword attribute="Keyword" context="InParamEnding" String="keywords"/>
         <keyword attribute="Keyword" context="#pop!Storage" String="storage_modifiers"/>
         <WordDetect attribute="Control Flow" context="#pop!ElseIfKeyword" String="else" insensitive="true"/>
@@ -1085,6 +1091,7 @@
         <Detect2Chars attribute="Comment" context="#pop#pop" char="*" char1="/" endRegion="Comment"/>
         <DetectChar attribute="Docs" char="*" firstNonSpace="true"/>
         <AnyChar context="#pop" String="&operator;&quot;'%" lookAhead="true"/>
+        <WordDetect attribute="Unset" context="#pop" String="unset" insensitive="true"/>
         <keyword attribute="Keyword" context="#pop" String="keywords"/>
 	</context>
     <!-- More permissive check for leading operator/keyword -->
@@ -1322,6 +1329,7 @@
     </context>
     <context name="DocParamType" attribute="DocParamType" lineEmptyContext="#pop">
         <RegExpr attribute="Reference" String="\b\w+Ref" insensitive="true"/>
+        <RegExpr attribute="Unset" String="&maybe;"/>
         <DetectChar attribute="Symbol" context="Reference" char="&amp;"/>
         <AnyChar attribute="Symbol" String="&operator;"/>
         <DetectChar attribute="DocInline" context="DocInlineCode" char="`"/>

@@ -369,6 +369,19 @@ Send("$ * ~")    ; hooks are treated literally here
 SendText("^{Delete 2}")
 SendPlay("^{Delete 2}")
 
+; concatenation
+Send("{" . MyVar . " 2}")
+Send(
+    "{Left}{" 
+    . Format(
+        "A {}{}", 
+        condition ? "DownTemp" : "DownR", 
+        Integer("2")
+    ) 
+    . "}{Right}"
+)
+
+; multiline text
 Send(
     (LTrim0 Com
     "{!}A line of text.  ; comment
@@ -377,19 +390,26 @@ Send(
     )
 )
 
+    Send("
+    (
+    {!}A line of text.
+        {Enter 2}e
+        a{tab}
+    )")
+
 ; EXAMPLE #1 - inside a quoted/literal string:
 Var := "
 (
 A line of text.
 By default, the hard carriage return (Enter) between the previous line and this one will be stored.
-	This line is indented with a tab; by default, that tab will also be stored.
+    This line is indented with a tab; by default, that tab will also be stored.  ; literal string
 Additionally, "quote marks" are automatically escaped when appropriate.
 )"
 
 ; EXAMPLE #2 - outside a quoted/literal string:
 Var :=
-(
-"Same as above, except that quote marks are not automatically escaped.
+(comment
+"Same as above, except that quote marks are not automatically escaped.  ; comment
 Specify variables as follows: " Var "
 A line of text."
 )
@@ -401,6 +421,11 @@ A line of text.
 By default, the hard carriage return (Enter) between the previous line and this one will be stored.
 	This line is indented with a tab; by default, that tab will also be stored.
 )", A_Desktop "\My File.txt")
+
+MsgBox "
+(com
+A line of text.`r`nBy default, the "quote marks" are automatically escaped  ; comment
+)"
 
 ; EXAMPLE #2 - outside a quoted/literal string:
 FileAppend(

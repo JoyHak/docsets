@@ -5,6 +5,7 @@
 ;@Ahk2Exe-SetCopyright Rafaello
 #Warn Unreachable, Off
 
+;@region Hotkeys, hotstrings
 ::h::Hello
 :*:acheiv::achiev.
 ::achievment::achievement.
@@ -92,6 +93,7 @@ Hotstring("EndChars", "-()[]{}:;")
         ; This hotstring replaces "]d" with the current date and time via the commands below.
         return "a value"
     }
+;@endregion
 
 Add(X, Y, Z := 0)  => X + Y + Z
 LogToFile(TextToLog) => FileAppend(TextToLog "`n", "l.log")

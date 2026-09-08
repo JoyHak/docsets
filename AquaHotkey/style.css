@@ -130,7 +130,7 @@ code span.al {
 code span.do { 
     color: #aeaeae;
 }
-/* keyword: @param, @example, ... */
+/* @returns, unset, maybe? */
 code span.an { 
     color: #60a0b0;
 }
@@ -140,10 +140,14 @@ code span.cv {
 }
 /* Warning */
 code span.wa { 
-    color: #ff8c00;  
+    color: #fd8933;  
 }
 /* Error */
 code span.er { 
     color: #ff1515;
     font-style: italic !important;
+}
+/* Region, reference */
+code span.re { 
+    color: #fd82b3;
 }

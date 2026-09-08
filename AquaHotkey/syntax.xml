@@ -1246,6 +1246,9 @@
     <!--======= COMMENTS =======-->
     <context name="CommentLine" attribute="Comment" lineEndContext="#pop">
         <DetectSpaces/>
+        <WordDetect attribute="Region" String="@beginregion" insensitive="true" beginRegion="Region"/>
+        <WordDetect attribute="Region" String="@region" insensitive="true" beginRegion="Region"/>
+        <WordDetect attribute="Region" String="@endregion" insensitive="true" endRegion="Region"/>
         <RegExpr attribute="Directive" context="#pop!Directive" String="@Ahk2Exe-\w+"/>
         <IncludeRules context="##Comments"/>
     </context>
@@ -1275,7 +1278,6 @@
         <WordDetect attribute="Info"    context="Info"     String="@note"        insensitive="true"/>
         <WordDetect attribute="Warning" context="Warning"  String="@warning"     insensitive="true"/>
         <WordDetect attribute="Warning" context="Warning"  String="@warn"        insensitive="true"/>
-
         <RegExpr attribute="DocTag" String="@\w+"/>
         <Detect2Chars attribute="Comment" context="#pop" char="*" char1="/" endRegion="Comment"/>
     </context>

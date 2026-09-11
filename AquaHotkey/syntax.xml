@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE language SYSTEM "syntax.xsd" [
-    <!ENTITY func "\b([a-zA-Z_][\w_]*)(?=\()">
+    <!ENTITY func "\b([a-zA-Z_][\w_]*)(?=\)?\()">
     <!ENTITY operator ":!&amp;+,-/*&lt;&gt;=?[]|~^">
     <!ENTITY assign "(?://|&lt;&lt;|&gt;&gt;|[-+.:/|&amp;^*])=">
     <!ENTITY maybe "\b[a-zA-Z_][\w_]*\?">
@@ -658,6 +658,7 @@
         <AnyChar attribute="Symbol" context="Params" String="?:" firstNonSpace="1"/>
         <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace" firstNonSpace="1"/>
         <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace" firstNonSpace="1"/>
+        <DetectChar attribute="Symbol" context="#pop!Member" char="."/>
         <DetectChar attribute="DeReference" context="DeReference" char="%"/>
         <DetectChar attribute="Symbol" context="#pop!Params" char="("/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
@@ -690,6 +691,8 @@
         <AnyChar    attribute="Symbol" context="Params" String="?:" firstNonSpace="1"/>
         <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace"/>
         <DetectChar attribute="Symbol" context="ContinuationSection" char="(" firstNonSpace="true"/>
+        <DetectChar attribute="Symbol" context="MultilineParams" char="("/>
+        <DetectChar attribute="Symbol" context="Member" char="."/>
         <keyword attribute="Variable" String="string_positives"/>
         <keyword attribute="Negative" String="string_negatives"/>
         <DetectChar attribute="String" context="String" char="&quot;"/>
@@ -873,7 +876,7 @@
     </context>
     <context name="ReturnKeyword" attribute="Normal Text" lineEndContext="InParamBeginning" lineEmptyContext="#pop">
         <!--
-         Allows object, array and cont. section, but follows multiline statements rools:
+         Allows object, array and cont. section, but follows multiline expression rools:
          trailing/leading keyword or operator is required to treat next line as statement
         -->
         <IncludeRules context="SubAssignment"/>
@@ -1119,10 +1122,12 @@
         <DetectChar attribute="String" char="`"/>
     </context>
     <!-- Multiline string -->
-    <context name="ContinuationSection" attribute="Normal Text" fallthroughContext="#pop!InContSection">
+    <context name="ContinuationSection" attribute="Normal Text" fallthroughContext="#pop!MultilineParams">
         <IncludeRules context="SectionOptions"/>
         <!-- Allow  ; comments -->
         <keyword attribute="Keyword" String="section_comments" context="#pop!ContSectionComments"/>
+        <!-- Line end assertion is required. Open paren. may be Params, not Section -->
+        <RegExpr context="#pop!InContSection" String="$"/>
     </context>
     <!-- Multiline literals (no quotes) -->
     <context name="LiteralSection" attribute="Char" fallthroughContext="#pop!InLitSection">

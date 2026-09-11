@@ -550,8 +550,7 @@ Method%Var%()
 Array.prototype
 Class.prototype  ; an object, not a keyword
 v := Class()     ; instance of Class.prototype
-fn(Class)        
-class := v       ; keyword
+(fn)(Class)      ; retrieve function and call
 
 ({}.method)()    ; retrieve method implementation
 {}.method()      ; call a method on empty object

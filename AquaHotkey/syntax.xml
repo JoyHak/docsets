@@ -1368,10 +1368,13 @@
         <WordDetect attribute="Region" String="@beginregion" insensitive="true" beginRegion="Region"/>
         <WordDetect attribute="Region" String="@region" insensitive="true" beginRegion="Region"/>
         <WordDetect attribute="Region" String="@endregion" insensitive="true" endRegion="Region"/>
+        <WordDetect attribute="Region" String="@Ahk2Exe-IgnoreBegin" insensitive="true" beginRegion="Ignore"/>
+        <WordDetect attribute="Region" String="@Ahk2Exe-IgnoreEnd" insensitive="true" endRegion="Ignore"/>
         <RegExpr attribute="Directive" context="#pop!Directive" String="@Ahk2Exe-\w+"/>
         <IncludeRules context="##Comments"/>
     </context>
     <context name="CommentBlock" attribute="Comment">
+        <WordDetect attribute="Region" context="#pop!DocCode" String="@Ahk2Exe-Keep" insensitive="true" beginRegion="Comment"/>
         <DetectChar context="#pop!DocsBlock" char="*" beginRegion="Comment"/>
         <DetectSpaces/>
         <Detect2Chars context="#pop" char="*" char1="/" endRegion="Comment"/>

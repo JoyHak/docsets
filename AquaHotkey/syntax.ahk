@@ -604,11 +604,13 @@ loop read, "Export.txt" {
     }
 }
 
+;@Ahk2Exe-IgnoreBegin
 loop files, SourcePattern {
     copy_it := false
     if !FileExist(Dest "\" A_LoopFileName)  ; Always copy if target file doesn't yet exist.
         copy_it := true
 }
+;@Ahk2Exe-IgnoreEnd
 
 loop parse, A_Clipboard, "`n", "`r" {
 }
@@ -617,4 +619,12 @@ loop parse, A_Clipboard, "`n", "`r" {
 loop 12
 loop MyArray.length
 loop Min(MyArray.Length, 2)
+
+/*@Ahk2Exe-Keep 
+    ; in .exe only
+    Array.prototype
+    Class.prototype
+    v := Class()
+    (fn)(Class)
+*/
 ```

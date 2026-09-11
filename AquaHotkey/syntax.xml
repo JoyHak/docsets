@@ -24,7 +24,6 @@
     <item>try</item>
     <item>switch</item>
     <item>case</item>
-    <item>class</item>
     <item>for</item>
     <item>loop</item>
     <item>return</item>
@@ -429,21 +428,36 @@
 </list>
 <list name="types">
     <item>Any</item>
+    <item>Class</item>
     <item>Object</item>
-    <item>String</item>
-    <item>Number</item>
-    <item>Integer</item>
-    <item>Float</item>
+    <item>Array</item>
     <item>Buffer</item>
+    <item>ClipboardAll</item>
     <item>File</item>
     <item>Func</item>
+    <item>BoundFunc</item>
+    <item>Closure</item>
+    <item>Enumerator</item>
     <item>Gui</item>
-    <item>Array</item>
-    <item>Map</item>
     <item>InputHook</item>
+    <item>Map</item>
     <item>Menu</item>
-    <item>match</item>
+    <item>MenuBar</item>
     <item>RegExMatchInfo</item>
+    <item>match</item>
+    <item>Primitive</item>
+    <item>Number</item>
+    <item>Float</item>
+    <item>Integer</item>
+    <item>String</item>
+    <item>VarRef</item>
+    <item>PropRef</item>
+    <item>MethodRef</item>
+    <item>FuncRef</item>
+    <item>ComValue</item>
+    <item>ComObjArray</item>
+    <item>ComObject</item>
+    <item>ComValueRef</item>
 </list>
 <list name="directives">
     <item>#ClipboardTimeout</item>
@@ -648,7 +662,7 @@
         <DetectChar attribute="Symbol" context="#pop!Params" char="("/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
-        <WordDetect attribute="Keyword" context="#pop!Class" String="class" insensitive="true"/>
+        <WordDetect attribute="Keyword" context="#pop!Class" String="class " firstNonSpace="true" insensitive="true"/>
         <WordDetect attribute="Keyword" context="#pop!ForLoop" String="for" insensitive="true"/>
         <WordDetect attribute="Keyword" context="#pop!LoopKeyword" String="loop" insensitive="true"/>
         <keyword attribute="Variable" context="#pop!Params" String="variables"/>
@@ -684,7 +698,7 @@
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
         <DetectChar attribute="Symbol" context="Reference" char="&amp;"/>
         <DetectChar attribute="DeReference" context="DeReference" char="%"/>
-        <WordDetect attribute="Keyword" context="Class" String="class" insensitive="true"/>
+        <WordDetect attribute="Keyword" context="Class" String="class " firstNonSpace="true" insensitive="true"/>
         <WordDetect attribute="Keyword" context="ForLoop" String="for" insensitive="true"/>
         <WordDetect attribute="Keyword" context="LoopKeyword" String="loop" insensitive="true"/>
         <WordDetect attribute="Control Flow" context="ElseIfKeyword" String="else" insensitive="true"/>
@@ -806,7 +820,7 @@
         <DetectSpaces/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
-        <WordDetect attribute="Keyword" context="Class" String="class" insensitive="true"/>
+        <WordDetect attribute="Keyword" context="Class" String="class " firstNonSpace="true" insensitive="true"/>
         <WordDetect attribute="Keyword" context="StaticStatement" String="static" insensitive="true" firstNonSpace="true"/>
         <keyword attribute="Meta" context="Identifier" String="meta" firstNonSpace="true"/>
         <RegExpr attribute="Function" context="Identifier" String="&func;" firstNonSpace="true"/>

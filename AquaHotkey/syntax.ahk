@@ -97,6 +97,7 @@ Hotstring("EndChars", "-()[]{}:;")
 
 ; dynamic (run-time)
 Hotkey("^WheelUp")
+Hotkey("$~^WheelUp")
 KeyWait("^+s")
 GetKeyState('^sc003')
 HotString(':*:acheiv::achiev.')
@@ -440,7 +441,7 @@ FileAppend('
 A line of text.
 By default, the hard carriage return (Enter) between the previous line and this one will be stored.
 	This line is indented with a tab; by default, that tab will also be stored.
-)', A_Desktop '\My File.txt')
+)', A_Desktop '\My File.txt')
 
 MsgBox "
 (com

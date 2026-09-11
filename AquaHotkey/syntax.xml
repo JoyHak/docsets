@@ -50,6 +50,7 @@
     <item>in</item>
     <item>is</item>
     <item>as</item>
+    <item>IsSet</item>
 </list>
 <list name="breakflow">
     <item>exitapp</item>
@@ -230,7 +231,19 @@
     <item>InStr</item>
     <item>IsLabel</item>
     <item>IsObject</item>
-    <item>IsSet</item>
+    <item>IsInteger</item>
+    <item>IsFloat</item>
+    <item>IsNumber</item>
+    <item>IsObject</item>
+    <item>IsLabel</item>
+    <item>IsDigit</item>
+    <item>IsXDigit</item>
+    <item>IsAlpha</item>
+    <item>IsUpper</item>
+    <item>IsLower</item>
+    <item>IsAlnum</item>
+    <item>IsSpace</item>
+    <item>IsTime</item>
     <item>IsSetRef</item>
     <item>KeyHistory</item>
     <item>KeyWait</item>

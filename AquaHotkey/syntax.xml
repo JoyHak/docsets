@@ -738,7 +738,7 @@
         <keyword attribute="Type" context="#pop" String="types"/>
         <keyword attribute="Meta" context="#pop" String="meta"/>
         <StringDetect attribute="Meta" context="#pop" String="__item" insensitive="true"/>
-        <RegExpr attribute="Function" context="Identifier" String="&func;"/>
+        <RegExpr attribute="Method" context="Identifier" String="&func;"/>
         <DetectIdentifier attribute="Property" context="#pop"/>
     </context>
     <context name="Assignment" attribute="Normal Text" fallthroughContext="#pop!SubAssignment">
@@ -1421,11 +1421,12 @@
     <itemData name="Unset"            defStyleNum="dsAnnotation"/>
     <itemData name="BuiltIn"          defStyleNum="dsBuiltIn" spellChecking="false"/>
     <itemData name="Function"         defStyleNum="dsFunction" spellChecking="false"/>
+    <itemData name="Method"           defStyleNum="dsChar" spellChecking="false"/>
     <itemData name="Property"         defStyleNum="dsFloat" spellChecking="false"/>
     <itemData name="Meta" 			  defStyleNum="dsAttribute" spellChecking="false"/>
     <itemData name="Type" 		  	  defStyleNum="dsDataType" spellChecking="false"/>
     <itemData name="Hotkey" 		  defStyleNum="dsVerbatimString" spellChecking="false"/>
-    <itemData name="Hotstring" 		  defStyleNum="dsBaseN" spellChecking="false"/>
+    <itemData name="Hotstring" 		  defStyleNum="dsSpecialString" spellChecking="false"/>
     <itemData name="Directive"        defStyleNum="dsPreprocessor" spellChecking="false"/>
     <itemData name="Directive Chars"  defStyleNum="dsAttribute" spellChecking="false"/>
     <itemData name="Variable"         defStyleNum="dsVariable" spellChecking="false"/>

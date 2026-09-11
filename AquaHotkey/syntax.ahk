@@ -6,6 +6,7 @@
 #Warn Unreachable, Off
 
 ;@region Hotkeys, hotstrings
+; static (load-time)
 ::h::Hello
 :*:acheiv::achiev.
 ::achievment::achievement.
@@ -93,6 +94,12 @@ Hotstring("EndChars", "-()[]{}:;")
         ; This hotstring replaces "]d" with the current date and time via the commands below.
         return "a value"
     }
+
+; dynamic (run-time)
+Hotkey("^WheelUp")
+KeyWait("^+s")
+GetKeyState('^sc003')
+HotString(':*:acheiv::achiev.')
 ;@endregion
 
 Add(X, Y, Z := 0)  => X + Y + Z
@@ -364,7 +371,7 @@ else            ; Set for current user only.
 ; To send the corresponding modifier key on its own, enclose the key name in braces.
 Send("This text has been typed{!}")
 Send("{a 2}") 
-Send("{a}{b}{c}")
+Send("{a}a{b}b{c}")
 Send("^s")                     ; Both of these send CTRL+S
 Send("{Ctrl down}s{Ctrl up}")  ; Both of these send CTRL+S
 Send("+{Delete}text")	       ; key name must be in { }, everything else is text
@@ -372,7 +379,7 @@ SendEvent("^+D")			   ; just 1 letter
 SendEvent("^+Del")		       ; only 1st would be interpreted as key
 SendInput("CapsLock")		   ; not a key!
 SendInput('Delete {Delete 2}')			
-
+'{CapsLock}'
 ; special characters would be interpreted literally
 Send("{Raw}#f ^!d s{o}me {CapsLock}`n")
 Send("{Text}{Caps}{Delete}CapsLock`%")
@@ -396,7 +403,7 @@ Send(
 
 ; multiline text
 Send(
-    (LTrim0
+    (LTrim0 Join$
     "{!}A line of text.
     {Enter 2}e
     a{tab}"
@@ -421,19 +428,19 @@ Additionally, "quote marks" are automatically escaped when appropriate.
 
 ; EXAMPLE #2 - outside a quoted/literal string:
 Var :=
-(comment
+(Join`s`n LTrim0 Comment
 "Same as above, except that quote marks are not automatically escaped.  ; comment
 Specify variables as follows: " Var "
 A line of text."
 )
 
 ; EXAMPLE #1 - inside a quoted/literal string:
-FileAppend("
+FileAppend('
 (
 A line of text.
 By default, the hard carriage return (Enter) between the previous line and this one will be stored.
 	This line is indented with a tab; by default, that tab will also be stored.
-)", A_Desktop "\My File.txt")
+)', A_Desktop '\My File.txt')
 
 MsgBox "
 (com
@@ -475,6 +482,14 @@ if (MyVar = 5) {
     MsgBox("MyVar equals " MyVar "!!")
     ExitApp()
 }
+
+MsgBox(IsSet)       ; operator, cannot be passed as callback
+MsgBox(IsSetRef)    ; built-in function
+
+IsVar := IsSet(Var)
+IsVarRef := IsSetRef(&Var)
+var := unset
+MsgBox(var?)
 
 MyVar := MyVar2
 MyVar := MyVar2 . " some text " . MyVar . "."
@@ -523,11 +538,27 @@ x := {}, y := {}             ; Create two objects.
 x.child := y, y.parent := x  ; Create a circular reference.
 y.parent := ""
 x := "", y := ""
-Banana.__Item("Color")
+Banana.__Item["Color"]
 RemovedValue := MyArray.RemoveAt(1)
 NumberOfRemovedKeys := MyArray.RemoveAt(1, 3)
 MyArray.Pop()
-%Var%()
+MyArray.__Private()
+MyArray.__Field
+Method%Var%()
+
+Array.prototype
+Class.prototype  ; an object, not a keyword
+v := Class()     ; instance of Class.prototype
+fn(Class)        
+class := v       ; keyword
+
+({}.method)()    ; retrieve method implementation
+{}.method()      ; call a method on empty object
+({}.__Call)()
+(MsgBox.Call)()
+(Object.Prototype.DefineProp)()
+"".DefineProp("Length", {call: StrLen})
+
 
 Sleep(1)
 MsgBox(1 + 1)  ; Shows "2"

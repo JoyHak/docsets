@@ -133,17 +133,20 @@ GetValue(num) {
     switch num {
     case 1:
         SetDefaults()
-        return true
+        break label
     case 2:
-        return 'str' . num
+        break label
     default:
         throw ValueError(1, 'num', num)
     }
     
+    label:
     throw CustomClass(1, 'num', num)
 }
 
+label:
 popcount() => DllCall("BitSet\popcount", "Ptr", this.B.Ptr, "Ptr", this.B.Size, "cdecl")
+goto label
 
 DllCall(
     "WriteProcessMemory", 
@@ -557,7 +560,7 @@ Method%Var%()
 Array.prototype
 Class.prototype  ; an object, not a keyword
 v := Class()     ; instance of Class.prototype
-(fn)(Class)      ; retrieve function and call
+(fn)(Class)  if     ; retrieve function and call
 
 ({}.method)()    ; retrieve method implementation
 {}.method()      ; call a method on empty object

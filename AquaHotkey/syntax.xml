@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE language SYSTEM "syntax.xsd" [
-    <!ENTITY func "\b([a-zA-Z_][\w_]*)(?=\)?\()">
+    <!ENTITY func "\b([a-zA-Z_][\w_]*)(?=\()">
     <!ENTITY hotkey "^[ \t]*([^&quot;':]+)(?=::)">
+    <!ENTITY key "[!\+#^]+[^{]?">
     <!ENTITY operator ":!&amp;+,-/*&lt;&gt;=?[]|~^">
     <!ENTITY assign "(?://|&lt;&lt;|&gt;&gt;|[-+.:/|&amp;^*])=">
     <!ENTITY maybe "\b[a-zA-Z_][\w_]*\?">
     <!ENTITY format "{(?=\d*[:{}])">
-    <!ENTITY key "[!\+#^]+[^{]?">
+    <!ENTITY label "[\w_]+:\s*$">
 ]>
 <!-- docs: https://docs.kde.org/stable_kf6/en/kate/katepart/highlight.html -->
 <language name="AutoHotKey" section="Scripts"
@@ -16,31 +17,6 @@
           priority="9"
           author="Rafaello">
 <highlighting>
-<list name="controlflow">
-    <item>catch</item>
-    <item>continue</item>
-    <item>else</item>
-    <item>finally</item>
-    <item>goto</item>
-    <item>default</item>
-    <item>try</item>
-    <item>switch</item>
-    <item>case</item>
-    <item>for</item>
-    <item>loop</item>
-    <item>return</item>
-</list>
-<list name="loop">
-    <item>parse</item>
-    <item>read</item>
-    <item>files</item>
-    <item>reg</item>
-</list>
-<list name="multiline">
-    <item>if</item>
-    <item>while</item>
-    <item>until</item>
-</list>
 <list name="keywords">
     <item>unset</item>
     <item>not</item>
@@ -54,13 +30,40 @@
     <item>as</item>
     <item>IsSet</item>
 </list>
-<list name="breakflow">
+<list name="control_flow">
+    <item>catch</item>
+    <item>else</item>
+    <item>finally</item>
+    <item>default</item>
+    <item>try</item>
+    <item>switch</item>
+    <item>case</item>
+    <item>for</item>
+    <item>loop</item>
+    <item>return</item>
+</list>
+<list name="break_flow">
     <item>exitapp</item>
     <item>exit</item>
     <item>reload</item>
     <item>pause</item>
     <item>throw</item>
+</list>
+<list name="label_flow">
+    <item>goto</item>
+    <item>continue</item>
     <item>break</item>
+</list>
+<list name="multiline">
+    <item>if</item>
+    <item>while</item>
+    <item>until</item>
+</list>
+<list name="loop">
+    <item>parse</item>
+    <item>read</item>
+    <item>files</item>
+    <item>reg</item>
 </list>
 <list name="storage_modifiers">
     <item>static</item>
@@ -225,7 +228,6 @@
     <item>InstallKeybdHook</item>
     <item>InstallMouseHook</item>
     <item>InStr</item>
-    <item>IsLabel</item>
     <item>IsObject</item>
     <item>IsInteger</item>
     <item>IsFloat</item>
@@ -670,16 +672,17 @@
         <StringDetect attribute="Directive" context="Params" String="#HotIf" insensitive="true" column="0"/>
         <keyword attribute="Directive" context="Directive" String="directives" column="0"/>
         <DetectChar attribute="Symbol" context="Hotstring" char=":" column="0"/>
-        <RegExpr attribute="Hotkey" context="Hotkey" String="^[ \t]*([^&quot;':]+)(?=::)" column="0"/>
+        <RegExpr attribute="Hotkey" context="Hotkey" String="&hotkey;" column="0"/>
+        <RegExpr attribute="Label" String="&label;" firstNonSpace="true"/>
         <DetectChar attribute="Symbol" context="ContinuationSection" char="(" firstNonSpace="true"/>
     </context>
     <!--======= SCOPE =======-->
     <!-- Global scope (not the class or function) -->
     <context name="Action" attribute="Normal Text" lineEndContext="#pop">
         <DetectSpaces/>
-        <AnyChar attribute="Symbol" context="Params" String="?:" firstNonSpace="1"/>
-        <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace" firstNonSpace="1"/>
-        <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace" firstNonSpace="1"/>
+        <AnyChar attribute="Symbol" context="Params" String="?:" firstNonSpace="true"/>
+        <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace" firstNonSpace="true"/>
+        <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace" firstNonSpace="true"/>
         <DetectChar attribute="Symbol" context="#pop!Member" char="."/>
         <DetectChar attribute="DeReference" context="DeReference" char="%"/>
         <DetectChar attribute="Symbol" context="#pop!Params" char="("/>
@@ -697,22 +700,24 @@
         <WordDetect attribute="BuiltIn" context="#pop!NumPut" String="NumPut" insensitive="true"/>
         <WordDetect attribute="BuiltIn" context="#pop!NumPut" String="NumGet" insensitive="true"/>
         <WordDetect attribute="BuiltIn" context="#pop!HotstringBuiltIn" String="Hotstring" insensitive="true"/>
-        <keyword attribute="Control Flow" context="#pop!Params" String="controlflow"/>
+        <keyword attribute="Control Flow" context="#pop!Params" String="control_flow"/>
         <keyword attribute="Control Flow" context="#pop!MultilineKeywordParams" String="multiline"/>
-        <keyword attribute="Break Flow" context="#pop!Params" String="breakflow"/>
+        <keyword attribute="Control Flow" context="#pop!LabelKeyword" String="label_flow"/>
+        <keyword attribute="Break Flow" context="#pop!Params" String="break_flow"/>
         <keyword attribute="BuiltIn" context="#pop!Params" String="functions"/>
         <keyword attribute="BuiltIn" context="#pop!Send" String="send"/>
         <keyword attribute="BuiltIn" context="#pop!HotkeyBuiltIn" String="hotkey"/>
         <keyword attribute="Type" context="#pop!Params" String="types"/>
         <keyword attribute="Keyword" context="#pop!Storage" String="storage_modifiers"/>
         <RegExpr attribute="Function" context="Identifier" String="&func;"/>
+        <RegExpr attribute="Label" String="&label;" firstNonSpace="true"/>
         <DetectIdentifier context="#pop!Identifier"/>
     </context>
     <!-- Scope {..} or statement -->
     <context name="Statement" attribute="Normal Text">
-        <DetectSpaces/>
+        <!-- <DetectSpaces/> -->
         <RegExpr attribute="Unset" String="&maybe;"/>
-        <AnyChar    attribute="Symbol" context="Params" String="?:" firstNonSpace="1"/>
+        <AnyChar    attribute="Symbol" context="Params" String="?:" firstNonSpace="true"/>
         <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace"/>
         <DetectChar attribute="Symbol" context="ContinuationSection" char="(" firstNonSpace="true"/>
         <DetectChar attribute="Symbol" context="MultilineParams" char="("/>
@@ -737,9 +742,10 @@
         <WordDetect attribute="BuiltIn" context="NumPut" String="NumGet" insensitive="true"/>
         <WordDetect attribute="BuiltIn" context="HotstringBuiltIn" String="Hotstring" insensitive="true"/>
         <keyword attribute="Variable" context="Params" String="variables" />
-        <keyword attribute="Control Flow" context="Params" String="controlflow"/>
+        <keyword attribute="Control Flow" context="Params" String="control_flow"/>
         <keyword attribute="Control Flow" context="MultilineKeywordParams" String="multiline"/>
-        <keyword attribute="Break Flow" context="Params" String="breakflow"/>
+        <keyword attribute="Control Flow" context="LabelKeyword" String="label_flow"/>
+        <keyword attribute="Break Flow" context="Params" String="break_flow"/>
         <keyword attribute="Negative" context="Params" String="negatives"/>
         <keyword attribute="BuiltIn" context="Params" String="functions"/>
         <keyword attribute="BuiltIn" context="Send" String="send"/>
@@ -752,6 +758,7 @@
         <Detect2Chars attribute="Comment" context="#pop" char="*" char1="/" endRegion="Comment"/>
         <DetectChar attribute="Docs" char="*" firstNonSpace="true"/>
         <RegExpr attribute="Function" context="Identifier" String="&func;"/>
+        <RegExpr attribute="Label" String="&label;" firstNonSpace="true"/>
         <DetectIdentifier context="Identifier"/>
     </context>
     <!--======= EXPRESSION =======-->
@@ -918,12 +925,17 @@
         <DetectSpaces/>
         <keyword attribute="Keyword" context="#pop!MultilineKeywordParams" String="loop"/>
     </context>
-    <!-- for var in expression -->
+    <!-- for <var1, var2, ...> in expression -->
     <context name="ForLoop" attribute="Normal Text" lineEndContext="#pop">
         <!-- Only literal variables, followed by expression -->
         <DetectSpaces/>
         <WordDetect attribute="Keyword" context="#pop!MultilineKeywordParams" String="in" insensitive="true"/>
         <DetectChar attribute="Symbol" char=","/>
+    </context>
+    <!-- goto <label> -->
+    <context name="LabelKeyword" attribute="Normal Text" lineEndContext="#pop">
+        <DetectSpaces/>
+        <DetectIdentifier attribute="Label" context="#pop"/>
     </context>
     <!--======= MULTILINE EXPRESSIONS =======-->
     <context name="Params" attribute="Normal Text" lineEndContext="#pop">
@@ -941,7 +953,7 @@
         <WordDetect attribute="BuiltIn" context="NumPut" String="NumPut" insensitive="true"/>
         <WordDetect attribute="BuiltIn" context="NumPut" String="NumGet" insensitive="true"/>
         <WordDetect attribute="BuiltIn" context="HotstringBuiltIn" String="Hotstring" insensitive="true"/>
-        <keyword attribute="Control Flow" String="controlflow"/>
+        <keyword attribute="Control Flow" String="control_flow"/>
 		<keyword attribute="Keyword" String="keywords"/>
         <keyword attribute="Negative" String="negatives"/>
         <keyword attribute="BuiltIn" String="functions"/>
@@ -1007,7 +1019,7 @@
         <WordDetect attribute="BuiltIn" context="NumPut" String="NumGet" insensitive="true"/>
         <WordDetect attribute="BuiltIn" context="HotstringBuiltIn" String="Hotstring" insensitive="true"/>
         <keyword attribute="Control Flow" context="#pop!MultilineKeywordParams" String="multiline"/>
-        <keyword attribute="Control Flow" context="#pop!Params" String="controlflow"/>
+        <keyword attribute="Control Flow" context="#pop!Params" String="control_flow"/>
         <keyword attribute="Negative" String="negatives"/>
         <keyword attribute="BuiltIn" String="functions"/>
         <keyword attribute="BuiltIn" context="Send" String="send"/>
@@ -1460,7 +1472,7 @@
         <StringDetect attribute="Directive" context="Params" String="#HotIf" insensitive="true"/>
         <keyword attribute="Directive" context="Directive" String="directives"/>
         <DetectChar attribute="Symbol" context="Hotstring" char=":"/>
-        <RegExpr attribute="Hotkey" context="Hotkey" String="^[ \t]*([^&quot;':]+)(?=::)"/>
+        <RegExpr attribute="Hotkey" context="Hotkey" String="&hotkey;"/>
         <IncludeRules context="Statement"/>
     </context>
     <context name="DocCodeLang" attribute="Docs" fallthroughContext="#pop!DocCode">
@@ -1512,6 +1524,7 @@
     <itemData name="DeReference"      defStyleNum="dsImport" spellChecking="false"/>
     <itemData name="Keyword"          defStyleNum="dsKeyword" spellChecking="false"/>
     <itemData name="Normal Text"      defStyleNum="dsNormal" spellChecking="false"/>
+    <itemData name="Label"            defStyleNum="dsCommentVar" spellChecking="false"/>
     <itemData name="Decimal"          defStyleNum="dsDecVal" spellChecking="false"/>
     <itemData name="Hex"              defStyleNum="dsDecVal" spellChecking="false"/>
     <itemData name="Float"            defStyleNum="dsDecVal" spellChecking="false"/>
@@ -1537,7 +1550,7 @@
     <itemData name="DocTagThrows"     defStyleNum="dsConstant" spellChecking="false"/>
     <itemData name="DocParam"         defStyleNum="dsCommentVar" spellChecking="false"/>
     <itemData name="DocParamType"     defStyleNum="dsChar" spellChecking="false"/>
-    <itemData name="DocInline"        defStyleNum="dsSpecialChar"/>
+    <itemData name="DocInline"        defStyleNum="dsSpecialChar" spellChecking="false"/>
     <itemData name="Region"           defStyleNum="dsRegionMarker" spellChecking="false"/>
     <itemData name="Info"             defStyleNum="dsInformation"/>
     <itemData name="Warning"          defStyleNum="dsWarning"/>

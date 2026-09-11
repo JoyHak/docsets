@@ -475,6 +475,12 @@ section :=
     where CommandLine like '%" cmd "%'"
 )
 
+s .= Format("{2}, {1}!`r`n", "World", "Hello")
+s .= Format('|{:-10}|`r`n|{:10}|`r`n", "Left", "Right')
+s .= Format("{1:#x} {2:X} 0x{3:x}`r`n", 3735928559, 195948557, 0)
+s .= Format('{1:0.3f} {1:.10f}', 4 * ATan(1))
+s .= Format('{{} {} {}}', 4 * ATan(1))
+
 Send(A_Hour)
 SubStr(37 * 12, 1, 2)
 SubStr(A_Hour - 12, 2)
@@ -594,9 +600,11 @@ loop reg, "HKEY_LOCAL_MACHINE", "KVR" {
         value := ""
 }
 
+repeat:
 loop read, "Export.txt" {
     loop parse A_LoopReadLine, A_Tab {
         MsgBox "Field number " A_Index " is " A_LoopField "."
+        continue repeat
     }
 }
 

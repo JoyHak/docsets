@@ -5,6 +5,7 @@
     <!ENTITY operator ":!&amp;+,-/*&lt;&gt;=?[]|~^">
     <!ENTITY assign "(?://|&lt;&lt;|&gt;&gt;|[-+.:/|&amp;^*])=">
     <!ENTITY maybe "\b[a-zA-Z_][\w_]*\?">
+    <!ENTITY format "{(?=\d*[:{}])">
     <!ENTITY key "[!\+#^]+[^{]?">
 ]>
 <!-- docs: https://docs.kde.org/stable_kf6/en/kate/katepart/highlight.html -->
@@ -1119,6 +1120,7 @@
         <DetectChar attribute="Symbol" context="LiteralSection" char="(" firstNonSpace="true"/>
         <RegExpr attribute="Regex Option" context="#pop!Regex" String="[imsxADJUXSC]+\)" insensitive="false"/>
         <RegExpr attribute="Escaped" String="`."/>
+        <RegExpr attribute="Symbol" context="FormatString" String="&format;"/>
         <Detect2Chars attribute="Char" char="&quot;" char1="&quot;"/>
         <DetectChar attribute="String" context="#pop" char="&quot;"/>
     </context>
@@ -1128,6 +1130,7 @@
         <DetectChar attribute="Symbol" context="LiteralSection" char="(" firstNonSpace="true"/>
         <RegExpr attribute="Regex Option" context="#pop!Regex" String="[imsxADJUXSC]+\)" insensitive="false"/>
         <RegExpr attribute="Escaped" String="`."/>
+        <RegExpr attribute="Symbol" context="FormatString" String="&format;"/>
         <Detect2Chars attribute="String" char="'" char1="'"/>
         <DetectChar attribute="Char" context="#pop" char="'"/>
     </context>
@@ -1139,6 +1142,13 @@
     <context name="CharComments" attribute="Char">
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <IncludeRules context="String"/>
+    </context>
+    <context name="FormatString" attribute="Escaped">
+        <RegExpr String="}(?=})"/>
+        <DetectChar attribute="Symbol" context="#pop" char="}"/>
+        <Int attribute="Decimal"/>
+        <AnyChar attribute="Symbol" String=":+-."/>
+        <AnyChar context="#pop" String="&quot;'" lookAhead="true"/>
     </context>
     <!--======= MULTILINE STRING =======-->
     <context name="SectionOptions" attribute="Normal Text">
@@ -1171,6 +1181,7 @@
     </context>
     <context name="InLitSection" attribute="Char">
         <RegExpr attribute="Escaped" String="`."/>
+        <RegExpr attribute="Symbol" context="FormatString" String="&format;"/>
         <DetectChar attribute="Symbol" context="#pop" char=")" firstNonSpace="true"/>
     </context>
     <context name="JoinChars" attribute="Char" lineEndContext="#pop">
@@ -1184,6 +1195,7 @@
         <IncludeRules context="LiteralSection"/>
     </context>
     <context name="InContSectionComments" attribute="Normal Text">
+        <RegExpr attribute="Symbol" context="FormatString" String="&format;"/>
         <DetectChar attribute="String" context="StringComments" char="&quot;"/>
         <DetectChar attribute="Char" context="CharComments" char="'"/>
         <DetectChar attribute="Symbol" context="#pop" char=")" firstNonSpace="true"/>

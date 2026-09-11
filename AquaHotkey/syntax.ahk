@@ -8,7 +8,7 @@
 ;@region Hotkeys, hotstrings
 ; static (load-time)
 ::h::Hello
-:*:acheiv::achiev.
+:*:acheiv::achiev for A_this
 ::achievment::achievement.
 :*:adquir::acquir
 :*:ftw::Free the whales
@@ -19,13 +19,7 @@
     MsgBox("You typed btw.")
 }
 
-Numpad0 & Numpad1::return
-
-#HotIf WinActive("Untitled - Notepad")
-!q::SendEvent('^t')
-
-; Any window
-#HotIf
+#HotIf WinActive("Untitled - Notepad") || GetKeyState("AppsKey", "P")
 !q::SendEvent('^t')
 !g::Arr[0].Get()
 AppsKey::ToolTip("Press < or > to cycle through windows.")
@@ -39,8 +33,8 @@ AppsKey Up::ToolTip()
 
 ; Remaps
 ^XButton1::^z
-#sc027::sc027
-a::b
+Numpad0 & Numpad1::return
+
 
 ; Press AppsKey and Alt in any order, then slash (/).
 #HotIf GetKeyState("AppsKey", "P")
@@ -80,9 +74,9 @@ a::b
     }
 
 #HotIf WinActive("ahk_class Notepad", )
-::btw::This replacement text will appear only in Notepad.
+    ::btw::This replacement text will appear only in Notepad.
 #HotIf
-::btw::This replacement text appears in windows other than Notepad.
+    ::btw::This replacement text appears in windows other than Notepad.
 
 #HotString EndChars -()[]{}:;'"/\,.?!`n `t
 Hotstring("EndChars", "-()[]{}:;")
@@ -195,7 +189,7 @@ if (!(Byte & (1 << (Value & 0x07)))) {
  * @warn This class is designed for syntax test only!
  */ 
 class Color {
-    static Shift := {R:16, G:8, B:0}
+    static Shift := {R: 16, G: 8, B: 0}
     static Dummy := {Color: "Yellow", Taste: "Delicious", Price: 3}
     
     __New(aRGB) {
@@ -560,7 +554,7 @@ Method%Var%()
 Array.prototype
 Class.prototype  ; an object, not a keyword
 v := Class()     ; instance of Class.prototype
-(fn)(Class)  if     ; retrieve function and call
+(fn)(Class)     ; retrieve function and call
 
 ({}.method)()    ; retrieve method implementation
 {}.method()      ; call a method on empty object
@@ -568,7 +562,6 @@ v := Class()     ; instance of Class.prototype
 (MsgBox.Call)()
 (Object.Prototype.DefineProp)()
 "".DefineProp("Length", {call: StrLen})
-
 
 Sleep(1)
 MsgBox(1 + 1)  ; Shows "2"

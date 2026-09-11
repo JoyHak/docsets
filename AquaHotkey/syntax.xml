@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE language SYSTEM "syntax.xsd" [
-    <!ENTITY func "\b([a-zA-Z_][\w_]*)(?=\()">
+    <!ENTITY func "\b([a-zA-Z_][\w_]*)(?=\)?\()">
+    <!ENTITY hotstring "^[ \t]*:.?:">
     <!ENTITY hotkey "^[ \t]*([^&quot;':]+)(?=::)">
     <!ENTITY key "[!\+#^]+[^{]?">
     <!ENTITY operator ":!&amp;+,-/*&lt;&gt;=?[]|~^">
@@ -666,58 +667,14 @@
     <item>'off'</item>
 </list>
 <contexts>
-    <context name="Normal" attribute="Normal Text" fallthroughContext="Action">
-        <DetectChar attribute="Comment" context="CommentLine" char=";"/>
-        <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
-        <StringDetect attribute="Directive" context="Params" String="#HotIf" insensitive="true" column="0"/>
-        <keyword attribute="Directive" context="Directive" String="directives" column="0"/>
-        <DetectChar attribute="Symbol" context="Hotstring" char=":" column="0"/>
-        <RegExpr attribute="Hotkey" context="Hotkey" String="&hotkey;" column="0"/>
-        <RegExpr attribute="Label" String="&label;" firstNonSpace="true"/>
-        <DetectChar attribute="Symbol" context="ContinuationSection" char="(" firstNonSpace="true"/>
-    </context>
-    <!--======= SCOPE =======-->
-    <!-- Global scope (not the class or function) -->
-    <context name="Action" attribute="Normal Text" lineEndContext="#pop">
-        <DetectSpaces/>
-        <AnyChar attribute="Symbol" context="Params" String="?:" firstNonSpace="true"/>
-        <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace" firstNonSpace="true"/>
-        <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace" firstNonSpace="true"/>
-        <DetectChar attribute="Symbol" context="#pop!Member" char="."/>
-        <DetectChar attribute="DeReference" context="DeReference" char="%"/>
-        <DetectChar attribute="Symbol" context="#pop!Params" char="("/>
-        <DetectChar attribute="Comment" context="CommentLine" char=";"/>
-        <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
-        <WordDetect attribute="Keyword" context="#pop!Class" String="class " firstNonSpace="true" insensitive="true"/>
-        <WordDetect attribute="Keyword" context="#pop!ForLoop" String="for" insensitive="true"/>
-        <WordDetect attribute="Keyword" context="#pop!LoopKeyword" String="loop" insensitive="true"/>
-        <keyword attribute="Variable" context="#pop!Params" String="variables"/>
-        <WordDetect attribute="Control Flow" context="#pop!ElseIfKeyword" String="else" insensitive="true"/>
-        <WordDetect attribute="Control Flow" context="#pop!CatchKeyword" String="catch" insensitive="true"/>
-        <WordDetect attribute="Control Flow" context="#pop!ReturnKeyword" String="return" insensitive="true"/>
-        <WordDetect attribute="Negative" context="#pop!Error" String="throw" insensitive="true"/>
-        <WordDetect attribute="BuiltIn" context="#pop!DllCall" String="DllCall" insensitive="true"/>
-        <WordDetect attribute="BuiltIn" context="#pop!NumPut" String="NumPut" insensitive="true"/>
-        <WordDetect attribute="BuiltIn" context="#pop!NumPut" String="NumGet" insensitive="true"/>
-        <WordDetect attribute="BuiltIn" context="#pop!HotstringBuiltIn" String="Hotstring" insensitive="true"/>
-        <keyword attribute="Control Flow" context="#pop!Params" String="control_flow"/>
-        <keyword attribute="Control Flow" context="#pop!MultilineKeywordParams" String="multiline"/>
-        <keyword attribute="Control Flow" context="#pop!LabelKeyword" String="label_flow"/>
-        <keyword attribute="Break Flow" context="#pop!Params" String="break_flow"/>
-        <keyword attribute="BuiltIn" context="#pop!Params" String="functions"/>
-        <keyword attribute="BuiltIn" context="#pop!Send" String="send"/>
-        <keyword attribute="BuiltIn" context="#pop!HotkeyBuiltIn" String="hotkey"/>
-        <keyword attribute="Type" context="#pop!Params" String="types"/>
-        <keyword attribute="Keyword" context="#pop!Storage" String="storage_modifiers"/>
-        <RegExpr attribute="Function" context="Identifier" String="&func;"/>
-        <RegExpr attribute="Label" String="&label;" firstNonSpace="true"/>
-        <DetectIdentifier context="#pop!Identifier"/>
-    </context>
-    <!-- Scope {..} or statement -->
     <context name="Statement" attribute="Normal Text">
-        <!-- <DetectSpaces/> -->
+        <RegExpr attribute="Symbol" context="Hotstring" String="&hotstring;" column="0"/>
+        <RegExpr attribute="Hotkey" context="Hotkey" String="&hotkey;" column="0"/>
+        <StringDetect attribute="Directive" context="Params" String="#HotIf" insensitive="true" firstNonSpace="true"/>
+        <keyword attribute="Directive" context="Directive" String="directives" firstNonSpace="true"/>
+        <DetectChar attribute="Comment" context="CommentLine" char=";"/>
+        <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
         <RegExpr attribute="Unset" String="&maybe;"/>
-        <AnyChar    attribute="Symbol" context="Params" String="?:" firstNonSpace="true"/>
         <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace"/>
         <DetectChar attribute="Symbol" context="ContinuationSection" char="(" firstNonSpace="true"/>
         <DetectChar attribute="Symbol" context="MultilineParams" char="("/>
@@ -726,8 +683,6 @@
         <keyword attribute="Negative" String="string_negatives"/>
         <DetectChar attribute="String" context="String" char="&quot;"/>
         <DetectChar attribute="Char" context="Char" char="'"/>
-        <DetectChar attribute="Comment" context="CommentLine" char=";"/>
-        <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
         <DetectChar attribute="Symbol" context="Reference" char="&amp;"/>
         <DetectChar attribute="DeReference" context="DeReference" char="%"/>
         <WordDetect attribute="Keyword" context="Class" String="class " firstNonSpace="true" insensitive="true"/>
@@ -764,23 +719,21 @@
     <!--======= EXPRESSION =======-->
     <!-- Name + symbol (optional) -->
     <context name="Identifier" attribute="Normal Text" lineEndContext="#pop">
-        <keyword 	attribute="Type" String="types"/>
-        <DetectSpaces/>
+        <!-- We jump here on any identifier: variable, function, ... -->
         <DetectChar attribute="Symbol" context="Array" char="["/>
-        <keyword    attribute="Variable" String="variables"/>
-        <Detect2Chars attribute="Symbol" context="#pop!Assignment" char="." char1="="/>
+        <Detect2Chars attribute="Symbol" context="#pop!Assignment" char="." char1="="/> <!-- concat. expression -->
         <DetectChar attribute="Symbol" context="Member" char="."/>
-        <DetectChar attribute="DeReference"  context="DeReference" char="%"/>
-        <DetectChar attribute="Symbol" context="MultilineParams" char="("/>
+        <DetectChar attribute="DeReference" context="DeReference" char="%"/>
+        <Detect2Chars context="#pop" char=")" char1="(" lookAhead="true"/> <!-- (expression)() - let outer context handle this call -->
+        <DetectChar attribute="Symbol" context="MultilineParams" char="("/> <!-- () call -->
         <DetectChar attribute="Symbol" context="#pop" char=")"/>
-        <DetectChar attribute="Symbol" context="#pop!Params" char="?"/>
-        <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace"/>
-        <Detect2Chars attribute="Symbol" context="#pop!Params" char="=" char1=">"/>
+        <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace"/> <!-- func. definition -->
+        <Detect2Chars attribute="Symbol" context="#pop!Params" char="=" char1=">"/> <!-- fat-arrow func. definition -->
+        <RegExpr    attribute="Symbol" context="#pop!Assignment" String="&assign;"/> <!-- assign. - expression -->
+        <AnyChar    attribute="Symbol" context="#pop!Params" String="&operator;"/> <!-- expression -->
         <DetectChar attribute="Comment" context="#pop!CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="#pop!CommentBlock" char="/" char1="*" beginRegion="Comment"/>
         <DetectChar attribute="DocInline" context="#pop!DocsBlock" char="`"/>
-        <RegExpr    attribute="Symbol" context="#pop!Assignment" String="&assign;"/>
-        <AnyChar    attribute="Symbol" context="#pop!Params" String="&operator;"/>
     </context>
     <!-- .Name + symbol (optional) -->
     <context name="Member" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="#pop">
@@ -1463,16 +1416,15 @@
         <IncludeRules context="Params"/>
     </context>
     <context name="DocCode" attribute="Docs">
-        <DetectSpaces/>
+        <RegExpr attribute="Symbol" context="Hotstring" String="&hotstring;" column="0"/>
+        <RegExpr attribute="Hotkey" context="Hotkey" String="&hotkey;" column="0"/>
+        <StringDetect attribute="Directive" context="Params" String="#HotIf" insensitive="true"/>
+        <keyword attribute="Directive" context="Directive" String="directives"/>
         <DetectChar context="#pop" char="@" lookAhead="true"/>
         <StringDetect attribute="DocInline" context="#pop" String="```"/>
         <Detect2Chars attribute="Comment" context="#pop#pop" char="*" char1="/" endRegion="Comment"/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <DetectChar char="*" firstNonSpace="true"/>
-        <StringDetect attribute="Directive" context="Params" String="#HotIf" insensitive="true"/>
-        <keyword attribute="Directive" context="Directive" String="directives"/>
-        <DetectChar attribute="Symbol" context="Hotstring" char=":"/>
-        <RegExpr attribute="Hotkey" context="Hotkey" String="&hotkey;"/>
         <IncludeRules context="Statement"/>
     </context>
     <context name="DocCodeLang" attribute="Docs" fallthroughContext="#pop!DocCode">

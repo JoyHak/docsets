@@ -21,7 +21,7 @@
 
 Numpad0 & Numpad1::return
 
-#HotIf WinActive("Untitled - Notepad", )
+#HotIf WinActive("Untitled - Notepad")
 !q::SendEvent('^t')
 
 ; Any window
@@ -96,11 +96,12 @@ Hotstring("EndChars", "-()[]{}:;")
     }
 
 ; dynamic (run-time)
-Hotkey("^WheelUp")
-Hotkey("$~^WheelUp")
+Hotkey("^WheelUp", (*) => 0, "On")
+Hotkey("*<#RCtrl", , "Off")
 KeyWait("^+s")
 GetKeyState('^sc003')
 HotString(':*:acheiv::achiev.')
+HotString('::btw', , 'Off')
 ;@endregion
 
 Add(X, Y, Z := 0)  => X + Y + Z

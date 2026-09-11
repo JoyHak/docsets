@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE language SYSTEM "syntax.xsd" [
     <!ENTITY func "\b([a-zA-Z_][\w_]*)(?=\)?\()">
+    <!ENTITY hotkey "^[ \t]*([^&quot;':]+)(?=::)">
     <!ENTITY operator ":!&amp;+,-/*&lt;&gt;=?[]|~^">
     <!ENTITY assign "(?://|&lt;&lt;|&gt;&gt;|[-+.:/|&amp;^*])=">
     <!ENTITY maybe "\b[a-zA-Z_][\w_]*\?">
@@ -197,10 +198,6 @@
     <item>Floor</item>
     <item>Format</item>
     <item>FormatTime</item>
-    <item>GetKeyName</item>
-    <item>GetKeySC</item>
-    <item>GetKeyState</item>
-    <item>GetKeyVK</item>
     <item>GetMethod</item>
     <item>GroupActivate</item>
     <item>GroupAdd</item>
@@ -216,8 +213,6 @@
     <item>HotIfWinExist</item>
     <item>HotIfWinNotActive</item>
     <item>HotIfWinNotExist</item>
-    <item>Hotkey</item>
-    <item>Hotstring</item>
     <item>IL_Add</item>
     <item>IL_Create</item>
     <item>IL_Destroy</item>
@@ -246,7 +241,6 @@
     <item>IsTime</item>
     <item>IsSetRef</item>
     <item>KeyHistory</item>
-    <item>KeyWait</item>
     <item>ListHotkeys</item>
     <item>ListLines</item>
     <item>ListVars</item>
@@ -426,6 +420,14 @@
     <item>SendInput</item>
     <item>SendPlay</item>
     <item>ControlSend</item>
+</list>
+<list name="hotkey">
+    <item>Hotkey</item>
+    <item>KeyWait</item>
+    <item>GetKeyName</item>
+    <item>GetKeyState</item>
+    <item>GetKeySC</item>
+    <item>GetKeyVK</item>
 </list>
 <list name="meta">
     <item>DefineProp</item>
@@ -664,10 +666,10 @@
     <context name="Normal" attribute="Normal Text" fallthroughContext="Action">
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
-        <StringDetect attribute="Directive" context="Action" String="#HotIf" insensitive="true"/>
+        <StringDetect attribute="Directive" context="Params" String="#HotIf" insensitive="true" column="0"/>
         <keyword attribute="Directive" context="Directive" String="directives" column="0"/>
         <DetectChar attribute="Symbol" context="Hotstring" char=":" column="0"/>
-        <RegExpr attribute="Hotkey" context="Hotkey" String="^[ \t]*([^:]+)(?=::)" column="0"/>
+        <RegExpr attribute="Hotkey" context="Hotkey" String="^[ \t]*([^&quot;':]+)(?=::)" column="0"/>
         <DetectChar attribute="Symbol" context="ContinuationSection" char="(" firstNonSpace="true"/>
     </context>
     <!--======= SCOPE =======-->
@@ -693,11 +695,13 @@
         <WordDetect attribute="BuiltIn" context="#pop!DllCall" String="DllCall" insensitive="true"/>
         <WordDetect attribute="BuiltIn" context="#pop!NumPut" String="NumPut" insensitive="true"/>
         <WordDetect attribute="BuiltIn" context="#pop!NumPut" String="NumGet" insensitive="true"/>
+        <WordDetect attribute="BuiltIn" context="#pop!HotstringBuiltIn" String="Hotstring" insensitive="true"/>
         <keyword attribute="Control Flow" context="#pop!Params" String="controlflow"/>
         <keyword attribute="Control Flow" context="#pop!MultilineKeywordParams" String="multiline"/>
         <keyword attribute="Break Flow" context="#pop!Params" String="breakflow"/>
         <keyword attribute="BuiltIn" context="#pop!Params" String="functions"/>
         <keyword attribute="BuiltIn" context="#pop!Send" String="send"/>
+        <keyword attribute="BuiltIn" context="#pop!HotkeyBuiltIn" String="hotkey"/>
         <keyword attribute="Type" context="#pop!Params" String="types"/>
         <keyword attribute="Keyword" context="#pop!Storage" String="storage_modifiers"/>
         <RegExpr attribute="Function" context="Identifier" String="&func;"/>
@@ -730,6 +734,7 @@
         <WordDetect attribute="BuiltIn" context="DllCall" String="DllCall" insensitive="true"/>
         <WordDetect attribute="BuiltIn" context="NumPut" String="NumPut" insensitive="true"/>
         <WordDetect attribute="BuiltIn" context="NumPut" String="NumGet" insensitive="true"/>
+        <WordDetect attribute="BuiltIn" context="HotstringBuiltIn" String="Hotstring" insensitive="true"/>
         <keyword attribute="Variable" context="Params" String="variables" />
         <keyword attribute="Control Flow" context="Params" String="controlflow"/>
         <keyword attribute="Control Flow" context="MultilineKeywordParams" String="multiline"/>
@@ -737,6 +742,7 @@
         <keyword attribute="Negative" context="Params" String="negatives"/>
         <keyword attribute="BuiltIn" context="Params" String="functions"/>
         <keyword attribute="BuiltIn" context="Send" String="send"/>
+        <keyword attribute="BuiltIn" context="HotkeyBuiltIn" String="hotkey"/>
         <keyword attribute="Type" context="Params" String="types"/>
         <keyword attribute="Keyword" context="Storage" String="storage_modifiers"/>
         <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace"/>
@@ -806,7 +812,7 @@
     <context name="Object" attribute="Normal Text">
         <DetectSpaces/>
         <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace"/>
-        <RegExpr attribute="Property" String="\b([a-zA-Z_][\w_]*)(?=:)"/>
+        <RegExpr attribute="Property" String="\b([\w_]+)(?=:)"/>
         <DetectChar attribute="Symbol" char=":"/>
         <IncludeRules context="Params"/>
     </context>
@@ -933,11 +939,13 @@
         <WordDetect attribute="BuiltIn" context="DllCall" String="DllCall" insensitive="true"/>
         <WordDetect attribute="BuiltIn" context="NumPut" String="NumPut" insensitive="true"/>
         <WordDetect attribute="BuiltIn" context="NumPut" String="NumGet" insensitive="true"/>
+        <WordDetect attribute="BuiltIn" context="HotstringBuiltIn" String="Hotstring" insensitive="true"/>
         <keyword attribute="Control Flow" String="controlflow"/>
 		<keyword attribute="Keyword" String="keywords"/>
         <keyword attribute="Negative" String="negatives"/>
         <keyword attribute="BuiltIn" String="functions"/>
         <keyword attribute="BuiltIn" context="Send" String="send"/>
+        <keyword attribute="BuiltIn" context="HotkeyBuiltIn" String="hotkey"/>
         <keyword attribute="Type" String="types"/>
         <keyword attribute="Variable" String="variables"/>
         <DetectChar attribute="Symbol" context="Member" char="."/>
@@ -996,11 +1004,13 @@
         <WordDetect attribute="BuiltIn" context="DllCall" String="DllCall" insensitive="true"/>
         <WordDetect attribute="BuiltIn" context="NumPut" String="NumPut" insensitive="true"/>
         <WordDetect attribute="BuiltIn" context="NumPut" String="NumGet" insensitive="true"/>
+        <WordDetect attribute="BuiltIn" context="HotstringBuiltIn" String="Hotstring" insensitive="true"/>
         <keyword attribute="Control Flow" context="#pop!MultilineKeywordParams" String="multiline"/>
         <keyword attribute="Control Flow" context="#pop!Params" String="controlflow"/>
         <keyword attribute="Negative" String="negatives"/>
         <keyword attribute="BuiltIn" String="functions"/>
         <keyword attribute="BuiltIn" context="Send" String="send"/>
+        <keyword attribute="BuiltIn" context="HotkeyBuiltIn" String="hotkey"/>
         <keyword attribute="Type" String="types"/>
         <keyword attribute="Variable" String="variables"/>
         <DetectChar attribute="Symbol" context="Member" char="."/>
@@ -1254,6 +1264,25 @@
         <DetectChar attribute="Symbol" context="#pop" char="}"/>
         <AnyChar context="#pop" String="&quot;'" lookAhead="true"/>
     </context>
+    <!-- Hotkey("Key", ...) -->
+    <context name="HotkeyBuiltIn" attribute="Normal Text" fallthroughContext="#pop">
+        <DetectChar attribute="Symbol" context="#pop!HotkeyString" char="("/>
+    </context>
+    <context name="HotkeyString" attribute="Hotkey">
+        <AnyChar attribute="Symbol" String="$~*&gt;&lt;"/> <!-- hooks, not the keys -->
+        <DetectChar attribute="Symbol" context="#pop!MultilineParams" char=","/>
+        <DetectChar attribute="Symbol" context="#pop" char=")"/>
+    </context>
+    <!-- Hotstring("str", ...) -->
+    <context name="HotstringBuiltIn" attribute="Normal Text" fallthroughContext="#pop">
+        <DetectChar attribute="Symbol" context="#pop!HotstringString" char="("/>
+    </context>
+    <context name="HotstringString" attribute="Hotstring">
+        <AnyChar attribute="Symbol" String=":?*"/>
+        <RegExpr attribute="Char" String="`."/>
+        <DetectChar attribute="Symbol" context="#pop!MultilineParams" char=","/>
+        <DetectChar attribute="Symbol" context="#pop" char=")"/>
+    </context>
     <!--======= Regular Expression =======-->
     <context name="RegexString" attribute="Regex" lineEndContext="#pop" fallthroughContext="#pop">
         <DetectSpaces/>
@@ -1416,10 +1445,10 @@
         <Detect2Chars attribute="Comment" context="#pop#pop" char="*" char1="/" endRegion="Comment"/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <DetectChar char="*" firstNonSpace="true"/>
-        <StringDetect attribute="Directive" context="Action" String="#HotIf" insensitive="true"/>
+        <StringDetect attribute="Directive" context="Params" String="#HotIf" insensitive="true"/>
         <keyword attribute="Directive" context="Directive" String="directives"/>
         <DetectChar attribute="Symbol" context="Hotstring" char=":"/>
-        <RegExpr attribute="Hotkey" context="Hotkey" String="^[ \t]*([^:]+)(?=::)"/>
+        <RegExpr attribute="Hotkey" context="Hotkey" String="^[ \t]*([^&quot;':]+)(?=::)"/>
         <IncludeRules context="Statement"/>
     </context>
     <context name="DocCodeLang" attribute="Docs" fallthroughContext="#pop!DocCode">

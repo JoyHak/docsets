@@ -38,7 +38,7 @@ code > * {
 
 /* Meta functions */
 code span.at {
-    color: #51a2a2;
+    color: #4fa48e;
 }
 /* BaseN */
 code span.bn {
@@ -69,11 +69,11 @@ code span.fu {
 }
 /* Property */
 code span.fl {
-    color: #dccb7a;
+    color: #d5c682;
 }
 /* Keyword */
 code span.kw {
-    color: #ff80f9;
+    color: #ee91ec;
 }
 /* Operator */
 code span.op {
@@ -137,7 +137,7 @@ code span.do {
 }
 /* @returns, unset, maybe? */
 code span.an { 
-    color: #60a0b0;
+    color: #55919d;
 }
 /* @param name (variable) */
 code span.cv { 

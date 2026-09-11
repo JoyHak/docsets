@@ -415,6 +415,9 @@
     <item>ControlSend</item>
 </list>
 <list name="meta">
+    <item>DefineProp</item>
+    <item>prototype</item>
+    <item>base</item>
     <item>get</item>
     <item>set</item>
     <item>call</item>
@@ -425,6 +428,9 @@
     <item>__set</item>
     <item>__call</item>
     <item>__enum</item>
+    <item>__class</item>
+    <item>__value</item>
+    <item>__ref</item>
 </list>
 <list name="types">
     <item>Any</item>

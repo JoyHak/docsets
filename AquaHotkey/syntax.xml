@@ -4,7 +4,7 @@
     <!ENTITY hotstring "^[ \t]*:.?:">
     <!ENTITY hotkey "^[ \t]*([^&quot;':]+)(?=::)">
     <!ENTITY key "[!\+#^]+[^{]?">
-    <!ENTITY operator ":!&amp;+,-/*&lt;&gt;=?[]|~^">
+    <!ENTITY operator "?:!&amp;+,-/*&lt;&gt;=|~^">
     <!ENTITY assign "(?://|&lt;&lt;|&gt;&gt;|[-+.:/|&amp;^*])=">
     <!ENTITY maybe "\b[a-zA-Z_][\w_]*\?">
     <!ENTITY format "{(?=\d*[:{}])">
@@ -724,9 +724,8 @@
         <Detect2Chars attribute="Symbol" context="#pop!Assignment" char="." char1="="/> <!-- concat. expression -->
         <DetectChar attribute="Symbol" context="Member" char="."/>
         <DetectChar attribute="DeReference" context="DeReference" char="%"/>
-        <Detect2Chars context="#pop" char=")" char1="(" lookAhead="true"/> <!-- (expression)() - let outer context handle this call -->
         <DetectChar attribute="Symbol" context="Params" char="("/> <!-- () call -->
-        <DetectChar attribute="Symbol" context="#pop" char=")"/>
+        <DetectChar attribute="Symbol" context="#pop" char=")" lookAhead="true"/> <!-- let outer context handle this ending -->
         <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace"/> <!-- func. definition -->
         <Detect2Chars attribute="Symbol" context="#pop!MultilineExpression" char="=" char1=">"/> <!-- fat-arrow func. definition -->
         <RegExpr    attribute="Symbol" context="#pop!Assignment" String="&assign;"/> <!-- assign. - expression -->
@@ -892,6 +891,7 @@
         <DetectChar attribute="Symbol" context="#pop" char=")"/>
         <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace"/>
         <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace"/>
+        <DetectChar attribute="Symbol" context="Array" char="["/>
         <DetectChar attribute="Comment" context="CommentLine" char=";"/>
         <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
         <StringDetect attribute="DocInline" context="#pop!DocsBlock" String="```"/>
@@ -953,6 +953,7 @@
         <Int     attribute="Decimal"/>
         <RegExpr    attribute="Function" String="&func;"/>
         <DetectChar attribute="Symbol"  context="Params" char="("/>
+        <DetectChar attribute="Symbol"  context="Array" char="["/>
         <DetectChar attribute="Symbol"  context="#pop!Statement" char="{"/>
         <DetectChar attribute="Symbol"  context="#pop#pop" char="}"/>
         <DetectChar attribute="DeReference" context="DeReference" char="%"/>
@@ -965,7 +966,8 @@
     <context name="MultilineExpression" attribute="Normal Text" lineEndContext="InExprBeginning" lineEmptyContext="#pop">
         <!--
          Allows object, array and cont. section, but follows multiline expr. rools:
-         trailing/leading keyword or operator is required to treat next line as an expression
+         trailing/leading keyword or operator is required to treat next line as an expression.
+         Stops parsing after , comma
         -->
         <DetectSpaces/>
         <DetectChar attribute="Symbol" context="#pop" char=","/>

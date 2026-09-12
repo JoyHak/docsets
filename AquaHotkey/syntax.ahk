@@ -537,7 +537,6 @@ MyArray.Push(Var, Var2, MyArray*)
 RemovedValue := MyArray.Delete(1)
 NumberOfRemovedKeys := MyArray.Delete(2, 4)
 arr := [{}]  ; Creates an array containing an object.
-arr[1] := {}  ; Creates a second object, implicitly freeing the first object. ;  V1toV2: Invalid Index errors?, try 'arr.Push(<val>)'
 arr.RemoveAt(1)  ; Removes and frees the second object.
 x := {}, y := {}             ; Create two objects.
 x.child := y, y.parent := x  ; Create a circular reference.
@@ -554,7 +553,8 @@ Method%Var%()
 Array.prototype
 Class.prototype  ; an object, not a keyword
 v := Class()     ; instance of Class.prototype
-(fn)(Class)     ; retrieve function and call
+(fn)(Class)      ; retrieve function and call
+(MsgBox.Call)("hi")
 
 ({}.method)()    ; retrieve method implementation
 {}.method()      ; call a method on empty object

@@ -1,8 +1,8 @@
 import sqlite3
-import re
 import subprocess
+from re import search as regexMatch
 from os import makedirs, environ, walk
-from os.path import exists, relpath, basename, dirname
+from os.path import exists, abspath, relpath, basename, dirname
 from shutil import rmtree, copy
 
 
@@ -12,7 +12,7 @@ def generate_docset():
     source_dir = aqua_dir + r'\docs'
     main_file  = aqua_dir + r'\src\Core\AquaHotkeyX.ahk'
     index_file = source_dir + r'\api-overview.md'
-    css_file   = source_dir + r'\style.css'
+    css_file   = abspath(r'style.css')
 
     docset_name = 'AquaHotkey'
     docset_alias = 'aqua'
@@ -34,12 +34,11 @@ def generate_docset():
         docset_name, docset_alias,
         r'api-overview.html'
     )
-    copy(css_file, dest_path)
 
     # Generate/update meta
     docset_version = '3.0.0'
     with open(main_file, 'r', encoding='utf-8') as f:
-        match = re.search(r'@version([^\r\n]+)', f.read())
+        match = regexMatch(r'@version([^\r\n]+)', f.read())
         if match:
             docset_version = match.group(1).strip()
 
@@ -57,7 +56,7 @@ def generate_docset():
                 md_files.append(fr'{root}\{file}')
 
     print(f'Converting {len(md_files)} markdown files to HTML...')
-    to_html(md_files, css_file, source_dir, dest_path)
+    generate_html(md_files, css_file, source_dir, dest_path)
 
 
     # Initialize SQLite database
@@ -77,7 +76,7 @@ def generate_docset():
     ;''')
 
     # Parse markdown index and add entries to database
-    for entry in parse_index(index_file, source_dir):
+    for entry in parse_index(index_file):
         entry['path'] = entry['path'].replace('.md', '.html')
         cur.execute(
         '''INSERT OR IGNORE INTO searchIndex(name, type, path)
@@ -91,42 +90,38 @@ def generate_docset():
     print(f'Created docset: "{docset_path}"')
 
 
-def to_html(md_files, css_file, source_dir, dest_path):
+def generate_html(md_files, css_file, source_dir, dest_path):
     """Convert markdown files to HTML using Pandoc and copy to destination."""
+    copy(css_file, dest_path)
+    source_css = source_dir + r'\style.css'
+
     for md_path in md_files:
         rel_path = relpath(md_path, source_dir)
         html_path = rel_path.replace('.md', '.html')
         out_path = fr'{dest_path}\{html_path}'
 
         css_path = relpath(
-            css_file,
+            source_css,
             str(dirname(md_path))
         )
-
-        cmd = [
+        result = subprocess.run([
             r'C:\Program Files\Pandoc\pandoc.exe',
             md_path,
             '--output', out_path,
-            '--from', 'gfm',   # Github Flavored Markdown
+            '--from', 'gfm',  # Github Flavored Markdown
             '--to', 'html5',
-            '--standalone',    # self-contained HTML page
-            '--css', css_path,
-            '--syntax-definition', './syntax.xml',
-            '--lua-filter', './md-to-html.lua',
-            '--metadata', 'maxwidth=80%',
+            '--standalone',   # self-contained HTML page
+            '--css', css_path,  # stylesheet for code blocks
+            '--syntax-definition', './ahk.xml',
+            '--lua-filter', './md-to-html.lua',  # each link points to the new .html file
             '--wrap', 'none'
-        ]
-
-        result = subprocess.run(
-            cmd,
-            capture_output=True
-        )
+        ])
 
         if result.returncode != 0:
             print(f'Error converting {md_path}: {result.stderr}')
 
 
-def parse_index(index_path, source_dir):
+def parse_index(index_path):
     """Parse markdown index file and extract documentation entries."""
     entries = []
 
@@ -135,7 +130,7 @@ def parse_index(index_path, source_dir):
 
     for line in content.split('\n'):
         # Match markdown links: [Name](./path/to/file.md)
-        match = re.search(r'^.*?\[([^\]]+)\]\(([^)]+)\)', line)
+        match = regexMatch(r'^.*?\[([^\]]+)\]\(([^)]+)\)', line)
         if not match:
             continue
 
@@ -200,7 +195,7 @@ def generate_plist(path, name, search_keyword, index):
     <string>{search_keyword}</string>
 
     <key>DashDocSetFallbackURL</key>
-    <string>https://github.com/search?type=code&q=repo%3A0w0Demonic%2FAquaHotkey+</string>
+    <string>https://github.com/0w0Demonic/AquaHotkey/tree/main/docs/</string>
 
     <key>dashIndexFilePath</key>
     <string>{index}</string>

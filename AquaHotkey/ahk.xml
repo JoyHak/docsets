@@ -482,7 +482,52 @@
     <item>ComValue</item>
     <item>ComObjArray</item>
     <item>ComObject</item>
+    <item>AquaHotkeyX</item>
+    <item>AquaHotkey</item>
     <item>ComValueRef</item>
+    <item>WeakRefMap</item>
+    <item>WeakRefSet</item>
+    <item>WeakRef</item>
+    <item>Numeric</item>
+    <item>Primitive</item>
+    <item>EmptyString</item>
+    <item>Nullable</item>
+    <item>Range</item>
+    <item>Nothing</item>
+    <item>Callable</item>
+    <item>Property</item>
+    <item>TypeInfo</item>
+    <item>ISet</item>
+    <item>IMap</item>
+    <item>IArray</item>
+    <item>Set</item>
+    <item>BitSet</item>
+    <item>ByteArray</item>
+    <item>HashMap</item>
+    <item>HashSet</item>
+    <item>ImmutableArray</item>
+    <item>ImmutableMap</item>
+    <item>ImmutableSet</item>
+    <item>LinkedList</item>
+    <item>SkipListSet</item>
+    <item>SkipListMap</item>
+    <item>SkipList</item>
+    <item>OrderedMap</item>
+    <item>Comparator</item>
+    <item>Continuation</item>
+    <item>Lazy</item>
+    <item>Monoid</item>
+    <item>Predicate</item>
+    <item>Optional</item>
+    <item>TryOp</item>
+    <item>Supplier</item>
+    <item>Transducer</item>
+    <item>FileOpen</item>
+    <item>Path</item>
+    <item>Uri</item>
+    <item>Count</item>
+    <item>Stream</item>
+    <item>DoubleStream</item>
 </list>
 <list name="directives">
     <item>#ClipboardTimeout</item>

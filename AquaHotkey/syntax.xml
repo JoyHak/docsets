@@ -967,10 +967,8 @@
         <!--
          Allows object, array and cont. section, but follows multiline expr. rools:
          trailing/leading keyword or operator is required to treat next line as an expression.
-         Stops parsing after , comma
         -->
         <DetectSpaces/>
-        <DetectChar attribute="Symbol" context="#pop" char=","/>
         <DetectChar attribute="Symbol" context="ContinuationSection" char="(" firstNonSpace="true"/>
         <DetectChar attribute="Symbol" context="Object" char="{" beginRegion="Brace"/>
         <DetectChar attribute="Symbol" context="Array" char="["/>
@@ -987,7 +985,7 @@
     <context name="AssignMultilineExpr" attribute="Normal Text" lineEndContext="InAssignBeginning" lineEmptyContext="#pop">
         <!--
          Follows multiline expr. rools, but allows additional { [ operators
-         and cont. section on the next line. Stops parsing after , comma
+         and cont. section on the next line.
         -->
         <IncludeRules context="MultilineExpression"/>
     </context>
@@ -1005,7 +1003,6 @@
         <DetectSpaces/>
         <Detect2Chars attribute="Comment" context="#pop#pop" char="*" char1="/" endRegion="Comment"/>
         <DetectChar attribute="Docs" char="*" firstNonSpace="true"/>
-        <DetectChar attribute="Symbol" context="#pop#pop" char=","/>
         <AnyChar context="#pop" String="&operator;&quot;'%.{[(" lookAhead="true"/>
         <IncludeRules context="InExprBeginning"/>
 	</context>

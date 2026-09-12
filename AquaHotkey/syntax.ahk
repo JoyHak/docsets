@@ -279,20 +279,18 @@ MsgBox(blue.R "," blue.G "," blue.B)
 ; Paremeters after keyword (without parentheses)
 if Color = "Red" or Color = "Green"  or Color = "Blue"    ; no trailing operator = check next line
    Color = "Black" or Color = "Gray" or Color = "White"   ; no leading operator = stop parsing params
-   and ProductIsAvailableInColor(Product, Color) {
     color := 0
     return false
-}
 
 if Color = "White" or  ; trailing operator
-   Color = "Black" or   ; trailing operator
-    ProductIsAvailableInColor(Product, Color) {  ; Comment.
+   Color = "Black" or  ; trailing operator
+   Color == "Cyan" {   ; Comment.
     color := 0
     return false
 }
 
 if (Color ~= "\b(red|green)\b")  ; no trailing operator = check next line
-or Color = "gray"              ; leading operator
+or Color = "gray"                ; leading operator
     return false
     
 while Color ~= "\b(red|green)\b"  ; comment
@@ -304,7 +302,8 @@ if ((color >> 16) & 0xFF)
     Fn(Color, true)
 
 return Color == "Red"
-    || Color == "Blue"
+    || Color == "Blue" 
+    Color == "Cyan"
 
 return {
     Key: Key,

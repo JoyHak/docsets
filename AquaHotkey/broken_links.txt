@@ -1,4 +1,4 @@
-12.09.2026 18:05:41 Aqua v3.0.0
+12.09.2026 19:47:26 Aqua v3.0.0
 Validating C:\Users\ToYu\Documents\AutoHotkey\Lib\AquaHotkey\docs
 Found 39 broken links:
 C:\Users\ToYu\Documents\AutoHotkey\Lib\AquaHotkey\docs\api-overview.md:5:18   ./installation.md -> C:\Users\ToYu\Documents\AutoHotkey\Lib\AquaHotkey\docs\installation.md

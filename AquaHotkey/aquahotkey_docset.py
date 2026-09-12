@@ -8,15 +8,16 @@ from shutil import rmtree, copy
 
 def generate_docset():
     # File structure
-    aqua_dir   = r'{}\Documents\AutoHotkey\Lib\AquaHotkey'.format(environ['USERPROFILE'])
+    aqua_dir   = fr'{environ['USERPROFILE']}\Documents\AutoHotkey\Lib\AquaHotkey'
     source_dir = aqua_dir + r'\docs'
     main_file  = aqua_dir + r'\src\Core\AquaHotkeyX.ahk'
     index_file = source_dir + r'\api-overview.md'
     css_file   = abspath(r'style.css')
+    icon_file  = abspath(r'icon.png')
 
     docset_name = 'AquaHotkey'
     docset_alias = 'aqua'
-    docset_path = r'{}\Zeal\Zeal\docsets\{}.docset'.format(environ['LOCALAPPDATA'], docset_name)
+    docset_path = fr'{environ['LOCALAPPDATA']}\Zeal\Zeal\docsets\{docset_name}.docset'
 
     res_path  = docset_path + r'\Contents\Resources'
     dest_path = res_path + r'\Documents'
@@ -57,7 +58,7 @@ def generate_docset():
 
     print(f'Converting {len(md_files)} markdown files to HTML...')
     generate_html(md_files, css_file, source_dir, dest_path)
-
+    copy(icon_file, docset_path)
 
     # Initialize SQLite database
     db = sqlite3.connect(db_path)
@@ -90,7 +91,7 @@ def generate_docset():
     # Build release docset
     import tarfile
     with tarfile.open(fr'..\Release\{docset_name}.tgz', 'w:gz') as tar:
-       tar.add(docset_path, arcname=docset_name)
+       tar.add(docset_path, arcname=f'{docset_name}.docset')
 
     print(f'Created docset: "{docset_path}"')
 
@@ -98,7 +99,7 @@ def generate_docset():
 def generate_html(md_files, css_file, source_dir, dest_path):
     """Convert markdown files to HTML using Pandoc and copy to destination."""
     copy(css_file, dest_path)
-    source_css = source_dir + r'\style.css'
+    source_css = source_dir + r'\style.css'  # helper to build relative path
 
     for md_path in md_files:
         rel_path = relpath(md_path, source_dir)

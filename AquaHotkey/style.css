@@ -26,9 +26,12 @@ code {
     margin: 0;
     hyphens: manual;
 }
-/* default identifier color */
+code.sourceCode > span {
+    color: #bdc4d7;
+}
 code span {
-    color: #bdc4d7; 
+    font-style: normal !important;
+    font-weight: normal !important;
 }
 code > * {
     background-color: transparent;

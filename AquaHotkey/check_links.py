@@ -75,15 +75,8 @@ def extract_links(file: Path) -> List[LinkInfo]:
             path = match.group(2)
             col = match.start(2) + 1
 
-            if (path.startswith('http://') or
-                path.startswith('https://') or
-                path.startswith('mailto:') or
-                path.startswith('data:') or
-                path.startswith('#') or
-                path.startswith('javascript:')):
-                continue
-
-            links.append(LinkInfo(path, line_num, col))
+            if not path.startswith(('http://', 'https://', 'mailto:', 'data:', '#', 'javascript:')):
+                links.append(LinkInfo(path, line_num, col))
 
     return links
 

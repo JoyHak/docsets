@@ -6,6 +6,7 @@ body {
     max-width: 100%;
     text-rendering: optimizeLegibility;
     font-kerning: normal;
+    font-family: "imWritingQuat nerd font", monospace;
 }
 blockquote, div.sourceCode {
     border-radius: 6px;
@@ -13,22 +14,22 @@ blockquote, div.sourceCode {
     border: none;
     background-color: #202020;
 }
-/* 189 196 215 */
+a:link {
+    color: #98aff9;
+}
 code {
     padding: 0 .2em;
-    color: #bdc4d7;
     background-color: #202020;
     border-radius: 3px;
     white-space: pre-wrap;
-    font-family: 'Maple Mono NF CN';
+    font-family: 'Maple Mono NF CN', monospace;
     margin: 0;
     hyphens: manual;
 }
+/* default identifier color */
 code span {
-    font-style: normal !important;
-    font-weight: normal !important;
+    color: #bdc4d7; 
 }
-
 code > * {
     background-color: transparent;
     border-radius: 0;
@@ -38,7 +39,7 @@ code > * {
 
 /* Meta functions */
 code span.at {
-    color: #4fa48e;
+    color: #87a6a3;
 }
 /* BaseN */
 code span.bn {
@@ -46,7 +47,7 @@ code span.bn {
 }
 /* Built-in function */
 code span.bu {
-    color: #26a5bb;
+    color: #58b3d6;
 }
 /* ControlFlow */
 code span.cf {
@@ -77,7 +78,7 @@ code span.kw {
 }
 /* Operator */
 code span.op {
-    color: #bd536d;
+    color: #b86d7f;
 }
 /* Other */
 code span.ot {
@@ -85,7 +86,7 @@ code span.ot {
 }
 /* SpecialString, RegEx */
 code span.ss {
-    color: #20b57d;
+    color: #5fc29c;
 }
 /* RegEx char */
 code span.bn {
@@ -93,7 +94,7 @@ code span.bn {
 }
 /* String */
 code span.st {
-    color: #4fb34d;
+    color: #59c557;
 }
 /* String char */
 code span.sc {
@@ -117,7 +118,7 @@ code span.dt {
 }
 /* Directive */
 code span.pp {
-    color: #01765f;
+    color: #059e80;
 }
 /* Negative (negation, false) */
 code span.cn {

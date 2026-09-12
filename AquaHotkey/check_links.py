@@ -63,7 +63,14 @@ def extract_links(file: Path) -> List[LinkInfo]:
     with open(file, 'r', encoding='utf-8') as f:
         lines = f.readlines()
 
+    in_code_block = False
     for line_num, line in enumerate(lines, start=1):
+        if line.startswith('```'):
+            in_code_block ^= 1
+            continue
+        if in_code_block:
+            continue
+
         for match in regexMatchAll(r'\[([^\]]+)\]\(([^)]+)\)', line):
             path = match.group(2)
             col = match.start(2) + 1

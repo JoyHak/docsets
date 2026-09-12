@@ -1,6 +1,6 @@
-12.09.2026 17:55:13 Aqua v3.0.0
+12.09.2026 18:05:41 Aqua v3.0.0
 Validating C:\Users\ToYu\Documents\AutoHotkey\Lib\AquaHotkey\docs
-Found 40 broken links:
+Found 39 broken links:
 C:\Users\ToYu\Documents\AutoHotkey\Lib\AquaHotkey\docs\api-overview.md:5:18   ./installation.md -> C:\Users\ToYu\Documents\AutoHotkey\Lib\AquaHotkey\docs\installation.md
 C:\Users\ToYu\Documents\AutoHotkey\Lib\AquaHotkey\docs\api-overview.md:6:12   ./basics.md -> C:\Users\ToYu\Documents\AutoHotkey\Lib\AquaHotkey\docs\basics.md
 C:\Users\ToYu\Documents\AutoHotkey\Lib\AquaHotkey\docs\api-overview.md:7:14   ./advanced.md -> C:\Users\ToYu\Documents\AutoHotkey\Lib\AquaHotkey\docs\advanced.md
@@ -39,5 +39,4 @@ C:\Users\ToYu\Documents\AutoHotkey\Lib\AquaHotkey\docs\Stream\overview.md:28:9  
 C:\Users\ToYu\Documents\AutoHotkey\Lib\AquaHotkey\docs\Stream\overview.md:60:25   ./BaseStream.md -> C:\Users\ToYu\Documents\AutoHotkey\Lib\AquaHotkey\docs\Stream\BaseStream.md
 C:\Users\ToYu\Documents\AutoHotkey\Lib\AquaHotkey\docs\Stream\overview.md:92:32   ./Zip.md -> C:\Users\ToYu\Documents\AutoHotkey\Lib\AquaHotkey\docs\Stream\Zip.md
 C:\Users\ToYu\Documents\AutoHotkey\Lib\AquaHotkey\docs\Stream\overview.md:179:18   ./Zip.md -> C:\Users\ToYu\Documents\AutoHotkey\Lib\AquaHotkey\docs\Stream\Zip.md
-C:\Users\ToYu\Documents\AutoHotkey\Lib\AquaHotkey\docs\Collections\Generic\Array.md:33:18   "foo", "bar", unset, "baz" -> C:\Users\ToYu\Documents\AutoHotkey\Lib\AquaHotkey\docs\Collections\Generic\"foo", "bar", unset, "baz"
 C:\Users\ToYu\Documents\AutoHotkey\Lib\AquaHotkey\docs\Base\Ducktypes\Nullable.md:45:20   ../../Collections/GenericArray.md -> C:\Users\ToYu\Documents\AutoHotkey\Lib\AquaHotkey\docs\Collections\GenericArray.md

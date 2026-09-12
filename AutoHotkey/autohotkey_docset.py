@@ -93,13 +93,13 @@ def generate_docset():
     db.commit()
     db.close()
 
-    # Compress for publication
-    # import tarfile
-    # import json
-    # with tarfile.open(docset_name + '.tgz', 'w:gz') as tar:
-    #    tar.add(docset_name, arcname=docset_name)
+    # Build release docset
+    import tarfile
+    with tarfile.open(fr'..\Release\{docset_name}.tgz', 'w:gz') as tar:
+       tar.add(docset_path, arcname=docset_name)
 
     print(f'Created docset: "{docset_path}"')
+
 
 # based on .\chm\docs\static\source\data_toc.js
 # noinspection SpellCheckingInspection

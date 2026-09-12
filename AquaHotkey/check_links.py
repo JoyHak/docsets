@@ -92,7 +92,7 @@ def check_links(directory: Path) -> List[BrokenLink]:
     """Check if all links point to existing files."""
     broken: List[BrokenLink] = []
 
-    for file in directory.rglob(f'*.md'):
+    for file in directory.rglob('*.md'):
         links: List[LinkInfo] = extract_links(file)
         for link in links:
             path = link.path.split('#')[0].split('?')[0]

@@ -1,5 +1,5 @@
 import sqlite3
-import subprocess
+from subprocess import run
 from re import search as regexMatch
 from os import makedirs, environ, walk
 from os.path import exists, abspath, relpath, basename, dirname
@@ -87,6 +87,11 @@ def generate_docset():
     db.commit()
     db.close()
 
+    # Build release docset
+    import tarfile
+    with tarfile.open(fr'..\Release\{docset_name}.tgz', 'w:gz') as tar:
+       tar.add(docset_path, arcname=docset_name)
+
     print(f'Created docset: "{docset_path}"')
 
 
@@ -104,7 +109,7 @@ def generate_html(md_files, css_file, source_dir, dest_path):
             source_css,
             str(dirname(md_path))
         )
-        result = subprocess.run([
+        result = run([
             r'C:\Program Files\Pandoc\pandoc.exe',
             md_path,
             '--output', out_path,

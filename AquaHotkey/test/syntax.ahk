@@ -73,7 +73,7 @@ Numpad0 & Numpad1::return
             try Send("by the way")
     }
 
-#HotIf WinActive("ahk_class Notepad", )
+#HotIf WinActive("ahk_class Notepad")
     ::btw::This replacement text will appear only in Notepad.
 #HotIf
     ::btw::This replacement text appears in windows other than Notepad.
@@ -186,6 +186,7 @@ if (!(Byte & (1 << (Value & 0x07)))) {
  *
  * red  := Color(0xff0000), red.R -= 5
  * cyan := Color(0), cyan.G := 255, cyan.B := 255
+ *
  * @warn This class is designed for syntax test only!
  */ 
 class Color {
@@ -302,8 +303,7 @@ if ((color >> 16) & 0xFF)
     Fn(Color, true)
 
 return Color == "Red"
-    || Color == "Blue" 
-    Color == "Cyan"
+    || Color == "Blue"
 
 return {
     Key: Key,
@@ -315,8 +315,8 @@ return [
     2
 ]
 
-Return Color(0).__Item[0x0].ToString().MsgBox()
- && Fn(Color, "true")
+; expression
+return Color(0).__Item[0x0].ToString().MsgBox()
 
 ; Params in parentheses
 if (codepage != "")
@@ -339,7 +339,8 @@ if (MyVar := "a" . "b")
 && MyVar {
     MyVar := MyVar2
  }
- 
+
+; next line assign.
 MyVar := 
 {
     p1: 0,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE language SYSTEM "syntax.xsd" [
+<!DOCTYPE language SYSTEM "ahk.xsd" [
     <!ENTITY func "\b([a-zA-Z_][\w_]*)(?=\)?\()">
     <!ENTITY hotstring "^[ \t]*:.?:">
     <!ENTITY hotkey "^[ \t]*([^&quot;':]+)(?=::)">

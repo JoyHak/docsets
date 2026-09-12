@@ -3,6 +3,6 @@ pandoc.exe syntax.ahk `
     --output syntax.html `
     --from gfm --to html5 `
     --standalone `
-    --syntax-definition syntax.xml `
-    --css style.css `
+    --syntax-definition ../ahk.xml `
+    --css ../style.css `
     --wrap none

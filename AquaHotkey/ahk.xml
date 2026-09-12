@@ -771,6 +771,7 @@
         <DetectChar attribute="DeReference" context="DeReference" char="%"/>
         <DetectChar attribute="Symbol" context="Params" char="("/> <!-- () call -->
         <DetectChar attribute="Symbol" context="#pop" char=")" lookAhead="true"/> <!-- let outer context handle this ending -->
+        <DetectChar attribute="Symbol" context="#pop" char=","/> <!-- expression -->
         <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace"/> <!-- func. definition -->
         <Detect2Chars attribute="Symbol" context="#pop!MultilineExpression" char="=" char1=">"/> <!-- fat-arrow func. definition -->
         <RegExpr    attribute="Symbol" context="#pop!Assignment" String="&assign;"/> <!-- assign. - expression -->

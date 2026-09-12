@@ -567,6 +567,8 @@ Array("foo", "bar")
   .DoubleStream()             
   .Map(Format.Bind("#{}: {}"))
 
+Rec := Record(Type.Enum("Admin", "User", "Guest"), String)
+
 Sleep(1)
 MsgBox(1 + 1)  ; Shows "2"
 MsgBox("1+1")  ; Shows "1+1"

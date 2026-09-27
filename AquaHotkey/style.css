@@ -1,0 +1,162 @@
+html {
+    color: #fdfdfd;
+    background-color: #191919;
+}
+body {
+    max-width: 100%;
+    text-rendering: optimizeLegibility;
+    font-kerning: normal;
+    font-family: "imWritingQuat nerd font", monospace;
+}
+blockquote, div.sourceCode {
+    border-radius: 6px;
+    padding: 0.5em;
+    border: none;
+    background-color: #202020;
+}
+a:link {
+    color: #98aff9;
+}
+code {
+    padding: 0 .2em;
+    background-color: #202020;
+    border-radius: 3px;
+    white-space: pre-wrap;
+    font-family: 'Maple Mono NF CN', monospace;
+    margin: 0;
+    hyphens: manual;
+}
+code.sourceCode > span {
+    color: #bdc4d7;
+}
+code span {
+    font-style: normal !important;
+    font-weight: normal !important;
+}
+code > * {
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
+    font-family: inherit;
+}
+
+/* Meta functions */
+code span.at {
+    color: #87a6a3;
+}
+/* BaseN */
+code span.bn {
+    color: #40a070;
+}
+/* Built-in function */
+code span.bu {
+    color: #58b3d6;
+}
+/* ControlFlow */
+code span.cf {
+    color: #f892ef;
+}
+/* Comment */
+code span.co {
+    color: #808080;
+}
+/* Float, Int */
+code span.fl {
+    color: #98aff9;
+}
+code span.dv {
+    color: #73b9ff;
+}
+/* Function */
+code span.fu {
+    color: #8293e6;
+}
+/* Property */
+code span.fl {
+    color: #d5c682;
+}
+/* Keyword */
+code span.kw {
+    color: #ee91ec;
+}
+/* Operator */
+code span.op {
+    color: #b86d7f;
+}
+/* Other */
+code span.ot {
+    color: #878ed1;
+}
+/* SpecialString, RegEx */
+code span.ss {
+    color: #5fc29c;
+}
+/* RegEx char */
+code span.bn {
+    color: #c1cb50;
+}
+/* String */
+code span.st {
+    color: #59c557;
+}
+/* String char */
+code span.sc {
+    color: #61bc66;
+}
+/* Variable */
+code span.va {
+    color: #88d292;
+}
+/* Region, &reference */
+code span.re { 
+    color: #fda4cc;
+}
+/* %Deref% */
+code span.im {
+    color: #feb165;
+}
+/* Type (object) */
+code span.dt {
+    color: #26eeb3;
+}
+/* Directive */
+code span.pp {
+    color: #059e80;
+}
+/* Negative (negation, false) */
+code span.cn {
+    color: #fe747e;
+}
+/* Hotkey */
+code span.vs {
+    color: #e9ce38;
+}
+/* TODOs, NOTEs, ... */
+code span.al {
+    color: #00ffff;
+}
+/* Documentation (JsDoc) */
+code span.do { 
+    color: #aeaeae;
+}
+/* @returns, unset, maybe? */
+code span.an { 
+    color: #55919d;
+}
+/* @param name (variable) */
+code span.cv { 
+    color: #00ffff;
+}
+/* @param {type}, method */
+code span.ch {
+    color: #b198e7;
+}
+/* Warning */
+code span.wa { 
+    color: #fd8933;  
+}
+/* Error */
+code span.er { 
+    color: #ff1515;
+    font-style: italic !important;
+}

@@ -1,10 +1,7 @@
 import sqlite3
-# from os import makedirs, walk, environ
 from os import makedirs, environ
-# from os.path import exists, relpath, dirname
-from os.path import exists
-# from shutil import rmtree, copy
-from shutil import rmtree, copytree, ignore_patterns
+from os.path import exists, abspath
+from shutil import rmtree, copy, copytree
 from re import search as regexMatch
 from bs4 import BeautifulSoup
 
@@ -13,17 +10,16 @@ def generate_docset():
     global sections
 
     # File structure
-    source_dir  = 'chm'
+    source_dir  = abspath('chm')
     docset_name = 'AutoHotkey'
     docset_alias = 'ahk'
-    docset_path = environ.get('LOCALAPPDATA') \
-                + r'\Zeal\Zeal\docsets' \
-                + '\\' + docset_name + '.docset'
+    docset_path = fr'{environ['LOCALAPPDATA']}\Zeal\Zeal\docsets\{docset_name}.docset'
 
     res_path    = docset_path + r'\Contents\Resources'  # meta, resources
     dest_path   = res_path + r'\Documents'
     db_path     = res_path + r'\docSet.dsidx'           # docset index
-    hhk_path    = fr'{source_dir}\Index.hhk'    # keywords definition
+    index_path  = fr'{source_dir}\Index.hhk'            # keywords definition
+    icon_file   = abspath(r'icon.ico')
 
     # Clean up previous docset if exists
     if exists(res_path):
@@ -44,22 +40,9 @@ def generate_docset():
     generate_meta(docset_path + r'\docset.json', docset_name, docset_alias, docset_version)
     print(f'Version: {docset_version}')
 
-    # Copy all relevant files recursively
-    # for root, dirs, files in walk(source_dir):
-    #     for file in files:
-    #         if file.endswith(('.htm', '.html', '.css', '.js', '.png', '.ahk', '.eot', '.svg', '.ttf', '.woff')):
-    #             src_path    = fr'{root}\{file}'
-    #             rel_path    = relpath(src_path, source_dir)
-    #             target_path = fr'{dest_path}\{rel_path}'
-    #
-    #             makedirs(dirname(target_path), exist_ok=True)
-    #             copy(src_path, target_path)
-
-    copytree(
-        source_dir, dest_path,
-        ignore=ignore_patterns('$*', '#*', '_NUL', '*.hhk'),
-        dirs_exist_ok=True
-    )
+    # Copy all relevant files
+    copytree(fr'{source_dir}\docs', fr'{dest_path}\docs', dirs_exist_ok=True)
+    copy(icon_file, docset_path)
 
     # Initialize SQLite database
     db = sqlite3.connect(db_path)
@@ -78,7 +61,7 @@ def generate_docset():
     ;''')
 
     # Parse Keyword Index for all definitions
-    with open(hhk_path, 'r', encoding='utf-8') as f:
+    with open(index_path, 'r', encoding='utf-8') as f:
         hhk_content = f.read()
 
     soup = BeautifulSoup(hhk_content, 'html.parser')
@@ -107,13 +90,13 @@ def generate_docset():
     db.commit()
     db.close()
 
-    # Compress for publication
-    # import tarfile
-    # import json
-    # with tarfile.open('AutoHotkey.tgz', 'w:gz') as tar:
-    #    tar.add(docset_name, arcname=docset_name)
+    # Build release docset
+    import tarfile
+    with tarfile.open(fr'..\Release\{docset_name}.tgz', 'w:gz') as tar:
+       tar.add(docset_path, arcname=f'{docset_name}.docset')
 
     print(f'Created docset: "{docset_path}"')
+
 
 # based on .\chm\docs\static\source\data_toc.js
 # noinspection SpellCheckingInspection

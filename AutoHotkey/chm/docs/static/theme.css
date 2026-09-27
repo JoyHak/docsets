@@ -91,7 +91,7 @@ background-color:#eff0f1
 }
 
 pre,code,table.info .code {
-font-family:Maple Mono NF CN;
+font-family: 'Maple Mono NF CN', monospace;
 }
 
 .Syntax {
@@ -320,7 +320,7 @@ box-shadow:0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px #fff inset;
 color:#333;
 background-color: #fff;
 display:inline-block;
-font-family:Maple Mono NF CN;
+font-family: 'Maple Mono NF CN', monospace;
 line-height: 1;
 padding: 2px 4px;
 text-shadow:0 1px 0 #fff;
@@ -356,7 +356,7 @@ margin:0.2em 0.2em
 .regex {
 background-color:#FFEED3;
 font-weight:bold;
-font-family:Maple Mono NF CN;
+font-family: 'Maple Mono NF CN', monospace;
 word-break: break-word;
 }
 
@@ -414,42 +414,42 @@ ul.linklist {
 .code,
 .codebox,
 .highlight {
-    font-family: Maple Mono NF CN !important;
+    font-family: 'Maple Mono NF CN', monospace !important;
 }
 
 pre.origin em, code em,
 .highlight .cmt {
-    font-family: Maple Mono NF CN !important;
+    font-family: 'Maple Mono NF CN', monospace !important;
     color: #4e4e4e;
 }
 
 .highlight>.dec, .highlight>.cfs, .highlight>.dir {
-    font-family: Maple Mono NF CN !important;
+    font-family: 'Maple Mono NF CN', monospace !important;
     color: #693e65;
 }
 
 .highlight>.biv {
-    font-family: Maple Mono NF CN !important;
+    font-family: 'Maple Mono NF CN', monospace !important;
     color: #416d48;
 }
 
 .highlight .str>.esc {
-    font-family: Maple Mono NF CN !important;
+    font-family: 'Maple Mono NF CN', monospace !important;
     color: #92223f;
 }
 
 .highlight>.opr, .highlight>.opt, .Syntax span.optional:before, .Syntax span.optional:after {
-    font-family: Maple Mono NF CN !important;
+    font-family: 'Maple Mono NF CN', monospace !important;
     color: #92223f;
 }
 
 .highlight>.str {
-    font-family: Maple Mono NF CN !important;
+    font-family: 'Maple Mono NF CN', monospace !important;
     color: #257325;
 }
 
 .highlight>.num {
-    font-family: Maple Mono NF CN !important;
+    font-family: 'Maple Mono NF CN', monospace !important;
     color: #374570;
 }
 
@@ -457,25 +457,25 @@ pre.origin em, code em,
 .highlight span>a,
 .highlight>.cmd, .highlight>.fun {
     color: #305481;
-    font-family: Maple Mono NF CN !important;
+    font-family: 'Maple Mono NF CN', monospace !important;
 }
 
 .highlight>.lab {
     color: #356b89;
-    font-family: Maple Mono NF CN !important;
+    font-family: 'Maple Mono NF CN', monospace !important;
 }
 
 .highlight>.met {
     color: #20165F;
-    font-family: Maple Mono NF CN !important;
+    font-family: 'Maple Mono NF CN', monospace !important;
 }
 
 .highlight>.hot {
-    font-family: Maple Mono NF CN !important;
+    font-family: 'Maple Mono NF CN', monospace !important;
     color: #5c5918;
 }
 
 .highlight>.prp {
     color: #665223;
-    font-family: Maple Mono NF CN !important;
+    font-family: 'Maple Mono NF CN', monospace !important;
 }

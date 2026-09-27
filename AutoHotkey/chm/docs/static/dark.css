@@ -249,7 +249,7 @@ blockquote cite {
 }
 
 .inline_code {
-  font-family: Maple mono !important;
+  font-family: 'Maple Mono NF CN', monospace !important;
   color: #ff7df4;
   background: #281c28;
   overflow: visible;
@@ -266,7 +266,7 @@ kbd {
   border: 0px;
   border-radius: 3px;
   box-shadow: none;
-  color: #fac84d;
+  color: #e9ce38;
   background-color: #312b26;
   text-shadow: none;
   white-space: nowrap;
@@ -304,63 +304,72 @@ button, input, optgroup, select {
 
 pre.origin em, code em,
 .highlight .cmt {
-  font-family: Maple Mono NF CN !important;
+  font-family: 'Maple Mono NF CN', monospace !important;
   color: #828282;
 }
 
-.highlight>.dec, .highlight>.cfs, .highlight>.dir {
-  font-family: Maple Mono NF CN !important;
+.highlight>.dec, .highlight>.cfs {
+  font-family: 'Maple Mono NF CN', monospace !important;
   color: #f892ef;
 }
 
+.highlight>.dir {
+  font-family: 'Maple Mono NF CN', monospace !important;
+  color: #059e80;
+}
+
 .highlight>.biv {
-  font-family: Maple Mono NF CN !important;
+  font-family: 'Maple Mono NF CN', monospace !important;
   color: #92f8a2;
 }
 
 .highlight .str>.esc {
-  font-family: Maple Mono NF CN !important;
-  color: #F73A6B;
+  font-family: 'Maple Mono NF CN', monospace !important;
+  color: #20b57d;
 }
 
 .highlight>.opr, .highlight>.opt, .Syntax span.optional:before, .Syntax span.optional:after {
-  font-family: Maple Mono NF CN !important;
-  color: #e72265d9;
+  font-family: 'Maple Mono NF CN', monospace !important;
+  color: #bd536d;
 }
 
 .highlight>.str {
-  font-family: Maple Mono NF CN !important;
-  color: #48e048;
+  font-family: 'Maple Mono NF CN', monospace !important;
+  color: #59c557;
 }
 
 .highlight>.num {
-  font-family: Maple Mono NF CN !important;
+  font-family: 'Maple Mono NF CN', monospace !important;
   color: #98aff9;
 }
 
 .Syntax span.func,
 .highlight span>a,
 .highlight>.cmd, .highlight>.fun {
-  color: #70a5eb;
-  font-family: Maple Mono NF CN !important;
+  color: #8293e6;
+  font-family: 'Maple Mono NF CN', monospace !important;
 }
 
 .highlight>.lab {
   color: #6DBBE6;
-  font-family: Maple Mono NF CN !important;
+  font-family: 'Maple Mono NF CN', monospace !important;
 }
 
 .highlight>.met {
   color: #2200FFD6;
-  font-family: Maple Mono NF CN !important;
+  font-family: 'Maple Mono NF CN', monospace !important;
 }
 
 .highlight>.hot {
-  font-family: Maple Mono NF CN !important;
-  color: #FEF324;
+  color: #5fc29c;
+  font-family: 'Maple Mono NF CN', monospace !important;
 }
 
 .highlight>.prp {
-  color: #fac84d;
-  font-family: Maple Mono NF CN !important;
+  color: #d5c682;
+  font-family: 'Maple Mono NF CN', monospace !important;
+}
+
+.highlight>.cls {
+  color: #26eeb3;
 }

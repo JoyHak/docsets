@@ -1,0 +1,1561 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE language SYSTEM "ahk.xsd" [
+    <!ENTITY func "\b([a-zA-Z_][\w_]*)(?=\)?\()">
+    <!ENTITY hotstring "^[ \t]*:.?:">
+    <!ENTITY hotkey "^[ \t]*([^&quot;':]+)(?=::)">
+    <!ENTITY key "[!\+#^]+[^{]?">
+    <!ENTITY operator "?:!&amp;+,-/*&lt;&gt;=|~^">
+    <!ENTITY assign "(?://|&lt;&lt;|&gt;&gt;|[-+.:/|&amp;^*])=">
+    <!ENTITY maybe "\b[a-zA-Z_][\w_]*\?">
+    <!ENTITY format "{(?=\d*[:{}])">
+    <!ENTITY label "[\w_]+:\s*$">
+]>
+<!-- docs: https://docs.kde.org/stable_kf6/en/kate/katepart/highlight.html -->
+<language name="AutoHotKey" section="Scripts"
+          version="1" kateversion="5.62"
+          indenter="cstyle"
+          extensions="*.ahk;*.ahk2"
+          priority="9"
+          author="Rafaello">
+<highlighting>
+<list name="keywords">
+    <item>unset</item>
+    <item>not</item>
+    <item>or</item>
+    <item>and</item>
+    <item>new</item>
+    <item>between</item>
+    <item>contains</item>
+    <item>in</item>
+    <item>is</item>
+    <item>as</item>
+    <item>IsSet</item>
+</list>
+<list name="control_flow">
+    <item>catch</item>
+    <item>else</item>
+    <item>finally</item>
+    <item>default</item>
+    <item>try</item>
+    <item>switch</item>
+    <item>case</item>
+    <item>for</item>
+    <item>loop</item>
+    <item>return</item>
+</list>
+<list name="break_flow">
+    <item>exitapp</item>
+    <item>exit</item>
+    <item>reload</item>
+    <item>pause</item>
+    <item>throw</item>
+</list>
+<list name="label_flow">
+    <item>goto</item>
+    <item>continue</item>
+    <item>break</item>
+</list>
+<list name="multiline">
+    <item>if</item>
+    <item>while</item>
+    <item>until</item>
+</list>
+<list name="loop">
+    <item>parse</item>
+    <item>read</item>
+    <item>files</item>
+    <item>reg</item>
+</list>
+<list name="storage_modifiers">
+    <item>static</item>
+    <item>local</item>
+    <item>global</item>
+</list>
+<list name="negatives">
+    <item>false</item>
+    <item>Error</item>
+    <item>MemoryError</item>
+    <item>OSError</item>
+    <item>TargetError</item>
+    <item>TimeoutError</item>
+    <item>TypeError</item>
+    <item>UnsetError</item>
+    <item>MemberError</item>
+    <item>MethodError</item>
+    <item>PropertyError</item>
+    <item>UnsetItemError</item>
+    <item>ValueError</item>
+    <item>IndexError</item>
+    <item>ZeroDivisionError</item>
+</list>
+<list name="functions">
+    <item>Abs</item>
+    <item>ACos</item>
+    <item>ASin</item>
+    <item>ATan</item>
+    <item>BlockInput</item>
+    <item>CallbackCreate</item>
+    <item>CallbackFree</item>
+    <item>CaretGetPos</item>
+    <item>Ceil</item>
+    <item>Chr</item>
+    <item>Click</item>
+    <item>ClipWait</item>
+    <item>ComCall</item>
+    <item>ComObjActive</item>
+    <item>ComObjConnect</item>
+    <item>ComObjFlags</item>
+    <item>ComObjFromPtr</item>
+    <item>ComObjGet</item>
+    <item>ComObjQuery</item>
+    <item>ComObjType</item>
+    <item>ComObjValue</item>
+    <item>ControlAddItem</item>
+    <item>ControlChooseIndex</item>
+    <item>ControlChooseString</item>
+    <item>ControlClick</item>
+    <item>ControlDeleteItem</item>
+    <item>ControlFindItem</item>
+    <item>ControlFocus</item>
+    <item>ControlGetChecked</item>
+    <item>ControlGetChoice</item>
+    <item>ControlGetClassNN</item>
+    <item>ControlGetEnabled</item>
+    <item>ControlGetExStyle</item>
+    <item>ControlGetFocus</item>
+    <item>ControlGetHwnd</item>
+    <item>ControlGetIndex</item>
+    <item>ControlGetItems</item>
+    <item>ControlGetPos</item>
+    <item>ControlGetStyle</item>
+    <item>ControlGetText</item>
+    <item>ControlGetVisible</item>
+    <item>ControlHide</item>
+    <item>ControlHideDropDown</item>
+    <item>ControlMove</item>
+    <item>ControlSend</item>
+    <item>ControlSendText</item>
+    <item>ControlSetChecked</item>
+    <item>ControlSetEnabled</item>
+    <item>ControlSetExStyle</item>
+    <item>ControlSetStyle</item>
+    <item>ControlSetText</item>
+    <item>ControlShow</item>
+    <item>ControlShowDropDown</item>
+    <item>CoordMode</item>
+    <item>Cos</item>
+    <item>Critical</item>
+    <item>DateAdd</item>
+    <item>DateDiff</item>
+    <item>DetectHiddenText</item>
+    <item>DetectHiddenWindows</item>
+    <item>DirCopy</item>
+    <item>DirCreate</item>
+    <item>DirDelete</item>
+    <item>DirExist</item>
+    <item>DirMove</item>
+    <item>DirSelect</item>
+    <item>DllCall</item>
+    <item>Download</item>
+    <item>DriveEject</item>
+    <item>DriveGetCapacity</item>
+    <item>DriveGetFileSystem</item>
+    <item>DriveGetLabel</item>
+    <item>DriveGetList</item>
+    <item>DriveGetSerial</item>
+    <item>DriveGetSpaceFree</item>
+    <item>DriveGetStatus</item>
+    <item>DriveGetStatusCD</item>
+    <item>DriveGetType</item>
+    <item>DriveLock</item>
+    <item>DriveRetract</item>
+    <item>DriveSetLabel</item>
+    <item>DriveUnlock</item>
+    <item>EditGetCurrentCol</item>
+    <item>EditGetCurrentLine</item>
+    <item>EditGetLine</item>
+    <item>EditGetLineCount</item>
+    <item>EditGetSelectedText</item>
+    <item>EditPaste</item>
+    <item>EnvGet</item>
+    <item>EnvSet</item>
+    <item>Exp</item>
+    <item>FileAppend</item>
+    <item>FileCopy</item>
+    <item>FileCreateShortcut</item>
+    <item>FileDelete</item>
+    <item>FileEncoding</item>
+    <item>FileExist</item>
+    <item>FileGetAttrib</item>
+    <item>FileGetShortcut</item>
+    <item>FileGetSize</item>
+    <item>FileGetTime</item>
+    <item>FileGetVersion</item>
+    <item>FileInstall</item>
+    <item>FileMove</item>
+    <item>FileOpen</item>
+    <item>FileRead</item>
+    <item>FileRecycle</item>
+    <item>FileRecycleEmpty</item>
+    <item>FileSelect</item>
+    <item>FileSetAttrib</item>
+    <item>FileSetTime</item>
+    <item>Floor</item>
+    <item>Format</item>
+    <item>FormatTime</item>
+    <item>GetMethod</item>
+    <item>GroupActivate</item>
+    <item>GroupAdd</item>
+    <item>GroupClose</item>
+    <item>GroupDeactivate</item>
+    <item>GuiCtrlFromHwnd</item>
+    <item>GuiFromHwnd</item>
+    <item>HasBase</item>
+    <item>HasMethod</item>
+    <item>HasProp</item>
+    <item>HotIf</item>
+    <item>HotIfWinActive</item>
+    <item>HotIfWinExist</item>
+    <item>HotIfWinNotActive</item>
+    <item>HotIfWinNotExist</item>
+    <item>IL_Add</item>
+    <item>IL_Create</item>
+    <item>IL_Destroy</item>
+    <item>ImageSearch</item>
+    <item>IniDelete</item>
+    <item>IniRead</item>
+    <item>IniWrite</item>
+    <item>InputBox</item>
+    <item>InstallKeybdHook</item>
+    <item>InstallMouseHook</item>
+    <item>InStr</item>
+    <item>IsObject</item>
+    <item>IsInteger</item>
+    <item>IsFloat</item>
+    <item>IsNumber</item>
+    <item>IsObject</item>
+    <item>IsLabel</item>
+    <item>IsDigit</item>
+    <item>IsXDigit</item>
+    <item>IsAlpha</item>
+    <item>IsUpper</item>
+    <item>IsLower</item>
+    <item>IsAlnum</item>
+    <item>IsSpace</item>
+    <item>IsTime</item>
+    <item>IsSetRef</item>
+    <item>KeyHistory</item>
+    <item>ListHotkeys</item>
+    <item>ListLines</item>
+    <item>ListVars</item>
+    <item>ListViewGetContent</item>
+    <item>Ln</item>
+    <item>Log</item>
+    <item>LoadPicture</item>
+    <item>LTrim</item>
+    <item>Max</item>
+    <item>MenuFromHandle</item>
+    <item>MenuSelect</item>
+    <item>Min</item>
+    <item>Mod</item>
+    <item>MonitorGet</item>
+    <item>MonitorGetCount</item>
+    <item>MonitorGetName</item>
+    <item>MonitorGetPrimary</item>
+    <item>MonitorGetWorkArea</item>
+    <item>MouseClick</item>
+    <item>MouseClickDrag</item>
+    <item>MouseGetPos</item>
+    <item>MouseMove</item>
+    <item>MsgBox</item>
+    <item>NumGet</item>
+    <item>NumPut</item>
+    <item>ObjAddRef</item>
+    <item>ObjBindMethod</item>
+    <item>ObjGetBase</item>
+    <item>ObjGetCapacity</item>
+    <item>ObjHasOwnProp</item>
+    <item>ObjOwnPropCount</item>
+    <item>ObjOwnProps</item>
+    <item>ObjRelease</item>
+    <item>ObjSetBase</item>
+    <item>ObjSetCapacity</item>
+    <item>OnClipboardChange</item>
+    <item>OnExit</item>
+    <item>OnMessage</item>
+    <item>Ord</item>
+    <item>OutputDebug</item>
+    <item>Persistent</item>
+    <item>PixelGetColor</item>
+    <item>PixelSearch</item>
+    <item>PostMessage</item>
+    <item>ProcessClose</item>
+    <item>ProcessExist</item>
+    <item>ProcessGetName</item>
+    <item>ProcessGetParent</item>
+    <item>ProcessGetPath</item>
+    <item>ProcessSetPriority</item>
+    <item>ProcessWait</item>
+    <item>ProcessWaitClose</item>
+    <item>Random</item>
+    <item>RegCreateKey</item>
+    <item>RegDelete</item>
+    <item>RegDeleteKey</item>
+    <item>RegRead</item>
+    <item>RegWrite</item>
+    <item>RegExMatch</item>
+    <item>RegExReplace</item>
+    <item>Round</item>
+    <item>RTrim</item>
+    <item>Run</item>
+    <item>RunAs</item>
+    <item>RunWait</item>
+    <item>SendLevel</item>
+    <item>SendText</item>
+    <item>SendMode</item>
+    <item>SendMessage</item>
+    <item>SetCapsLockState</item>
+    <item>SetControlDelay</item>
+    <item>SetDefaultMouseSpeed</item>
+    <item>SetKeyDelay</item>
+    <item>SetMouseDelay</item>
+    <item>SetNumLockState</item>
+    <item>SetRegView</item>
+    <item>SetScrollLockState</item>
+    <item>SetStoreCapsLockMode</item>
+    <item>SetTimer</item>
+    <item>SetTitleMatchMode</item>
+    <item>SetWinDelay</item>
+    <item>SetWorkingDir</item>
+    <item>Shutdown</item>
+    <item>Sin</item>
+    <item>Sleep</item>
+    <item>Sort</item>
+    <item>SoundBeep</item>
+    <item>SoundGetInterface</item>
+    <item>SoundGetMute</item>
+    <item>SoundGetName</item>
+    <item>SoundGetVolume</item>
+    <item>SoundPlay</item>
+    <item>SoundSetMute</item>
+    <item>SoundSetVolume</item>
+    <item>SplitPath</item>
+    <item>Sqrt</item>
+    <item>StatusBarGetText</item>
+    <item>StatusBarWait</item>
+    <item>StrCompare</item>
+    <item>StrGet</item>
+    <item>StrLen</item>
+    <item>StrLower</item>
+    <item>StrPtr</item>
+    <item>StrPut</item>
+    <item>StrReplace</item>
+    <item>StrSplit</item>
+    <item>StrTitle</item>
+    <item>StrUpper</item>
+    <item>SubStr</item>
+    <item>Suspend</item>
+    <item>SysGet</item>
+    <item>SysGetIPAddresses</item>
+    <item>Tan</item>
+    <item>Thread</item>
+    <item>ToolTip</item>
+    <item>TraySetIcon</item>
+    <item>TrayTip</item>
+    <item>Trim</item>
+    <item>Type</item>
+    <item>VarSetStrCapacity</item>
+    <item>VerCompare</item>
+    <item>WinActivate</item>
+    <item>WinActivateBottom</item>
+    <item>WinActive</item>
+    <item>WinClose</item>
+    <item>WinExist</item>
+    <item>WinGetClass</item>
+    <item>WinGetClientPos</item>
+    <item>WinGetControls</item>
+    <item>WinGetControlsHwnd</item>
+    <item>WinGetCount</item>
+    <item>WinGetExStyle</item>
+    <item>WinGetID</item>
+    <item>WinGetIDLast</item>
+    <item>WinGetList</item>
+    <item>WinGetMinMax</item>
+    <item>WinGetPID</item>
+    <item>WinGetPos</item>
+    <item>WinGetProcessName</item>
+    <item>WinGetProcessPath</item>
+    <item>WinGetStyle</item>
+    <item>WinGetText</item>
+    <item>WinGetTitle</item>
+    <item>WinGetTransColor</item>
+    <item>WinGetTransparent</item>
+    <item>WinHide</item>
+    <item>WinKill</item>
+    <item>WinMaximize</item>
+    <item>WinMinimize</item>
+    <item>WinMinimizeAll</item>
+    <item>WinMinimizeAllUndo</item>
+    <item>WinMove</item>
+    <item>WinMoveBottom</item>
+    <item>WinMoveTop</item>
+    <item>WinRedraw</item>
+    <item>WinRestore</item>
+    <item>WinSetAlwaysOnTop</item>
+    <item>WinSetEnabled</item>
+    <item>WinSetExStyle</item>
+    <item>WinSetRegion</item>
+    <item>WinSetStyle</item>
+    <item>WinSetTitle</item>
+    <item>WinSetTransColor</item>
+    <item>WinSetTransparent</item>
+    <item>WinShow</item>
+    <item>WinWait</item>
+    <item>WinWaitActive</item>
+    <item>WinWaitClose</item>
+    <item>WinWaitNotActive</item>
+    <item>ComObject</item>
+    <item>ComObjArray</item>
+    <item>ClipboardAll</item>
+</list>
+<list name="send">
+    <item>Send</item>
+    <item>SendEvent</item>
+    <item>SendInput</item>
+    <item>SendPlay</item>
+    <item>ControlSend</item>
+</list>
+<list name="hotkey">
+    <item>Hotkey</item>
+    <item>KeyWait</item>
+    <item>GetKeyName</item>
+    <item>GetKeyState</item>
+    <item>GetKeySC</item>
+    <item>GetKeyVK</item>
+</list>
+<list name="meta">
+    <item>DefineProp</item>
+    <item>prototype</item>
+    <item>base</item>
+    <item>get</item>
+    <item>set</item>
+    <item>call</item>
+    <item>__init</item>
+    <item>__new</item>
+    <item>__delete</item>
+    <item>__get</item>
+    <item>__set</item>
+    <item>__call</item>
+    <item>__enum</item>
+    <item>__class</item>
+    <item>__value</item>
+    <item>__ref</item>
+</list>
+<list name="types">
+    <item>Any</item>
+    <item>Class</item>
+    <item>Object</item>
+    <item>Array</item>
+    <item>Buffer</item>
+    <item>ClipboardAll</item>
+    <item>File</item>
+    <item>Func</item>
+    <item>BoundFunc</item>
+    <item>Closure</item>
+    <item>Enumerator</item>
+    <item>Gui</item>
+    <item>InputHook</item>
+    <item>Map</item>
+    <item>Menu</item>
+    <item>MenuBar</item>
+    <item>RegExMatchInfo</item>
+    <item>match</item>
+    <item>Primitive</item>
+    <item>Number</item>
+    <item>Float</item>
+    <item>Integer</item>
+    <item>String</item>
+    <item>VarRef</item>
+    <item>PropRef</item>
+    <item>MethodRef</item>
+    <item>FuncRef</item>
+    <item>ComValue</item>
+    <item>ComObjArray</item>
+    <item>ComObject</item>
+    <item>AquaHotkeyX</item>
+    <item>AquaHotkey</item>
+    <item>ComValueRef</item>
+    <item>WeakRefMap</item>
+    <item>WeakRefSet</item>
+    <item>WeakRef</item>
+    <item>Numeric</item>
+    <item>Primitive</item>
+    <item>EmptyString</item>
+    <item>Nullable</item>
+    <item>Range</item>
+    <item>Nothing</item>
+    <item>Callable</item>
+    <item>Property</item>
+    <item>TypeInfo</item>
+    <item>ISet</item>
+    <item>IMap</item>
+    <item>IArray</item>
+    <item>Set</item>
+    <item>BitSet</item>
+    <item>ByteArray</item>
+    <item>HashMap</item>
+    <item>HashSet</item>
+    <item>ImmutableArray</item>
+    <item>ImmutableMap</item>
+    <item>ImmutableSet</item>
+    <item>LinkedList</item>
+    <item>SkipListSet</item>
+    <item>SkipListMap</item>
+    <item>SkipList</item>
+    <item>OrderedMap</item>
+    <item>Comparator</item>
+    <item>Continuation</item>
+    <item>Lazy</item>
+    <item>Monoid</item>
+    <item>Predicate</item>
+    <item>Optional</item>
+    <item>TryOp</item>
+    <item>Supplier</item>
+    <item>Transducer</item>
+    <item>FileOpen</item>
+    <item>Path</item>
+    <item>Uri</item>
+    <item>Count</item>
+    <item>Stream</item>
+    <item>DoubleStream</item>
+</list>
+<list name="directives">
+    <item>#ClipboardTimeout</item>
+    <item>#DllLoad</item>
+    <item>#ErrorStdOut</item>
+    <item>#HotIfTimeout</item>
+    <item>#Include</item>
+    <item>#IncludeAgain</item>
+    <item>#InputLevel</item>
+    <item>#MaxThreads</item>
+    <item>#MaxThreadsBuffer</item>
+    <item>#MaxThreadsPerHotkey</item>
+    <item>#NoTrayIcon</item>
+    <item>#Requires</item>
+    <item>#SuspendExempt</item>
+    <item>#SingleInstance</item>
+    <item>#UseHook</item>
+    <item>#Warn</item>
+    <item>#WinActivateForce</item>
+    <item>#Hotstring</item>
+</list>
+<list name="variables">
+    <item>super</item>
+    <item>this</item>
+    <item>true</item>
+    <item>A_AhkPath</item>
+    <item>A_AhkVersion</item>
+    <item>A_AllowMainWindow</item>
+    <item>A_AppData</item>
+    <item>A_AppDataCommon</item>
+    <item>A_Args</item>
+    <item>A_Clipboard</item>
+    <item>A_ComputerName</item>
+    <item>A_ComSpec</item>
+    <item>A_ControlDelay</item>
+    <item>A_CoordModeCaret</item>
+    <item>A_CoordModeMenu</item>
+    <item>A_CoordModeMouse</item>
+    <item>A_CoordModePixel</item>
+    <item>A_CoordModeToolTip</item>
+    <item>A_Cursor</item>
+    <item>A_DD</item>
+    <item>A_DDD</item>
+    <item>A_DDDD</item>
+    <item>A_DefaultMouseSpeed</item>
+    <item>A_Desktop</item>
+    <item>A_DesktopCommon</item>
+    <item>A_DetectHiddenText</item>
+    <item>A_DetectHiddenWindows</item>
+    <item>A_EndChar</item>
+    <item>A_EventInfo</item>
+    <item>A_FileEncoding</item>
+    <item>A_GuiControl</item>
+    <item>A_HotkeyInterval</item>
+    <item>A_HotkeyModifierTimeout</item>
+    <item>A_Hour</item>
+    <item>A_IconFile</item>
+    <item>A_IconHidden</item>
+    <item>A_IconNumber</item>
+    <item>A_IconTip</item>
+    <item>A_Index</item>
+    <item>A_InitialWorkingDir</item>
+    <item>A_Is64bitOS</item>
+    <item>A_IsAdmin</item>
+    <item>A_IsCompiled</item>
+    <item>A_IsCritical</item>
+    <item>A_IsPaused</item>
+    <item>A_IsSuspended</item>
+    <item>A_KeyDelay</item>
+    <item>A_KeyDelayPlay</item>
+    <item>A_KeyDuration</item>
+    <item>A_KeyDurationPlay</item>
+    <item>A_Language</item>
+    <item>A_LastError</item>
+    <item>A_LineFile</item>
+    <item>A_LineNumber</item>
+    <item>A_ListLines</item>
+    <item>A_LoopField</item>
+    <item>A_LoopFileAttrib</item>
+    <item>A_LoopFileDir</item>
+    <item>A_LoopFileExt</item>
+    <item>A_LoopFileFullPath</item>
+    <item>A_LoopFileName</item>
+    <item>A_LoopFilePath</item>
+    <item>A_LoopFileShortName</item>
+    <item>A_LoopFileShortPath</item>
+    <item>A_LoopFileSize</item>
+    <item>A_LoopFileSizeKB</item>
+    <item>A_LoopFileSizeMB</item>
+    <item>A_LoopFileTimeAccessed</item>
+    <item>A_LoopFileTimeCreated</item>
+    <item>A_LoopFileTimeModified</item>
+    <item>A_LoopReadLine</item>
+    <item>A_LoopRegKey</item>
+    <item>A_LoopRegName</item>
+    <item>A_LoopRegTimeModified</item>
+    <item>A_LoopRegType</item>
+    <item>A_MaxHotkeysPerInterval</item>
+    <item>A_MenuMaskKey</item>
+    <item>A_Min</item>
+    <item>A_MM</item>
+    <item>A_MMM</item>
+    <item>A_MMMM</item>
+    <item>A_MouseDelay</item>
+    <item>A_MouseDelayPlay</item>
+    <item>A_MSec</item>
+    <item>A_MyDocuments</item>
+    <item>A_Now</item>
+    <item>A_NowUTC</item>
+    <item>A_OSVersion</item>
+    <item>A_PriorHotkey</item>
+    <item>A_PriorKey</item>
+    <item>A_ProgramFiles</item>
+    <item>A_Programs</item>
+    <item>A_ProgramsCommon</item>
+    <item>A_PtrSize</item>
+    <item>A_RegView</item>
+    <item>A_ScreenDPI</item>
+    <item>A_ScreenHeight</item>
+    <item>A_ScreenWidth</item>
+    <item>A_ScriptDir</item>
+    <item>A_ScriptFullPath</item>
+    <item>A_ScriptHwnd</item>
+    <item>A_ScriptName</item>
+    <item>A_Sec</item>
+    <item>A_SendLevel</item>
+    <item>A_SendMode</item>
+    <item>A_Space</item>
+    <item>A_StartMenu</item>
+    <item>A_StartMenuCommon</item>
+    <item>A_Startup</item>
+    <item>A_StartupCommon</item>
+    <item>A_StoreCapsLockMode</item>
+    <item>A_Tab</item>
+    <item>A_Temp</item>
+    <item>A_ThisFunc</item>
+    <item>A_ThisHotkey</item>
+    <item>A_TickCount</item>
+    <item>A_TimeIdle</item>
+    <item>A_TimeIdleKeyboard</item>
+    <item>A_TimeIdleMouse</item>
+    <item>A_TimeIdlePhysical</item>
+    <item>A_TimeSincePriorHotkey</item>
+    <item>A_TimeSinceThisHotkey</item>
+    <item>A_TitleMatchMode</item>
+    <item>A_TitleMatchModeSpeed</item>
+    <item>A_TrayMenu</item>
+    <item>A_UserName</item>
+    <item>A_WDay</item>
+    <item>A_WinDelay</item>
+    <item>A_WinDir</item>
+    <item>A_WorkingDir</item>
+    <item>A_YDay</item>
+    <item>A_YWeek</item>
+    <item>A_YYYY</item>
+</list>
+<list name="section_options">
+      <item>ltrim0</item>
+      <item>rtrim0</item>
+      <item>ltrim</item>
+</list>
+<list name="section_comments">
+      <item>comments</item>
+      <item>comment</item>
+      <item>com</item>
+      <item>c</item>
+</list>
+<list name="string_positives">
+    <item>"true"</item>
+    <item>"AlwaysOn"</item>
+    <item>"on"</item>
+    <item>'true'</item>
+    <item>'AlwaysOn'</item>
+    <item>'on'</item>
+</list>
+<list name="string_negatives">
+    <item>"false"</item>
+    <item>"AlwaysOff"</item>
+    <item>"off"</item>
+    <item>'false'</item>
+    <item>'AlwaysOff'</item>
+    <item>'off'</item>
+</list>
+<contexts>
+    <context name="Statement" attribute="Normal Text">
+        <RegExpr attribute="Symbol" context="Hotstring" String="&hotstring;" column="0"/>
+        <RegExpr attribute="Hotkey" context="Hotkey" String="&hotkey;" column="0"/>
+        <StringDetect attribute="Directive" context="Expression" String="#HotIf" insensitive="true" firstNonSpace="true"/>
+        <keyword attribute="Directive" context="Directive" String="directives" firstNonSpace="true"/>
+        <DetectChar attribute="Comment" context="CommentLine" char=";"/>
+        <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
+        <RegExpr attribute="Unset" String="&maybe;"/>
+        <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace"/>
+        <DetectChar attribute="Symbol" context="ContinuationSection" char="(" firstNonSpace="true"/>
+        <DetectChar attribute="Symbol" context="Params" char="("/>
+        <DetectChar attribute="Symbol" context="Member" char="."/>
+        <keyword attribute="Variable" String="string_positives"/>
+        <keyword attribute="Negative" String="string_negatives"/>
+        <DetectChar attribute="String" context="String" char="&quot;"/>
+        <DetectChar attribute="Char" context="Char" char="'"/>
+        <DetectChar attribute="Symbol" context="Reference" char="&amp;"/>
+        <DetectChar attribute="DeReference" context="DeReference" char="%"/>
+        <WordDetect attribute="Keyword" context="Class" String="class " firstNonSpace="true" insensitive="true"/>
+        <WordDetect attribute="Keyword" context="ForLoop" String="for" insensitive="true"/>
+        <WordDetect attribute="Keyword" context="LoopKeyword" String="loop" insensitive="true"/>
+        <WordDetect attribute="Control Flow" context="ElseIfKeyword" String="else" insensitive="true"/>
+        <WordDetect attribute="Control Flow" context="CatchKeyword" String="catch" insensitive="true"/>
+        <WordDetect attribute="Control Flow" context="MultilineExpression" String="return" insensitive="true"/>
+        <WordDetect attribute="Negative" context="Error" String="throw" insensitive="true"/>
+        <WordDetect attribute="BuiltIn" context="DllCall" String="DllCall" insensitive="true"/>
+        <WordDetect attribute="BuiltIn" context="NumPut" String="NumPut" insensitive="true"/>
+        <WordDetect attribute="BuiltIn" context="NumPut" String="NumGet" insensitive="true"/>
+        <WordDetect attribute="BuiltIn" context="HotstringBuiltIn" String="Hotstring" insensitive="true"/>
+        <keyword attribute="Variable" context="Expression" String="variables" />
+        <keyword attribute="Control Flow" context="Expression" String="control_flow"/>
+        <keyword attribute="Control Flow" context="KeywordExpression" String="multiline"/>
+        <keyword attribute="Control Flow" context="LabelKeyword" String="label_flow"/>
+        <keyword attribute="Break Flow" context="Expression" String="break_flow"/>
+        <keyword attribute="Negative" context="Expression" String="negatives"/>
+        <keyword attribute="BuiltIn" context="Expression" String="functions"/>
+        <keyword attribute="BuiltIn" context="Send" String="send"/>
+        <keyword attribute="BuiltIn" context="HotkeyBuiltIn" String="hotkey"/>
+        <keyword attribute="Type" context="Expression" String="types"/>
+        <keyword attribute="Keyword" context="Storage" String="storage_modifiers"/>
+        <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace"/>
+        <StringDetect attribute="DocInline" context="#pop!DocsBlock" String="```"/>
+        <DetectChar attribute="DocInline" context="#pop!DocsBlock" char="`"/>
+        <Detect2Chars attribute="Comment" context="#pop" char="*" char1="/" endRegion="Comment"/>
+        <DetectChar attribute="Docs" char="*" firstNonSpace="true"/>
+        <RegExpr attribute="Function" context="Identifier" String="&func;"/>
+        <RegExpr attribute="Label" String="&label;" firstNonSpace="true"/>
+        <DetectIdentifier context="Identifier"/>
+    </context>
+    <!--======= EXPRESSION =======-->
+    <!-- Name + symbol (optional) -->
+    <context name="Identifier" attribute="Normal Text" lineEndContext="#pop">
+        <!-- We jump here on any identifier: variable, function, ... -->
+        <DetectChar attribute="Symbol" context="Array" char="["/>
+        <Detect2Chars attribute="Symbol" context="#pop!Assignment" char="." char1="="/> <!-- concat. expression -->
+        <DetectChar attribute="Symbol" context="Member" char="."/>
+        <DetectChar attribute="DeReference" context="DeReference" char="%"/>
+        <DetectChar attribute="Symbol" context="Params" char="("/> <!-- () call -->
+        <DetectChar attribute="Symbol" context="#pop" char=")" lookAhead="true"/> <!-- let outer context handle this ending -->
+        <DetectChar attribute="Symbol" context="#pop" char=","/> <!-- expression -->
+        <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace"/> <!-- func. definition -->
+        <Detect2Chars attribute="Symbol" context="#pop!MultilineExpression" char="=" char1=">"/> <!-- fat-arrow func. definition -->
+        <RegExpr    attribute="Symbol" context="#pop!Assignment" String="&assign;"/> <!-- assign. - expression -->
+        <AnyChar    attribute="Symbol" context="#pop!MultilineExpression" String="&operator;"/> <!-- expression -->
+        <DetectChar attribute="Comment" context="#pop!CommentLine" char=";"/>
+        <Detect2Chars attribute="Comment" context="#pop!CommentBlock" char="/" char1="*" beginRegion="Comment"/>
+        <DetectChar attribute="DocInline" context="#pop!DocsBlock" char="`"/>
+    </context>
+    <!-- .Name + symbol (optional) -->
+    <context name="Member" attribute="Normal Text" lineEndContext="#pop" fallthroughContext="#pop">
+        <DetectSpaces context="#pop"/>
+        <keyword attribute="Type" context="#pop" String="types"/>
+        <keyword attribute="Meta" context="#pop" String="meta"/>
+        <StringDetect attribute="Meta" context="#pop" String="__item" insensitive="true"/>
+        <RegExpr attribute="Method" context="Identifier" String="&func;"/>
+        <DetectIdentifier attribute="Property" context="#pop"/>
+    </context>
+    <context name="Object" attribute="Normal Text">
+        <DetectSpaces/>
+        <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace"/>
+        <RegExpr attribute="Property" String="\b([\w_]+)(?=:)"/>
+        <DetectChar attribute="Symbol" char=":"/>
+        <IncludeRules context="Expression"/>
+    </context>
+    <context name="Array" attribute="Normal Text">
+        <DetectSpaces/>
+        <DetectChar attribute="Symbol" context="#pop" char="]"/>
+        <IncludeRules context="Expression"/>
+    </context>
+    <!-- static <storage>, etc. -->
+    <context name="Storage" attribute="Normal Text" lineEndContext="#pop">
+        <DetectSpaces/>
+        <DetectIdentifier context="#pop!KeywordExpression"/>
+    </context>
+    <!-- &ref (reference to variable) -->
+    <context name="Reference" attribute="Reference" fallthroughContext="#pop">
+        <DetectIdentifier context="#pop"/>
+    </context>
+    <!-- %name% (dereference string or &ref) -->
+    <context name="DeReference" attribute="DeReference">
+        <DetectChar attribute="DeReference" context="#pop" char="%"/>
+        <IncludeRules context="Expression"/>
+    </context>
+    <!--======= CLASS =======-->
+    <!-- `class` keyword, additional keywords after -->
+    <context name="Class" attribute="Normal Text" lineEndContext="#pop">
+        <DetectSpaces/>
+        <WordDetect attribute="Keyword" String="extends" context="Type" insensitive="true"/>
+        <DetectIdentifier attribute="Type"/>
+        <DetectChar attribute="Symbol" context="#pop!ClassDefinition" char="{" beginRegion="Brace"/>
+    </context>
+    <!-- class {..} scope-->
+    <context name="ClassDefinition" attribute="Normal Text">
+        <DetectSpaces/>
+        <DetectChar attribute="Comment" context="CommentLine" char=";"/>
+        <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
+        <WordDetect attribute="Keyword" context="Class" String="class " firstNonSpace="true" insensitive="true"/>
+        <WordDetect attribute="Keyword" context="StaticStatement" String="static" insensitive="true" firstNonSpace="true"/>
+        <keyword attribute="Meta" context="Identifier" String="meta" firstNonSpace="true"/>
+        <RegExpr attribute="Function" context="Identifier" String="&func;" firstNonSpace="true"/>
+        <StringDetect attribute="Meta" context="Property" String="__item" insensitive="true" firstNonSpace="true"/>
+        <DetectIdentifier attribute="Property" context="Property" firstNonSpace="true"/>
+        <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace"/>
+    </context>
+    <!-- static <identifier> in class scope -->
+    <context name="StaticStatement" attribute="Normal Text" lineEndContext="#pop">
+        <keyword attribute="Meta" context="#pop!Identifier" String="meta"/>
+        <RegExpr attribute="Function" context="#pop!Identifier" String="&func;"/>
+        <StringDetect attribute="Meta" context="#pop!Property" String="__item" insensitive="true"/>
+        <DetectIdentifier attribute="Property" context="#pop!Property"/>
+    </context>
+    <!-- Class property definition -->
+    <context name="Property" attribute="Normal Text" lineEndContext="#pop">
+        <DetectChar attribute="Symbol" context="Array" char="["/>
+        <DetectChar attribute="Symbol" context="#pop!PropertyDefinition" char="{" beginRegion="Brace"/>
+        <Detect2Chars attribute="Symbol" context="#pop!MultilineExpression" char="=" char1=">"/>
+        <RegExpr attribute="Symbol" context="#pop!Assignment" String="&assign;"/>
+    </context>
+    <!-- Inside property -->
+    <context name="PropertyDefinition" attribute="Normal Text">
+        <WordDetect attribute="Meta" context="MetaPropertyDefinition" String="get" insensitive="true"/>
+        <WordDetect attribute="Meta" context="MetaPropertyDefinition" String="set" insensitive="true"/>
+        <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace"/>
+    </context>
+    <!-- get/set meta keywords -->
+    <context name="MetaPropertyDefinition" attribute="Normal Text">
+        <Detect2Chars attribute="Symbol" context="#pop!MultilineExpression" char="=" char1=">"/>
+        <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace"/>
+    </context>
+    <context name="Type" attribute="Normal Text" fallthroughContext="#pop">
+        <DetectSpaces/>
+        <RegExpr attribute="Type" context="#pop" String="([a-zA-Z_][\w_.]*)"/>
+    </context>
+    <context name="Error" attribute="Normal Text" fallthroughContext="#pop">
+        <DetectSpaces/>
+        <RegExpr attribute="Negative" String="([a-zA-Z_][\w_]*)"/>
+        <DetectChar attribute="Symbol" context="#pop!Params" char="("/>
+    </context>
+    <!--======= KEYWORDS =======-->
+    <context name="ElseIfKeyword" attribute="Normal Text" fallthroughContext="#pop!Expression">
+        <!--
+         Precise detection what comes next:
+         multi-line or single-line expression
+        -->
+        <DetectSpaces/>
+        <WordDetect attribute="Control Flow" context="#pop!KeywordExpression" String="if" insensitive="true"/>
+    </context>
+    <context name="CatchKeyword" attribute="Normal Text" fallthroughContext="#pop!Expression">
+        <DetectSpaces/>
+        <WordDetect attribute="Keyword" context="#pop" String="as" insensitive="true"/>
+        <DetectIdentifier attribute="Negative"/>
+        <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace"/>
+    </context>
+    <!-- loop [keyword] <expr> or loop <count> -->
+    <context name="LoopKeyword" attribute="Normal Text" fallthroughContext="#pop!KeywordExpression">
+        <DetectSpaces/>
+        <keyword attribute="Keyword" context="#pop!KeywordExpression" String="loop"/>
+    </context>
+    <!-- for <var1, var2, ...> in expression -->
+    <context name="ForLoop" attribute="Normal Text" lineEndContext="#pop">
+        <!-- Only literal variables, followed by expression -->
+        <DetectSpaces/>
+        <WordDetect attribute="Keyword" context="#pop!KeywordExpression" String="in" insensitive="true"/>
+        <DetectChar attribute="Symbol" char=","/>
+    </context>
+    <!-- goto <label> -->
+    <context name="LabelKeyword" attribute="Normal Text" lineEndContext="#pop">
+        <DetectSpaces/>
+        <DetectIdentifier attribute="Label" context="#pop"/>
+    </context>
+    <!--======= MULTILINE EXPRESSIONS =======-->
+    <!-- Simple one-line expression -->
+    <context name="Expression" attribute="Normal Text" lineEndContext="#pop">
+        <RegExpr attribute="Unset" String="&maybe;"/>
+        <Detect2Chars attribute="Symbol" context="RegexString" char="~" char1="="/>
+        <keyword attribute="Variable" String="string_positives"/>
+        <keyword attribute="Negative" String="string_negatives"/>
+        <DetectChar attribute="String" context="String" char="&quot;"/>
+        <DetectChar attribute="Char" context="Char" char="'"/>
+        <WordDetect attribute="Keyword" context="Type" String="is" insensitive="true"/>
+        <WordDetect attribute="Control Flow" context="ElseIfKeyword" String="else" insensitive="true"/>
+        <WordDetect attribute="Control Flow" context="CatchKeyword"  String="catch" insensitive="true"/>
+        <WordDetect attribute="Unset" String="unset" insensitive="true"/>
+        <WordDetect attribute="BuiltIn" context="DllCall" String="DllCall" insensitive="true"/>
+        <WordDetect attribute="BuiltIn" context="NumPut" String="NumPut" insensitive="true"/>
+        <WordDetect attribute="BuiltIn" context="NumPut" String="NumGet" insensitive="true"/>
+        <WordDetect attribute="BuiltIn" context="HotstringBuiltIn" String="Hotstring" insensitive="true"/>
+        <keyword attribute="Control Flow" String="control_flow"/>
+		<keyword attribute="Keyword" String="keywords"/>
+        <keyword attribute="Negative" String="negatives"/>
+        <keyword attribute="BuiltIn" String="functions"/>
+        <keyword attribute="BuiltIn" context="Send" String="send"/>
+        <keyword attribute="BuiltIn" context="HotkeyBuiltIn" String="hotkey"/>
+        <keyword attribute="Type" String="types"/>
+        <keyword attribute="Variable" String="variables"/>
+        <DetectChar attribute="Symbol" context="Member" char="."/>
+        <Float attribute="Float"/>
+        <HlCHex attribute="Hex"/>
+        <Int attribute="Decimal"/>
+        <RegExpr attribute="Function" context="Identifier" String="&func;"/>
+        <DetectChar attribute="Symbol" context="ContinuationSection" char="(" firstNonSpace="true"/>
+        <DetectChar attribute="Symbol" context="Params" char="("/>
+        <DetectChar attribute="Symbol" context="#pop" char=")"/>
+        <DetectChar attribute="Symbol" context="Statement" char="{" beginRegion="Brace"/>
+        <DetectChar attribute="Symbol" context="#pop" char="}" endRegion="Brace"/>
+        <DetectChar attribute="Symbol" context="Array" char="["/>
+        <DetectChar attribute="Comment" context="CommentLine" char=";"/>
+        <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
+        <StringDetect attribute="DocInline" context="#pop!DocsBlock" String="```"/>
+        <DetectChar attribute="DocInline" context="#pop!DocsBlock" char="`"/>
+        <Detect2Chars attribute="Comment" context="#pop#pop" char="*" char1="/" endRegion="Comment"/>
+        <DetectChar attribute="DeReference" context="DeReference" char="%"/>
+        <DetectChar attribute="Docs" char="*" firstNonSpace="true"/>
+        <DetectChar attribute="Symbol" context="Reference" char="&amp;"/>
+        <AnyChar attribute="Symbol" String="&operator;"/>
+        <WordDetect attribute="Symbol" String="_"/>
+    </context>
+    <context name="Params" attribute="Normal Text">
+		<DetectSpaces/>
+        <DetectChar attribute="Symbol" context="Object" char="{" beginRegion="Brace"/>
+		<IncludeRules context="Expression"/>
+	</context>
+    <!-- Join multi-line expression -->
+    <context name="KeywordExpression" attribute="Normal Text" lineEndContext="InExprBeginning" lineEmptyContext="#pop">
+        <!--
+         Expression parsing continues as long as there is
+         trailing or leading keyword; or operator; or until { statement.
+         Comments are ignored. From the interpreter's perspective, comments are deleted first,
+         and then a multi-line expression is joined into a single line by
+         trailing or leading keywords or operators
+        -->
+        <DetectSpaces/>
+        <RegExpr attribute="Unset" String="&maybe;"/>
+        <RegExpr attribute="Reference" String="&amp;\w+"/> <!-- Avoid confusion with trailing op. -->
+        <RegExpr attribute="Symbol" context="Assignment" String="&assign;"/>
+        <Detect2Chars attribute="Symbol" context="RegexString" char="~" char1="="/>
+        <AnyChar attribute="Symbol" context="InExprEnding" String="&operator;"/>
+        <keyword attribute="Variable" String="string_positives"/>
+        <keyword attribute="Negative" String="string_negatives"/>
+        <DetectChar attribute="String" context="String" char="&quot;"/>
+        <DetectChar attribute="Char" context="Char" char="'"/>
+        <WordDetect attribute="Symbol" String="_"/>
+        <Detect2Chars attribute="Symbol" context="MultilineExpression" char="=" char1=">"/>
+        <WordDetect attribute="Keyword" context="Type" String="is" insensitive="true"/>
+        <WordDetect attribute="Unset" context="InExprEnding" String="unset" insensitive="true"/>
+        <keyword attribute="Keyword" context="InExprEnding" String="keywords"/>
+        <keyword attribute="Keyword" context="#pop!Storage" String="storage_modifiers"/>
+        <WordDetect attribute="Control Flow" context="#pop!ElseIfKeyword" String="else" insensitive="true"/>
+        <WordDetect attribute="Control Flow" context="#pop!MultilineExpression" String="return" insensitive="true"/>
+        <WordDetect attribute="BuiltIn" context="DllCall" String="DllCall" insensitive="true"/>
+        <WordDetect attribute="BuiltIn" context="NumPut" String="NumPut" insensitive="true"/>
+        <WordDetect attribute="BuiltIn" context="NumPut" String="NumGet" insensitive="true"/>
+        <WordDetect attribute="BuiltIn" context="HotstringBuiltIn" String="Hotstring" insensitive="true"/>
+        <keyword attribute="Control Flow" context="#pop!KeywordExpression" String="multiline"/>
+        <keyword attribute="Control Flow" context="#pop!Expression" String="control_flow"/>
+        <keyword attribute="Negative" String="negatives"/>
+        <keyword attribute="BuiltIn" String="functions"/>
+        <keyword attribute="BuiltIn" context="Send" String="send"/>
+        <keyword attribute="BuiltIn" context="HotkeyBuiltIn" String="hotkey"/>
+        <keyword attribute="Type" String="types"/>
+        <keyword attribute="Variable" String="variables"/>
+        <DetectChar attribute="Symbol" context="Member" char="."/>
+        <Float   attribute="Float"/>
+        <HlCHex  attribute="Hex"/>
+        <Int     attribute="Decimal"/>
+        <RegExpr    attribute="Function" String="&func;"/>
+        <DetectChar attribute="Symbol"  context="Params" char="("/>
+        <DetectChar attribute="Symbol"  context="Array" char="["/>
+        <DetectChar attribute="Symbol"  context="#pop!Statement" char="{"/>
+        <DetectChar attribute="Symbol"  context="#pop#pop" char="}"/>
+        <DetectChar attribute="DeReference" context="DeReference" char="%"/>
+        <DetectChar attribute="Comment" context="CommentLine" char=";"/>
+        <StringDetect attribute="DocInline" context="#pop!DocsBlock" String="```"/>
+        <DetectChar attribute="DocInline" context="#pop!DocsBlock" char="`"/>
+        <Detect2Chars attribute="Comment" context="#pop#pop" char="*" char1="/" endRegion="Comment"/>
+        <DetectChar attribute="Docs" char="*" firstNonSpace="true"/>
+	</context>
+    <context name="MultilineExpression" attribute="Normal Text" lineEndContext="InExprBeginning" lineEmptyContext="#pop">
+        <!--
+         Allows object, array and cont. section, but follows multiline expr. rools:
+         trailing/leading keyword or operator is required to treat next line as an expression.
+        -->
+        <DetectSpaces/>
+        <DetectChar attribute="Symbol" context="ContinuationSection" char="(" firstNonSpace="true"/>
+        <DetectChar attribute="Symbol" context="Object" char="{" beginRegion="Brace"/>
+        <DetectChar attribute="Symbol" context="Array" char="["/>
+        <IncludeRules context="KeywordExpression"/>
+    </context>
+    <context name="Assignment" attribute="Normal Text" fallthroughContext="#pop!AssignMultilineExpr">
+        <DetectSpaces/>
+        <!--
+         If it's trailing assign. (e.g. `a :=\nStatement`),
+         jump to the next line without any checks
+        -->
+        <RegExpr context="#pop!AssignMultilineExpr" String="$"/>
+    </context>
+    <context name="AssignMultilineExpr" attribute="Normal Text" lineEndContext="InAssignBeginning" lineEmptyContext="#pop">
+        <!--
+         Follows multiline expr. rools, but allows additional { [ operators
+         and cont. section on the next line.
+        -->
+        <IncludeRules context="MultilineExpression"/>
+    </context>
+    <!-- Check for leading operator/keyword -->
+    <context name="InExprBeginning" attribute="Normal Text" fallthroughContext="#pop#pop" lineEmptyContext="#pop#pop">
+        <DetectSpaces/>
+        <Detect2Chars attribute="Comment" context="#pop#pop" char="*" char1="/" endRegion="Comment"/>
+        <DetectChar attribute="Docs" char="*" firstNonSpace="true"/>
+        <AnyChar context="#pop" String="&operator;&quot;'%." lookAhead="true"/>
+        <WordDetect attribute="Unset" context="#pop" String="unset" insensitive="true"/>
+        <keyword attribute="Keyword" context="#pop" String="keywords"/>
+	</context>
+    <!-- More permissive check for leading operator/keyword -->
+    <context name="InAssignBeginning" attribute="Normal Text" fallthroughContext="#pop#pop" lineEmptyContext="#pop#pop">
+        <DetectSpaces/>
+        <Detect2Chars attribute="Comment" context="#pop#pop" char="*" char1="/" endRegion="Comment"/>
+        <DetectChar attribute="Docs" char="*" firstNonSpace="true"/>
+        <AnyChar context="#pop" String="&operator;&quot;'%.{[(" lookAhead="true"/>
+        <IncludeRules context="InExprBeginning"/>
+	</context>
+    <!-- Assert end of line -->
+    <context name="InExprEnding" attribute="Normal Text" fallthroughContext="#pop">
+        <!--
+         Jump to the next line if trailing operator/keyword was found before
+         and assertion is successful
+        -->
+        <RegExpr context="#pop!NextLineExpr" String="$"/>
+        <DetectSpaces/>
+        <DetectChar context="#pop!NextLineExpr" char=";" lookAhead="true"/>
+	</context>
+    <context name="NextLineExpr" attribute="Normal Text" lineEmptyContext="#pop">
+        <!--
+         Parse the line until the next trailing op. or until the beginning of the next line.
+         In the latter case, a check for leading op. will occur when returning to the original context.
+         We do not stay in `KeywordExpression` context for all lines
+         and exit as early as possible if the condition is not met
+        -->
+        <DetectSpaces/>
+        <RegExpr context="#pop" String="^." column="0" lookAhead="true"/>
+        <IncludeRules context="KeywordExpression"/>
+	</context>
+    <!--======= LOW LEVEL =======-->
+    <!-- DllCall("[DllFile]\Function" [, type, value, ...] [, ReturnType]) -->
+    <context name="DllCall" attribute="Normal Text" fallthroughContext="#pop">
+        <DetectChar attribute="Symbol" context="#pop!DllCallFunc" char="("/>
+    </context>
+    <context name="DllCallFunc" attribute="Function">
+    <!-- Can be literal "funcName" or a variable -->
+        <DetectSpaces/>
+        <DetectChar attribute="Symbol" context="#pop!DllCallParams" char=","/>
+        <DetectChar attribute="Symbol" context="#pop" char=")"/>
+	</context>
+    <context name="DllCallParams" attribute="Normal Text">
+        <!-- type, value, ... pairs -->
+        <DetectSpaces/>
+        <AnyChar attribute="DllCall Type" context="DllCallType" String="&quot;'"/>
+        <DetectChar attribute="Symbol" context="#pop" char=")"/>
+    </context>
+    <context name="DllCallType" attribute="DllCall Type" lineEndContext="#pop">
+        <!-- "str", 'int', ... literals -->
+        <DetectSpaces/>
+        <WordDetect attribute="DllCall Return" String="cdecl"    insensitive="true"/>
+        <WordDetect attribute="DllCall Return" String="thiscall" insensitive="true"/>
+        <WordDetect attribute="DllCall Return" String="hresult"  insensitive="true"/>
+        <AnyChar context="#pop!InDllCallEnding" String="&quot;'"/>
+    </context>
+    <context name="InDllCallEnding" attribute="Normal Text" fallthroughContext="#pop">
+        <DetectSpaces/>
+        <DetectChar attribute="Symbol" context="#pop#pop" char=")"/>
+        <DetectChar attribute="Symbol" context="#pop!DllCallValue" char=","/>
+    </context>
+    <context name="DllCallValue" attribute="Normal Text">
+        <DetectSpaces/>
+        <DetectChar attribute="Symbol" context="#pop#pop" char=")"/>
+        <DetectChar attribute="Symbol" context="#pop" char=","/>
+        <IncludeRules context="Params"/>
+    </context>
+    <!-- NumPut(type, number, ..., target [, offset]) -->
+    <!-- NumGet(Source, Offset, Type) -->
+    <context name="NumPut" attribute="Normal Text" fallthroughContext="#pop">
+        <DetectChar attribute="Symbol" context="#pop!NumPutParams" char="("/>
+    </context>
+    <context name="NumPutParams" attribute="Normal Text">
+        <IncludeRules context="DllCallParams"/>
+        <IncludeRules context="Params"/>
+    </context>
+    <!--======= STRING =======-->
+    <!-- Double ".." -->
+    <context name="String" attribute="String">
+        <!-- String may start with Re option like m) or x) -->
+        <DetectChar attribute="Symbol" context="LiteralSection" char="(" firstNonSpace="true"/>
+        <RegExpr attribute="Regex Option" context="#pop!Regex" String="[imsxADJUXSC]+\)" insensitive="false"/>
+        <RegExpr attribute="Escaped" String="`."/>
+        <RegExpr attribute="Symbol" context="FormatString" String="&format;"/>
+        <Detect2Chars attribute="Char" char="&quot;" char1="&quot;"/>
+        <DetectChar attribute="String" context="#pop" char="&quot;"/>
+    </context>
+    <!-- Single '..' -->
+    <context name="Char" attribute="Char">
+        <!-- String may start with Re option like m) or x) -->
+        <DetectChar attribute="Symbol" context="LiteralSection" char="(" firstNonSpace="true"/>
+        <RegExpr attribute="Regex Option" context="#pop!Regex" String="[imsxADJUXSC]+\)" insensitive="false"/>
+        <RegExpr attribute="Escaped" String="`."/>
+        <RegExpr attribute="Symbol" context="FormatString" String="&format;"/>
+        <Detect2Chars attribute="String" char="'" char1="'"/>
+        <DetectChar attribute="Char" context="#pop" char="'"/>
+    </context>
+    <!-- Same as above with allowed  ; comments -->
+    <context name="StringComments" attribute="String">
+        <DetectChar attribute="Comment" context="CommentLine" char=";"/>
+        <IncludeRules context="String"/>
+    </context>
+    <context name="CharComments" attribute="Char">
+        <DetectChar attribute="Comment" context="CommentLine" char=";"/>
+        <IncludeRules context="String"/>
+    </context>
+    <context name="FormatString" attribute="Escaped">
+        <RegExpr String="}(?=})"/>
+        <DetectChar attribute="Symbol" context="#pop" char="}"/>
+        <Int attribute="Decimal"/>
+        <AnyChar attribute="Symbol" String=":+-."/>
+        <AnyChar context="#pop" String="&quot;'" lookAhead="true"/>
+    </context>
+    <!--======= MULTILINE STRING =======-->
+    <context name="SectionOptions" attribute="Normal Text">
+        <DetectSpaces/>
+        <!-- (options... -->
+        <keyword attribute="Keyword" String="section_options"/>
+        <!-- Join[chars] - join lines with the following chars (optional) -->
+        <StringDetect attribute="Keyword" context="JoinChars" String="join" insensitive="true"/>
+        <!-- Treat ` as option -->
+        <DetectChar attribute="String" char="`"/>
+    </context>
+    <!-- Multiline string -->
+    <context name="ContinuationSection" attribute="Normal Text" fallthroughContext="#pop!Params">
+        <IncludeRules context="SectionOptions"/>
+        <!-- Allow  ; comments -->
+        <keyword attribute="Keyword" String="section_comments" context="#pop!ContSectionComments"/>
+        <!-- Line end assertion is required. Open paren. may be an Expression, not a Section -->
+        <RegExpr context="#pop!InContSection" String="$"/>
+    </context>
+    <!-- Multiline literals (no quotes) -->
+    <context name="LiteralSection" attribute="Char" fallthroughContext="#pop!InLitSection">
+        <IncludeRules context="SectionOptions"/>
+        <!-- Allow  ; comments -->
+        <keyword attribute="Keyword" String="section_comments" context="#pop!LitSectionComments"/>
+    </context>
+    <context name="InContSection" attribute="Normal Text">
+        <DetectChar attribute="String" context="String" char="&quot;"/>
+        <DetectChar attribute="Char" context="Char" char="'"/>
+        <DetectChar attribute="Symbol" context="#pop" char=")" firstNonSpace="true"/>
+    </context>
+    <context name="InLitSection" attribute="Char">
+        <RegExpr attribute="Escaped" String="`."/>
+        <RegExpr attribute="Symbol" context="FormatString" String="&format;"/>
+        <DetectChar attribute="Symbol" context="#pop" char=")" firstNonSpace="true"/>
+    </context>
+    <context name="JoinChars" attribute="Char" lineEndContext="#pop">
+        <DetectSpaces context="#pop"/>
+    </context>
+    <!-- Same as above with allowed  ; comments -->
+    <context name="ContSectionComments" attribute="Normal Text" fallthroughContext="#pop!InContSectionComments">
+        <IncludeRules context="ContinuationSection"/>
+    </context>
+    <context name="LitSectionComments" attribute="Char" fallthroughContext="#pop!InLitSectionComments">
+        <IncludeRules context="LiteralSection"/>
+    </context>
+    <context name="InContSectionComments" attribute="Normal Text">
+        <RegExpr attribute="Symbol" context="FormatString" String="&format;"/>
+        <DetectChar attribute="String" context="StringComments" char="&quot;"/>
+        <DetectChar attribute="Char" context="CharComments" char="'"/>
+        <DetectChar attribute="Symbol" context="#pop" char=")" firstNonSpace="true"/>
+        <DetectChar attribute="Comment" context="CommentLine" char=";"/>
+    </context>
+    <context name="InLitSectionComments" attribute="Char">
+        <IncludeRules context="InLitSection"/>
+        <DetectChar attribute="Comment" context="CommentLine" char=";"/>
+    </context>
+    <!--======= SEND("Keys") =======-->
+    <context name="Send" attribute="Normal Text" fallthroughContext="#pop">
+        <DetectChar attribute="Symbol" context="#pop!SendParams" char="("/>
+    </context>
+    <context name="SendParams" attribute="Normal Text">
+        <DetectChar attribute="Symbol" context="SendSection" char="(" firstNonSpace="true"/>
+        <DetectChar attribute="String" context="SendString" char="&quot;"/>
+        <DetectChar attribute="Char"   context="SendChar" char="'"/>
+        <DetectChar attribute="Symbol" context="SendConcatString" char="."/> <!-- Explicit concatenation -->
+        <DetectSpaces context="SendConcatString"/> <!-- Implicit concatenation -->
+        <DetectChar attribute="Symbol" context="#pop!Params" char=","/>
+        <DetectChar attribute="Symbol" context="#pop" char=")"/>
+    </context>
+    <context name="SendConcatString" attribute="Normal Text" lineEndContext="InExprBeginning" lineEmptyContext="#pop">
+        <AnyChar context="#pop" String="&quot;'" lookAhead="true"/>
+        <DetectChar attribute="Symbol" context="#pop!SendSection" char="(" firstNonSpace="true"/>
+        <IncludeRules context="KeywordExpression"/>
+    </context>
+    <!-- "^{Del}", "+{a}", ... mods + keys -->
+    <context name="SendString" attribute="String">
+        <DetectSpaces/>
+        <StringDetect attribute="Keyword" context="#pop!String" String="{raw}" insensitive="true"/>
+        <StringDetect attribute="Keyword" context="#pop!String" String="{text}" insensitive="true"/>
+        <DetectChar attribute="Symbol" context="BraceHotkeyString" char="{"/>
+        <DetectChar attribute="Symbol" char="}"/>
+        <RegExpr attribute="Hotkey" String="&key;"/>
+        <RegExpr attribute="Escaped" String="`."/>
+        <DetectChar attribute="String" context="#pop" char="&quot;"/>
+        <DetectChar attribute="Symbol" context="SendLiteralSection" char="(" firstNonSpace="true"/>
+    </context>
+    <!-- '^{Del}', '+{a}', ... mods + keys -->
+    <context name="SendChar" attribute="Char">
+        <DetectSpaces/>
+        <StringDetect attribute="Keyword" context="#pop!Char" String="{raw}" insensitive="true"/>
+        <StringDetect attribute="Keyword" context="#pop!Char" String="{text}" insensitive="true"/>
+        <DetectChar attribute="Symbol" context="BraceHotkeyString" char="{"/>
+        <DetectChar attribute="Symbol" char="}"/>
+        <RegExpr attribute="Hotkey" String="&key;"/>
+        <RegExpr attribute="Escaped" String="`."/>
+        <DetectChar attribute="Char" context="#pop" char="'"/>
+        <DetectChar attribute="Symbol" context="SendLiteralSection" char="(" firstNonSpace="true"/>
+    </context>
+    <!-- Multiline string with keys -->
+    <context name="SendSection" attribute="Normal Text" fallthroughContext="#pop!InSendSection">
+        <IncludeRules context="SectionOptions"/>
+    </context>
+    <context name="SendLiteralSection" attribute="Normal Text" fallthroughContext="#pop!InSendLiteralSection">
+        <IncludeRules context="SectionOptions"/>
+    </context>
+    <context name="InSendSection" attribute="Normal Text">
+        <DetectChar attribute="String" context="SendString" char="&quot;"/>
+        <DetectChar attribute="Char"   context="SendChar" char="'"/>
+        <DetectChar attribute="Symbol" context="#pop" char=")" firstNonSpace="true"/>
+    </context>
+    <context name="InSendLiteralSection" attribute="Char">
+        <DetectSpaces/>
+        <StringDetect attribute="Keyword" context="#pop!LiteralSection" String="{raw}" insensitive="true"/>
+        <StringDetect attribute="Keyword" context="#pop!LiteralSection" String="{text}" insensitive="true"/>
+        <DetectChar attribute="Symbol" context="BraceHotkeyString" char="{"/>
+        <DetectChar attribute="Symbol" char="}"/>
+        <RegExpr attribute="Hotkey" String="&key;"/>
+        <DetectChar attribute="Symbol" context="#pop" char=")" firstNonSpace="true"/>
+    </context>
+    <!-- {Del}, {a}, ... key name -->
+    <context name="BraceHotkeyString" attribute="Hotkey" lineEndContext="#pop">
+        <DetectSpaces/>
+        <WordDetect attribute="Keyword" String="blind" insensitive="true"/>
+        <Int attribute="Decimal"/>
+        <DetectChar attribute="Symbol" context="#pop" char="}"/>
+        <AnyChar context="#pop" String="&quot;'" lookAhead="true"/>
+    </context>
+    <!-- Hotkey("Key", ...) -->
+    <context name="HotkeyBuiltIn" attribute="Normal Text" fallthroughContext="#pop">
+        <DetectChar attribute="Symbol" context="#pop!HotkeyString" char="("/>
+    </context>
+    <context name="HotkeyString" attribute="Hotkey">
+        <AnyChar attribute="Symbol" String="$~*&gt;&lt;"/> <!-- hooks, not the keys -->
+        <DetectChar attribute="Symbol" context="#pop!Params" char=","/>
+        <DetectChar attribute="Symbol" context="#pop" char=")"/>
+    </context>
+    <!-- Hotstring("str", ...) -->
+    <context name="HotstringBuiltIn" attribute="Normal Text" fallthroughContext="#pop">
+        <DetectChar attribute="Symbol" context="#pop!HotstringString" char="("/>
+    </context>
+    <context name="HotstringString" attribute="Hotstring">
+        <AnyChar attribute="Symbol" String=":?*"/>
+        <RegExpr attribute="Escaped" String="`."/>
+        <DetectChar attribute="Symbol" context="#pop!Params" char=","/>
+        <DetectChar attribute="Symbol" context="#pop" char=")"/>
+    </context>
+    <!--======= Regular Expression =======-->
+    <context name="RegexString" attribute="Regex" lineEndContext="#pop" fallthroughContext="#pop">
+        <DetectSpaces/>
+        <AnyChar context="#pop!Regex" String="&quot;'"/>
+    </context>
+    <context name="Regex" attribute="Regex">
+        <RegExpr attribute="Regex Keyword" String="\\[nrt0aefVvWwDdXxpCckg#]" insensitive="false"/> <!-- Main esc. char -->
+        <RegExpr attribute="Symbol"  String="\\[QEGKBbAZ]" insensitive="false"/> <!-- Assertion -->
+        <RegExpr attribute="Decimal" String="[\\$]\d"/> <!-- Index -->
+        <RegExpr attribute="Regex Escaped" String="[`\\]."/>
+        <AnyChar    attribute="Regex" context="#pop" String="&quot;'"/> <!-- End of the string -->
+        <DetectChar attribute="Regex Group" context="SubRegex" char="("/>
+        <DetectChar attribute="Regex Group" context="#pop#pop" char=")"/>
+        <DetectChar attribute="Regex Group" context="RegexChars" char="["/>
+        <AnyChar attribute="Symbol" String="?+*{}.|^$"/> <!-- Quantifier or operator -->
+    </context>
+    <context name="RegexNegative" attribute="Regex Negative">
+        <RegExpr attribute="Regex Negative" String="[`\\]."/>
+        <DetectChar attribute="Regex Group" context="RegexCharsNegative" char="["/>
+        <IncludeRules context="Regex"/>
+    </context>
+    <!-- (sub-group) -->
+    <context name="SubRegex" attribute="Regex Group" fallthroughContext="Regex">
+        <DetectChar context="#pop!SubRegexCmd" char="?"/>
+        <!-- PCRE verb (*FAIL) or (*COMMIT), etc. -->
+        <DetectChar context="#pop!RegKeyword" char="*"/>
+    </context>
+    <!-- Special group (? ) -->
+    <context name="SubRegexCmd" attribute="Regex Group">
+        <DetectChar attribute="Decimal" char="+"/> <!-- Relative group index -->
+        <Int attribute="Decimal" context="#pop!RegKeyword"/>       <!-- Group index -->
+        <DetectChar attribute="Regex Keyword" context="#pop!RegKeyword" char="R"/>       <!-- Recursion -->
+        <Detect2Chars attribute="Regex Positive" context="Regex" char="&lt;" char1="="/> <!-- Positive look behind -->
+        <Detect2Chars attribute="Regex Negative" context="RegexNegative" char="&lt;" char1="!"/> <!-- Negative look behind -->
+        <DetectChar attribute="Regex Label" context="#pop!RegLabel" char="&lt;"/>        <!-- Define named group (?<name>) -->
+        <DetectChar context="#pop!RegKeyword" char="&amp;"/> <!-- Call named group (?&name) -->
+        <DetectChar context="#pop!RegComment" char="#"/>     <!-- Ignored (?#comment) -->
+        <DetectChar attribute="Regex Negative" context="RegexNegative" char="!"/> <!-- Negative look ahead -->
+        <DetectChar attribute="Regex Positive" context="Regex" char="="/>         <!-- Positive look behind -->
+        <DetectChar context="Regex" char=":"/>
+    </context>
+    <!-- Define named group (?<name>) -->
+    <context name="RegLabel" attribute="Regex Label" fallthroughContext="Regex">
+        <DetectIdentifier/>
+        <DetectChar context="Regex" char="&gt;"/>
+    </context>
+    <!-- Identifier inside special group (? ) -->
+    <context name="RegKeyword" attribute="Regex Label">
+        <DetectIdentifier/>
+        <DetectChar attribute="Regex Group" context="#pop" char=")"/>
+    </context>
+    <!-- Ignored (?#comment) -->
+    <context name="RegComment" attribute="Comment">
+        <DetectIdentifier/>
+        <DetectChar context="#pop" char=")"/>
+    </context>
+    <!-- Set of chars [..] -->
+    <context name="RegexChars" attribute="Regex" lineEndContext="#pop" fallthroughContext="InRegexChars">
+        <DetectChar attribute="Regex Group" context="InRegexCharsNegative" char="^"/>
+        <DetectChar attribute="Regex Group" context="InRegexChars" char="]"/>
+    </context>
+    <context name="RegexCharsNegative" attribute="Regex" lineEndContext="#pop" fallthroughContext="InRegexCharsNegative">
+        <DetectChar attribute="Regex Positive" context="InRegexChars" char="^"/> <!-- not not = positive -->
+        <DetectChar attribute="Regex Group" context="InRegexCharsNegative" char="]"/>
+    </context>
+    <!-- Characters or named character classes [[:alpha:]] -->
+    <context name="InRegexChars" attribute="Regex Char" lineEndContext="#pop#pop">
+        <DetectChar attribute="Regex Group" context="#pop#pop" char="]"/>
+        <DetectChar attribute="Regex Char" context="RegexClass" char="["/>
+        <RegExpr attribute="Regex Escaped" String="[`\\]."/>
+    </context>
+    <context name="InRegexCharsNegative" attribute="Regex Negative" lineEndContext="#pop#pop">
+        <DetectChar attribute="Regex Group" context="#pop#pop" char="]"/>
+        <DetectChar attribute="Regex Char" context="RegexClass" char="["/>
+        <RegExpr attribute="Symbol" String="[`\\]."/>
+    </context>
+    <!-- Class [[:alpha:]] -->
+    <context name="RegexClass" attribute="Regex Char" lineEndContext="#pop">
+        <DetectChar attribute="Regex Char" context="#pop" char="]"/>
+    </context>
+    <!--======= UNCONDITIONAL GLOBAL =======-->
+    <!-- Any characters with :: postifx -->
+    <context name="Hotkey" attribute="Hotkey" lineEndContext="#pop">
+        <Detect2Chars attribute="Symbol" char=":" char1=":"/>
+        <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace"/>
+        <WordDetect attribute="Keyword" context="#pop" String="return" insensitive="true"/>
+        <RegExpr context="#pop!Expression" String="\w+[\[\(. \t]" lookAhead="true"/>
+        <RegExpr attribute="Escaped" String="`."/>
+        <DetectSpaces/>
+        <DetectChar attribute="Comment" context="CommentLine" char=";"/>
+        <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
+    </context>
+    <!-- Any characters with : prefix -->
+    <context name="Hotstring" attribute="Hotstring" lineEndContext="#pop">
+        <AnyChar attribute="Symbol" String=":?*"/>
+        <DetectChar attribute="Symbol" context="#pop!Statement" char="{" beginRegion="Brace"/>
+        <RegExpr context="#pop!Expression" String="\w+[\[\(.][^ \t\r\n]+" lookAhead="true"/>
+        <RegExpr attribute="Escaped" String="`."/>
+        <DetectSpaces/>
+        <DetectChar attribute="Comment" context="CommentLine" char=";"/>
+        <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
+    </context>
+    <!-- Chars after #Name (e.g. #Include <..>) -->
+    <context name="Directive" attribute="Directive Chars" lineEndContext="#pop">
+        <Detect2Chars attribute="Comment" context="CommentBlock" char="/" char1="*" beginRegion="Comment"/>
+        <Detect2Chars attribute="Comment" context="CommentLine" char=" " char1=";"/>
+    </context>
+    <!--======= COMMENTS =======-->
+    <context name="CommentLine" attribute="Comment" lineEndContext="#pop">
+        <DetectSpaces/>
+        <WordDetect attribute="Region" String="@beginregion" insensitive="true" beginRegion="Region"/>
+        <WordDetect attribute="Region" String="@region" insensitive="true" beginRegion="Region"/>
+        <WordDetect attribute="Region" String="@endregion" insensitive="true" endRegion="Region"/>
+        <WordDetect attribute="Region" String="@Ahk2Exe-IgnoreBegin" insensitive="true" beginRegion="Ignore"/>
+        <WordDetect attribute="Region" String="@Ahk2Exe-IgnoreEnd" insensitive="true" endRegion="Ignore"/>
+        <RegExpr attribute="Directive" context="#pop!Directive" String="@Ahk2Exe-\w+"/>
+        <IncludeRules context="##Comments"/>
+    </context>
+    <context name="CommentBlock" attribute="Comment">
+        <WordDetect attribute="Region" context="#pop!DocCode" String="@Ahk2Exe-Keep" insensitive="true" beginRegion="Comment"/>
+        <DetectChar context="#pop!DocsBlock" char="*" beginRegion="Comment"/>
+        <DetectSpaces/>
+        <Detect2Chars context="#pop" char="*" char1="/" endRegion="Comment"/>
+        <IncludeRules context="##Comments"/>
+    </context>
+    <!--======= Documentation =======-->
+    <context name="DocsBlock" attribute="Docs">
+        <DetectSpaces/>
+        <StringDetect attribute="DocInline"   context="DocCodeLang" String="```"/>
+        <DetectChar attribute="DocInline"     context="DocInlineCode" char="`"/>
+        <keyword attribute="Variable"         String="string_positives"/>
+        <keyword attribute="Negative"         String="string_negatives"/>
+        <DetectChar attribute="String"        context="String"        char="&quot;"/>
+        <DetectChar attribute="DocParamType"  context="DocParamType"  char="{"/>
+        <WordDetect attribute="DocTagSpecial" String="@returns" insensitive="true"/>
+        <WordDetect attribute="DocTagSpecial" String="@return"  insensitive="true"/>
+        <WordDetect attribute="DocTagThrows"  String="@throws"  insensitive="true"/>
+        <WordDetect attribute="DocTagThrows"  String="@throw"   insensitive="true"/>
+        <WordDetect attribute="DocTag"  context="DocParam" String="@param"       insensitive="true"/>
+        <WordDetect attribute="DocTag"  context="DocParam" String="@p"           insensitive="true"/>
+        <WordDetect attribute="DocTag"  context="DocCode"  String="@example"     insensitive="true"/>
+        <WordDetect attribute="DocTag"  context="DocCode"  String="@code"        insensitive="true"/>
+        <WordDetect attribute="Info"    context="Info"     String="@information" insensitive="true"/>
+        <WordDetect attribute="Info"    context="Info"     String="@info"        insensitive="true"/>
+        <WordDetect attribute="Info"    context="Info"     String="@note"        insensitive="true"/>
+        <WordDetect attribute="Warning" context="Warning"  String="@warning"     insensitive="true"/>
+        <WordDetect attribute="Warning" context="Warning"  String="@warn"        insensitive="true"/>
+        <RegExpr attribute="DocTag" String="@\w+"/>
+        <Detect2Chars attribute="Comment" context="#pop" char="*" char1="/" endRegion="Comment"/>
+    </context>
+    <context name="DocInlineCode" attribute="DocInline">
+        <DetectSpaces/>
+        <DetectChar attribute="DocInline" context="#pop" char="`"/>
+        <DetectChar context="#pop" char="@" lookAhead="true"/>
+        <DetectChar attribute="DocParamType" context="DocParamType" char="{"/>
+        <AnyChar attribute="Symbol" String="&operator;#!."/>
+        <IncludeRules context="Expression"/>
+    </context>
+    <context name="DocCode" attribute="Docs">
+        <RegExpr attribute="Symbol" context="Hotstring" String="&hotstring;" column="0"/>
+        <RegExpr attribute="Hotkey" context="Hotkey" String="&hotkey;" column="0"/>
+        <StringDetect attribute="Directive" context="Expression" String="#HotIf" insensitive="true"/>
+        <keyword attribute="Directive" context="Directive" String="directives"/>
+        <DetectChar context="#pop" char="@" lookAhead="true"/>
+        <StringDetect attribute="DocInline" context="#pop" String="```"/>
+        <Detect2Chars attribute="Comment" context="#pop#pop" char="*" char1="/" endRegion="Comment"/>
+        <DetectChar attribute="Comment" context="CommentLine" char=";"/>
+        <DetectChar char="*" firstNonSpace="true"/>
+        <IncludeRules context="Statement"/>
+    </context>
+    <context name="DocCodeLang" attribute="Docs" fallthroughContext="#pop!DocCode">
+        <DetectIdentifier attribute="DocInline"/>
+    </context>
+    <context name="DocParam" attribute="Docs" fallthroughContext="#pop">
+        <DetectSpaces/>
+        <DetectChar attribute="DocParamType" context="DocParamType" char="{"/>
+        <DetectIdentifier context="#pop" attribute="DocParam"/>
+    </context>
+    <context name="DocParamType" attribute="DocParamType" lineEmptyContext="#pop">
+        <RegExpr attribute="Reference" String="\b\w+Ref" insensitive="true"/>
+        <RegExpr attribute="Unset" String="&maybe;"/>
+        <DetectChar attribute="Symbol" context="Reference" char="&amp;"/>
+        <AnyChar attribute="Symbol" String="&operator;#!."/>
+        <DetectChar attribute="DocInline" context="DocInlineCode" char="`"/>
+        <DetectSpaces/>
+        <DetectChar context="#pop" char="}"/>
+    </context>
+    <context name="Info" attribute="Info">
+        <DetectSpaces/>
+        <DetectChar context="#pop" char="@" lookAhead="true"/>
+        <Detect2Chars attribute="Comment" context="#pop#pop" char="*" char1="/" endRegion="Comment"/>
+        <DetectChar attribute="DocInline" context="DocInlineCode" char="`"/>
+        <DetectChar attribute="DocParamType" context="DocParamType" char="{"/>
+        <DetectChar attribute="String" context="String" char="&quot;"/>
+    </context>
+    <context name="Warning" attribute="Warning">
+        <IncludeRules context="Info"/>
+    </context>
+</contexts>
+<itemDatas>
+    <itemData name="Control Flow"  	  defStyleNum="dsControlFlow" spellChecking="false"/>
+    <itemData name="Break Flow" 	  defStyleNum="dsConstant" spellChecking="false"/>
+    <itemData name="Negative" 		  defStyleNum="dsConstant" spellChecking="false"/>
+    <itemData name="Reference"        defStyleNum="dsRegionMarker"/>
+    <itemData name="Unset"            defStyleNum="dsAnnotation"/>
+    <itemData name="BuiltIn"          defStyleNum="dsBuiltIn" spellChecking="false"/>
+    <itemData name="Function"         defStyleNum="dsFunction" spellChecking="false"/>
+    <itemData name="Method"           defStyleNum="dsChar" spellChecking="false"/>
+    <itemData name="Property"         defStyleNum="dsFloat" spellChecking="false"/>
+    <itemData name="Meta" 			  defStyleNum="dsAttribute" spellChecking="false"/>
+    <itemData name="Type" 		  	  defStyleNum="dsDataType" spellChecking="false"/>
+    <itemData name="Hotkey" 		  defStyleNum="dsVerbatimString" spellChecking="false"/>
+    <itemData name="Hotstring" 		  defStyleNum="dsSpecialString" spellChecking="false"/>
+    <itemData name="Directive"        defStyleNum="dsPreprocessor" spellChecking="false"/>
+    <itemData name="Directive Chars"  defStyleNum="dsAttribute" spellChecking="false"/>
+    <itemData name="Variable"         defStyleNum="dsVariable" spellChecking="false"/>
+    <itemData name="DeReference"      defStyleNum="dsImport" spellChecking="false"/>
+    <itemData name="Keyword"          defStyleNum="dsKeyword" spellChecking="false"/>
+    <itemData name="Normal Text"      defStyleNum="dsNormal" spellChecking="false"/>
+    <itemData name="Label"            defStyleNum="dsCommentVar" spellChecking="false"/>
+    <itemData name="Decimal"          defStyleNum="dsDecVal" spellChecking="false"/>
+    <itemData name="Hex"              defStyleNum="dsDecVal" spellChecking="false"/>
+    <itemData name="Float"            defStyleNum="dsDecVal" spellChecking="false"/>
+    <itemData name="String"           defStyleNum="dsString"/>
+    <itemData name="Escaped"          defStyleNum="dsAttribute"/>
+    <itemData name="Char"             defStyleNum="dsSpecialChar"/>
+    <itemData name="DllCall Type"     defStyleNum="dsKeyword" spellChecking="false"/>
+    <itemData name="DllCall Return"   defStyleNum="dsRegionMarker" spellChecking="false"/>
+    <itemData name="Regex"            defStyleNum="dsSpecialString" spellChecking="false"/>
+    <itemData name="Regex Char"       defStyleNum="dsBaseN" spellChecking="false"/>
+    <itemData name="Regex Escaped"    defStyleNum="dsSpecialChar" spellChecking="false"/>
+    <itemData name="Regex Option"     defStyleNum="dsPreprocessor" spellChecking="false"/>
+    <itemData name="Regex Group"      defStyleNum="dsComment" spellChecking="false"/>
+    <itemData name="Regex Label"      defStyleNum="dsKeyword" spellChecking="false"/>
+    <itemData name="Regex Keyword"    defStyleNum="dsKeyword" spellChecking="false"/>
+    <itemData name="Regex Negative"   defStyleNum="dsConstant" spellChecking="false"/>
+    <itemData name="Regex Positive"   defStyleNum="dsString" spellChecking="false"/>
+    <itemData name="Symbol"           defStyleNum="dsOperator" spellChecking="false"/>
+    <itemData name="Comment"          defStyleNum="dsComment"/>
+    <itemData name="Docs"             defStyleNum="dsDocumentation"/>
+    <itemData name="DocTag"           defStyleNum="dsPreprocessor" spellChecking="false"/>
+    <itemData name="DocTagSpecial"    defStyleNum="dsAnnotation" spellChecking="false"/>
+    <itemData name="DocTagThrows"     defStyleNum="dsConstant" spellChecking="false"/>
+    <itemData name="DocParam"         defStyleNum="dsCommentVar" spellChecking="false"/>
+    <itemData name="DocParamType"     defStyleNum="dsChar" spellChecking="false"/>
+    <itemData name="DocInline"        defStyleNum="dsSpecialChar" spellChecking="false"/>
+    <itemData name="Region"           defStyleNum="dsRegionMarker" spellChecking="false"/>
+    <itemData name="Info"             defStyleNum="dsInformation"/>
+    <itemData name="Warning"          defStyleNum="dsWarning"/>
+</itemDatas>
+</highlighting>
+<general>
+    <comments>
+        <comment name="singleLine" start=";"/>
+        <comment name="multiLine" start="/*" end="*/" region="Comment"/>
+    </comments>
+    <keywords casesensitive="0" weakDeliminator="#" additionalDeliminator="`"/>
+</general>
+</language>
